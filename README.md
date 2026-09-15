@@ -315,3 +315,28 @@ cuando implementemos una interfaz que muestre datos en tiempo real de forma senc
 
 <img width="833" height="590" alt="image" src="https://github.com/user-attachments/assets/e96d2f47-9ed4-4dc8-b8cb-faf8d08ec793" />
 
+### 1.3. Segmentos objetivo
+
+**Segmento 1: Conductores**
+- **Características:**
+  - Personas que conducen en zonas urbanas
+  - Edades entre 20 y 60 años
+  - Uso frecuente de apps móviles
+    
+- **Necesidades:**
+  - Encontrar estacionamiento rápido
+  - Reducir tiempo de búsqueda
+  - Reservar anticipadamente
+  - Pago seguro
+
+**Segmento 2: Propietarios de estacionamientos**
+- **Características:**
+  - Personas o empresas con espacios disponibles
+  - Interés en generar ingresos
+    
+- **Necesidades:**
+  - Publicar espacios fácilmente
+  - Gestionar reservas
+  - Definir precios
+  - Recibir pagos seguros
+
