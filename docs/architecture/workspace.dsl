@@ -189,9 +189,63 @@ workspace "ParkLink Microservices Architecture" "C4 model for ParkLink with a co
         toolRegistry -> reservationBroker "Publica HoldReservation y ConfirmReservation" "AMQP"
         confirmationPolicy -> agentStore "Lee token de confirmación y expiración" "SQL/TLS"
         agentAudit -> eventBus "Publica eventos del agente" "AMQP"
+
+        production = deploymentEnvironment "Production" {
+            mobileDevices = deploymentNode "Mobile Devices" "Dispositivos de conductores y propietarios." "iOS / Android" {
+                tags "DeploymentNode"
+                containerInstance mobile
+            }
+
+            edgeNetwork = deploymentNode "Edge Network" "Entrega la aplicación web y protege la entrada pública." "CDN / WAF / API Gateway" {
+                tags "DeploymentNode"
+                containerInstance web
+                containerInstance gateway
+            }
+
+            applicationPlatform = deploymentNode "Application Platform" "Ejecuta microservicios stateless con escalamiento horizontal." "Managed Kubernetes" {
+                tags "DeploymentNode"
+                containerInstance agent
+                containerInstance identity
+                containerInstance discovery
+                containerInstance supply
+                containerInstance reservation
+                containerInstance payment
+                containerInstance notification
+                containerInstance audit
+            }
+
+            messagingCluster = deploymentNode "Messaging Cluster" "Separa comandos de reserva y eventos de dominio." "RabbitMQ Cluster" {
+                tags "DeploymentNode"
+                containerInstance reservationBroker
+                containerInstance eventBus
+            }
+
+            dataPlatform = deploymentNode "Managed Data Platform" "Aísla los almacenes lógicos de cada servicio." "PostgreSQL / Redis" {
+                tags "DeploymentNode"
+                containerInstance agentStore
+                containerInstance identityDb
+                containerInstance discoveryIndex
+                containerInstance supplyDb
+                containerInstance reservationDb
+                containerInstance paymentDb
+                containerInstance notificationDb
+                containerInstance auditDb
+            }
+        }
+
     }
 
     views {
+        systemLandscape "ParkLinkSystemLandscape" "Ecosistema de ParkLink y sistemas externos relevantes." {
+            include parklink
+            include maps
+            include paymentProvider
+            include llmProvider
+            include notificationProvider
+            include objectStorage
+            autolayout lr
+        }
+
         systemContext parklink "ParkLinkSystemContext" "Contexto de ParkLink y sus dependencias externas." {
             include *
             autolayout lr
@@ -223,6 +277,11 @@ workspace "ParkLink Microservices Architecture" "C4 model for ParkLink with a co
         }
 
         component agent "ConversationalAgentComponents" "Componentes internos y límites del agente conversacional." {
+            include *
+            autolayout tb
+        }
+
+        deployment * production "ParkLinkProductionDeployment" "Despliegue de producción de ParkLink." {
             include *
             autolayout tb
         }
@@ -279,6 +338,11 @@ workspace "ParkLink Microservices Architecture" "C4 model for ParkLink with a co
                 shape Pipe
                 background #b45309
                 color #ffffff
+            }
+
+            element "DeploymentNode" {
+                background #e2e8f0
+                color #0f172a
             }
 
             relationship "Relationship" {

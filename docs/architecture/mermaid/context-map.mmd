@@ -1,0 +1,44 @@
+flowchart LR
+    subgraph Core[Core Domain]
+        Reservation[Reservation Management]:::core
+    end
+
+    subgraph Supporting[Supporting Subdomains]
+        Supply[Parking Supply]:::supporting
+        Discovery[Parking Discovery]:::supporting
+        Payment[Payment]:::supporting
+        Agent[Conversational Reservation Agent]:::supporting
+    end
+
+    subgraph Generic[Generic Subdomains]
+        Identity[User & Identity]:::generic
+        Notification[Notification]:::generic
+        Audit[Audit]:::generic
+    end
+
+    PaymentProvider[(Payment Provider)]:::external
+    LLMProvider[(LLM Provider)]:::external
+
+    Identity -->|Open Host Service: identidad delegada| Agent
+    Identity -->|Open Host Service: autenticación| Reservation
+    Supply -->|Customer / Supplier: oferta| Discovery
+    Supply -->|Customer / Supplier: reglas del espacio| Reservation
+    Discovery -->|Open Host Service: opciones| Agent
+    Agent -->|Customer / Supplier: comandos confirmados| Reservation
+    Reservation -->|Customer / Supplier: autorización| Payment
+    Payment -->|Published Language: resultados de pago| Reservation
+    Reservation -->|Published Language: estados| Discovery
+    Reservation -->|Published Language: eventos| Notification
+    Identity -->|Conformist: eventos auditables| Audit
+    Supply -->|Conformist: eventos auditables| Audit
+    Reservation -->|Conformist: eventos auditables| Audit
+    Payment -->|Conformist: eventos auditables| Audit
+    Agent -->|Conformist: eventos auditables| Audit
+    Notification -->|Conformist: entregas auditables| Audit
+    Payment -->|Anti-Corruption Layer| PaymentProvider
+    Agent -->|Anti-Corruption Layer| LLMProvider
+
+    classDef core fill:#fee2e2,color:#7f1d1d,stroke:#dc2626,stroke-width:3px;
+    classDef supporting fill:#dbeafe,color:#1e3a8a,stroke:#2563eb,stroke-width:2px;
+    classDef generic fill:#e2e8f0,color:#0f172a,stroke:#475569,stroke-width:2px;
+    classDef external fill:#f8fafc,color:#0f172a,stroke:#64748b,stroke-width:2px,stroke-dasharray: 5 5;

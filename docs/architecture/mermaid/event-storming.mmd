@@ -1,0 +1,50 @@
+flowchart TB
+    Driver([Conductor]):::actor
+    Owner([Propietario]):::actor
+
+    subgraph DiscoveryFlow[Descubrimiento de estacionamiento]
+        direction LR
+        C1[Buscar espacios]:::command --> A1[Discovery]:::aggregate --> E1([Opciones encontradas]):::event
+        C2[Consultar disponibilidad]:::command --> A1 --> E2([Disponibilidad consultada]):::event
+    end
+
+    subgraph SupplyFlow[Publicación de oferta]
+        direction LR
+        C3[Publicar espacio]:::command --> A2[Supply]:::aggregate --> E3([Espacio publicado]):::event
+        C4[Actualizar precio y horario]:::command --> A2 --> E4([Oferta actualizada]):::event
+    end
+
+    subgraph ReservationFlow[Reserva y pago]
+        direction LR
+        C5[Retener espacio]:::command --> A3[Reservation]:::aggregate --> E5([Reserva retenida]):::event
+        E5 --> P1{Confirmación humana vigente}:::policy
+        P1 --> C6[Confirmar reserva]:::command --> A3 --> E6([Confirmación solicitada]):::event
+        E6 --> C7[Autorizar pago]:::command --> A4[Payment]:::aggregate --> E7([Pago autorizado]):::event
+        E7 --> A3 --> E8([Reserva confirmada]):::event
+        E8 --> C8[Notificar confirmación]:::command --> A5[Notification]:::aggregate --> E9([Notificación enviada]):::event
+    end
+
+    subgraph ChangeFlow[Cancelación y extensión]
+        direction LR
+        C9[Cancelar reserva]:::command --> A3 --> E10([Reserva cancelada]):::event
+        E10 --> C10[Procesar reembolso]:::command --> A4 --> E11([Reembolso procesado]):::event
+        C11[Extender reserva]:::command --> A3 --> E12([Reserva extendida]):::event
+    end
+
+    Driver --> C1
+    Driver --> C2
+    Driver --> C5
+    Driver --> C9
+    Driver --> C11
+    Owner --> C3
+    Owner --> C4
+    E3 -. actualiza proyección .-> A1
+    E4 -. actualiza proyección .-> A1
+    E8 -. actualiza proyección .-> A1
+    E10 -. actualiza proyección .-> A1
+
+    classDef actor fill:#17324d,color:#fff,stroke:#0f172a,stroke-width:2px;
+    classDef command fill:#dbeafe,color:#0f172a,stroke:#2563eb,stroke-width:2px;
+    classDef aggregate fill:#fef3c7,color:#78350f,stroke:#d97706,stroke-width:2px;
+    classDef event fill:#ede9fe,color:#4c1d95,stroke:#7c3aed,stroke-width:2px;
+    classDef policy fill:#dcfce7,color:#14532d,stroke:#16a34a,stroke-width:2px;

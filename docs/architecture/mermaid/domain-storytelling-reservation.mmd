@@ -1,0 +1,31 @@
+sequenceDiagram
+    autonumber
+    actor Driver as Conductor
+    participant App as Aplicación ParkLink
+    participant Agent as Agente conversacional
+    participant Discovery as Parking Discovery
+    participant Broker as Command Broker
+    participant Reservation as Reservation Management
+    participant Payment as Payment
+    participant Notification as Notification
+
+    Driver->>App: Expresa destino, fecha y duración
+    App->>Agent: Envía solicitud autenticada
+    Agent->>Discovery: Consulta opciones disponibles
+    Discovery-->>Agent: Devuelve opciones, precios y horarios
+    Agent-->>App: Presenta alternativas
+    Driver->>App: Selecciona un espacio
+    Agent->>Broker: Publica HoldReservation
+    Broker->>Reservation: Entrega comando durable
+    Reservation-->>Agent: Publica ReservationHeld
+    Agent-->>App: Muestra precio y condiciones
+    Driver->>App: Confirma explícitamente
+    Agent->>Broker: Publica ConfirmReservation
+    Broker->>Reservation: Entrega comando idempotente
+    Reservation->>Payment: Solicita autorización mediante saga
+    Payment-->>Reservation: PaymentAuthorized
+    Reservation-->>Notification: Publica ReservationConfirmed
+    Notification-->>Driver: Envía código y detalle de reserva
+
+    Note over Agent,Reservation: El agente conversa, pero Reservation decide.
+    Note over Broker,Reservation: La cola ordena la entrega y no sustituye las reglas del dominio.
