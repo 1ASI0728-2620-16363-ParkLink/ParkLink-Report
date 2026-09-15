@@ -5,6 +5,7 @@ sequenceDiagram
     participant Agent as Agente conversacional
     participant LLM as Proveedor LLM
     participant Discovery as Discovery Service
+    participant Broker as Reservation Command Broker
     participant Reservation as Reservation Service
     participant Bus as Event Bus
     participant Payment as Payment Service
@@ -18,22 +19,25 @@ sequenceDiagram
     Discovery-->>Agent: Opciones disponibles y precios
     Agent-->>App: Presenta alternativas y solicita elección
     Driver->>App: Elige opción
-    Agent->>Reservation: holdReservation(option, interval)
+    Agent->>Broker: HoldReservationCommand(option, interval)
+    Broker->>Reservation: Entregar comando durable por spaceId
     Reservation->>Bus: ReservationHeld
-    Reservation-->>Agent: holdId + expiresAt + total
+    Bus-->>Agent: holdId + expiresAt + total
     Agent-->>App: Resumen final y solicitud de confirmación
     Driver->>App: "Confirmar reserva"
     Agent->>Agent: Validar confirmación explícita y vigente
-    Agent->>Reservation: confirmReservation(holdId, idempotencyKey)
+    Agent->>Broker: ConfirmReservationCommand(holdId, idempotencyKey)
+    Broker->>Reservation: Entregar comando idempotente
     Reservation->>Bus: ReservationConfirmationRequested
     Bus->>Payment: Solicitar autorización
     Payment->>Bus: PaymentAuthorized
     Bus->>Reservation: Confirmar pago
     Reservation->>Bus: ReservationConfirmed
     Bus->>Notification: Preparar confirmación
-    Reservation-->>Agent: reservationCode + status
+    Bus-->>Agent: reservationCode + status
     Agent-->>App: Reserva confirmada y trazable
     Notification-->>App: Push con código de reserva
 
+    Note over Broker,Reservation: El broker ordena y entrega, mientras Reservation Service valida y decide.
     Note over Agent,Reservation: El agente no accede a bases de datos ni decide disponibilidad.
     Note over Driver,Agent: Toda operación con efecto requiere confirmación humana explícita.

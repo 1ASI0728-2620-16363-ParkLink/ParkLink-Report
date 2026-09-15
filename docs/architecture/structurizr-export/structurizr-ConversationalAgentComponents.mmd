@@ -29,16 +29,15 @@ graph TB
 
       21["<div style='font-weight: bold'>Parking Discovery Service</div><div style='font-size: 70%; margin-top: 0px'>[Container: Spring Boot 3 / Java 21]</div><div style='font-size: 80%; margin-top:10px'>Búsqueda geoespacial,<br />filtros, detalle y<br />disponibilidad visible.</div>"]
       style 21 fill:#2563eb,stroke:#1945a4,color:#ffffff
-      23["<div style='font-weight: bold'>Reservation Service</div><div style='font-size: 70%; margin-top: 0px'>[Container: Spring Boot 3 / Java 21]</div><div style='font-size: 80%; margin-top:10px'>Autoridad del ciclo de vida<br />de reservas y control de<br />concurrencia.</div>"]
-      style 23 fill:#dc2626,stroke:#9a1a1a,color:#ffffff
-      27["<div style='font-weight: bold'>Event Bus</div><div style='font-size: 70%; margin-top: 0px'>[Container: RabbitMQ]</div><div style='font-size: 80%; margin-top:10px'>Distribuye eventos de dominio<br />y soporta procesos<br />asíncronos.</div>"]
+      27["<div style='font-weight: bold'>Reservation Command Broker</div><div style='font-size: 70%; margin-top: 0px'>[Container: RabbitMQ / Quorum Queues]</div><div style='font-size: 80%; margin-top:10px'>Recibe comandos durables de<br />reserva, aplica backpressure<br />y los distribuye por espacio.</div>"]
       style 27 fill:#b45309,stroke:#7d3a06,color:#ffffff
-      28[("<div style='font-weight: bold'>Conversation Store</div><div style='font-size: 70%; margin-top: 0px'>[Container: PostgreSQL]</div><div style='font-size: 80%; margin-top:10px'>Estado mínimo de<br />conversación, TTL y<br />referencias de confirmación.</div>")]
-      style 28 fill:#334155,stroke:#232d3b,color:#ffffff
+      28["<div style='font-weight: bold'>Event Bus</div><div style='font-size: 70%; margin-top: 0px'>[Container: RabbitMQ]</div><div style='font-size: 80%; margin-top:10px'>Distribuye eventos de dominio<br />y soporta procesos<br />asíncronos.</div>"]
+      style 28 fill:#b45309,stroke:#7d3a06,color:#ffffff
+      29[("<div style='font-weight: bold'>Conversation Store</div><div style='font-size: 70%; margin-top: 0px'>[Container: PostgreSQL]</div><div style='font-size: 80%; margin-top:10px'>Estado mínimo de<br />conversación, TTL y<br />referencias de confirmación.</div>")]
+      style 29 fill:#334155,stroke:#232d3b,color:#ffffff
     end
 
-    23-. "<div>Publica ReservationHeld,<br />ReservationConfirmationRequested,<br />Confirmed, Cancelled y<br />Expired</div><div style='font-size: 70%'>[AMQP]</div>" .->27
-    21-. "<div>Consume cambios de oferta y<br />reserva</div><div style='font-size: 70%'>[AMQP]</div>" .->27
+    21-. "<div>Consume cambios de oferta y<br />reserva</div><div style='font-size: 70%'>[AMQP]</div>" .->28
     14-. "<div>Entrega mensaje autenticado</div><div style='font-size: 70%'></div>" .->15
     15-. "<div>Solicita intención<br />estructurada</div><div style='font-size: 70%'></div>" .->16
     15-. "<div>Ejecuta herramienta permitida</div><div style='font-size: 70%'></div>" .->17
@@ -46,8 +45,8 @@ graph TB
     15-. "<div>Publica resultado auditable</div><div style='font-size: 70%'></div>" .->19
     16-. "<div>Envía contexto mínimo y<br />esquema de salida</div><div style='font-size: 70%'>[HTTPS]</div>" .->6
     17-. "<div>searchParking,<br />getParkingDetails</div><div style='font-size: 70%'>[HTTPS/mTLS]</div>" .->21
-    17-. "<div>holdReservation,<br />confirmReservation</div><div style='font-size: 70%'>[HTTPS/mTLS]</div>" .->23
-    18-. "<div>Lee token de confirmación y<br />expiración</div><div style='font-size: 70%'>[SQL/TLS]</div>" .->28
-    19-. "<div>Publica eventos del agente</div><div style='font-size: 70%'>[AMQP]</div>" .->27
+    17-. "<div>Publica HoldReservation y<br />ConfirmReservation</div><div style='font-size: 70%'>[AMQP]</div>" .->27
+    18-. "<div>Lee token de confirmación y<br />expiración</div><div style='font-size: 70%'>[SQL/TLS]</div>" .->29
+    19-. "<div>Publica eventos del agente</div><div style='font-size: 70%'>[AMQP]</div>" .->28
 
   end

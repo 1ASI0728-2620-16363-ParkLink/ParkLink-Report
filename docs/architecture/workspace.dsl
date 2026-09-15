@@ -85,6 +85,10 @@ workspace "ParkLink Microservices Architecture" "C4 model for ParkLink with a co
                 tags "Microservice"
             }
 
+            reservationBroker = container "Reservation Command Broker" "Recibe comandos durables de reserva, aplica backpressure y los distribuye por espacio." "RabbitMQ / Quorum Queues" {
+                tags "Queue"
+            }
+
             eventBus = container "Event Bus" "Distribuye eventos de dominio y soporta procesos asíncronos." "RabbitMQ" {
                 tags "Queue"
             }
@@ -143,13 +147,14 @@ workspace "ParkLink Microservices Architecture" "C4 model for ParkLink with a co
         gateway -> identity "Enruta autenticación y perfiles" "HTTPS"
         gateway -> discovery "Enruta búsquedas y detalle" "HTTPS"
         gateway -> supply "Enruta gestión de espacios" "HTTPS"
-        gateway -> reservation "Enruta comandos de reserva" "HTTPS"
+        gateway -> reservation "Enruta consultas y estado de reserva" "HTTPS"
+        gateway -> reservationBroker "Publica comandos visuales autenticados" "AMQP"
         gateway -> payment "Enruta consultas de pago" "HTTPS"
 
         agent -> llmProvider "Interpreta intención y redacta respuestas" "HTTPS"
         agent -> identity "Valida actor y permisos delegados" "HTTPS/mTLS"
         agent -> discovery "Ejecuta herramientas de búsqueda permitidas" "HTTPS/mTLS"
-        agent -> reservation "Solicita retención o reserva confirmada" "HTTPS/mTLS"
+        agent -> reservationBroker "Publica Hold, Confirm, Cancel y Extend confirmados" "AMQP"
         agent -> agentStore "Guarda estado mínimo y confirmaciones" "SQL/TLS"
         agent -> eventBus "Publica AgentActionRequested y AgentActionCompleted" "AMQP"
 
@@ -165,6 +170,8 @@ workspace "ParkLink Microservices Architecture" "C4 model for ParkLink with a co
         notification -> notificationProvider "Envía push y correo" "HTTPS"
         audit -> auditDb "Inserta eventos inmutables" "SQL/TLS"
 
+        reservationBroker -> reservation "Entrega comandos durables particionados por spaceId" "AMQP"
+
         supply -> eventBus "Publica SpacePublished y PriceChanged" "AMQP"
         reservation -> eventBus "Publica ReservationHeld, ReservationConfirmationRequested, Confirmed, Cancelled y Expired" "AMQP"
         payment -> eventBus "Consume ReservationConfirmationRequested; publica PaymentAuthorized o Failed" "AMQP"
@@ -179,7 +186,7 @@ workspace "ParkLink Microservices Architecture" "C4 model for ParkLink with a co
         conversationOrchestrator -> agentAudit "Publica resultado auditable"
         intentInterpreter -> llmProvider "Envía contexto mínimo y esquema de salida" "HTTPS"
         toolRegistry -> discovery "searchParking, getParkingDetails" "HTTPS/mTLS"
-        toolRegistry -> reservation "holdReservation, confirmReservation" "HTTPS/mTLS"
+        toolRegistry -> reservationBroker "Publica HoldReservation y ConfirmReservation" "AMQP"
         confirmationPolicy -> agentStore "Lee token de confirmación y expiración" "SQL/TLS"
         agentAudit -> eventBus "Publica eventos del agente" "AMQP"
     }
@@ -205,6 +212,7 @@ workspace "ParkLink Microservices Architecture" "C4 model for ParkLink with a co
             include payment
             include notification
             include audit
+            include reservationBroker
             include eventBus
             include maps
             include paymentProvider

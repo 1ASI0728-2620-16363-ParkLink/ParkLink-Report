@@ -41,6 +41,7 @@ flowchart LR
         AuditConsumer --> AuditDB
     end
 
+    ReservationBroker{{Reservation Command Broker}}
     Bus{{Event Bus}}
 
     SupplyAPI -. SpacePublished / PriceChanged .-> Bus
@@ -51,12 +52,15 @@ flowchart LR
     Bus -. Eventos auditables .-> AuditConsumer
 
     AgentAPI -->|consulta| DiscoveryAPI
-    AgentAPI -->|comando confirmado| ReservationAPI
+    AgentAPI -->|publica comando confirmado| ReservationBroker
+    ReservationBroker -->|entrega por spaceId| ReservationAPI
     ReservationAPI -. solicitud de pago .-> Bus
 
     classDef service fill:#2563eb,color:#fff,stroke:#1e3a8a,stroke-width:2px;
     classDef database fill:#334155,color:#fff,stroke:#0f172a,stroke-width:2px;
     classDef bus fill:#b45309,color:#fff,stroke:#78350f,stroke-width:2px;
+    classDef commandBroker fill:#7c3aed,color:#fff,stroke:#4c1d95,stroke-width:2px;
     class IDAPI,SupplyAPI,DiscoveryAPI,ReservationAPI,PaymentAPI,AgentAPI,AuditConsumer service;
     class IDDB,SupplyDB,DiscoveryIndex,ReservationDB,PaymentDB,ConversationDB,AuditDB database;
     class Bus bus;
+    class ReservationBroker commandBroker;

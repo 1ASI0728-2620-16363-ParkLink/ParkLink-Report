@@ -18,7 +18,7 @@ El agente mejora la interacción, pero no reemplaza las reglas del dominio. Inte
 | P-04 | La disponibilidad visible no es una reserva confirmada | Discovery usa una proyección rápida; Reservation valida y bloquea el intervalo en su propia base transaccional. | Una proyección puede estar temporalmente desactualizada y no debe producir doble reserva. |
 | P-05 | Confirmación humana antes de efectos | El agente exige confirmación explícita y vigente antes de reservar, pagar, cancelar o extender. | Evita acciones accidentales, ambiguas o provocadas por contenido malicioso. |
 | P-06 | El modelo de lenguaje no ejecuta negocio | El LLM produce intención estructurada; solo un Tool Registry con allowlist puede invocar APIs internas. | Un resultado probabilístico no debe saltarse validaciones determinísticas. |
-| P-07 | Comunicación síncrona para decisiones y asíncrona para propagación | Consultas y comandos inmediatos usan HTTPS/mTLS; cambios de estado se publican en el Event Bus. | Se mantiene respuesta directa al usuario sin acoplar notificaciones, auditoría o proyecciones. |
+| P-07 | Comandos y eventos separados | Las consultas usan HTTPS/mTLS; los comandos de reserva pasan por Reservation Command Broker y los cambios de estado se publican en el Event Bus. | Se desacopla la presión de escritura sin confundir una solicitud con un hecho del dominio. |
 | P-08 | Idempotencia y trazabilidad de extremo a extremo | Los comandos críticos incluyen `Idempotency-Key` y `X-Correlation-Id`. | Los reintentos no duplican reservas o cobros y cada operación puede reconstruirse. |
 | P-09 | Fallo aislado y degradación controlada | Circuit Breaker, timeout, retry con backoff, bulkhead y dead-letter queue protegen integraciones. | La caída de un proveedor no debe derribar el núcleo de reservas. |
 | P-10 | Privacidad por minimización | El agente conserva solo el contexto necesario y aplica TTL a las conversaciones. | Reduce exposición de ubicación, preferencias, identidad y datos de pago. |
@@ -46,6 +46,8 @@ El agente mejora la interacción, pero no reemplaza las reglas del dominio. Inte
 
 **Event-Driven Architecture.** El Event Bus distribuye eventos como `SpacePublished`, `ReservationHeld`, `PaymentAuthorized`, `ReservationConfirmed` y `ReservationCancelled`. Los consumidores son idempotentes y registran el identificador de cada evento procesado.
 
+**Reservation Command Broker.** Los comandos `HoldReservation`, `ConfirmReservation`, `CancelReservation` y `ExtendReservation` se publican en colas durables de RabbitMQ. El broker aplica backpressure, reintentos acotados, dead-letter queues y partición lógica por `spaceId`. Su función es transportar y ordenar comandos; Reservation Service continúa siendo la única autoridad que valida disponibilidad y modifica el estado.
+
 **CQRS ligero.** Discovery mantiene una proyección optimizada para lectura. Reservation conserva la fuente de verdad transaccional y publica cambios para actualizar esa proyección después del commit.
 
 **Saga para reserva y pago.** La confirmación de una reserva cruza Reservation y Payment sin una transacción distribuida. Una saga basada en eventos coordina retención, autorización del pago, confirmación o compensación por fallo y expiración.
@@ -54,7 +56,7 @@ El agente mejora la interacción, pero no reemplaza las reglas del dominio. Inte
 
 ### 4.1.3. Software Architecture
 
-La implementación de referencia utiliza aplicaciones cliente Flutter y Web SPA, API Gateway, microservicios Spring Boot 3 sobre Java 21, PostgreSQL por servicio, Redis para la proyección de búsqueda y RabbitMQ como Event Bus. Esta selección unifica la tecnología descrita en el capítulo y elimina la contradicción anterior entre backend modular, base de datos compartida y microservicios.
+La implementación de referencia utiliza aplicaciones cliente Flutter y Web SPA, API Gateway, microservicios Spring Boot 3 sobre Java 21, PostgreSQL por servicio, Redis para la proyección de búsqueda y RabbitMQ con exchanges separados para Reservation Command Broker y Event Bus. Esta selección unifica la tecnología descrita en el capítulo y elimina la contradicción anterior entre backend modular, base de datos compartida y microservicios.
 
 La arquitectura aplica tres límites obligatorios:
 
@@ -74,7 +76,7 @@ El proveedor LLM es un sistema externo no confiable para efectos de negocio. Rec
 
 #### 4.1.3.2. Software Architecture Container Level Diagram
 
-El Container Diagram representa los microservicios desplegables, sus almacenes privados, el Event Bus y los sistemas externos.
+El Container Diagram representa los microservicios desplegables, sus almacenes privados, el Reservation Command Broker, el Event Bus y los sistemas externos. Ambos canales pueden ejecutarse sobre el mismo clúster RabbitMQ, pero mantienen exchanges, colas, políticas y semánticas independientes.
 
 ![ParkLink Microservices Container Diagram](assets/architecture-v2/microservices-container.svg)
 
@@ -86,10 +88,11 @@ El Container Diagram representa los microservicios desplegables, sus almacenes p
 | Web Application | Administración de espacios, horarios, precios, reservas recibidas e ingresos. | HTTPS hacia API Gateway. |
 | API Gateway | Autenticación, routing, rate limiting, correlation ID y política de entrada. | API pública REST/WebSocket. |
 | Conversational Reservation Agent | Comprende solicitudes, completa datos faltantes, consulta opciones y ejecuta comandos confirmados. | `/chat`, herramientas internas tipadas. |
+| Reservation Command Broker | Recibe comandos durables, regula la carga y los entrega a Reservation Service con partición lógica por `spaceId`. | AMQP, quorum queues, retry y DLQ. |
 | Identity Service | Registro, login, roles, perfiles y tokens delegados. | `/auth`, `/users`, `/me`. |
 | Parking Discovery Service | Búsqueda geoespacial, filtros, detalle y disponibilidad visible. | `/parking-spaces/search`, `/parking-spaces/{id}`. |
 | Parking Supply Service | Alta y edición de espacios, horarios, precios y habilitación. | `/spaces`, `/spaces/{id}/availability`. |
-| Reservation Service | Retención, confirmación, cancelación, extensión e historial. | `/reservation-holds`, `/reservations`. |
+| Reservation Service | Consume comandos del broker y controla retención, confirmación, cancelación, extensión e historial. | Consumidor AMQP y API de consulta `/reservations`. |
 | Payment Service | Autorización, cobro, webhook, reembolso y comprobante. | `/payments`, `/payment-webhooks`, `/refunds`. |
 | Notification Service | Push y correo asíncronos según preferencias. | Consumidor de eventos. |
 | Audit Service | Trazabilidad inmutable de comandos, eventos y acciones del agente. | Consumidor de eventos y consulta restringida. |
@@ -200,6 +203,7 @@ No se permiten claves foráneas entre bases de datos de servicios. Las referenci
 | Ports & Adapters | Integraciones externas detrás de contratos del dominio. |
 | Outbox Pattern | Publicación confiable de eventos después del commit local. |
 | Saga | Coordinación de retención, pago, confirmación y compensación. |
+| Command Broker | Entrega durable, backpressure y orden lógico de comandos de reserva. |
 | Idempotency Key | Prevención de reservas, cobros y webhooks duplicados. |
 | Cache-Aside / Projection | Disponibilidad visible rápida en Discovery. |
 | Circuit Breaker | Aislamiento de mapas, pagos, notificaciones y LLM. |
@@ -225,6 +229,7 @@ No se permiten claves foráneas entre bases de datos de servicios. Las referenci
 - Health checks, readiness probes y balanceo de carga.
 - Circuit Breaker y bulkhead por proveedor.
 - DLQ y reintentos idempotentes para consumidores.
+- Quorum queues para comandos de reserva y backpressure cuando Reservation Service se satura.
 - Degradación a búsqueda visual cuando el LLM no está disponible.
 
 #### Seguridad
@@ -248,6 +253,7 @@ No se permiten claves foráneas entre bases de datos de servicios. Las referenci
 - Transacciones ACID dentro de cada servicio.
 - Outbox Pattern para evitar pérdida entre commit y publicación.
 - Consumidores idempotentes e inbox de eventos procesados.
+- Partición lógica de comandos por `spaceId`; el orden del broker complementa, pero no reemplaza, los locks de base de datos.
 - Compensación de saga para liberar retenciones y revertir operaciones incompletas.
 
 ## 4.2. Architectural Drivers
@@ -277,9 +283,10 @@ El propósito del diseño es permitir que ParkLink escale por capacidad de negoc
 | QAS-03 | Availability | El proveedor LLM no responde. | La app informa la degradación y mantiene búsqueda/reserva visual. | Núcleo operativo disponible. |
 | QAS-04 | Security | Un texto intenta inducir al agente a ejecutar una herramienta no autorizada. | Tool Registry rechaza la acción; no se emite comando. | Cero invocaciones fuera de allowlist. |
 | QAS-05 | Human control | El agente dispone de todos los datos para reservar. | Presenta resumen y espera confirmación vinculante. | 100 % de comandos con efecto tienen confirmación válida. |
-| QAS-06 | Reliability | Se repite un comando por timeout de red. | La misma idempotency key devuelve el resultado anterior sin duplicar. | Cero reservas o cobros duplicados. |
+| QAS-06 | Reliability | El broker reentrega un comando después de un timeout o reinicio del consumidor. | Reservation reconoce la idempotency key y devuelve el resultado anterior sin duplicar. | Cero reservas o cobros duplicados. |
 | QAS-07 | Observability | Soporte investiga una reserva realizada por chat. | Reconstruye intención, confirmación, herramientas y eventos por correlation ID. | Traza completa en menos de 5 min. |
 | QAS-08 | Privacy | Expira una conversación inactiva. | Se elimina o anonimiza el contexto temporal según política. | TTL máximo de 24 h para contexto operativo. |
+| QAS-09 | Scalability | Una campaña genera una ráfaga de comandos de reserva. | El broker aplica backpressure y Reservation escala consumidores sin perder comandos. | Cola drenada sin pérdida y con latencia p95 menor a 5 s. |
 
 ### 4.2.4. Constraints
 
@@ -294,6 +301,7 @@ El propósito del diseño es permitir que ParkLink escale por capacidad de negoc
 | C-07 | Los eventos deben versionarse y ser compatibles con consumidores anteriores durante la migración. |
 | C-08 | Fotografías y comprobantes se almacenan en buckets privados. |
 | C-09 | El sistema debe continuar operando mediante la interfaz visual si el agente o el LLM falla. |
+| C-10 | El broker transporta comandos, pero no valida disponibilidad ni sustituye las transacciones de Reservation Service. |
 
 ### 4.2.5. Architectural Concerns
 
@@ -304,6 +312,7 @@ El propósito del diseño es permitir que ParkLink escale por capacidad de negoc
 | Prompt injection | Contenido externo intenta modificar las reglas del agente. | Separación de instrucciones/datos, allowlist y confirmación determinística. |
 | Acción sin consentimiento | El agente ejecuta una reserva no aprobada. | Confirmation token vinculado al resumen y con TTL. |
 | Consistencia distribuida | Pago autorizado pero reserva no confirmada. | Saga, Outbox, consumidores idempotentes y compensación. |
+| Acumulación de comandos | Una ráfaga satura Reservation Service o aparece un mensaje venenoso. | Backpressure, quorum queues, retry acotado, DLQ y alertas por antigüedad. |
 | Acoplamiento por datos | Un servicio depende del esquema de otro. | Database per Service y contratos API/evento. |
 | Caída de proveedor | Mapas, pagos, notificaciones o LLM degradados. | Circuit Breaker, timeout, fallback y aislamiento. |
 | Datos sensibles en observabilidad | Logs exponen ubicación, tokens o pagos. | Redacción, clasificación y minimización de datos. |
@@ -322,7 +331,7 @@ El propósito del diseño es permitir que ParkLink escale por capacidad de negoc
 - Mantener Reservation como Core Domain.
 - Adoptar API Gateway como frontera pública.
 - Asignar un almacén privado a cada servicio.
-- Introducir Event Bus y Outbox Pattern.
+- Introducir Reservation Command Broker, Event Bus y Outbox Pattern con canales separados.
 
 **Resultado:** el System Context y el Container Diagram definen fronteras, dependencias y ownership. La plataforma conserva búsqueda, publicación, reserva, pago y notificación sin compartir tablas entre servicios.
 
@@ -333,6 +342,7 @@ El propósito del diseño es permitir que ParkLink escale por capacidad de negoc
 | ADR-103 | Database per Service, incluso sobre infraestructura física compartida. | Accepted |
 | ADR-104 | RabbitMQ como Event Bus inicial. | Accepted |
 | ADR-105 | PostgreSQL como persistencia transaccional de referencia. | Accepted |
+| ADR-106 | RabbitMQ Reservation Command Broker con quorum queues y DLQ separadas del Event Bus. | Accepted |
 
 ### 4.3.2. Iteration 2: Protect Reservation Consistency
 
@@ -343,12 +353,13 @@ El propósito del diseño es permitir que ParkLink escale por capacidad de negoc
 **Decisiones:**
 
 - Reservation controla retenciones con TTL y transiciones de estado.
+- Reservation consume `Hold`, `Confirm`, `Cancel` y `Extend` desde el Reservation Command Broker.
 - Discovery mantiene una proyección de lectura actualizada por eventos.
 - La confirmación usa lock transaccional y validación de solapamientos.
 - Reservation y Payment se coordinan mediante saga, no mediante transacción distribuida.
 - Todo productor usa Outbox; todo consumidor procesa eventos de forma idempotente.
 
-**Resultado:** el diagrama de saga documenta estados felices y compensaciones. Si Payment falla, la retención se libera; si se repite un mensaje, la idempotencia evita duplicados.
+**Resultado:** el broker absorbe ráfagas y entrega comandos durables; el diagrama de saga documenta estados felices y compensaciones. Si Payment falla, la retención se libera; si el broker reentrega un mensaje, la idempotencia evita duplicados.
 
 | ADR | Decisión | Estado |
 |---|---|---|
@@ -357,6 +368,7 @@ El propósito del diseño es permitir que ParkLink escale por capacidad de negoc
 | ADR-203 | Saga basada en eventos para retención, pago y confirmación. | Accepted |
 | ADR-204 | Idempotency key obligatoria en comandos críticos y webhooks. | Accepted |
 | ADR-205 | Outbox e inbox para entrega confiable y deduplicación. | Accepted |
+| ADR-206 | Comandos de reserva particionados lógicamente por `spaceId`; los locks transaccionales siguen siendo obligatorios. | Accepted |
 
 ### 4.3.3. Iteration 3: Introduce the Conversational Reservation Agent
 
@@ -368,7 +380,7 @@ El propósito del diseño es permitir que ParkLink escale por capacidad de negoc
 
 - Crear Conversational Reservation Agent como microservicio independiente.
 - Separar Intent Interpreter, Conversation Orchestrator, Tool Registry y Confirmation Policy.
-- Limitar herramientas a contratos explícitos de Discovery y Reservation.
+- Limitar herramientas a consultas de Discovery y publicación de comandos en Reservation Command Broker.
 - Exigir confirmación humana para reservar, pagar, cancelar o extender.
 - Mantener fallback a la interfaz visual si el agente o LLM no está disponible.
 - Auditar intención, resumen, confirmación, herramienta y resultado mediante correlation ID.
@@ -390,8 +402,8 @@ El propósito del diseño es permitir que ParkLink escale por capacidad de negoc
 |---|---|---|
 | Pruebas de carga con tráfico real. | Definición de SLO y alertas por servicio. | Fronteras de microservicios y ownership de datos. |
 | Evaluación de un segundo proveedor LLM. | Política final de retención de conversaciones. | Saga de reserva y pago. |
-| Chaos testing de RabbitMQ y proveedores. | Contratos versionados de eventos. | Agente con allowlist y confirmación humana. |
-| Disaster recovery multi-región. | Pruebas adversariales de prompt injection. | Diagramas C4, secuencia, estados y datos renderizados. |
+| Chaos testing de RabbitMQ y proveedores. | Contratos versionados de comandos y eventos. | Agente con allowlist y confirmación humana. |
+| Disaster recovery multi-región. | Pruebas adversariales de prompt injection. | Reservation Command Broker con quorum queues, retry y DLQ. |
 
 ## 4.4. Architecture-as-Code and Diagram Reproduction
 
@@ -404,13 +416,3 @@ Los diagramas C4 se modelan en un único workspace de Structurizr DSL. El CLI va
 | Fuentes Mermaid | `docs/architecture/mermaid/` |
 | Configuración visual Mermaid | `docs/architecture/mermaid-config.json` |
 | Imágenes SVG renderizadas | `assets/architecture-v2/` |
-
-Comandos de referencia:
-
-```bash
-structurizr validate -workspace docs/architecture/workspace.dsl
-structurizr export -workspace docs/architecture/workspace.dsl -format mermaid -output docs/architecture/structurizr-export
-mmdc -i docs/architecture/mermaid/agent-reservation-sequence.mmd -o assets/architecture-v2/agent-reservation-sequence.svg
-```
-
-Las fuentes y los SVG deben actualizarse en el mismo commit para evitar que el informe muestre una arquitectura diferente de su modelo versionado.

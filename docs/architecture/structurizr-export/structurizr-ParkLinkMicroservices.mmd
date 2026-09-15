@@ -46,8 +46,10 @@ graph TB
       style 25 fill:#2563eb,stroke:#1945a4,color:#ffffff
       26["<div style='font-weight: bold'>Audit Service</div><div style='font-size: 70%; margin-top: 0px'>[Container: Spring Boot 3 / Java 21]</div><div style='font-size: 80%; margin-top:10px'>Trazabilidad inmutable de<br />operaciones críticas y<br />acciones del agente.</div>"]
       style 26 fill:#2563eb,stroke:#1945a4,color:#ffffff
-      27["<div style='font-weight: bold'>Event Bus</div><div style='font-size: 70%; margin-top: 0px'>[Container: RabbitMQ]</div><div style='font-size: 80%; margin-top:10px'>Distribuye eventos de dominio<br />y soporta procesos<br />asíncronos.</div>"]
+      27["<div style='font-weight: bold'>Reservation Command Broker</div><div style='font-size: 70%; margin-top: 0px'>[Container: RabbitMQ / Quorum Queues]</div><div style='font-size: 80%; margin-top:10px'>Recibe comandos durables de<br />reserva, aplica backpressure<br />y los distribuye por espacio.</div>"]
       style 27 fill:#b45309,stroke:#7d3a06,color:#ffffff
+      28["<div style='font-weight: bold'>Event Bus</div><div style='font-size: 70%; margin-top: 0px'>[Container: RabbitMQ]</div><div style='font-size: 80%; margin-top:10px'>Distribuye eventos de dominio<br />y soporta procesos<br />asíncronos.</div>"]
+      style 28 fill:#b45309,stroke:#7d3a06,color:#ffffff
     end
 
     1-. "<div>Usa la app y conversa con el<br />agente</div><div style='font-size: 70%'>[HTTPS/WebSocket]</div>" .->10
@@ -60,22 +62,24 @@ graph TB
     12-. "<div>Enruta autenticación y<br />perfiles</div><div style='font-size: 70%'>[HTTPS]</div>" .->20
     12-. "<div>Enruta búsquedas y detalle</div><div style='font-size: 70%'>[HTTPS]</div>" .->21
     12-. "<div>Enruta gestión de espacios</div><div style='font-size: 70%'>[HTTPS]</div>" .->22
-    12-. "<div>Enruta comandos de reserva</div><div style='font-size: 70%'>[HTTPS]</div>" .->23
+    12-. "<div>Enruta consultas y estado de<br />reserva</div><div style='font-size: 70%'>[HTTPS]</div>" .->23
+    12-. "<div>Publica comandos visuales<br />autenticados</div><div style='font-size: 70%'>[AMQP]</div>" .->27
     12-. "<div>Enruta consultas de pago</div><div style='font-size: 70%'>[HTTPS]</div>" .->24
     13-. "<div>Interpreta intención y<br />redacta respuestas</div><div style='font-size: 70%'>[HTTPS]</div>" .->6
     13-. "<div>Valida actor y permisos<br />delegados</div><div style='font-size: 70%'>[HTTPS/mTLS]</div>" .->20
     13-. "<div>Ejecuta herramientas de<br />búsqueda permitidas</div><div style='font-size: 70%'>[HTTPS/mTLS]</div>" .->21
-    13-. "<div>Solicita retención o reserva<br />confirmada</div><div style='font-size: 70%'>[HTTPS/mTLS]</div>" .->23
-    13-. "<div>Publica AgentActionRequested<br />y AgentActionCompleted</div><div style='font-size: 70%'>[AMQP]</div>" .->27
+    13-. "<div>Publica Hold, Confirm, Cancel<br />y Extend confirmados</div><div style='font-size: 70%'>[AMQP]</div>" .->27
+    13-. "<div>Publica AgentActionRequested<br />y AgentActionCompleted</div><div style='font-size: 70%'>[AMQP]</div>" .->28
     21-. "<div>Obtiene distancias y<br />geocodificación</div><div style='font-size: 70%'>[HTTPS]</div>" .->4
     22-. "<div>Genera referencias de<br />fotografías</div><div style='font-size: 70%'>[S3 API]</div>" .->8
     24-. "<div>Autoriza cobros y reembolsos</div><div style='font-size: 70%'>[HTTPS/Webhooks]</div>" .->5
     25-. "<div>Envía push y correo</div><div style='font-size: 70%'>[HTTPS]</div>" .->7
-    22-. "<div>Publica SpacePublished y<br />PriceChanged</div><div style='font-size: 70%'>[AMQP]</div>" .->27
-    23-. "<div>Publica ReservationHeld,<br />ReservationConfirmationRequested,<br />Confirmed, Cancelled y<br />Expired</div><div style='font-size: 70%'>[AMQP]</div>" .->27
-    24-. "<div>Consume<br />ReservationConfirmationRequested;<br />publica PaymentAuthorized o<br />Failed</div><div style='font-size: 70%'>[AMQP]</div>" .->27
-    21-. "<div>Consume cambios de oferta y<br />reserva</div><div style='font-size: 70%'>[AMQP]</div>" .->27
-    25-. "<div>Consume eventos notificables</div><div style='font-size: 70%'>[AMQP]</div>" .->27
-    26-. "<div>Consume eventos auditables</div><div style='font-size: 70%'>[AMQP]</div>" .->27
+    27-. "<div>Entrega comandos durables<br />particionados por spaceId</div><div style='font-size: 70%'>[AMQP]</div>" .->23
+    22-. "<div>Publica SpacePublished y<br />PriceChanged</div><div style='font-size: 70%'>[AMQP]</div>" .->28
+    23-. "<div>Publica ReservationHeld,<br />ReservationConfirmationRequested,<br />Confirmed, Cancelled y<br />Expired</div><div style='font-size: 70%'>[AMQP]</div>" .->28
+    24-. "<div>Consume<br />ReservationConfirmationRequested;<br />publica PaymentAuthorized o<br />Failed</div><div style='font-size: 70%'>[AMQP]</div>" .->28
+    21-. "<div>Consume cambios de oferta y<br />reserva</div><div style='font-size: 70%'>[AMQP]</div>" .->28
+    25-. "<div>Consume eventos notificables</div><div style='font-size: 70%'>[AMQP]</div>" .->28
+    26-. "<div>Consume eventos auditables</div><div style='font-size: 70%'>[AMQP]</div>" .->28
 
   end
