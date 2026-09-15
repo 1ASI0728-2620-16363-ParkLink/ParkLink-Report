@@ -303,129 +303,121 @@ El siguiente diagrama complementa la historia con estados legales y compensacion
 #### User & Identity Canvas
 
 <table width="100%">
-  <tr><td width="42%"><strong>Name</strong><br>User &amp; Identity</td><td><strong>Model Traits</strong><br>gateway, enforce, audit</td></tr>
-  <tr>
-    <td><strong>Description</strong><br>Gestiona usuarios, credenciales, roles, perfiles e identidad delegada.</td>
-    <td rowspan="2"><strong>Information and Services Provided</strong><table><tr><th>Queryable Information</th><th>Invokable Commands</th></tr><tr><td>Perfil, roles y sesión activa</td><td>Registrar usuario, iniciar o renovar sesión, actualizar perfil</td></tr><tr><th>Published Events</th><th>Reactive Jobs</th></tr><tr><td>UserRegistered, UserAuthenticated, ProfileUpdated</td><td>Expirar sesiones y revocar identidad delegada</td></tr></table></td>
-  </tr>
-  <tr><td><strong>Strategic Classification</strong><table><tr><th>Domain</th><th>Business Model</th><th>Evolution</th></tr><tr><td>Generic</td><td>Compliance</td><td>Commodity</td></tr></table></td></tr>
-  <tr>
-    <td><strong>Business Decisions</strong><ul><li>El correo es único.</li><li>Las contraseñas se almacenan cifradas.</li><li>Los permisos dependen del rol y del ownership.</li></ul></td>
-    <td rowspan="2"><strong>Dependencies and Relationships</strong><table><tr><th>Suppliers</th><th>Consumers</th></tr><tr><td>Ningún contexto interno</td><td>Gateway, Agent, Reservation y Supply — Open Host Service<br>Audit — Published Language</td></tr></table></td>
-  </tr>
-  <tr><td><strong>Ubiquitous Language</strong><br>User, Driver, Owner, Role, Profile, Session, Delegated Identity</td></tr>
+  <tr><td colspan="2"><strong>Name</strong><br>User &amp; Identity</td><td colspan="2"><strong>Model Traits</strong><br>gateway, enforce, audit</td></tr>
+  <tr><td colspan="2" rowspan="3"><strong>Description</strong><br>Gestiona usuarios, credenciales, roles, perfiles e identidad delegada.</td><th colspan="2">Information and Services Provided</th></tr>
+  <tr><th>Queryable Information</th><th>Invokable Commands</th></tr>
+  <tr><td>Perfil, roles y sesión activa</td><td>Registrar usuario, iniciar o renovar sesión, actualizar perfil</td></tr>
+  <tr><td colspan="2" rowspan="2"><strong>Strategic Classification</strong><br>Domain: Generic<br>Business Model: Compliance<br>Evolution: Commodity</td><th>Published Events</th><th>Reactive Jobs</th></tr>
+  <tr><td>UserRegistered, UserAuthenticated, ProfileUpdated</td><td>Expirar sesiones y revocar identidad delegada</td></tr>
+  <tr><td colspan="2" rowspan="3"><strong>Business Decisions</strong><ul><li>El correo es único.</li><li>Las contraseñas se almacenan cifradas.</li><li>Los permisos dependen del rol y del ownership.</li></ul></td><th colspan="2">Dependencies and Relationships</th></tr>
+  <tr><th>Suppliers</th><th>Consumers</th></tr>
+  <tr><td rowspan="2">Ningún contexto interno</td><td rowspan="2">Gateway, Agent, Reservation y Supply — Open Host Service<br>Audit — Published Language</td></tr>
+  <tr><td colspan="2"><strong>Ubiquitous Language</strong><br>User, Driver, Owner, Role, Profile, Session, Delegated Identity</td></tr>
 </table>
 
 #### Parking Supply Canvas
 
 <table width="100%">
-  <tr><td width="42%"><strong>Name</strong><br>Parking Supply</td><td><strong>Model Traits</strong><br>execute, enforce, publish</td></tr>
-  <tr>
-    <td><strong>Description</strong><br>Administra la oferta de estacionamientos publicada por propietarios.</td>
-    <td rowspan="2"><strong>Information and Services Provided</strong><table><tr><th>Queryable Information</th><th>Invokable Commands</th></tr><tr><td>Detalle, horario, precio y estado de publicación</td><td>Publicar, actualizar, habilitar o deshabilitar espacio</td></tr><tr><th>Published Events</th><th>Reactive Jobs</th></tr><tr><td>ParkingSpacePublished, ParkingSpaceUpdated, AvailabilityWindowChanged</td><td>Coordinar cambios incompatibles con Reservation</td></tr></table></td>
-  </tr>
-  <tr><td><strong>Strategic Classification</strong><table><tr><th>Domain</th><th>Business Model</th><th>Evolution</th></tr><tr><td>Supporting</td><td>Revenue</td><td>Custom-built</td></tr></table></td></tr>
-  <tr>
-    <td><strong>Business Decisions</strong><ul><li>Solo el propietario modifica su espacio.</li><li>Los horarios no se solapan.</li><li>El precio no puede ser negativo.</li></ul></td>
-    <td rowspan="2"><strong>Dependencies and Relationships</strong><table><tr><th>Suppliers</th><th>Consumers</th></tr><tr><td>Identity — Open Host Service<br>Object Storage — ACL</td><td>Discovery y Reservation — Customer/Supplier + Published Language<br>Audit — Published Language</td></tr></table></td>
-  </tr>
-  <tr><td><strong>Ubiquitous Language</strong><br>Parking Space, Schedule, Price, Availability Window, Owner</td></tr>
+  <tr><td colspan="2"><strong>Name</strong><br>Parking Supply</td><td colspan="2"><strong>Model Traits</strong><br>execute, enforce, publish</td></tr>
+  <tr><td colspan="2" rowspan="3"><strong>Description</strong><br>Administra la oferta de estacionamientos publicada por propietarios.</td><th colspan="2">Information and Services Provided</th></tr>
+  <tr><th>Queryable Information</th><th>Invokable Commands</th></tr>
+  <tr><td>Detalle, horario, precio y estado de publicación</td><td>Publicar, actualizar, habilitar o deshabilitar espacio</td></tr>
+  <tr><td colspan="2" rowspan="2"><strong>Strategic Classification</strong><br>Domain: Supporting<br>Business Model: Revenue<br>Evolution: Custom-built</td><th>Published Events</th><th>Reactive Jobs</th></tr>
+  <tr><td>ParkingSpacePublished, ParkingSpaceUpdated, AvailabilityWindowChanged</td><td>Coordinar cambios incompatibles con Reservation</td></tr>
+  <tr><td colspan="2" rowspan="3"><strong>Business Decisions</strong><ul><li>Solo el propietario modifica su espacio.</li><li>Los horarios no se solapan.</li><li>El precio no puede ser negativo.</li></ul></td><th colspan="2">Dependencies and Relationships</th></tr>
+  <tr><th>Suppliers</th><th>Consumers</th></tr>
+  <tr><td rowspan="2">Identity — Open Host Service<br>Object Storage — ACL</td><td rowspan="2">Discovery y Reservation — Customer/Supplier + Published Language<br>Audit — Published Language</td></tr>
+  <tr><td colspan="2"><strong>Ubiquitous Language</strong><br>Parking Space, Schedule, Price, Availability Window, Owner</td></tr>
 </table>
 
 #### Parking Discovery Canvas
 
 <table width="100%">
-  <tr><td width="42%"><strong>Name</strong><br>Parking Discovery</td><td><strong>Model Traits</strong><br>query, project, rank</td></tr>
-  <tr>
-    <td><strong>Description</strong><br>Permite encontrar y comparar espacios mediante una proyección de lectura.</td>
-    <td rowspan="2"><strong>Information and Services Provided</strong><table><tr><th>Queryable Information</th><th>Invokable Commands</th></tr><tr><td>Resultados, detalle, distancia y disponibilidad visible</td><td>Buscar opciones y actualizar proyección</td></tr><tr><th>Published Events</th><th>Reactive Jobs</th></tr><tr><td>OptionsFound, VisibleAvailabilityUpdated</td><td>Proyectar eventos de Supply y Reservation</td></tr></table></td>
-  </tr>
-  <tr><td><strong>Strategic Classification</strong><table><tr><th>Domain</th><th>Business Model</th><th>Evolution</th></tr><tr><td>Supporting</td><td>Engagement</td><td>Custom-built</td></tr></table></td></tr>
-  <tr>
-    <td><strong>Business Decisions</strong><ul><li>La disponibilidad visible es informativa.</li><li>Los filtros y la distancia no confirman una reserva.</li><li>Reservation siempre revalida el intervalo.</li></ul></td>
-    <td rowspan="2"><strong>Dependencies and Relationships</strong><table><tr><th>Suppliers</th><th>Consumers</th></tr><tr><td>Supply y Reservation — Published Language<br>Maps Provider — ACL</td><td>Mobile App y Agent — Open Host Service</td></tr></table></td>
-  </tr>
-  <tr><td><strong>Ubiquitous Language</strong><br>Search Criteria, Search Result, Visible Availability, Distance, Filter</td></tr>
+  <tr><td colspan="2"><strong>Name</strong><br>Parking Discovery</td><td colspan="2"><strong>Model Traits</strong><br>query, project, rank</td></tr>
+  <tr><td colspan="2" rowspan="3"><strong>Description</strong><br>Permite encontrar y comparar espacios mediante una proyección de lectura.</td><th colspan="2">Information and Services Provided</th></tr>
+  <tr><th>Queryable Information</th><th>Invokable Commands</th></tr>
+  <tr><td>Resultados, detalle, distancia y disponibilidad visible</td><td>Buscar opciones y actualizar proyección</td></tr>
+  <tr><td colspan="2" rowspan="2"><strong>Strategic Classification</strong><br>Domain: Supporting<br>Business Model: Engagement<br>Evolution: Custom-built</td><th>Published Events</th><th>Reactive Jobs</th></tr>
+  <tr><td>OptionsFound, VisibleAvailabilityUpdated</td><td>Proyectar eventos de Supply y Reservation</td></tr>
+  <tr><td colspan="2" rowspan="3"><strong>Business Decisions</strong><ul><li>La disponibilidad visible es informativa.</li><li>Los filtros y la distancia no confirman una reserva.</li><li>Reservation siempre revalida el intervalo.</li></ul></td><th colspan="2">Dependencies and Relationships</th></tr>
+  <tr><th>Suppliers</th><th>Consumers</th></tr>
+  <tr><td rowspan="2">Supply y Reservation — Published Language<br>Maps Provider — ACL</td><td rowspan="2">Mobile App y Agent — Open Host Service</td></tr>
+  <tr><td colspan="2"><strong>Ubiquitous Language</strong><br>Search Criteria, Search Result, Visible Availability, Distance, Filter</td></tr>
 </table>
 
 #### Reservation Management Canvas
 
 <table width="100%">
-  <tr><td width="42%"><strong>Name</strong><br>Reservation Management</td><td><strong>Model Traits</strong><br>execute, enforce, coordinate, audit</td></tr>
-  <tr>
-    <td><strong>Description</strong><br>Controla retenciones, reservas, concurrencia y transiciones de estado.</td>
-    <td rowspan="2"><strong>Information and Services Provided</strong><table><tr><th>Queryable Information</th><th>Invokable Commands</th></tr><tr><td>Reserva, retención, estado e historial</td><td>Retener, confirmar, cancelar, extender y aplicar pago autorizado</td></tr><tr><th>Published Events</th><th>Reactive Jobs</th></tr><tr><td>ReservationHeld, ConfirmationRequested, ReservationConfirmed, ReservationCancelled, ReservationExtended, HoldExpired</td><td>Expirar retenciones y reaccionar a resultados de Payment</td></tr></table></td>
-  </tr>
-  <tr><td><strong>Strategic Classification</strong><table><tr><th>Domain</th><th>Business Model</th><th>Evolution</th></tr><tr><td>Core</td><td>Revenue</td><td>Custom-built</td></tr></table></td></tr>
-  <tr>
-    <td><strong>Business Decisions</strong><ul><li>Un intervalo no se confirma dos veces.</li><li>Las retenciones expiran.</li><li>Las transiciones inválidas se rechazan.</li><li>La base aplica locks, constraints e idempotencia.</li></ul></td>
-    <td rowspan="2"><strong>Dependencies and Relationships</strong><table><tr><th>Suppliers</th><th>Consumers</th></tr><tr><td>Identity y Supply — Customer/Supplier<br>Payment — Published Language<br>Command Broker — durable commands</td><td>Discovery, Notification y Audit — Published Language<br>Agent — action results</td></tr></table></td>
-  </tr>
-  <tr><td><strong>Ubiquitous Language</strong><br>Hold, Reservation, Interval, Confirmation, Cancellation, Extension, Expiration</td></tr>
+  <tr><td colspan="2"><strong>Name</strong><br>Reservation Management</td><td colspan="2"><strong>Model Traits</strong><br>execute, enforce, coordinate, audit</td></tr>
+  <tr><td colspan="2" rowspan="3"><strong>Description</strong><br>Controla retenciones, reservas, concurrencia y transiciones de estado.</td><th colspan="2">Information and Services Provided</th></tr>
+  <tr><th>Queryable Information</th><th>Invokable Commands</th></tr>
+  <tr><td>Reserva, retención, estado e historial</td><td>Retener, confirmar, cancelar, extender y aplicar pago autorizado</td></tr>
+  <tr><td colspan="2" rowspan="2"><strong>Strategic Classification</strong><br>Domain: Core<br>Business Model: Revenue<br>Evolution: Custom-built</td><th>Published Events</th><th>Reactive Jobs</th></tr>
+  <tr><td>ReservationHeld, ConfirmationRequested, ReservationConfirmed, ReservationCancelled, ReservationExtended, HoldExpired</td><td>Expirar retenciones y reaccionar a resultados de Payment</td></tr>
+  <tr><td colspan="2" rowspan="3"><strong>Business Decisions</strong><ul><li>Un intervalo no se confirma dos veces.</li><li>Las retenciones expiran.</li><li>Las transiciones inválidas se rechazan.</li><li>La base aplica locks, constraints e idempotencia.</li></ul></td><th colspan="2">Dependencies and Relationships</th></tr>
+  <tr><th>Suppliers</th><th>Consumers</th></tr>
+  <tr><td rowspan="2">Identity y Supply — Customer/Supplier<br>Payment — Published Language<br>Command Broker — durable commands</td><td rowspan="2">Discovery, Notification y Audit — Published Language<br>Agent — action results</td></tr>
+  <tr><td colspan="2"><strong>Ubiquitous Language</strong><br>Hold, Reservation, Interval, Confirmation, Cancellation, Extension, Expiration</td></tr>
 </table>
 
 #### Payment Canvas
 
 <table width="100%">
-  <tr><td width="42%"><strong>Name</strong><br>Payment</td><td><strong>Model Traits</strong><br>execute, audit, interchange</td></tr>
-  <tr>
-    <td><strong>Description</strong><br>Encapsula autorizaciones, cobros, webhooks, reembolsos y comprobantes.</td>
-    <td rowspan="2"><strong>Information and Services Provided</strong><table><tr><th>Queryable Information</th><th>Invokable Commands</th></tr><tr><td>Estado de pago, reembolso y comprobante</td><td>Autorizar pago, procesar reembolso y conciliar operación</td></tr><tr><th>Published Events</th><th>Reactive Jobs</th></tr><tr><td>PaymentAuthorized, PaymentFailed, RefundProcessed</td><td>Procesar webhooks y conciliar operaciones pendientes</td></tr></table></td>
-  </tr>
-  <tr><td><strong>Strategic Classification</strong><table><tr><th>Domain</th><th>Business Model</th><th>Evolution</th></tr><tr><td>Supporting</td><td>Revenue</td><td>Product</td></tr></table></td></tr>
-  <tr>
-    <td><strong>Business Decisions</strong><ul><li>Una idempotency key representa una operación.</li><li>El monto y la moneda no cambian durante un reintento.</li><li>El agente nunca recibe datos de tarjeta.</li></ul></td>
-    <td rowspan="2"><strong>Dependencies and Relationships</strong><table><tr><th>Suppliers</th><th>Consumers</th></tr><tr><td>Reservation — Customer/Supplier<br>Payment Provider — ACL</td><td>Reservation, Notification y Audit — Published Language</td></tr></table></td>
-  </tr>
-  <tr><td><strong>Ubiquitous Language</strong><br>Payment, Authorization, Capture, Refund, Receipt, Webhook</td></tr>
+  <tr><td colspan="2"><strong>Name</strong><br>Payment</td><td colspan="2"><strong>Model Traits</strong><br>execute, audit, interchange</td></tr>
+  <tr><td colspan="2" rowspan="3"><strong>Description</strong><br>Encapsula autorizaciones, cobros, webhooks, reembolsos y comprobantes.</td><th colspan="2">Information and Services Provided</th></tr>
+  <tr><th>Queryable Information</th><th>Invokable Commands</th></tr>
+  <tr><td>Estado de pago, reembolso y comprobante</td><td>Autorizar pago, procesar reembolso y conciliar operación</td></tr>
+  <tr><td colspan="2" rowspan="2"><strong>Strategic Classification</strong><br>Domain: Supporting<br>Business Model: Revenue<br>Evolution: Product</td><th>Published Events</th><th>Reactive Jobs</th></tr>
+  <tr><td>PaymentAuthorized, PaymentFailed, RefundProcessed</td><td>Procesar webhooks y conciliar operaciones pendientes</td></tr>
+  <tr><td colspan="2" rowspan="3"><strong>Business Decisions</strong><ul><li>Una idempotency key representa una operación.</li><li>El monto y la moneda no cambian durante un reintento.</li><li>El agente nunca recibe datos de tarjeta.</li></ul></td><th colspan="2">Dependencies and Relationships</th></tr>
+  <tr><th>Suppliers</th><th>Consumers</th></tr>
+  <tr><td rowspan="2">Reservation — Customer/Supplier<br>Payment Provider — ACL</td><td rowspan="2">Reservation, Notification y Audit — Published Language</td></tr>
+  <tr><td colspan="2"><strong>Ubiquitous Language</strong><br>Payment, Authorization, Capture, Refund, Receipt, Webhook</td></tr>
 </table>
 
 #### Notification Canvas
 
 <table width="100%">
-  <tr><td width="42%"><strong>Name</strong><br>Notification</td><td><strong>Model Traits</strong><br>execute, interchange, retry</td></tr>
-  <tr>
-    <td><strong>Description</strong><br>Entrega mensajes push y correo según las preferencias del usuario.</td>
-    <td rowspan="2"><strong>Information and Services Provided</strong><table><tr><th>Queryable Information</th><th>Invokable Commands</th></tr><tr><td>Preferencias y estado de entrega</td><td>Actualizar preferencias y notificar resultado</td></tr><tr><th>Published Events</th><th>Reactive Jobs</th></tr><tr><td>NotificationSent, NotificationFailed</td><td>Consumir eventos notificables y ejecutar reintentos acotados</td></tr></table></td>
-  </tr>
-  <tr><td><strong>Strategic Classification</strong><table><tr><th>Domain</th><th>Business Model</th><th>Evolution</th></tr><tr><td>Generic</td><td>Engagement</td><td>Commodity</td></tr></table></td></tr>
-  <tr>
-    <td><strong>Business Decisions</strong><ul><li>Solo se notifican hechos confirmados.</li><li>Se respetan preferencias de canal.</li><li>Una falla de entrega no revierte la reserva.</li></ul></td>
-    <td rowspan="2"><strong>Dependencies and Relationships</strong><table><tr><th>Suppliers</th><th>Consumers</th></tr><tr><td>Identity, Reservation y Payment — Published Language<br>Notification Providers — ACL</td><td>Audit y Support — delivery status</td></tr></table></td>
-  </tr>
-  <tr><td><strong>Ubiquitous Language</strong><br>Notification, Template, Channel, Preference, Delivery Attempt</td></tr>
+  <tr><td colspan="2"><strong>Name</strong><br>Notification</td><td colspan="2"><strong>Model Traits</strong><br>execute, interchange, retry</td></tr>
+  <tr><td colspan="2" rowspan="3"><strong>Description</strong><br>Entrega mensajes push y correo según las preferencias del usuario.</td><th colspan="2">Information and Services Provided</th></tr>
+  <tr><th>Queryable Information</th><th>Invokable Commands</th></tr>
+  <tr><td>Preferencias y estado de entrega</td><td>Actualizar preferencias y notificar resultado</td></tr>
+  <tr><td colspan="2" rowspan="2"><strong>Strategic Classification</strong><br>Domain: Generic<br>Business Model: Engagement<br>Evolution: Commodity</td><th>Published Events</th><th>Reactive Jobs</th></tr>
+  <tr><td>NotificationSent, NotificationFailed</td><td>Consumir eventos notificables y ejecutar reintentos acotados</td></tr>
+  <tr><td colspan="2" rowspan="3"><strong>Business Decisions</strong><ul><li>Solo se notifican hechos confirmados.</li><li>Se respetan preferencias de canal.</li><li>Una falla de entrega no revierte la reserva.</li></ul></td><th colspan="2">Dependencies and Relationships</th></tr>
+  <tr><th>Suppliers</th><th>Consumers</th></tr>
+  <tr><td rowspan="2">Identity, Reservation y Payment — Published Language<br>Notification Providers — ACL</td><td rowspan="2">Audit y Support — delivery status</td></tr>
+  <tr><td colspan="2"><strong>Ubiquitous Language</strong><br>Notification, Template, Channel, Preference, Delivery Attempt</td></tr>
 </table>
 
 #### Conversational Reservation Agent Canvas
 
 <table width="100%">
-  <tr><td width="42%"><strong>Name</strong><br>Conversational Reservation Agent</td><td><strong>Model Traits</strong><br>gateway, translate, coordinate, audit</td></tr>
-  <tr>
-    <td><strong>Description</strong><br>Convierte lenguaje natural en consultas y comandos permitidos.</td>
-    <td rowspan="2"><strong>Information and Services Provided</strong><table><tr><th>Queryable Information</th><th>Invokable Commands</th></tr><tr><td>Conversación, alternativas y resumen de acción</td><td>Interpretar solicitud, buscar, solicitar retención y proponer confirmación</td></tr><tr><th>Published Events</th><th>Reactive Jobs</th></tr><tr><td>IntentInterpreted, HumanConfirmationGranted</td><td>Reanudar conversación y expirar confirmation tokens</td></tr></table></td>
-  </tr>
-  <tr><td><strong>Strategic Classification</strong><table><tr><th>Domain</th><th>Business Model</th><th>Evolution</th></tr><tr><td>Supporting</td><td>Engagement</td><td>Genesis</td></tr></table></td></tr>
-  <tr>
-    <td><strong>Business Decisions</strong><ul><li>El LLM solo interpreta.</li><li>Todo efecto requiere identidad, allowlist y confirmación vigente.</li><li>Las reglas de Reservation no se replican.</li></ul></td>
-    <td rowspan="2"><strong>Dependencies and Relationships</strong><table><tr><th>Suppliers</th><th>Consumers</th></tr><tr><td>Identity y Discovery — Open Host Service<br>Reservation — Published Language<br>LLM Provider — ACL</td><td>Mobile App — conversational interface<br>Audit — Published Language</td></tr></table></td>
-  </tr>
-  <tr><td><strong>Ubiquitous Language</strong><br>Intent, Conversation, Tool, Confirmation Token, Action Summary</td></tr>
+  <tr><td colspan="2"><strong>Name</strong><br>Conversational Reservation Agent</td><td colspan="2"><strong>Model Traits</strong><br>gateway, translate, coordinate, audit</td></tr>
+  <tr><td colspan="2" rowspan="3"><strong>Description</strong><br>Convierte lenguaje natural en consultas y comandos permitidos.</td><th colspan="2">Information and Services Provided</th></tr>
+  <tr><th>Queryable Information</th><th>Invokable Commands</th></tr>
+  <tr><td>Conversación, alternativas y resumen de acción</td><td>Interpretar solicitud, buscar, solicitar retención y proponer confirmación</td></tr>
+  <tr><td colspan="2" rowspan="2"><strong>Strategic Classification</strong><br>Domain: Supporting<br>Business Model: Engagement<br>Evolution: Genesis</td><th>Published Events</th><th>Reactive Jobs</th></tr>
+  <tr><td>IntentInterpreted, HumanConfirmationGranted</td><td>Reanudar conversación y expirar confirmation tokens</td></tr>
+  <tr><td colspan="2" rowspan="3"><strong>Business Decisions</strong><ul><li>El LLM solo interpreta.</li><li>Todo efecto requiere identidad, allowlist y confirmación vigente.</li><li>Las reglas de Reservation no se replican.</li></ul></td><th colspan="2">Dependencies and Relationships</th></tr>
+  <tr><th>Suppliers</th><th>Consumers</th></tr>
+  <tr><td rowspan="2">Identity y Discovery — Open Host Service<br>Reservation — Published Language<br>LLM Provider — ACL</td><td rowspan="2">Mobile App — conversational interface<br>Audit — Published Language</td></tr>
+  <tr><td colspan="2"><strong>Ubiquitous Language</strong><br>Intent, Conversation, Tool, Confirmation Token, Action Summary</td></tr>
 </table>
 
 #### Audit Canvas
 
 <table width="100%">
-  <tr><td width="42%"><strong>Name</strong><br>Audit</td><td><strong>Model Traits</strong><br>audit, query, retain</td></tr>
-  <tr>
-    <td><strong>Description</strong><br>Conserva trazabilidad inmutable de operaciones críticas.</td>
-    <td rowspan="2"><strong>Information and Services Provided</strong><table><tr><th>Queryable Information</th><th>Invokable Commands</th></tr><tr><td>Trazas por actor, entidad y correlation ID</td><td>Registrar operación auditable</td></tr><tr><th>Published Events</th><th>Reactive Jobs</th></tr><tr><td>OperationAudited</td><td>Ingestar eventos críticos y aplicar retención</td></tr></table></td>
-  </tr>
-  <tr><td><strong>Strategic Classification</strong><table><tr><th>Domain</th><th>Business Model</th><th>Evolution</th></tr><tr><td>Generic</td><td>Compliance</td><td>Commodity</td></tr></table></td></tr>
-  <tr>
-    <td><strong>Business Decisions</strong><ul><li>Los registros son append-only, minimizados y correlacionables.</li><li>No se almacenan secretos.</li><li>Audit no es fuente de verdad operacional.</li></ul></td>
-    <td rowspan="2"><strong>Dependencies and Relationships</strong><table><tr><th>Suppliers</th><th>Consumers</th></tr><tr><td>Todos los contextos — Conformist + Published Language</td><td>Support — restricted queries</td></tr></table></td>
-  </tr>
-  <tr><td><strong>Ubiquitous Language</strong><br>Audit Event, Actor, Action, Entity, Correlation ID, Timestamp</td></tr>
+  <tr><td colspan="2"><strong>Name</strong><br>Audit</td><td colspan="2"><strong>Model Traits</strong><br>audit, query, retain</td></tr>
+  <tr><td colspan="2" rowspan="3"><strong>Description</strong><br>Conserva trazabilidad inmutable de operaciones críticas.</td><th colspan="2">Information and Services Provided</th></tr>
+  <tr><th>Queryable Information</th><th>Invokable Commands</th></tr>
+  <tr><td>Trazas por actor, entidad y correlation ID</td><td>Registrar operación auditable</td></tr>
+  <tr><td colspan="2" rowspan="2"><strong>Strategic Classification</strong><br>Domain: Generic<br>Business Model: Compliance<br>Evolution: Commodity</td><th>Published Events</th><th>Reactive Jobs</th></tr>
+  <tr><td>OperationAudited</td><td>Ingestar eventos críticos y aplicar retención</td></tr>
+  <tr><td colspan="2" rowspan="3"><strong>Business Decisions</strong><ul><li>Los registros son append-only, minimizados y correlacionables.</li><li>No se almacenan secretos.</li><li>Audit no es fuente de verdad operacional.</li></ul></td><th colspan="2">Dependencies and Relationships</th></tr>
+  <tr><th>Suppliers</th><th>Consumers</th></tr>
+  <tr><td rowspan="2">Todos los contextos — Conformist + Published Language</td><td rowspan="2">Support — restricted queries</td></tr>
+  <tr><td colspan="2"><strong>Ubiquitous Language</strong><br>Audit Event, Actor, Action, Entity, Correlation ID, Timestamp</td></tr>
 </table>
 
 ### 4.2.5. Context Mapping
