@@ -239,7 +239,7 @@ El EventStorming se realizó comenzando por los eventos de negocio en pasado, id
 
 **Fuente:** [Mermaid](docs/architecture/mermaid/event-storming.mmd)
 
-El diagrama no es una captura decorativa: evidencia que `ReservationHeld` ocurre después de que Reservation acepta el comando y que `ReservationConfirmed` ocurre después de `PaymentAuthorized`. El agente propone comandos, pero no produce directamente esos hechos.
+El tablero reproduce la apariencia de una sesión de EventStorming con post-its: amarillo para actores, azul para comandos, crema para aggregates, naranja para eventos de dominio y rosa para políticas. Las columnas se leen de arriba hacia abajo y las fases avanzan de izquierda a derecha. Así se evidencia que `ReservationHeld` aparece después de que Reservation acepta el comando y que `ReservationConfirmed` aparece después de `PaymentAuthorized`. El agente propone comandos, pero no produce directamente esos hechos.
 
 | Actor | Comando | Aggregate o política | Evento resultante |
 |---|---|---|---|
