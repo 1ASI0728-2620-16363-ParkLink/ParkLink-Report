@@ -300,103 +300,133 @@ El siguiente diagrama complementa la historia con estados legales y compensacion
 
 ### 4.2.4. Bounded Context Canvases
 
-Cada canvas resume intención, reglas, lenguaje, capacidades, dependencias y riesgos. No existe base de datos compartida ni un Shared Kernel de entidades; los contextos intercambian contratos versionados para evitar acoplamiento por modelo.
-
 #### User & Identity Canvas
 
-| Campo | Definición |
-|---|---|
-| Context Overview | Gestiona usuarios, credenciales, roles, perfiles e identidad delegada. |
-| Business Rules | Correo único; contraseña cifrada; permisos según rol y ownership. |
-| Ubiquitous Language | User, Driver, Owner, Role, Profile, Session, Delegated Identity. |
-| Capability Analysis | Registro, login, renovación de sesión, perfiles y autorización. |
-| Capability Layering | Generic Subdomain; políticas de identidad en dominio y adaptadores JWT/OAuth en infraestructura. |
-| Dependencies | Provee identidad a Gateway, Agent, Reservation y Supply; publica eventos auditables. |
-| Design Critique | Centralizar permisos técnicos en Gateway no debe reemplazar autorización de negocio dentro de cada contexto. |
+<table width="100%">
+  <tr><td width="42%"><strong>Name</strong><br>User &amp; Identity</td><td><strong>Model Traits</strong><br>gateway, enforce, audit</td></tr>
+  <tr>
+    <td><strong>Description</strong><br>Gestiona usuarios, credenciales, roles, perfiles e identidad delegada.</td>
+    <td rowspan="2"><strong>Information and Services Provided</strong><table width="100%"><tr><th>Queryable Information</th><th>Invokable Commands</th></tr><tr><td>Perfil, roles y sesión activa</td><td>Registrar usuario, iniciar o renovar sesión, actualizar perfil</td></tr><tr><th>Published Events</th><th>Reactive Jobs</th></tr><tr><td>UserRegistered, UserAuthenticated, ProfileUpdated</td><td>Expirar sesiones y revocar identidad delegada</td></tr></table></td>
+  </tr>
+  <tr><td><strong>Strategic Classification</strong><table width="100%"><tr><th>Domain</th><th>Business Model</th><th>Evolution</th></tr><tr><td>Generic</td><td>Compliance</td><td>Commodity</td></tr></table></td></tr>
+  <tr>
+    <td><strong>Business Decisions</strong><ul><li>El correo es único.</li><li>Las contraseñas se almacenan cifradas.</li><li>Los permisos dependen del rol y del ownership.</li></ul></td>
+    <td rowspan="2"><strong>Dependencies and Relationships</strong><table width="100%"><tr><th>Suppliers</th><th>Consumers</th></tr><tr><td>Ningún contexto interno</td><td>Gateway, Agent, Reservation y Supply — Open Host Service<br>Audit — Published Language</td></tr></table></td>
+  </tr>
+  <tr><td><strong>Ubiquitous Language</strong><br>User, Driver, Owner, Role, Profile, Session, Delegated Identity</td></tr>
+</table>
 
 #### Parking Supply Canvas
 
-| Campo | Definición |
-|---|---|
-| Context Overview | Administra la oferta publicada por propietarios. |
-| Business Rules | Solo el propietario modifica su espacio; horarios no se solapan; precio no es negativo. |
-| Ubiquitous Language | Parking Space, Schedule, Price, Availability Window, Owner. |
-| Capability Analysis | Registrar, editar, habilitar, deshabilitar y tarifar espacios. |
-| Capability Layering | Supporting Subdomain; dominio de oferta separado de búsqueda y reserva. |
-| Dependencies | Identity para actor; Object Storage para fotos; publica eventos hacia Discovery y Audit. |
-| Design Critique | No debe cancelar reservas directamente; coordina cambios incompatibles mediante eventos y Reservation. |
+<table width="100%">
+  <tr><td width="42%"><strong>Name</strong><br>Parking Supply</td><td><strong>Model Traits</strong><br>execute, enforce, publish</td></tr>
+  <tr>
+    <td><strong>Description</strong><br>Administra la oferta de estacionamientos publicada por propietarios.</td>
+    <td rowspan="2"><strong>Information and Services Provided</strong><table width="100%"><tr><th>Queryable Information</th><th>Invokable Commands</th></tr><tr><td>Detalle, horario, precio y estado de publicación</td><td>Publicar, actualizar, habilitar o deshabilitar espacio</td></tr><tr><th>Published Events</th><th>Reactive Jobs</th></tr><tr><td>ParkingSpacePublished, ParkingSpaceUpdated, AvailabilityWindowChanged</td><td>Coordinar cambios incompatibles con Reservation</td></tr></table></td>
+  </tr>
+  <tr><td><strong>Strategic Classification</strong><table width="100%"><tr><th>Domain</th><th>Business Model</th><th>Evolution</th></tr><tr><td>Supporting</td><td>Revenue</td><td>Custom-built</td></tr></table></td></tr>
+  <tr>
+    <td><strong>Business Decisions</strong><ul><li>Solo el propietario modifica su espacio.</li><li>Los horarios no se solapan.</li><li>El precio no puede ser negativo.</li></ul></td>
+    <td rowspan="2"><strong>Dependencies and Relationships</strong><table width="100%"><tr><th>Suppliers</th><th>Consumers</th></tr><tr><td>Identity — Open Host Service<br>Object Storage — ACL</td><td>Discovery y Reservation — Customer/Supplier + Published Language<br>Audit — Published Language</td></tr></table></td>
+  </tr>
+  <tr><td><strong>Ubiquitous Language</strong><br>Parking Space, Schedule, Price, Availability Window, Owner</td></tr>
+</table>
 
 #### Parking Discovery Canvas
 
-| Campo | Definición |
-|---|---|
-| Context Overview | Permite encontrar y comparar espacios con una proyección de lectura. |
-| Business Rules | La disponibilidad mostrada es informativa; filtros y distancia no confirman reserva. |
-| Ubiquitous Language | Search Criteria, Search Result, Visible Availability, Distance, Filter. |
-| Capability Analysis | Búsqueda geoespacial, filtros, detalle y ranking. |
-| Capability Layering | Supporting Subdomain; CQRS ligero y cache de lectura. |
-| Dependencies | Consume eventos de Supply y Reservation; usa Maps; sirve consultas a App y Agent. |
-| Design Critique | La proyección puede estar temporalmente atrasada y debe comunicar que Reservation revalida. |
+<table width="100%">
+  <tr><td width="42%"><strong>Name</strong><br>Parking Discovery</td><td><strong>Model Traits</strong><br>query, project, rank</td></tr>
+  <tr>
+    <td><strong>Description</strong><br>Permite encontrar y comparar espacios mediante una proyección de lectura.</td>
+    <td rowspan="2"><strong>Information and Services Provided</strong><table width="100%"><tr><th>Queryable Information</th><th>Invokable Commands</th></tr><tr><td>Resultados, detalle, distancia y disponibilidad visible</td><td>Buscar opciones y actualizar proyección</td></tr><tr><th>Published Events</th><th>Reactive Jobs</th></tr><tr><td>OptionsFound, VisibleAvailabilityUpdated</td><td>Proyectar eventos de Supply y Reservation</td></tr></table></td>
+  </tr>
+  <tr><td><strong>Strategic Classification</strong><table width="100%"><tr><th>Domain</th><th>Business Model</th><th>Evolution</th></tr><tr><td>Supporting</td><td>Engagement</td><td>Custom-built</td></tr></table></td></tr>
+  <tr>
+    <td><strong>Business Decisions</strong><ul><li>La disponibilidad visible es informativa.</li><li>Los filtros y la distancia no confirman una reserva.</li><li>Reservation siempre revalida el intervalo.</li></ul></td>
+    <td rowspan="2"><strong>Dependencies and Relationships</strong><table width="100%"><tr><th>Suppliers</th><th>Consumers</th></tr><tr><td>Supply y Reservation — Published Language<br>Maps Provider — ACL</td><td>Mobile App y Agent — Open Host Service</td></tr></table></td>
+  </tr>
+  <tr><td><strong>Ubiquitous Language</strong><br>Search Criteria, Search Result, Visible Availability, Distance, Filter</td></tr>
+</table>
 
 #### Reservation Management Canvas
 
-| Campo | Definición |
-|---|---|
-| Context Overview | Controla retenciones, reservas, concurrencia y estados. |
-| Business Rules | Un intervalo no puede confirmarse dos veces; retenciones expiran; transiciones inválidas se rechazan. |
-| Ubiquitous Language | Hold, Reservation, Interval, Confirmation, Cancellation, Extension, Expiration. |
-| Capability Analysis | Retener, confirmar, cancelar, extender, expirar y consultar historial. |
-| Capability Layering | Core Domain; aggregate Reservation, políticas de solapamiento y saga. |
-| Dependencies | Consume Command Broker; consulta Supply; coordina Payment; publica eventos a Discovery, Notification y Audit. |
-| Design Critique | El orden del broker ayuda, pero nunca sustituye locks, constraints e idempotencia en la base. |
+<table width="100%">
+  <tr><td width="42%"><strong>Name</strong><br>Reservation Management</td><td><strong>Model Traits</strong><br>execute, enforce, coordinate, audit</td></tr>
+  <tr>
+    <td><strong>Description</strong><br>Controla retenciones, reservas, concurrencia y transiciones de estado.</td>
+    <td rowspan="2"><strong>Information and Services Provided</strong><table width="100%"><tr><th>Queryable Information</th><th>Invokable Commands</th></tr><tr><td>Reserva, retención, estado e historial</td><td>Retener, confirmar, cancelar, extender y aplicar pago autorizado</td></tr><tr><th>Published Events</th><th>Reactive Jobs</th></tr><tr><td>ReservationHeld, ConfirmationRequested, ReservationConfirmed, ReservationCancelled, ReservationExtended, HoldExpired</td><td>Expirar retenciones y reaccionar a resultados de Payment</td></tr></table></td>
+  </tr>
+  <tr><td><strong>Strategic Classification</strong><table width="100%"><tr><th>Domain</th><th>Business Model</th><th>Evolution</th></tr><tr><td>Core</td><td>Revenue</td><td>Custom-built</td></tr></table></td></tr>
+  <tr>
+    <td><strong>Business Decisions</strong><ul><li>Un intervalo no se confirma dos veces.</li><li>Las retenciones expiran.</li><li>Las transiciones inválidas se rechazan.</li><li>La base aplica locks, constraints e idempotencia.</li></ul></td>
+    <td rowspan="2"><strong>Dependencies and Relationships</strong><table width="100%"><tr><th>Suppliers</th><th>Consumers</th></tr><tr><td>Identity y Supply — Customer/Supplier<br>Payment — Published Language<br>Command Broker — durable commands</td><td>Discovery, Notification y Audit — Published Language<br>Agent — action results</td></tr></table></td>
+  </tr>
+  <tr><td><strong>Ubiquitous Language</strong><br>Hold, Reservation, Interval, Confirmation, Cancellation, Extension, Expiration</td></tr>
+</table>
 
 #### Payment Canvas
 
-| Campo | Definición |
-|---|---|
-| Context Overview | Encapsula autorizaciones, cobros, webhooks, reembolsos y comprobantes. |
-| Business Rules | Una idempotency key representa una operación; monto y moneda no cambian durante un reintento. |
-| Ubiquitous Language | Payment, Authorization, Capture, Refund, Receipt, Webhook. |
-| Capability Analysis | Autorizar, registrar, reembolsar, conciliar y emitir comprobantes. |
-| Capability Layering | Supporting Subdomain; ACL frente a la pasarela externa. |
-| Dependencies | Recibe solicitudes de la saga; integra Payment Provider; publica resultados a Reservation y Audit. |
-| Design Critique | Nunca recibe datos de tarjeta desde el agente ni expone detalles internos del proveedor al dominio. |
+<table width="100%">
+  <tr><td width="42%"><strong>Name</strong><br>Payment</td><td><strong>Model Traits</strong><br>execute, audit, interchange</td></tr>
+  <tr>
+    <td><strong>Description</strong><br>Encapsula autorizaciones, cobros, webhooks, reembolsos y comprobantes.</td>
+    <td rowspan="2"><strong>Information and Services Provided</strong><table width="100%"><tr><th>Queryable Information</th><th>Invokable Commands</th></tr><tr><td>Estado de pago, reembolso y comprobante</td><td>Autorizar pago, procesar reembolso y conciliar operación</td></tr><tr><th>Published Events</th><th>Reactive Jobs</th></tr><tr><td>PaymentAuthorized, PaymentFailed, RefundProcessed</td><td>Procesar webhooks y conciliar operaciones pendientes</td></tr></table></td>
+  </tr>
+  <tr><td><strong>Strategic Classification</strong><table width="100%"><tr><th>Domain</th><th>Business Model</th><th>Evolution</th></tr><tr><td>Supporting</td><td>Revenue</td><td>Product</td></tr></table></td></tr>
+  <tr>
+    <td><strong>Business Decisions</strong><ul><li>Una idempotency key representa una operación.</li><li>El monto y la moneda no cambian durante un reintento.</li><li>El agente nunca recibe datos de tarjeta.</li></ul></td>
+    <td rowspan="2"><strong>Dependencies and Relationships</strong><table width="100%"><tr><th>Suppliers</th><th>Consumers</th></tr><tr><td>Reservation — Customer/Supplier<br>Payment Provider — ACL</td><td>Reservation, Notification y Audit — Published Language</td></tr></table></td>
+  </tr>
+  <tr><td><strong>Ubiquitous Language</strong><br>Payment, Authorization, Capture, Refund, Receipt, Webhook</td></tr>
+</table>
 
 #### Notification Canvas
 
-| Campo | Definición |
-|---|---|
-| Context Overview | Entrega mensajes push y correo según preferencias. |
-| Business Rules | Solo notifica hechos confirmados; respeta preferencias y reintentos acotados. |
-| Ubiquitous Language | Notification, Template, Channel, Preference, Delivery Attempt. |
-| Capability Analysis | Seleccionar canal, renderizar plantilla, entregar y reintentar. |
-| Capability Layering | Generic Subdomain con adaptadores por proveedor. |
-| Dependencies | Consume eventos de Identity, Reservation y Payment; usa proveedores externos. |
-| Design Critique | Una falla de entrega no revierte una reserva confirmada. |
+<table width="100%">
+  <tr><td width="42%"><strong>Name</strong><br>Notification</td><td><strong>Model Traits</strong><br>execute, interchange, retry</td></tr>
+  <tr>
+    <td><strong>Description</strong><br>Entrega mensajes push y correo según las preferencias del usuario.</td>
+    <td rowspan="2"><strong>Information and Services Provided</strong><table width="100%"><tr><th>Queryable Information</th><th>Invokable Commands</th></tr><tr><td>Preferencias y estado de entrega</td><td>Actualizar preferencias y notificar resultado</td></tr><tr><th>Published Events</th><th>Reactive Jobs</th></tr><tr><td>NotificationSent, NotificationFailed</td><td>Consumir eventos notificables y ejecutar reintentos acotados</td></tr></table></td>
+  </tr>
+  <tr><td><strong>Strategic Classification</strong><table width="100%"><tr><th>Domain</th><th>Business Model</th><th>Evolution</th></tr><tr><td>Generic</td><td>Engagement</td><td>Commodity</td></tr></table></td></tr>
+  <tr>
+    <td><strong>Business Decisions</strong><ul><li>Solo se notifican hechos confirmados.</li><li>Se respetan preferencias de canal.</li><li>Una falla de entrega no revierte la reserva.</li></ul></td>
+    <td rowspan="2"><strong>Dependencies and Relationships</strong><table width="100%"><tr><th>Suppliers</th><th>Consumers</th></tr><tr><td>Identity, Reservation y Payment — Published Language<br>Notification Providers — ACL</td><td>Audit y Support — delivery status</td></tr></table></td>
+  </tr>
+  <tr><td><strong>Ubiquitous Language</strong><br>Notification, Template, Channel, Preference, Delivery Attempt</td></tr>
+</table>
 
 #### Conversational Reservation Agent Canvas
 
-| Campo | Definición |
-|---|---|
-| Context Overview | Convierte lenguaje natural en consultas y comandos permitidos. |
-| Business Rules | El LLM solo interpreta; todo efecto requiere identidad, allowlist y confirmación vigente. |
-| Ubiquitous Language | Intent, Conversation, Tool, Confirmation Token, Action Summary. |
-| Capability Analysis | Interpretar, completar datos, consultar, resumir, confirmar y auditar. |
-| Capability Layering | Supporting Subdomain; orquestación determinística alrededor de un adaptador probabilístico. |
-| Dependencies | Identity, Discovery, Command Broker, Event Bus, Conversation Store y LLM Provider. |
-| Design Critique | No replica reglas de Reservation ni persiste razonamiento interno o contexto indefinido. |
+<table width="100%">
+  <tr><td width="42%"><strong>Name</strong><br>Conversational Reservation Agent</td><td><strong>Model Traits</strong><br>gateway, translate, coordinate, audit</td></tr>
+  <tr>
+    <td><strong>Description</strong><br>Convierte lenguaje natural en consultas y comandos permitidos.</td>
+    <td rowspan="2"><strong>Information and Services Provided</strong><table width="100%"><tr><th>Queryable Information</th><th>Invokable Commands</th></tr><tr><td>Conversación, alternativas y resumen de acción</td><td>Interpretar solicitud, buscar, solicitar retención y proponer confirmación</td></tr><tr><th>Published Events</th><th>Reactive Jobs</th></tr><tr><td>IntentInterpreted, HumanConfirmationGranted</td><td>Reanudar conversación y expirar confirmation tokens</td></tr></table></td>
+  </tr>
+  <tr><td><strong>Strategic Classification</strong><table width="100%"><tr><th>Domain</th><th>Business Model</th><th>Evolution</th></tr><tr><td>Supporting</td><td>Engagement</td><td>Genesis</td></tr></table></td></tr>
+  <tr>
+    <td><strong>Business Decisions</strong><ul><li>El LLM solo interpreta.</li><li>Todo efecto requiere identidad, allowlist y confirmación vigente.</li><li>Las reglas de Reservation no se replican.</li></ul></td>
+    <td rowspan="2"><strong>Dependencies and Relationships</strong><table width="100%"><tr><th>Suppliers</th><th>Consumers</th></tr><tr><td>Identity y Discovery — Open Host Service<br>Reservation — Published Language<br>LLM Provider — ACL</td><td>Mobile App — conversational interface<br>Audit — Published Language</td></tr></table></td>
+  </tr>
+  <tr><td><strong>Ubiquitous Language</strong><br>Intent, Conversation, Tool, Confirmation Token, Action Summary</td></tr>
+</table>
 
 #### Audit Canvas
 
-| Campo | Definición |
-|---|---|
-| Context Overview | Conserva trazabilidad inmutable de operaciones críticas. |
-| Business Rules | Los registros son append-only, minimizados y correlacionables; no contienen secretos. |
-| Ubiquitous Language | Audit Event, Actor, Action, Entity, Correlation ID, Timestamp. |
-| Capability Analysis | Ingestar, retener, buscar y reconstruir trazas. |
-| Capability Layering | Generic Subdomain orientado a cumplimiento y soporte. |
-| Dependencies | Consume eventos de todos los contextos y expone consultas restringidas a soporte. |
-| Design Critique | No debe convertirse en una base compartida ni ser fuente de verdad operacional. |
+<table width="100%">
+  <tr><td width="42%"><strong>Name</strong><br>Audit</td><td><strong>Model Traits</strong><br>audit, query, retain</td></tr>
+  <tr>
+    <td><strong>Description</strong><br>Conserva trazabilidad inmutable de operaciones críticas.</td>
+    <td rowspan="2"><strong>Information and Services Provided</strong><table width="100%"><tr><th>Queryable Information</th><th>Invokable Commands</th></tr><tr><td>Trazas por actor, entidad y correlation ID</td><td>Registrar operación auditable</td></tr><tr><th>Published Events</th><th>Reactive Jobs</th></tr><tr><td>OperationAudited</td><td>Ingestar eventos críticos y aplicar retención</td></tr></table></td>
+  </tr>
+  <tr><td><strong>Strategic Classification</strong><table width="100%"><tr><th>Domain</th><th>Business Model</th><th>Evolution</th></tr><tr><td>Generic</td><td>Compliance</td><td>Commodity</td></tr></table></td></tr>
+  <tr>
+    <td><strong>Business Decisions</strong><ul><li>Los registros son append-only, minimizados y correlacionables.</li><li>No se almacenan secretos.</li><li>Audit no es fuente de verdad operacional.</li></ul></td>
+    <td rowspan="2"><strong>Dependencies and Relationships</strong><table width="100%"><tr><th>Suppliers</th><th>Consumers</th></tr><tr><td>Todos los contextos — Conformist + Published Language</td><td>Support — restricted queries</td></tr></table></td>
+  </tr>
+  <tr><td><strong>Ubiquitous Language</strong><br>Audit Event, Actor, Action, Entity, Correlation ID, Timestamp</td></tr>
+</table>
 
 ### 4.2.5. Context Mapping
 
