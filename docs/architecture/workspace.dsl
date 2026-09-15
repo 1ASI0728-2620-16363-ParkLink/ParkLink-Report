@@ -38,15 +38,15 @@ workspace "ParkLink Microservices Architecture" "C4 model for ParkLink with a co
                 tags "Application"
             }
 
-            web = container "Aplicación web" "Administración de espacios, reservas e ingresos." "Web SPA" {
+            web = container "Panel web de monitoreo" "Permite a propietarios monitorear espacios, reservas e ingresos." "React / TypeScript" {
                 tags "Application"
             }
 
-            gateway = container "API Gateway" "Punto de entrada; valida JWT, limita tráfico y enruta solicitudes." "API Gateway" {
+            gateway = container "API Gateway" "Punto de entrada; valida JWT, limita tráfico y enruta solicitudes." "NestJS / TypeScript" {
                 tags "Gateway"
             }
 
-            agent = container "Agente conversacional de reservas" "Comprende la intención, consulta opciones y orquesta reservas con confirmación humana." "Spring Boot 3 / Java 21" {
+            agent = container "Agente conversacional de reservas" "Comprende la intención, consulta opciones y orquesta reservas con confirmación humana." "NestJS / TypeScript" {
                 tags "Microservice,AI"
 
                 chatController = component "Chat Controller" "Recibe mensajes y transmite respuestas del agente." "REST/WebSocket Controller"
@@ -57,31 +57,31 @@ workspace "ParkLink Microservices Architecture" "C4 model for ParkLink with a co
                 agentAudit = component "Agent Audit Publisher" "Registra intención, herramientas, confirmación y resultado sin almacenar razonamiento interno." "Event Publisher"
             }
 
-            identity = container "Identity Service" "Registro, autenticación, roles, perfiles y tokens delegados." "Spring Boot 3 / Java 21" {
+            identity = container "Identity Service" "Registro, autenticación, roles, perfiles y tokens delegados." "NestJS / TypeScript" {
                 tags "Microservice"
             }
 
-            discovery = container "Parking Discovery Service" "Búsqueda geoespacial, filtros, detalle y disponibilidad visible." "Spring Boot 3 / Java 21" {
+            discovery = container "Parking Discovery Service" "Búsqueda geoespacial, filtros, detalle y disponibilidad visible." "NestJS / TypeScript" {
                 tags "Microservice"
             }
 
-            supply = container "Parking Supply Service" "Publicación de espacios, horarios, precios y estado de la oferta." "Spring Boot 3 / Java 21" {
+            supply = container "Parking Supply Service" "Publicación de espacios, horarios, precios y estado de la oferta." "NestJS / TypeScript" {
                 tags "Microservice"
             }
 
-            reservation = container "Reservation Service" "Autoridad del ciclo de vida de reservas y control de concurrencia." "Spring Boot 3 / Java 21" {
+            reservation = container "Reservation Service" "Autoridad del ciclo de vida de reservas y control de concurrencia." "NestJS / TypeScript" {
                 tags "Microservice,CoreDomain"
             }
 
-            payment = container "Payment Service" "Pagos, idempotencia, webhooks, reembolsos y comprobantes." "Spring Boot 3 / Java 21" {
+            payment = container "Payment Service" "Pagos, idempotencia, webhooks, reembolsos y comprobantes." "NestJS / TypeScript" {
                 tags "Microservice"
             }
 
-            notification = container "Notification Service" "Notificaciones asíncronas por push y correo." "Spring Boot 3 / Java 21" {
+            notification = container "Notification Service" "Notificaciones asíncronas por push y correo." "NestJS / TypeScript" {
                 tags "Microservice"
             }
 
-            audit = container "Audit Service" "Trazabilidad inmutable de operaciones críticas y acciones del agente." "Spring Boot 3 / Java 21" {
+            audit = container "Audit Service" "Trazabilidad inmutable de operaciones críticas y acciones del agente." "NestJS / TypeScript" {
                 tags "Microservice"
             }
 
@@ -137,11 +137,10 @@ workspace "ParkLink Microservices Architecture" "C4 model for ParkLink with a co
 
         driver -> mobile "Usa la app y conversa con el agente" "HTTPS/WebSocket"
         owner -> mobile "Gestiona funciones principales" "HTTPS"
-        owner -> web "Administra oferta e ingresos" "HTTPS"
-        support -> web "Consulta operaciones auditadas" "HTTPS"
+        owner -> web "Monitorea espacios, reservas e ingresos" "HTTPS"
 
         mobile -> gateway "Consume APIs y canal de chat" "HTTPS/WebSocket"
-        web -> gateway "Consume APIs" "HTTPS"
+        web -> gateway "Consulta datos de monitoreo" "HTTPS"
 
         gateway -> agent "Enruta /chat con identidad delegada" "HTTPS"
         gateway -> identity "Enruta autenticación y perfiles" "HTTPS"

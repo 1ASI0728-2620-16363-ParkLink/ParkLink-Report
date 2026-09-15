@@ -4,6 +4,8 @@ Este capítulo define la arquitectura estratégica de ParkLink. Primero se aplic
 
 El diseño conserva el objetivo del producto: reducir el tiempo y la incertidumbre asociados a encontrar estacionamiento, permitir que los propietarios moneticen espacios disponibles y soportar reservas y pagos confiables. La experiencia conversacional ayuda al usuario, pero las reglas críticas permanecen en servicios determinísticos.
 
+El stack de implementación utiliza **Flutter** para la aplicación móvil, **React con TypeScript** para el panel web de monitoreo exclusivo de propietarios y **NestJS con TypeScript** para el API Gateway, el agente conversacional y todos los microservicios backend.
+
 ## 4.1. Strategic-Level Attribute-Driven Design
 
 ADD organiza el diseño alrededor de los drivers que más condicionan la arquitectura. El proceso seguido fue: seleccionar funcionalidades relevantes, concretar escenarios de calidad, convertir restricciones en Technical Stories, priorizar el backlog arquitectónico, evaluar alternativas y refinar los escenarios que presentan mayor riesgo.
@@ -448,7 +450,7 @@ El System Landscape ubica a ParkLink dentro de su ecosistema. La solución depen
 
 **Fuente:** [Structurizr DSL](docs/architecture/workspace.dsl) · [Exportación Mermaid](docs/architecture/structurizr-export/structurizr-ParkLinkSystemContext.mmd)
 
-ParkLink aparece como sistema central. Conductores buscan y reservan mediante la app o el chat; propietarios publican oferta y administran ingresos; soporte consulta trazas restringidas. Las relaciones con sistemas externos indican propósito y protocolo, permitiendo reconocer de inmediato qué cruza la frontera del sistema.
+ParkLink aparece como sistema central. Conductores buscan y reservan mediante la app o el chat; propietarios publican y administran oferta desde la aplicación móvil y utilizan el panel web únicamente para monitorear espacios, reservas e ingresos; soporte consulta trazas restringidas. Las relaciones con sistemas externos indican propósito y protocolo, permitiendo reconocer de inmediato qué cruza la frontera del sistema.
 
 ### 4.3.3. Software Architecture Container Level Diagram
 
@@ -461,16 +463,16 @@ El Container Diagram muestra las unidades desplegables, su tecnología y comunic
 | Container | Responsabilidad | Tecnología | Comunicación principal |
 |---|---|---|---|
 | Aplicación móvil | Experiencia de conductores y propietarios, incluido chat. | Flutter | HTTPS/WebSocket hacia API Gateway. |
-| Aplicación web | Administración de espacios, reservas e ingresos. | Web SPA | HTTPS hacia API Gateway. |
-| API Gateway | JWT, autorización de entrada, rate limit y routing. | API Gateway / WAF | HTTPS público y HTTPS/mTLS interno. |
-| Agente conversacional | Interpreta intención y orquesta herramientas con confirmación. | Spring Boot 3 / Java 21 | HTTPS al LLM/Discovery y AMQP al broker/Event Bus. |
-| Identity Service | Usuarios, roles, perfiles y tokens. | Spring Boot 3 / Java 21 | HTTPS/mTLS y PostgreSQL. |
-| Parking Discovery Service | Búsqueda, filtros y disponibilidad visible. | Spring Boot 3 / Java 21 | HTTPS, Redis, Maps y eventos. |
-| Parking Supply Service | Espacios, horarios, precios y publicación. | Spring Boot 3 / Java 21 | HTTPS, PostgreSQL, S3 y eventos. |
-| Reservation Service | Retenciones, reservas, estados y concurrencia. | Spring Boot 3 / Java 21 | Consume AMQP, usa PostgreSQL y publica eventos. |
-| Payment Service | Autorización, cobro, webhook y reembolso. | Spring Boot 3 / Java 21 | AMQP, HTTPS/Webhooks y PostgreSQL. |
-| Notification Service | Preferencias y entrega de mensajes. | Spring Boot 3 / Java 21 | Consume AMQP y llama proveedores externos. |
-| Audit Service | Trazabilidad append-only. | Spring Boot 3 / Java 21 | Consume AMQP y consulta PostgreSQL restringido. |
+| Panel web de monitoreo | Vista exclusiva para que propietarios monitoreen espacios, reservas e ingresos; no administra la operación. | React / TypeScript | HTTPS hacia endpoints de consulta del API Gateway; sin comandos de gestión. |
+| API Gateway | JWT, autorización de entrada, rate limit y routing. | NestJS / TypeScript | HTTPS público y HTTPS/mTLS interno. |
+| Agente conversacional | Interpreta intención y orquesta herramientas con confirmación. | NestJS / TypeScript | HTTPS al LLM/Discovery y AMQP al broker/Event Bus. |
+| Identity Service | Usuarios, roles, perfiles y tokens. | NestJS / TypeScript | HTTPS/mTLS y PostgreSQL. |
+| Parking Discovery Service | Búsqueda, filtros y disponibilidad visible. | NestJS / TypeScript | HTTPS, Redis, Maps y eventos. |
+| Parking Supply Service | Espacios, horarios, precios y publicación. | NestJS / TypeScript | HTTPS, PostgreSQL, S3 y eventos. |
+| Reservation Service | Retenciones, reservas, estados y concurrencia. | NestJS / TypeScript | Consume AMQP, usa PostgreSQL y publica eventos. |
+| Payment Service | Autorización, cobro, webhook y reembolso. | NestJS / TypeScript | AMQP, HTTPS/Webhooks y PostgreSQL. |
+| Notification Service | Preferencias y entrega de mensajes. | NestJS / TypeScript | Consume AMQP y llama proveedores externos. |
+| Audit Service | Trazabilidad append-only. | NestJS / TypeScript | Consume AMQP y consulta PostgreSQL restringido. |
 | Reservation Command Broker | Entrega durable y backpressure de comandos. | RabbitMQ Quorum Queues | AMQP particionado lógicamente por `spaceId`. |
 | Event Bus | Propaga hechos del dominio. | RabbitMQ | AMQP con retry y DLQ. |
 | Almacenes privados | Datos propios por servicio y proyección Discovery. | PostgreSQL / Redis | SQL/TLS o Redis/TLS solo desde el propietario. |
@@ -486,8 +488,8 @@ El Deployment Diagram representa el ambiente de producción. Las aplicaciones cl
 | Nodo de despliegue | Componentes/containers | Tecnología | Comunicación y protección |
 |---|---|---|---|
 | Mobile Devices | Aplicación móvil | iOS / Android | HTTPS/WebSocket con validación TLS. |
-| Edge Network | Web SPA y API Gateway | CDN / WAF / API Gateway | Única entrada pública; rate limiting y terminación TLS. |
-| Application Platform | Agent, Identity, Discovery, Supply, Reservation, Payment, Notification y Audit | Managed Kubernetes | Tráfico interno HTTPS/mTLS, health checks y escalamiento horizontal. |
+| Edge Network | Panel web React y API Gateway NestJS | React / TypeScript, NestJS / TypeScript, CDN / WAF | Única entrada pública; rate limiting y terminación TLS. |
+| Application Platform | Agent, Identity, Discovery, Supply, Reservation, Payment, Notification y Audit | NestJS / TypeScript sobre Managed Kubernetes | Tráfico interno HTTPS/mTLS, health checks y escalamiento horizontal. |
 | Messaging Cluster | Reservation Command Broker y Event Bus | RabbitMQ Cluster | AMQP/TLS, quorum queues, retry, DLQ y canales separados. |
 | Managed Data Platform | Bases PostgreSQL, Conversation Store y Discovery Index | PostgreSQL / Redis | Subred privada, credenciales por servicio, backups y cifrado. |
 | External Providers | Maps, Payment, LLM, Notification y Object Storage | Servicios administrados | Egress HTTPS controlado, timeouts, Circuit Breaker y ACL. |

@@ -4,100 +4,100 @@ graph TB
   subgraph diagram ["Deployment View: Production"]
     style diagram fill:#ffffff,stroke:#ffffff
 
-    subgraph 116 ["Messaging Cluster"]
-      style 116 fill:#ffffff,stroke:#9ea2a8,color:#0f172a
+    subgraph 115 ["Messaging Cluster"]
+      style 115 fill:#ffffff,stroke:#9ea2a8,color:#0f172a
 
-      117["<div style='font-weight: bold'>Reservation Command Broker</div><div style='font-size: 70%; margin-top: 0px'>[Container: RabbitMQ / Quorum Queues]</div><div style='font-size: 80%; margin-top:10px'>Recibe comandos durables de<br />reserva, aplica backpressure<br />y los distribuye por espacio.</div>"]
-      style 117 fill:#b45309,stroke:#7d3a06,color:#ffffff
-      121["<div style='font-weight: bold'>Event Bus</div><div style='font-size: 70%; margin-top: 0px'>[Container: RabbitMQ]</div><div style='font-size: 80%; margin-top:10px'>Distribuye eventos de dominio<br />y soporta procesos<br />asíncronos.</div>"]
-      style 121 fill:#b45309,stroke:#7d3a06,color:#ffffff
+      116["<div style='font-weight: bold'>Reservation Command Broker</div><div style='font-size: 70%; margin-top: 0px'>[Container: RabbitMQ / Quorum Queues]</div><div style='font-size: 80%; margin-top:10px'>Recibe comandos durables de<br />reserva, aplica backpressure<br />y los distribuye por espacio.</div>"]
+      style 116 fill:#b45309,stroke:#7d3a06,color:#ffffff
+      120["<div style='font-weight: bold'>Event Bus</div><div style='font-size: 70%; margin-top: 0px'>[Container: RabbitMQ]</div><div style='font-size: 80%; margin-top:10px'>Distribuye eventos de dominio<br />y soporta procesos<br />asíncronos.</div>"]
+      style 120 fill:#b45309,stroke:#7d3a06,color:#ffffff
     end
 
-    subgraph 129 ["Managed Data Platform"]
-      style 129 fill:#ffffff,stroke:#9ea2a8,color:#0f172a
+    subgraph 128 ["Managed Data Platform"]
+      style 128 fill:#ffffff,stroke:#9ea2a8,color:#0f172a
 
-      130[("<div style='font-weight: bold'>Conversation Store</div><div style='font-size: 70%; margin-top: 0px'>[Container: PostgreSQL]</div><div style='font-size: 80%; margin-top:10px'>Estado mínimo de<br />conversación, TTL y<br />referencias de confirmación.</div>")]
-      style 130 fill:#334155,stroke:#232d3b,color:#ffffff
-      132[("<div style='font-weight: bold'>Identity Database</div><div style='font-size: 70%; margin-top: 0px'>[Container: PostgreSQL]</div><div style='font-size: 80%; margin-top:10px'>Usuarios, credenciales, roles<br />y perfiles.</div>")]
-      style 132 fill:#334155,stroke:#232d3b,color:#ffffff
-      134[("<div style='font-weight: bold'>Discovery Index</div><div style='font-size: 70%; margin-top: 0px'>[Container: Redis / Search Index]</div><div style='font-size: 80%; margin-top:10px'>Proyección geoespacial y<br />disponibilidad visible.</div>")]
-      style 134 fill:#334155,stroke:#232d3b,color:#ffffff
-      136[("<div style='font-weight: bold'>Supply Database</div><div style='font-size: 70%; margin-top: 0px'>[Container: PostgreSQL]</div><div style='font-size: 80%; margin-top:10px'>Espacios, horarios y precios.</div>")]
-      style 136 fill:#334155,stroke:#232d3b,color:#ffffff
-      138[("<div style='font-weight: bold'>Reservation Database</div><div style='font-size: 70%; margin-top: 0px'>[Container: PostgreSQL]</div><div style='font-size: 80%; margin-top:10px'>Reservas, retenciones e<br />historial de estados.</div>")]
-      style 138 fill:#334155,stroke:#232d3b,color:#ffffff
-      140[("<div style='font-weight: bold'>Payment Database</div><div style='font-size: 70%; margin-top: 0px'>[Container: PostgreSQL]</div><div style='font-size: 80%; margin-top:10px'>Transacciones, claves de<br />idempotencia y webhooks<br />procesados.</div>")]
-      style 140 fill:#334155,stroke:#232d3b,color:#ffffff
-      142[("<div style='font-weight: bold'>Notification Database</div><div style='font-size: 70%; margin-top: 0px'>[Container: PostgreSQL]</div><div style='font-size: 80%; margin-top:10px'>Preferencias y estado de<br />entregas.</div>")]
-      style 142 fill:#334155,stroke:#232d3b,color:#ffffff
-      144[("<div style='font-weight: bold'>Audit Log Store</div><div style='font-size: 70%; margin-top: 0px'>[Container: PostgreSQL]</div><div style='font-size: 80%; margin-top:10px'>Eventos append-only y<br />correlation IDs.</div>")]
-      style 144 fill:#334155,stroke:#232d3b,color:#ffffff
+      129[("<div style='font-weight: bold'>Conversation Store</div><div style='font-size: 70%; margin-top: 0px'>[Container: PostgreSQL]</div><div style='font-size: 80%; margin-top:10px'>Estado mínimo de<br />conversación, TTL y<br />referencias de confirmación.</div>")]
+      style 129 fill:#334155,stroke:#232d3b,color:#ffffff
+      131[("<div style='font-weight: bold'>Identity Database</div><div style='font-size: 70%; margin-top: 0px'>[Container: PostgreSQL]</div><div style='font-size: 80%; margin-top:10px'>Usuarios, credenciales, roles<br />y perfiles.</div>")]
+      style 131 fill:#334155,stroke:#232d3b,color:#ffffff
+      133[("<div style='font-weight: bold'>Discovery Index</div><div style='font-size: 70%; margin-top: 0px'>[Container: Redis / Search Index]</div><div style='font-size: 80%; margin-top:10px'>Proyección geoespacial y<br />disponibilidad visible.</div>")]
+      style 133 fill:#334155,stroke:#232d3b,color:#ffffff
+      135[("<div style='font-weight: bold'>Supply Database</div><div style='font-size: 70%; margin-top: 0px'>[Container: PostgreSQL]</div><div style='font-size: 80%; margin-top:10px'>Espacios, horarios y precios.</div>")]
+      style 135 fill:#334155,stroke:#232d3b,color:#ffffff
+      137[("<div style='font-weight: bold'>Reservation Database</div><div style='font-size: 70%; margin-top: 0px'>[Container: PostgreSQL]</div><div style='font-size: 80%; margin-top:10px'>Reservas, retenciones e<br />historial de estados.</div>")]
+      style 137 fill:#334155,stroke:#232d3b,color:#ffffff
+      139[("<div style='font-weight: bold'>Payment Database</div><div style='font-size: 70%; margin-top: 0px'>[Container: PostgreSQL]</div><div style='font-size: 80%; margin-top:10px'>Transacciones, claves de<br />idempotencia y webhooks<br />procesados.</div>")]
+      style 139 fill:#334155,stroke:#232d3b,color:#ffffff
+      141[("<div style='font-weight: bold'>Notification Database</div><div style='font-size: 70%; margin-top: 0px'>[Container: PostgreSQL]</div><div style='font-size: 80%; margin-top:10px'>Preferencias y estado de<br />entregas.</div>")]
+      style 141 fill:#334155,stroke:#232d3b,color:#ffffff
+      143[("<div style='font-weight: bold'>Audit Log Store</div><div style='font-size: 70%; margin-top: 0px'>[Container: PostgreSQL]</div><div style='font-size: 80%; margin-top:10px'>Eventos append-only y<br />correlation IDs.</div>")]
+      style 143 fill:#334155,stroke:#232d3b,color:#ffffff
     end
 
-    subgraph 92 ["Mobile Devices"]
-      style 92 fill:#ffffff,stroke:#9ea2a8,color:#0f172a
+    subgraph 91 ["Mobile Devices"]
+      style 91 fill:#ffffff,stroke:#9ea2a8,color:#0f172a
 
-      93["<div style='font-weight: bold'>Aplicación móvil</div><div style='font-size: 70%; margin-top: 0px'>[Container: Flutter]</div><div style='font-size: 80%; margin-top:10px'>Experiencia para conductores<br />y propietarios, incluido el<br />chat.</div>"]
-      style 93 fill:#0f766e,stroke:#0a524d,color:#ffffff
+      92["<div style='font-weight: bold'>Aplicación móvil</div><div style='font-size: 70%; margin-top: 0px'>[Container: Flutter]</div><div style='font-size: 80%; margin-top:10px'>Experiencia para conductores<br />y propietarios, incluido el<br />chat.</div>"]
+      style 92 fill:#0f766e,stroke:#0a524d,color:#ffffff
     end
 
-    subgraph 94 ["Edge Network"]
-      style 94 fill:#ffffff,stroke:#9ea2a8,color:#0f172a
+    subgraph 93 ["Edge Network"]
+      style 93 fill:#ffffff,stroke:#9ea2a8,color:#0f172a
 
-      95["<div style='font-weight: bold'>Aplicación web</div><div style='font-size: 70%; margin-top: 0px'>[Container: Web SPA]</div><div style='font-size: 80%; margin-top:10px'>Administración de espacios,<br />reservas e ingresos.</div>"]
-      style 95 fill:#0f766e,stroke:#0a524d,color:#ffffff
-      96["<div style='font-weight: bold'>API Gateway</div><div style='font-size: 70%; margin-top: 0px'>[Container: API Gateway]</div><div style='font-size: 80%; margin-top:10px'>Punto de entrada; valida JWT,<br />limita tráfico y enruta<br />solicitudes.</div>"]
-      style 96 fill:#7c3aed,stroke:#5628a5,color:#ffffff
+      94["<div style='font-weight: bold'>Panel web de monitoreo</div><div style='font-size: 70%; margin-top: 0px'>[Container: React / TypeScript]</div><div style='font-size: 80%; margin-top:10px'>Permite a propietarios<br />monitorear espacios, reservas<br />e ingresos.</div>"]
+      style 94 fill:#0f766e,stroke:#0a524d,color:#ffffff
+      95["<div style='font-weight: bold'>API Gateway</div><div style='font-size: 70%; margin-top: 0px'>[Container: NestJS / TypeScript]</div><div style='font-size: 80%; margin-top:10px'>Punto de entrada; valida JWT,<br />limita tráfico y enruta<br />solicitudes.</div>"]
+      style 95 fill:#7c3aed,stroke:#5628a5,color:#ffffff
     end
 
-    subgraph 99 ["Application Platform"]
-      style 99 fill:#ffffff,stroke:#9ea2a8,color:#0f172a
+    subgraph 98 ["Application Platform"]
+      style 98 fill:#ffffff,stroke:#9ea2a8,color:#0f172a
 
-      100["<div style='font-weight: bold'>Agente conversacional de reservas</div><div style='font-size: 70%; margin-top: 0px'>[Container: Spring Boot 3 / Java 21]</div><div style='font-size: 80%; margin-top:10px'>Comprende la intención,<br />consulta opciones y orquesta<br />reservas con confirmación<br />humana.</div>"]
-      style 100 fill:#9333ea,stroke:#6623a3,color:#ffffff
-      102["<div style='font-weight: bold'>Identity Service</div><div style='font-size: 70%; margin-top: 0px'>[Container: Spring Boot 3 / Java 21]</div><div style='font-size: 80%; margin-top:10px'>Registro, autenticación,<br />roles, perfiles y tokens<br />delegados.</div>"]
-      style 102 fill:#2563eb,stroke:#1945a4,color:#ffffff
-      105["<div style='font-weight: bold'>Parking Discovery Service</div><div style='font-size: 70%; margin-top: 0px'>[Container: Spring Boot 3 / Java 21]</div><div style='font-size: 80%; margin-top:10px'>Búsqueda geoespacial,<br />filtros, detalle y<br />disponibilidad visible.</div>"]
-      style 105 fill:#2563eb,stroke:#1945a4,color:#ffffff
-      108["<div style='font-weight: bold'>Parking Supply Service</div><div style='font-size: 70%; margin-top: 0px'>[Container: Spring Boot 3 / Java 21]</div><div style='font-size: 80%; margin-top:10px'>Publicación de espacios,<br />horarios, precios y estado de<br />la oferta.</div>"]
-      style 108 fill:#2563eb,stroke:#1945a4,color:#ffffff
-      110["<div style='font-weight: bold'>Reservation Service</div><div style='font-size: 70%; margin-top: 0px'>[Container: Spring Boot 3 / Java 21]</div><div style='font-size: 80%; margin-top:10px'>Autoridad del ciclo de vida<br />de reservas y control de<br />concurrencia.</div>"]
-      style 110 fill:#dc2626,stroke:#9a1a1a,color:#ffffff
-      112["<div style='font-weight: bold'>Payment Service</div><div style='font-size: 70%; margin-top: 0px'>[Container: Spring Boot 3 / Java 21]</div><div style='font-size: 80%; margin-top:10px'>Pagos, idempotencia,<br />webhooks, reembolsos y<br />comprobantes.</div>"]
-      style 112 fill:#2563eb,stroke:#1945a4,color:#ffffff
-      114["<div style='font-weight: bold'>Notification Service</div><div style='font-size: 70%; margin-top: 0px'>[Container: Spring Boot 3 / Java 21]</div><div style='font-size: 80%; margin-top:10px'>Notificaciones asíncronas por<br />push y correo.</div>"]
+      101["<div style='font-weight: bold'>Identity Service</div><div style='font-size: 70%; margin-top: 0px'>[Container: NestJS / TypeScript]</div><div style='font-size: 80%; margin-top:10px'>Registro, autenticación,<br />roles, perfiles y tokens<br />delegados.</div>"]
+      style 101 fill:#2563eb,stroke:#1945a4,color:#ffffff
+      104["<div style='font-weight: bold'>Parking Discovery Service</div><div style='font-size: 70%; margin-top: 0px'>[Container: NestJS / TypeScript]</div><div style='font-size: 80%; margin-top:10px'>Búsqueda geoespacial,<br />filtros, detalle y<br />disponibilidad visible.</div>"]
+      style 104 fill:#2563eb,stroke:#1945a4,color:#ffffff
+      107["<div style='font-weight: bold'>Parking Supply Service</div><div style='font-size: 70%; margin-top: 0px'>[Container: NestJS / TypeScript]</div><div style='font-size: 80%; margin-top:10px'>Publicación de espacios,<br />horarios, precios y estado de<br />la oferta.</div>"]
+      style 107 fill:#2563eb,stroke:#1945a4,color:#ffffff
+      109["<div style='font-weight: bold'>Reservation Service</div><div style='font-size: 70%; margin-top: 0px'>[Container: NestJS / TypeScript]</div><div style='font-size: 80%; margin-top:10px'>Autoridad del ciclo de vida<br />de reservas y control de<br />concurrencia.</div>"]
+      style 109 fill:#dc2626,stroke:#9a1a1a,color:#ffffff
+      111["<div style='font-weight: bold'>Payment Service</div><div style='font-size: 70%; margin-top: 0px'>[Container: NestJS / TypeScript]</div><div style='font-size: 80%; margin-top:10px'>Pagos, idempotencia,<br />webhooks, reembolsos y<br />comprobantes.</div>"]
+      style 111 fill:#2563eb,stroke:#1945a4,color:#ffffff
+      113["<div style='font-weight: bold'>Notification Service</div><div style='font-size: 70%; margin-top: 0px'>[Container: NestJS / TypeScript]</div><div style='font-size: 80%; margin-top:10px'>Notificaciones asíncronas por<br />push y correo.</div>"]
+      style 113 fill:#2563eb,stroke:#1945a4,color:#ffffff
+      114["<div style='font-weight: bold'>Audit Service</div><div style='font-size: 70%; margin-top: 0px'>[Container: NestJS / TypeScript]</div><div style='font-size: 80%; margin-top:10px'>Trazabilidad inmutable de<br />operaciones críticas y<br />acciones del agente.</div>"]
       style 114 fill:#2563eb,stroke:#1945a4,color:#ffffff
-      115["<div style='font-weight: bold'>Audit Service</div><div style='font-size: 70%; margin-top: 0px'>[Container: Spring Boot 3 / Java 21]</div><div style='font-size: 80%; margin-top:10px'>Trazabilidad inmutable de<br />operaciones críticas y<br />acciones del agente.</div>"]
-      style 115 fill:#2563eb,stroke:#1945a4,color:#ffffff
+      99["<div style='font-weight: bold'>Agente conversacional de reservas</div><div style='font-size: 70%; margin-top: 0px'>[Container: NestJS / TypeScript]</div><div style='font-size: 80%; margin-top:10px'>Comprende la intención,<br />consulta opciones y orquesta<br />reservas con confirmación<br />humana.</div>"]
+      style 99 fill:#9333ea,stroke:#6623a3,color:#ffffff
     end
 
-    96-. "<div>Enruta /chat con identidad<br />delegada</div><div style='font-size: 70%'>[HTTPS]</div>" .->100
-    96-. "<div>Enruta autenticación y<br />perfiles</div><div style='font-size: 70%'>[HTTPS]</div>" .->102
-    100-. "<div>Valida actor y permisos<br />delegados</div><div style='font-size: 70%'>[HTTPS/mTLS]</div>" .->102
-    96-. "<div>Enruta búsquedas y detalle</div><div style='font-size: 70%'>[HTTPS]</div>" .->105
-    100-. "<div>Ejecuta herramientas de<br />búsqueda permitidas</div><div style='font-size: 70%'>[HTTPS/mTLS]</div>" .->105
-    96-. "<div>Enruta gestión de espacios</div><div style='font-size: 70%'>[HTTPS]</div>" .->108
-    96-. "<div>Enruta consultas y estado de<br />reserva</div><div style='font-size: 70%'>[HTTPS]</div>" .->110
-    96-. "<div>Enruta consultas de pago</div><div style='font-size: 70%'>[HTTPS]</div>" .->112
-    96-. "<div>Publica comandos visuales<br />autenticados</div><div style='font-size: 70%'>[AMQP]</div>" .->117
-    100-. "<div>Publica Hold, Confirm, Cancel<br />y Extend confirmados</div><div style='font-size: 70%'>[AMQP]</div>" .->117
-    117-. "<div>Entrega comandos durables<br />particionados por spaceId</div><div style='font-size: 70%'>[AMQP]</div>" .->110
-    100-. "<div>Publica AgentActionRequested<br />y AgentActionCompleted</div><div style='font-size: 70%'>[AMQP]</div>" .->121
-    105-. "<div>Consume cambios de oferta y<br />reserva</div><div style='font-size: 70%'>[AMQP]</div>" .->121
-    108-. "<div>Publica SpacePublished y<br />PriceChanged</div><div style='font-size: 70%'>[AMQP]</div>" .->121
-    110-. "<div>Publica ReservationHeld,<br />ReservationConfirmationRequested,<br />Confirmed, Cancelled y<br />Expired</div><div style='font-size: 70%'>[AMQP]</div>" .->121
-    112-. "<div>Consume<br />ReservationConfirmationRequested;<br />publica PaymentAuthorized o<br />Failed</div><div style='font-size: 70%'>[AMQP]</div>" .->121
-    114-. "<div>Consume eventos notificables</div><div style='font-size: 70%'>[AMQP]</div>" .->121
-    115-. "<div>Consume eventos auditables</div><div style='font-size: 70%'>[AMQP]</div>" .->121
-    100-. "<div>Guarda estado mínimo y<br />confirmaciones</div><div style='font-size: 70%'>[SQL/TLS]</div>" .->130
-    102-. "<div>Lee y escribe identidad<br />propia</div><div style='font-size: 70%'>[SQL/TLS]</div>" .->132
-    105-. "<div>Consulta proyección de<br />lectura</div><div style='font-size: 70%'>[Redis protocol/TLS]</div>" .->134
-    108-. "<div>Lee y escribe oferta propia</div><div style='font-size: 70%'>[SQL/TLS]</div>" .->136
-    110-. "<div>Controla reservas y<br />retenciones</div><div style='font-size: 70%'>[SQL/TLS]</div>" .->138
-    112-. "<div>Registra pagos e idempotencia</div><div style='font-size: 70%'>[SQL/TLS]</div>" .->140
-    114-. "<div>Registra preferencias y<br />entregas</div><div style='font-size: 70%'>[SQL/TLS]</div>" .->142
-    115-. "<div>Inserta eventos inmutables</div><div style='font-size: 70%'>[SQL/TLS]</div>" .->144
-    93-. "<div>Consume APIs y canal de chat</div><div style='font-size: 70%'>[HTTPS/WebSocket]</div>" .->96
-    95-. "<div>Consume APIs</div><div style='font-size: 70%'>[HTTPS]</div>" .->96
+    95-. "<div>Enruta /chat con identidad<br />delegada</div><div style='font-size: 70%'>[HTTPS]</div>" .->99
+    95-. "<div>Enruta autenticación y<br />perfiles</div><div style='font-size: 70%'>[HTTPS]</div>" .->101
+    99-. "<div>Valida actor y permisos<br />delegados</div><div style='font-size: 70%'>[HTTPS/mTLS]</div>" .->101
+    95-. "<div>Enruta búsquedas y detalle</div><div style='font-size: 70%'>[HTTPS]</div>" .->104
+    99-. "<div>Ejecuta herramientas de<br />búsqueda permitidas</div><div style='font-size: 70%'>[HTTPS/mTLS]</div>" .->104
+    95-. "<div>Enruta gestión de espacios</div><div style='font-size: 70%'>[HTTPS]</div>" .->107
+    95-. "<div>Enruta consultas y estado de<br />reserva</div><div style='font-size: 70%'>[HTTPS]</div>" .->109
+    95-. "<div>Enruta consultas de pago</div><div style='font-size: 70%'>[HTTPS]</div>" .->111
+    95-. "<div>Publica comandos visuales<br />autenticados</div><div style='font-size: 70%'>[AMQP]</div>" .->116
+    99-. "<div>Publica Hold, Confirm, Cancel<br />y Extend confirmados</div><div style='font-size: 70%'>[AMQP]</div>" .->116
+    116-. "<div>Entrega comandos durables<br />particionados por spaceId</div><div style='font-size: 70%'>[AMQP]</div>" .->109
+    99-. "<div>Publica AgentActionRequested<br />y AgentActionCompleted</div><div style='font-size: 70%'>[AMQP]</div>" .->120
+    104-. "<div>Consume cambios de oferta y<br />reserva</div><div style='font-size: 70%'>[AMQP]</div>" .->120
+    107-. "<div>Publica SpacePublished y<br />PriceChanged</div><div style='font-size: 70%'>[AMQP]</div>" .->120
+    109-. "<div>Publica ReservationHeld,<br />ReservationConfirmationRequested,<br />Confirmed, Cancelled y<br />Expired</div><div style='font-size: 70%'>[AMQP]</div>" .->120
+    111-. "<div>Consume<br />ReservationConfirmationRequested;<br />publica PaymentAuthorized o<br />Failed</div><div style='font-size: 70%'>[AMQP]</div>" .->120
+    113-. "<div>Consume eventos notificables</div><div style='font-size: 70%'>[AMQP]</div>" .->120
+    114-. "<div>Consume eventos auditables</div><div style='font-size: 70%'>[AMQP]</div>" .->120
+    99-. "<div>Guarda estado mínimo y<br />confirmaciones</div><div style='font-size: 70%'>[SQL/TLS]</div>" .->129
+    101-. "<div>Lee y escribe identidad<br />propia</div><div style='font-size: 70%'>[SQL/TLS]</div>" .->131
+    104-. "<div>Consulta proyección de<br />lectura</div><div style='font-size: 70%'>[Redis protocol/TLS]</div>" .->133
+    107-. "<div>Lee y escribe oferta propia</div><div style='font-size: 70%'>[SQL/TLS]</div>" .->135
+    109-. "<div>Controla reservas y<br />retenciones</div><div style='font-size: 70%'>[SQL/TLS]</div>" .->137
+    111-. "<div>Registra pagos e idempotencia</div><div style='font-size: 70%'>[SQL/TLS]</div>" .->139
+    113-. "<div>Registra preferencias y<br />entregas</div><div style='font-size: 70%'>[SQL/TLS]</div>" .->141
+    114-. "<div>Inserta eventos inmutables</div><div style='font-size: 70%'>[SQL/TLS]</div>" .->143
+    92-. "<div>Consume APIs y canal de chat</div><div style='font-size: 70%'>[HTTPS/WebSocket]</div>" .->95
+    94-. "<div>Consulta datos de monitoreo</div><div style='font-size: 70%'>[HTTPS]</div>" .->95
 
   end
