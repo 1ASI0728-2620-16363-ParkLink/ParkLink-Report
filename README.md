@@ -1,5 +1,3 @@
-# ParkLink Report
-
 # Capítulo IV: Product Architecture Design
 
 ## 4.1. Strategic-Level Domain-Driven Design
