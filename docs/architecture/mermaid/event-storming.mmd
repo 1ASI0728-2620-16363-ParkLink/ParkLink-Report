@@ -3,89 +3,117 @@ config:
   look: handDrawn
   handDrawnSeed: 17
   theme: base
+  flowchart:
+    curve: basis
+    nodeSpacing: 28
+    rankSpacing: 48
   themeVariables:
     fontFamily: "Trebuchet MS, sans-serif"
     primaryTextColor: "#172033"
-    lineColor: "#94a3b8"
+    lineColor: "#64748b"
 ---
-flowchart LR
-    subgraph Board["EVENTSTORMING · PARKLINK ·"]
-        direction LR
+flowchart TB
+    subgraph Board["EVENTSTORMING · BOUNDED CONTEXTS · PARKLINK"]
+        direction TB
 
-        subgraph Phase1["01 · DESCUBRIR ·"]
-            direction TB
+        subgraph Identity["BC · USER & IDENTITY"]
             A1@{ shape: notch-rect, label: "ACTOR<br/>Conductor" }
-            C1@{ shape: notch-rect, label: "COMANDO<br/>Buscar espacios" }
-            C2@{ shape: notch-rect, label: "COMANDO<br/>Consultar disponibilidad" }
-            G1@{ shape: notch-rect, label: "AGREG.<br/>Discovery" }
-            E1@{ shape: notch-rect, label: "EVENTO<br/>Opciones encontradas" }
-            E2@{ shape: notch-rect, label: "EVENTO<br/>Disponibilidad consultada" }
-            A1 ~~~ C1 ~~~ C2 ~~~ G1 ~~~ E1 ~~~ E2
+            C1@{ shape: notch-rect, label: "COMANDO<br/>Iniciar sesión" }
+            G1@{ shape: notch-rect, label: "AGREG.<br/>Identity" }
+            E1@{ shape: notch-rect, label: "EVENTO<br/>Usuario autenticado" }
+            A1 --> C1 --> G1 --> E1
         end
 
-        subgraph Phase2["02 · PUBLICAR OFERTA ·"]
-            direction TB
+        subgraph Agent["BC · CONVERSATIONAL RESERVATION AGENT"]
+            C2@{ shape: notch-rect, label: "COMANDO<br/>Solicitar estacionamiento" }
+            G2@{ shape: notch-rect, label: "AGREG.<br/>Conversation" }
+            E2@{ shape: notch-rect, label: "EVENTO<br/>Intención interpretada" }
+            C3@{ shape: notch-rect, label: "COMANDO<br/>Presentar alternativas" }
+            P1@{ shape: notch-rect, label: "POLÍTICA<br/>Exigir confirmación humana" }
+            C2 --> G2 --> E2
+            C3 --> P1
+        end
+
+        subgraph Discovery["BC · PARKING DISCOVERY"]
+            C4@{ shape: notch-rect, label: "COMANDO<br/>Buscar opciones" }
+            G3@{ shape: notch-rect, label: "AGREG.<br/>Discovery" }
+            E3@{ shape: notch-rect, label: "EVENTO<br/>Opciones encontradas" }
+            C5@{ shape: notch-rect, label: "COMANDO<br/>Actualizar proyección" }
+            E4@{ shape: notch-rect, label: "EVENTO<br/>Disponibilidad visible actualizada" }
+            C4 --> G3 --> E3
+            C5 --> G3 --> E4
+        end
+
+        subgraph Supply["BC · PARKING SUPPLY"]
             A2@{ shape: notch-rect, label: "ACTOR<br/>Propietario" }
-            C3@{ shape: notch-rect, label: "COMANDO<br/>Publicar espacio" }
-            C4@{ shape: notch-rect, label: "COMANDO<br/>Actualizar precio y horario" }
-            G2@{ shape: notch-rect, label: "AGREG.<br/>Supply" }
-            E3@{ shape: notch-rect, label: "EVENTO<br/>Espacio publicado" }
-            E4@{ shape: notch-rect, label: "EVENTO<br/>Oferta actualizada" }
-            A2 ~~~ C3 ~~~ C4 ~~~ G2 ~~~ E3 ~~~ E4
+            C6@{ shape: notch-rect, label: "COMANDO<br/>Publicar o actualizar oferta" }
+            G4@{ shape: notch-rect, label: "AGREG.<br/>Parking Space" }
+            E5@{ shape: notch-rect, label: "EVENTO<br/>Oferta publicada o actualizada" }
+            A2 --> C6 --> G4 --> E5
         end
 
-        subgraph Phase3["03 · RETENER ·"]
-            direction TB
-            A3@{ shape: notch-rect, label: "ACTOR<br/>Conductor o agente" }
-            C5@{ shape: notch-rect, label: "COMANDO<br/>Retener espacio" }
-            G3@{ shape: notch-rect, label: "AGREG.<br/>Reservation" }
-            E5@{ shape: notch-rect, label: "EVENTO<br/>Reserva retenida" }
-            P1@{ shape: notch-rect, label: "POLÍTICA<br/>Solicitar confirmación humana" }
-            A3 ~~~ C5 ~~~ G3 ~~~ E5 ~~~ P1
-        end
-
-        subgraph Phase4["04 · CONFIRMAR Y PAGAR ·"]
-            direction TB
-            A4@{ shape: notch-rect, label: "ACTOR<br/>Conductor" }
-            P2@{ shape: notch-rect, label: "POLÍTICA<br/>Confirmación vigente" }
-            C6@{ shape: notch-rect, label: "COMANDO<br/>Confirmar reserva" }
-            E6@{ shape: notch-rect, label: "EVENTO<br/>Confirmación solicitada" }
-            C7@{ shape: notch-rect, label: "COMANDO<br/>Autorizar pago" }
-            G4@{ shape: notch-rect, label: "AGREG.<br/>Payment" }
-            E7@{ shape: notch-rect, label: "EVENTO<br/>Pago autorizado" }
+        subgraph Reservation["BC · RESERVATION MANAGEMENT · CORE"]
+            C7@{ shape: notch-rect, label: "COMANDO<br/>Retener espacio" }
+            G5@{ shape: notch-rect, label: "AGREG.<br/>Reservation" }
+            E6@{ shape: notch-rect, label: "EVENTO<br/>Reserva retenida" }
+            C8@{ shape: notch-rect, label: "COMANDO<br/>Confirmar reserva" }
+            E7@{ shape: notch-rect, label: "EVENTO<br/>Confirmación solicitada" }
+            C9@{ shape: notch-rect, label: "COMANDO<br/>Aplicar pago autorizado" }
             E8@{ shape: notch-rect, label: "EVENTO<br/>Reserva confirmada" }
-            A4 ~~~ P2 ~~~ C6 ~~~ E6 ~~~ C7 ~~~ G4 ~~~ E7 ~~~ E8
+            C10@{ shape: notch-rect, label: "COMANDO<br/>Cancelar o extender reserva" }
+            E9@{ shape: notch-rect, label: "EVENTO<br/>Reserva cancelada o extendida" }
+            C7 --> G5 --> E6
+            C8 --> G5 --> E7
+            C9 --> G5 --> E8
+            C10 --> G5 --> E9
         end
 
-        subgraph Phase5["05 · CANCELAR O EXTENDER ·"]
-            direction TB
-            A5@{ shape: notch-rect, label: "ACTOR<br/>Conductor" }
-            C8@{ shape: notch-rect, label: "COMANDO<br/>Cancelar reserva" }
-            E9@{ shape: notch-rect, label: "EVENTO<br/>Reserva cancelada" }
-            C9@{ shape: notch-rect, label: "COMANDO<br/>Procesar reembolso" }
-            E10@{ shape: notch-rect, label: "EVENTO<br/>Reembolso procesado" }
-            C10@{ shape: notch-rect, label: "COMANDO<br/>Extender reserva" }
-            E11@{ shape: notch-rect, label: "EVENTO<br/>Reserva extendida" }
-            A5 ~~~ C8 ~~~ E9 ~~~ C9 ~~~ E10 ~~~ C10 ~~~ E11
+        subgraph Payment["BC · PAYMENT"]
+            C11@{ shape: notch-rect, label: "COMANDO<br/>Autorizar pago" }
+            G6@{ shape: notch-rect, label: "AGREG.<br/>Payment" }
+            E10@{ shape: notch-rect, label: "EVENTO<br/>Pago autorizado o fallido" }
+            C12@{ shape: notch-rect, label: "COMANDO<br/>Procesar reembolso" }
+            E11@{ shape: notch-rect, label: "EVENTO<br/>Reembolso procesado" }
+            C11 --> G6 --> E10
+            C12 --> G6 --> E11
         end
 
-        subgraph Phase6["06 · NOTIFICAR ·"]
-            direction TB
-            P3@{ shape: notch-rect, label: "POLÍTICA<br/>Al confirmarse una reserva" }
-            C11@{ shape: notch-rect, label: "COMANDO<br/>Notificar confirmación" }
-            G5@{ shape: notch-rect, label: "AGREG.<br/>Notification" }
+        subgraph Notification["BC · NOTIFICATION"]
+            C13@{ shape: notch-rect, label: "COMANDO<br/>Notificar resultado" }
+            G7@{ shape: notch-rect, label: "AGREG.<br/>Notification" }
             E12@{ shape: notch-rect, label: "EVENTO<br/>Notificación enviada" }
-            P3 ~~~ C11 ~~~ G5 ~~~ E12
+            C13 --> G7 --> E12
         end
 
-        Phase1 ~~~ Phase2 ~~~ Phase3 ~~~ Phase4 ~~~ Phase5 ~~~ Phase6
+        subgraph Audit["BC · AUDIT"]
+            C14@{ shape: notch-rect, label: "COMANDO<br/>Registrar operación" }
+            G8@{ shape: notch-rect, label: "AGREG.<br/>Audit Trail" }
+            E13@{ shape: notch-rect, label: "EVENTO<br/>Operación auditada" }
+            C14 --> G8 --> E13
+        end
     end
 
-    class A1,A2,A3,A4,A5 actor
-    class C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11 command
-    class G1,G2,G3,G4,G5 aggregate
-    class E1,E2,E3,E4,E5,E6,E7,E8,E9,E10,E11,E12 event
-    class P1,P2,P3 policy
+    E1 -. identidad validada .-> C2
+    E2 -. intención de búsqueda .-> C4
+    E3 -. opciones disponibles .-> C3
+    P1 -. usuario selecciona .-> C7
+    E6 -. resumen y precio .-> P1
+    P1 -. confirmación vigente .-> C8
+    E7 -. solicita autorización .-> C11
+    E10 -. pago autorizado .-> C9
+    E8 -. cambio confirmado .-> C5
+    E8 -. resultado notificable .-> C13
+    E9 -. cambio de estado .-> C5
+    E9 -. si fue cancelada .-> C12
+    E11 -. reembolso notificable .-> C13
+    E5 -. oferta modificada .-> C5
+    E8 -. evento crítico auditable .-> C14
+
+    class A1,A2 actor
+    class C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14 command
+    class G1,G2,G3,G4,G5,G6,G7,G8 aggregate
+    class E1,E2,E3,E4,E5,E6,E7,E8,E9,E10,E11,E12,E13 event
+    class P1 policy
 
     classDef actor fill:#fff59d,color:#4a3b00,stroke:#d4a900,stroke-width:2px,font-weight:bold;
     classDef command fill:#9dd9ff,color:#073763,stroke:#2780b8,stroke-width:2px,font-weight:bold;
@@ -94,9 +122,11 @@ flowchart LR
     classDef policy fill:#eea6d8,color:#5b1648,stroke:#b54691,stroke-width:2px,font-weight:bold;
 
     style Board fill:#f8f4e8,stroke:#736b5e,stroke-width:3px
-    style Phase1 fill:#fffdf7,stroke:#b8ad98,stroke-width:2px,stroke-dasharray:6 4
-    style Phase2 fill:#fffdf7,stroke:#b8ad98,stroke-width:2px,stroke-dasharray:6 4
-    style Phase3 fill:#fffdf7,stroke:#b8ad98,stroke-width:2px,stroke-dasharray:6 4
-    style Phase4 fill:#fffdf7,stroke:#b8ad98,stroke-width:2px,stroke-dasharray:6 4
-    style Phase5 fill:#fffdf7,stroke:#b8ad98,stroke-width:2px,stroke-dasharray:6 4
-    style Phase6 fill:#fffdf7,stroke:#b8ad98,stroke-width:2px,stroke-dasharray:6 4
+    style Identity fill:#f8fafc,stroke:#64748b,stroke-width:2px,stroke-dasharray:6 4
+    style Agent fill:#faf5ff,stroke:#9333ea,stroke-width:2px,stroke-dasharray:6 4
+    style Discovery fill:#eff6ff,stroke:#2563eb,stroke-width:2px,stroke-dasharray:6 4
+    style Supply fill:#f0fdf4,stroke:#16a34a,stroke-width:2px,stroke-dasharray:6 4
+    style Reservation fill:#fff1f2,stroke:#dc2626,stroke-width:3px
+    style Payment fill:#ecfeff,stroke:#0891b2,stroke-width:2px,stroke-dasharray:6 4
+    style Notification fill:#f8fafc,stroke:#64748b,stroke-width:2px,stroke-dasharray:6 4
+    style Audit fill:#f8fafc,stroke:#475569,stroke-width:2px,stroke-dasharray:6 4
