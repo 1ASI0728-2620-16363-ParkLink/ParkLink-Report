@@ -1,0 +1,53 @@
+graph TB
+  linkStyle default fill:#ffffff
+
+  subgraph diagram ["Component View: ParkLink - Agente conversacional de reservas"]
+    style diagram fill:#ffffff,stroke:#ffffff
+
+    6["<div style='font-weight: bold'>Proveedor de modelo de lenguaje</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Interpreta lenguaje natural;<br />no ejecuta operaciones de<br />negocio.</div>"]
+    style 6 fill:#6b7280,stroke:#4a4f59,color:#ffffff
+
+    subgraph 9 ["ParkLink"]
+      style 9 fill:#ffffff,stroke:#154261,color:#154261
+
+      subgraph 13 ["Agente conversacional de reservas"]
+        style 13 fill:#ffffff,stroke:#6623a3,color:#6623a3
+
+        14["<div style='font-weight: bold'>Chat Controller</div><div style='font-size: 70%; margin-top: 0px'>[Component: REST/WebSocket Controller]</div><div style='font-size: 80%; margin-top:10px'>Recibe mensajes y transmite<br />respuestas del agente.</div>"]
+        style 14 fill:#ffffff,stroke:#444444,color:#444444
+        15["<div style='font-weight: bold'>Conversation Orchestrator</div><div style='font-size: 70%; margin-top: 0px'>[Component: Application Service]</div><div style='font-size: 80%; margin-top:10px'>Mantiene el estado del<br />diálogo y coordina cada<br />turno.</div>"]
+        style 15 fill:#ffffff,stroke:#444444,color:#444444
+        16["<div style='font-weight: bold'>Intent Interpreter</div><div style='font-size: 70%; margin-top: 0px'>[Component: LLM Adapter]</div><div style='font-size: 80%; margin-top:10px'>Convierte lenguaje natural en<br />intención y parámetros<br />estructurados.</div>"]
+        style 16 fill:#ffffff,stroke:#444444,color:#444444
+        17["<div style='font-weight: bold'>Tool Registry</div><div style='font-size: 70%; margin-top: 0px'>[Component: Allowlisted Ports]</div><div style='font-size: 80%; margin-top:10px'>Expone únicamente<br />herramientas permitidas de<br />búsqueda y reserva.</div>"]
+        style 17 fill:#ffffff,stroke:#444444,color:#444444
+        18["<div style='font-weight: bold'>Confirmation Policy</div><div style='font-size: 70%; margin-top: 0px'>[Component: Domain Policy]</div><div style='font-size: 80%; margin-top:10px'>Exige confirmación explícita<br />antes de reservar, pagar,<br />cancelar o extender.</div>"]
+        style 18 fill:#ffffff,stroke:#444444,color:#444444
+        19["<div style='font-weight: bold'>Agent Audit Publisher</div><div style='font-size: 70%; margin-top: 0px'>[Component: Event Publisher]</div><div style='font-size: 80%; margin-top:10px'>Registra intención,<br />herramientas, confirmación y<br />resultado sin almacenar<br />razonamiento interno.</div>"]
+        style 19 fill:#ffffff,stroke:#444444,color:#444444
+      end
+
+      21["<div style='font-weight: bold'>Parking Discovery Service</div><div style='font-size: 70%; margin-top: 0px'>[Container: Spring Boot 3 / Java 21]</div><div style='font-size: 80%; margin-top:10px'>Búsqueda geoespacial,<br />filtros, detalle y<br />disponibilidad visible.</div>"]
+      style 21 fill:#2563eb,stroke:#1945a4,color:#ffffff
+      23["<div style='font-weight: bold'>Reservation Service</div><div style='font-size: 70%; margin-top: 0px'>[Container: Spring Boot 3 / Java 21]</div><div style='font-size: 80%; margin-top:10px'>Autoridad del ciclo de vida<br />de reservas y control de<br />concurrencia.</div>"]
+      style 23 fill:#dc2626,stroke:#9a1a1a,color:#ffffff
+      27["<div style='font-weight: bold'>Event Bus</div><div style='font-size: 70%; margin-top: 0px'>[Container: RabbitMQ]</div><div style='font-size: 80%; margin-top:10px'>Distribuye eventos de dominio<br />y soporta procesos<br />asíncronos.</div>"]
+      style 27 fill:#b45309,stroke:#7d3a06,color:#ffffff
+      28[("<div style='font-weight: bold'>Conversation Store</div><div style='font-size: 70%; margin-top: 0px'>[Container: PostgreSQL]</div><div style='font-size: 80%; margin-top:10px'>Estado mínimo de<br />conversación, TTL y<br />referencias de confirmación.</div>")]
+      style 28 fill:#334155,stroke:#232d3b,color:#ffffff
+    end
+
+    23-. "<div>Publica ReservationHeld,<br />ReservationConfirmationRequested,<br />Confirmed, Cancelled y<br />Expired</div><div style='font-size: 70%'>[AMQP]</div>" .->27
+    21-. "<div>Consume cambios de oferta y<br />reserva</div><div style='font-size: 70%'>[AMQP]</div>" .->27
+    14-. "<div>Entrega mensaje autenticado</div><div style='font-size: 70%'></div>" .->15
+    15-. "<div>Solicita intención<br />estructurada</div><div style='font-size: 70%'></div>" .->16
+    15-. "<div>Ejecuta herramienta permitida</div><div style='font-size: 70%'></div>" .->17
+    15-. "<div>Valida confirmación antes del<br />comando</div><div style='font-size: 70%'></div>" .->18
+    15-. "<div>Publica resultado auditable</div><div style='font-size: 70%'></div>" .->19
+    16-. "<div>Envía contexto mínimo y<br />esquema de salida</div><div style='font-size: 70%'>[HTTPS]</div>" .->6
+    17-. "<div>searchParking,<br />getParkingDetails</div><div style='font-size: 70%'>[HTTPS/mTLS]</div>" .->21
+    17-. "<div>holdReservation,<br />confirmReservation</div><div style='font-size: 70%'>[HTTPS/mTLS]</div>" .->23
+    18-. "<div>Lee token de confirmación y<br />expiración</div><div style='font-size: 70%'>[SQL/TLS]</div>" .->28
+    19-. "<div>Publica eventos del agente</div><div style='font-size: 70%'>[AMQP]</div>" .->27
+
+  end

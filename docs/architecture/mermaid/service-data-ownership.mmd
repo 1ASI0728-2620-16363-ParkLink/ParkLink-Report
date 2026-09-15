@@ -1,0 +1,62 @@
+flowchart LR
+    subgraph Identity[Identity Service]
+        IDAPI[Identity API]
+        IDDB[(Identity DB)]
+        IDAPI --> IDDB
+    end
+
+    subgraph Supply[Parking Supply Service]
+        SupplyAPI[Supply API]
+        SupplyDB[(Supply DB)]
+        SupplyAPI --> SupplyDB
+    end
+
+    subgraph Discovery[Parking Discovery Service]
+        DiscoveryAPI[Discovery API]
+        DiscoveryIndex[(Discovery Index)]
+        DiscoveryAPI --> DiscoveryIndex
+    end
+
+    subgraph Reservation[Reservation Service]
+        ReservationAPI[Reservation API]
+        ReservationDB[(Reservation DB)]
+        ReservationAPI --> ReservationDB
+    end
+
+    subgraph Payment[Payment Service]
+        PaymentAPI[Payment API]
+        PaymentDB[(Payment DB)]
+        PaymentAPI --> PaymentDB
+    end
+
+    subgraph Agent[Conversational Agent]
+        AgentAPI[Agent API]
+        ConversationDB[(Conversation Store)]
+        AgentAPI --> ConversationDB
+    end
+
+    subgraph Audit[Audit Service]
+        AuditConsumer[Audit Consumer]
+        AuditDB[(Audit Log Store)]
+        AuditConsumer --> AuditDB
+    end
+
+    Bus{{Event Bus}}
+
+    SupplyAPI -. SpacePublished / PriceChanged .-> Bus
+    ReservationAPI -. ReservationConfirmed / Cancelled .-> Bus
+    PaymentAPI -. PaymentAuthorized / Failed .-> Bus
+    Bus -. Proyección .-> DiscoveryAPI
+    AgentAPI -. AgentActionRequested / Completed .-> Bus
+    Bus -. Eventos auditables .-> AuditConsumer
+
+    AgentAPI -->|consulta| DiscoveryAPI
+    AgentAPI -->|comando confirmado| ReservationAPI
+    ReservationAPI -. solicitud de pago .-> Bus
+
+    classDef service fill:#2563eb,color:#fff,stroke:#1e3a8a,stroke-width:2px;
+    classDef database fill:#334155,color:#fff,stroke:#0f172a,stroke-width:2px;
+    classDef bus fill:#b45309,color:#fff,stroke:#78350f,stroke-width:2px;
+    class IDAPI,SupplyAPI,DiscoveryAPI,ReservationAPI,PaymentAPI,AgentAPI,AuditConsumer service;
+    class IDDB,SupplyDB,DiscoveryIndex,ReservationDB,PaymentDB,ConversationDB,AuditDB database;
+    class Bus bus;
