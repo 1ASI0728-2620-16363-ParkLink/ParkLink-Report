@@ -1,0 +1,26 @@
+graph LR
+  linkStyle default fill:#ffffff
+
+  subgraph diagram ["System Landscape View"]
+    style diagram fill:#ffffff,stroke:#ffffff
+
+    4["<div style='font-weight: bold'>Proveedor de mapas</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Geocodificación, distancias y<br />mapas.</div>"]
+    style 4 fill:#6b7280,stroke:#4a4f59,color:#ffffff
+    5["<div style='font-weight: bold'>Pasarela de pagos</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Autoriza cobros y reembolsos.</div>"]
+    style 5 fill:#6b7280,stroke:#4a4f59,color:#ffffff
+    6["<div style='font-weight: bold'>Proveedor de modelo de lenguaje</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Interpreta lenguaje natural;<br />no ejecuta operaciones de<br />negocio.</div>"]
+    style 6 fill:#6b7280,stroke:#4a4f59,color:#ffffff
+    7["<div style='font-weight: bold'>Proveedores de notificación</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Entrega mensajes push y<br />correo electrónico.</div>"]
+    style 7 fill:#6b7280,stroke:#4a4f59,color:#ffffff
+    8["<div style='font-weight: bold'>Object Storage</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Almacena fotografías privadas<br />de estacionamientos.</div>"]
+    style 8 fill:#6b7280,stroke:#4a4f59,color:#ffffff
+    9["<div style='font-weight: bold'>ParkLink</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Plataforma de búsqueda,<br />reserva y monetización de<br />estacionamientos.</div>"]
+    style 9 fill:#1f5f8b,stroke:#154261,color:#ffffff
+
+    9-. "<div>Consulta mapas y<br />geocodificación</div><div style='font-size: 70%'>[HTTPS]</div>" .->4
+    9-. "<div>Procesa cobros y reembolsos</div><div style='font-size: 70%'>[HTTPS/Webhooks]</div>" .->5
+    9-. "<div>Solicita interpretación de<br />lenguaje natural</div><div style='font-size: 70%'>[HTTPS]</div>" .->6
+    9-. "<div>Envía notificaciones</div><div style='font-size: 70%'>[HTTPS]</div>" .->7
+    9-. "<div>Almacena fotografías</div><div style='font-size: 70%'>[S3 API]</div>" .->8
+
+  end

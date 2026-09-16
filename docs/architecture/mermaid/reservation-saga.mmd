@@ -1,0 +1,29 @@
+stateDiagram-v2
+    [*] --> Searching: intención validada
+    Searching --> OptionSelected: conductor elige espacio
+    OptionSelected --> Held: Reservation Service crea retención
+    Held --> Expired: vence TTL sin confirmación
+    Held --> AwaitingConfirmation: agente presenta precio y condiciones
+    AwaitingConfirmation --> Cancelled: conductor rechaza
+    AwaitingConfirmation --> PaymentPending: confirmación explícita
+    PaymentPending --> Confirmed: PaymentAuthorized
+    PaymentPending --> PaymentFailed: PaymentFailed
+    PaymentFailed --> AwaitingConfirmation: reintento autorizado
+    Confirmed --> Active: llega hora de inicio
+    Confirmed --> Cancelled: cancelación válida
+    Active --> Completed: finaliza intervalo
+    Active --> Extended: extensión disponible y confirmada
+    Extended --> Active: nuevo intervalo vigente
+    Expired --> [*]
+    Cancelled --> [*]
+    Completed --> [*]
+
+    note right of Held
+        La retención es temporal y pertenece
+        exclusivamente al Reservation Service.
+    end note
+
+    note right of AwaitingConfirmation
+        El agente debe mostrar espacio, horario,
+        precio total y política de cancelación.
+    end note

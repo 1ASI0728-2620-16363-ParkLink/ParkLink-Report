@@ -1,0 +1,132 @@
+---
+config:
+  look: handDrawn
+  handDrawnSeed: 17
+  theme: base
+  flowchart:
+    curve: basis
+    nodeSpacing: 28
+    rankSpacing: 48
+  themeVariables:
+    fontFamily: "Trebuchet MS, sans-serif"
+    primaryTextColor: "#172033"
+    lineColor: "#64748b"
+---
+flowchart TB
+    subgraph Board["EVENTSTORMING · BOUNDED CONTEXTS · PARKLINK"]
+        direction TB
+
+        subgraph Identity["BC · USER & IDENTITY"]
+            A1@{ shape: notch-rect, label: "ACTOR<br/>Conductor" }
+            C1@{ shape: notch-rect, label: "COMANDO<br/>Iniciar sesión" }
+            G1@{ shape: notch-rect, label: "AGREG.<br/>Identity" }
+            E1@{ shape: notch-rect, label: "EVENTO<br/>Usuario autenticado" }
+            A1 --> C1 --> G1 --> E1
+        end
+
+        subgraph Agent["BC · CONVERSATIONAL RESERVATION AGENT"]
+            C2@{ shape: notch-rect, label: "COMANDO<br/>Solicitar estacionamiento" }
+            G2@{ shape: notch-rect, label: "AGREG.<br/>Conversation" }
+            E2@{ shape: notch-rect, label: "EVENTO<br/>Intención interpretada" }
+            C3@{ shape: notch-rect, label: "COMANDO<br/>Presentar alternativas" }
+            P1@{ shape: notch-rect, label: "POLÍTICA<br/>Exigir confirmación humana" }
+            C2 --> G2 --> E2
+            C3 --> P1
+        end
+
+        subgraph Discovery["BC · PARKING DISCOVERY"]
+            C4@{ shape: notch-rect, label: "COMANDO<br/>Buscar opciones" }
+            G3@{ shape: notch-rect, label: "AGREG.<br/>Discovery" }
+            E3@{ shape: notch-rect, label: "EVENTO<br/>Opciones encontradas" }
+            C5@{ shape: notch-rect, label: "COMANDO<br/>Actualizar proyección" }
+            E4@{ shape: notch-rect, label: "EVENTO<br/>Disponibilidad visible actualizada" }
+            C4 --> G3 --> E3
+            C5 --> G3 --> E4
+        end
+
+        subgraph Supply["BC · PARKING SUPPLY"]
+            A2@{ shape: notch-rect, label: "ACTOR<br/>Propietario" }
+            C6@{ shape: notch-rect, label: "COMANDO<br/>Publicar o actualizar oferta" }
+            G4@{ shape: notch-rect, label: "AGREG.<br/>Parking Space" }
+            E5@{ shape: notch-rect, label: "EVENTO<br/>Oferta publicada o actualizada" }
+            A2 --> C6 --> G4 --> E5
+        end
+
+        subgraph Reservation["BC · RESERVATION MANAGEMENT · CORE"]
+            C7@{ shape: notch-rect, label: "COMANDO<br/>Retener espacio" }
+            G5@{ shape: notch-rect, label: "AGREG.<br/>Reservation" }
+            E6@{ shape: notch-rect, label: "EVENTO<br/>Reserva retenida" }
+            C8@{ shape: notch-rect, label: "COMANDO<br/>Confirmar reserva" }
+            E7@{ shape: notch-rect, label: "EVENTO<br/>Confirmación solicitada" }
+            C9@{ shape: notch-rect, label: "COMANDO<br/>Aplicar pago autorizado" }
+            E8@{ shape: notch-rect, label: "EVENTO<br/>Reserva confirmada" }
+            C10@{ shape: notch-rect, label: "COMANDO<br/>Cancelar o extender reserva" }
+            E9@{ shape: notch-rect, label: "EVENTO<br/>Reserva cancelada o extendida" }
+            C7 --> G5 --> E6
+            C8 --> G5 --> E7
+            C9 --> G5 --> E8
+            C10 --> G5 --> E9
+        end
+
+        subgraph Payment["BC · PAYMENT"]
+            C11@{ shape: notch-rect, label: "COMANDO<br/>Autorizar pago" }
+            G6@{ shape: notch-rect, label: "AGREG.<br/>Payment" }
+            E10@{ shape: notch-rect, label: "EVENTO<br/>Pago autorizado o fallido" }
+            C12@{ shape: notch-rect, label: "COMANDO<br/>Procesar reembolso" }
+            E11@{ shape: notch-rect, label: "EVENTO<br/>Reembolso procesado" }
+            C11 --> G6 --> E10
+            C12 --> G6 --> E11
+        end
+
+        subgraph Notification["BC · NOTIFICATION"]
+            C13@{ shape: notch-rect, label: "COMANDO<br/>Notificar resultado" }
+            G7@{ shape: notch-rect, label: "AGREG.<br/>Notification" }
+            E12@{ shape: notch-rect, label: "EVENTO<br/>Notificación enviada" }
+            C13 --> G7 --> E12
+        end
+
+        subgraph Audit["BC · AUDIT"]
+            C14@{ shape: notch-rect, label: "COMANDO<br/>Registrar operación" }
+            G8@{ shape: notch-rect, label: "AGREG.<br/>Audit Trail" }
+            E13@{ shape: notch-rect, label: "EVENTO<br/>Operación auditada" }
+            C14 --> G8 --> E13
+        end
+    end
+
+    E1 -. identidad validada .-> C2
+    E2 -. intención de búsqueda .-> C4
+    E3 -. opciones disponibles .-> C3
+    P1 -. usuario selecciona .-> C7
+    E6 -. resumen y precio .-> P1
+    P1 -. confirmación vigente .-> C8
+    E7 -. solicita autorización .-> C11
+    E10 -. pago autorizado .-> C9
+    E8 -. cambio confirmado .-> C5
+    E8 -. resultado notificable .-> C13
+    E9 -. cambio de estado .-> C5
+    E9 -. si fue cancelada .-> C12
+    E11 -. reembolso notificable .-> C13
+    E5 -. oferta modificada .-> C5
+    E8 -. evento crítico auditable .-> C14
+
+    class A1,A2 actor
+    class C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14 command
+    class G1,G2,G3,G4,G5,G6,G7,G8 aggregate
+    class E1,E2,E3,E4,E5,E6,E7,E8,E9,E10,E11,E12,E13 event
+    class P1 policy
+
+    classDef actor fill:#fff59d,color:#4a3b00,stroke:#d4a900,stroke-width:2px,font-weight:bold;
+    classDef command fill:#9dd9ff,color:#073763,stroke:#2780b8,stroke-width:2px,font-weight:bold;
+    classDef aggregate fill:#fff3d6,color:#6b3b00,stroke:#c98200,stroke-width:2px,font-weight:bold;
+    classDef event fill:#ffb15c,color:#5b2800,stroke:#c65f00,stroke-width:2px,font-weight:bold;
+    classDef policy fill:#eea6d8,color:#5b1648,stroke:#b54691,stroke-width:2px,font-weight:bold;
+
+    style Board fill:#f8f4e8,stroke:#736b5e,stroke-width:3px
+    style Identity fill:#f8fafc,stroke:#64748b,stroke-width:2px,stroke-dasharray:6 4
+    style Agent fill:#faf5ff,stroke:#9333ea,stroke-width:2px,stroke-dasharray:6 4
+    style Discovery fill:#eff6ff,stroke:#2563eb,stroke-width:2px,stroke-dasharray:6 4
+    style Supply fill:#f0fdf4,stroke:#16a34a,stroke-width:2px,stroke-dasharray:6 4
+    style Reservation fill:#fff1f2,stroke:#dc2626,stroke-width:3px
+    style Payment fill:#ecfeff,stroke:#0891b2,stroke-width:2px,stroke-dasharray:6 4
+    style Notification fill:#f8fafc,stroke:#64748b,stroke-width:2px,stroke-dasharray:6 4
+    style Audit fill:#f8fafc,stroke:#475569,stroke-width:2px,stroke-dasharray:6 4

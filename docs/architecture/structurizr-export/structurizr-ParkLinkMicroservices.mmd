@@ -1,0 +1,84 @@
+graph TB
+  linkStyle default fill:#ffffff
+
+  subgraph diagram ["Container View: ParkLink"]
+    style diagram fill:#ffffff,stroke:#ffffff
+
+    1["<div style='font-weight: bold'>Conductor</div><div style='font-size: 70%; margin-top: 0px'>[Person]</div><div style='font-size: 80%; margin-top:10px'>Busca, compara y reserva<br />estacionamientos desde la<br />aplicación o el chat.</div>"]
+    style 1 fill:#17324d,stroke:#102335,color:#ffffff
+    2["<div style='font-weight: bold'>Propietario</div><div style='font-size: 70%; margin-top: 0px'>[Person]</div><div style='font-size: 80%; margin-top:10px'>Publica espacios y administra<br />disponibilidad, precios e<br />ingresos.</div>"]
+    style 2 fill:#17324d,stroke:#102335,color:#ffffff
+    3["<div style='font-weight: bold'>Operador de soporte</div><div style='font-size: 70%; margin-top: 0px'>[Person]</div><div style='font-size: 80%; margin-top:10px'>Supervisa operaciones,<br />auditoría e incidentes.</div>"]
+    style 3 fill:#17324d,stroke:#102335,color:#ffffff
+    4["<div style='font-weight: bold'>Proveedor de mapas</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Geocodificación, distancias y<br />mapas.</div>"]
+    style 4 fill:#6b7280,stroke:#4a4f59,color:#ffffff
+    5["<div style='font-weight: bold'>Pasarela de pagos</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Autoriza cobros y reembolsos.</div>"]
+    style 5 fill:#6b7280,stroke:#4a4f59,color:#ffffff
+    6["<div style='font-weight: bold'>Proveedor de modelo de lenguaje</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Interpreta lenguaje natural;<br />no ejecuta operaciones de<br />negocio.</div>"]
+    style 6 fill:#6b7280,stroke:#4a4f59,color:#ffffff
+    7["<div style='font-weight: bold'>Proveedores de notificación</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Entrega mensajes push y<br />correo electrónico.</div>"]
+    style 7 fill:#6b7280,stroke:#4a4f59,color:#ffffff
+    8["<div style='font-weight: bold'>Object Storage</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div><div style='font-size: 80%; margin-top:10px'>Almacena fotografías privadas<br />de estacionamientos.</div>"]
+    style 8 fill:#6b7280,stroke:#4a4f59,color:#ffffff
+
+    subgraph 9 ["ParkLink"]
+      style 9 fill:#ffffff,stroke:#154261,color:#154261
+
+      10["<div style='font-weight: bold'>Aplicación móvil</div><div style='font-size: 70%; margin-top: 0px'>[Container: Flutter]</div><div style='font-size: 80%; margin-top:10px'>Experiencia para conductores<br />y propietarios, incluido el<br />chat.</div>"]
+      style 10 fill:#0f766e,stroke:#0a524d,color:#ffffff
+      11["<div style='font-weight: bold'>Panel web de monitoreo</div><div style='font-size: 70%; margin-top: 0px'>[Container: React / TypeScript]</div><div style='font-size: 80%; margin-top:10px'>Permite a propietarios<br />monitorear espacios, reservas<br />e ingresos.</div>"]
+      style 11 fill:#0f766e,stroke:#0a524d,color:#ffffff
+      12["<div style='font-weight: bold'>API Gateway</div><div style='font-size: 70%; margin-top: 0px'>[Container: NestJS / TypeScript]</div><div style='font-size: 80%; margin-top:10px'>Punto de entrada; valida JWT,<br />limita tráfico y enruta<br />solicitudes.</div>"]
+      style 12 fill:#7c3aed,stroke:#5628a5,color:#ffffff
+      13["<div style='font-weight: bold'>Agente conversacional de reservas</div><div style='font-size: 70%; margin-top: 0px'>[Container: NestJS / TypeScript]</div><div style='font-size: 80%; margin-top:10px'>Comprende la intención,<br />consulta opciones y orquesta<br />reservas con confirmación<br />humana.</div>"]
+      style 13 fill:#9333ea,stroke:#6623a3,color:#ffffff
+      20["<div style='font-weight: bold'>Identity Service</div><div style='font-size: 70%; margin-top: 0px'>[Container: NestJS / TypeScript]</div><div style='font-size: 80%; margin-top:10px'>Registro, autenticación,<br />roles, perfiles y tokens<br />delegados.</div>"]
+      style 20 fill:#2563eb,stroke:#1945a4,color:#ffffff
+      21["<div style='font-weight: bold'>Parking Discovery Service</div><div style='font-size: 70%; margin-top: 0px'>[Container: NestJS / TypeScript]</div><div style='font-size: 80%; margin-top:10px'>Búsqueda geoespacial,<br />filtros, detalle y<br />disponibilidad visible.</div>"]
+      style 21 fill:#2563eb,stroke:#1945a4,color:#ffffff
+      22["<div style='font-weight: bold'>Parking Supply Service</div><div style='font-size: 70%; margin-top: 0px'>[Container: NestJS / TypeScript]</div><div style='font-size: 80%; margin-top:10px'>Publicación de espacios,<br />horarios, precios y estado de<br />la oferta.</div>"]
+      style 22 fill:#2563eb,stroke:#1945a4,color:#ffffff
+      23["<div style='font-weight: bold'>Reservation Service</div><div style='font-size: 70%; margin-top: 0px'>[Container: NestJS / TypeScript]</div><div style='font-size: 80%; margin-top:10px'>Autoridad del ciclo de vida<br />de reservas y control de<br />concurrencia.</div>"]
+      style 23 fill:#dc2626,stroke:#9a1a1a,color:#ffffff
+      24["<div style='font-weight: bold'>Payment Service</div><div style='font-size: 70%; margin-top: 0px'>[Container: NestJS / TypeScript]</div><div style='font-size: 80%; margin-top:10px'>Pagos, idempotencia,<br />webhooks, reembolsos y<br />comprobantes.</div>"]
+      style 24 fill:#2563eb,stroke:#1945a4,color:#ffffff
+      25["<div style='font-weight: bold'>Notification Service</div><div style='font-size: 70%; margin-top: 0px'>[Container: NestJS / TypeScript]</div><div style='font-size: 80%; margin-top:10px'>Notificaciones asíncronas por<br />push y correo.</div>"]
+      style 25 fill:#2563eb,stroke:#1945a4,color:#ffffff
+      26["<div style='font-weight: bold'>Audit Service</div><div style='font-size: 70%; margin-top: 0px'>[Container: NestJS / TypeScript]</div><div style='font-size: 80%; margin-top:10px'>Trazabilidad inmutable de<br />operaciones críticas y<br />acciones del agente.</div>"]
+      style 26 fill:#2563eb,stroke:#1945a4,color:#ffffff
+      27["<div style='font-weight: bold'>Reservation Command Broker</div><div style='font-size: 70%; margin-top: 0px'>[Container: RabbitMQ / Quorum Queues]</div><div style='font-size: 80%; margin-top:10px'>Recibe comandos durables de<br />reserva, aplica backpressure<br />y los distribuye por espacio.</div>"]
+      style 27 fill:#b45309,stroke:#7d3a06,color:#ffffff
+      28["<div style='font-weight: bold'>Event Bus</div><div style='font-size: 70%; margin-top: 0px'>[Container: RabbitMQ]</div><div style='font-size: 80%; margin-top:10px'>Distribuye eventos de dominio<br />y soporta procesos<br />asíncronos.</div>"]
+      style 28 fill:#b45309,stroke:#7d3a06,color:#ffffff
+    end
+
+    1-. "<div>Usa la app y conversa con el<br />agente</div><div style='font-size: 70%'>[HTTPS/WebSocket]</div>" .->10
+    2-. "<div>Gestiona funciones<br />principales</div><div style='font-size: 70%'>[HTTPS]</div>" .->10
+    2-. "<div>Monitorea espacios, reservas<br />e ingresos</div><div style='font-size: 70%'>[HTTPS]</div>" .->11
+    10-. "<div>Consume APIs y canal de chat</div><div style='font-size: 70%'>[HTTPS/WebSocket]</div>" .->12
+    11-. "<div>Consulta datos de monitoreo</div><div style='font-size: 70%'>[HTTPS]</div>" .->12
+    12-. "<div>Enruta /chat con identidad<br />delegada</div><div style='font-size: 70%'>[HTTPS]</div>" .->13
+    12-. "<div>Enruta autenticación y<br />perfiles</div><div style='font-size: 70%'>[HTTPS]</div>" .->20
+    12-. "<div>Enruta búsquedas y detalle</div><div style='font-size: 70%'>[HTTPS]</div>" .->21
+    12-. "<div>Enruta gestión de espacios</div><div style='font-size: 70%'>[HTTPS]</div>" .->22
+    12-. "<div>Enruta consultas y estado de<br />reserva</div><div style='font-size: 70%'>[HTTPS]</div>" .->23
+    12-. "<div>Publica comandos visuales<br />autenticados</div><div style='font-size: 70%'>[AMQP]</div>" .->27
+    12-. "<div>Enruta consultas de pago</div><div style='font-size: 70%'>[HTTPS]</div>" .->24
+    13-. "<div>Interpreta intención y<br />redacta respuestas</div><div style='font-size: 70%'>[HTTPS]</div>" .->6
+    13-. "<div>Valida actor y permisos<br />delegados</div><div style='font-size: 70%'>[HTTPS/mTLS]</div>" .->20
+    13-. "<div>Ejecuta herramientas de<br />búsqueda permitidas</div><div style='font-size: 70%'>[HTTPS/mTLS]</div>" .->21
+    13-. "<div>Publica Hold, Confirm, Cancel<br />y Extend confirmados</div><div style='font-size: 70%'>[AMQP]</div>" .->27
+    13-. "<div>Publica AgentActionRequested<br />y AgentActionCompleted</div><div style='font-size: 70%'>[AMQP]</div>" .->28
+    21-. "<div>Obtiene distancias y<br />geocodificación</div><div style='font-size: 70%'>[HTTPS]</div>" .->4
+    22-. "<div>Genera referencias de<br />fotografías</div><div style='font-size: 70%'>[S3 API]</div>" .->8
+    24-. "<div>Autoriza cobros y reembolsos</div><div style='font-size: 70%'>[HTTPS/Webhooks]</div>" .->5
+    25-. "<div>Envía push y correo</div><div style='font-size: 70%'>[HTTPS]</div>" .->7
+    27-. "<div>Entrega comandos durables<br />particionados por spaceId</div><div style='font-size: 70%'>[AMQP]</div>" .->23
+    22-. "<div>Publica SpacePublished y<br />PriceChanged</div><div style='font-size: 70%'>[AMQP]</div>" .->28
+    23-. "<div>Publica ReservationHeld,<br />ReservationConfirmationRequested,<br />Confirmed, Cancelled y<br />Expired</div><div style='font-size: 70%'>[AMQP]</div>" .->28
+    24-. "<div>Consume<br />ReservationConfirmationRequested;<br />publica PaymentAuthorized o<br />Failed</div><div style='font-size: 70%'>[AMQP]</div>" .->28
+    21-. "<div>Consume cambios de oferta y<br />reserva</div><div style='font-size: 70%'>[AMQP]</div>" .->28
+    25-. "<div>Consume eventos notificables</div><div style='font-size: 70%'>[AMQP]</div>" .->28
+    26-. "<div>Consume eventos auditables</div><div style='font-size: 70%'>[AMQP]</div>" .->28
+
+  end

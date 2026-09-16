@@ -1,0 +1,50 @@
+flowchart TB
+    subgraph EventClusters[Clústeres obtenidos del EventStorming]
+        direction LR
+        IdentityEvents[Registro, autenticación y roles]:::cluster
+        SupplyEvents[Publicación, horarios y precios]:::cluster
+        DiscoveryEvents[Búsqueda, filtros y disponibilidad visible]:::cluster
+        ReservationEvents[Retención, confirmación, cancelación y extensión]:::cluster
+        PaymentEvents[Autorización, cobro y reembolso]:::cluster
+        NotificationEvents[Push y correo]:::cluster
+        AgentEvents[Intención, diálogo y confirmación humana]:::cluster
+        AuditEvents[Trazabilidad de operaciones críticas]:::cluster
+    end
+
+    subgraph Candidates[Bounded Contexts candidatos]
+        direction LR
+        Identity[User & Identity]:::generic
+        Supply[Parking Supply]:::supporting
+        Discovery[Parking Discovery]:::supporting
+        Reservation[Reservation Management]:::core
+        Payment[Payment]:::supporting
+        Notification[Notification]:::generic
+        Agent[Conversational Reservation Agent]:::supporting
+        Audit[Audit]:::generic
+    end
+
+    IdentityEvents --> Identity
+    SupplyEvents --> Supply
+    DiscoveryEvents --> Discovery
+    ReservationEvents --> Reservation
+    PaymentEvents --> Payment
+    NotificationEvents --> Notification
+    AgentEvents --> Agent
+    AuditEvents --> Audit
+
+    Identity -. identidad delegada .-> Agent
+    Supply -. oferta publicada .-> Discovery
+    Discovery -. opción elegida .-> Agent
+    Agent -. comando confirmado .-> Reservation
+    Reservation -. pago solicitado .-> Payment
+    Reservation -. cambio de estado .-> Discovery
+    Reservation -. evento notificable .-> Notification
+    Identity -. eventos auditables .-> Audit
+    Supply -. eventos auditables .-> Audit
+    Reservation -. eventos auditables .-> Audit
+    Payment -. eventos auditables .-> Audit
+
+    classDef cluster fill:#f8fafc,color:#0f172a,stroke:#64748b,stroke-width:2px;
+    classDef core fill:#fee2e2,color:#7f1d1d,stroke:#dc2626,stroke-width:3px;
+    classDef supporting fill:#dbeafe,color:#1e3a8a,stroke:#2563eb,stroke-width:2px;
+    classDef generic fill:#e2e8f0,color:#0f172a,stroke:#475569,stroke-width:2px;
