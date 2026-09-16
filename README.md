@@ -161,7 +161,7 @@ Ser la plataforma líder en reserva de estacionamientos en Latinoamérica, contr
 #### 1.1.2. Perfiles de integrantes del equipo
 | Nombre                          | Descripción                                                                                                                                                                                                                                                                                                                                 | Foto |
 |---------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|
-| Fabian Alejandro Oliva Lopez     | Me considero una persona activa en los proyectos, impulsando al equipo a realizar buenos trabajos. Mi objetivo es brindar apoyo y dar lo mejor de mí para fomentar un ambiente colaborativo y de respeto.                                                                                                                                 | foto |
+| Fabian Alejandro Oliva Lopez     | Soy estudiante de Ingeniería de Software con un gran interés de desarrollo backend y frontend. Me considero una persona activa en los proyectos, impulsando al equipo a realizar buenos trabajos. Mi objetivo es brindar apoyo y dar lo mejor de mí para fomentar un ambiente colaborativo y de respeto.                                                                                                                                 | foto |
 |  Amir Gabriel Castro Sanchez   | Soy estudiante de Ingeniería de Software con interés en el desarrollo backend y la creación de aplicaciones móviles. Tengo conocimientos en el diseño e implementación de servicios y APIs, integración con bases de datos y desarrollo de funcionalidades para aplicaciones móviles. Me caracterizo por ser una persona responsable, colaborativa y con disposición para aprender nuevas tecnologías que permitan desarrollar soluciones eficientes y escalables.      | foto |
 | Pietro Osores Marchese           | Soy Pietro Osores Marchese, estudiante de Ingeniería de Sistemas con interés en el desarrollo de software y la innovación tecnológica. Mi perfil combina habilidades en programación frontend, diseño de interfaces y gestión de proyectos ágiles, con un enfoque en la creación de soluciones digitales funcionales y escalables. Me caracterizo por el trabajo en equipo, la adaptabilidad y la búsqueda constante de nuevas herramientas para optimizar procesos y experiencias de usuario. | <img src="assets/cap-1/Pietro.jpg" alt="Pietro Osores" width="180" /> |
 | Daniel Elias Ruiz Huisa    | Soy un estudiante de Ingeniería de Software. Me intereso por el desarrollo web y la evolucion de tecnologias como los nuevos agentes AI. Tengo conocimientos en Frameworks orientados a node.js como Astro, Vue y Angular. Domino lenguajes como python, C++ y typescript. Soy una persona responsable que busca siempre generar un ambiente sano y agradable para todos.     | ![Daniel Ruiz](assets/cap-1/Daniel.jpeg ) |
@@ -512,26 +512,71 @@ cuando implementemos una interfaz que muestre datos en tiempo real de forma senc
 
 ### 1.3. Segmentos objetivo
 
-**Segmento 1: Conductores**
-- **Características:**
-  - Personas que conducen en zonas urbanas
-  - Edades entre 20 y 60 años
-  - Uso frecuente de apps móviles
-    
-- **Necesidades:**
-  - Encontrar estacionamiento rápido
-  - Reducir tiempo de búsqueda
-  - Reservar anticipadamente
-  - Pago seguro
+ParkLink está orientado principalmente a dos segmentos: conductores urbanos que requieren encontrar estacionamiento y propietarios o administradores que cuentan con espacios que pueden ser ofrecidos a otros usuarios. Ambos segmentos se concentran inicialmente en Lima Metropolitana.
 
-**Segmento 2: Propietarios de estacionamientos**
-- **Características:**
-  - Personas o empresas con espacios disponibles
-  - Interés en generar ingresos
-    
-- **Necesidades:**
-  - Publicar espacios fácilmente
-  - Gestionar reservas
-  - Definir precios
-  - Recibir pagos seguros
+#### Segmento 1: Conductores urbanos
+
+**Características demográficas:**
+- Personas principalmente entre 20 y 60 años.
+- Hombres y mujeres que conduzcan un vehículo particular.
+- Residentes de Lima Metropolitana o personas que se desplacen regularmente dentro de ella.
+- Estudiantes universitarios, trabajadores dependientes, trabajadores independientes, empresarios y otros usuarios que utilicen vehículos para sus actividades cotidianas.
+- Usuarios familiarizados con teléfonos inteligentes y aplicaciones móviles.
+
+**Características de comportamiento:**
+- Se movilizan regularmente hacia zonas comerciales, empresariales, educativas o recreativas.
+- Utilizan el vehículo particular de manera frecuente.
+- Buscan alternativas que les permitan ahorrar tiempo durante sus desplazamientos.
+- Utilizan aplicaciones móviles para actividades relacionadas con movilidad, ubicación, pagos o servicios.
+
+**Necesidades:**
+- Encontrar espacios de estacionamiento disponibles de manera rápida.
+- Reducir el tiempo empleado buscando estacionamiento.
+- Conocer previamente la ubicación, precio y disponibilidad.
+- Reservar un espacio antes de llegar al destino.
+- Contar con métodos de pago seguros.
+- Reducir la incertidumbre relacionada con la búsqueda de estacionamiento.
+
+**Relevancia del segmento:**
+
+La presencia de vehículos particulares en Lima Metropolitana demuestra la existencia de un mercado potencial para soluciones relacionadas con estacionamiento. Según la Encuesta Demográfica y de Salud Familiar del INEI, en 2024 el 16,6 % de los hogares de Lima Metropolitana contaba con carro o camión.
+
+Asimismo, existe una alta utilización de teléfonos celulares dentro del rango de edad seleccionado. Durante el primer trimestre de 2025, el 97,4 % de las personas de 19 a 24 años utilizaba teléfono celular; este porcentaje también alcanzó el 97,4 % entre las personas de 25 a 40 años y el 96,1 % entre las personas de 41 a 59 años (INEI, 2025).
+
+Estos indicadores muestran que existe una población relevante que combina el uso de vehículos con una alta adopción de dispositivos móviles, características necesarias para el uso de una plataforma como ParkLink.
+
+---
+
+#### Segmento 2: Propietarios y administradores de espacios de estacionamiento
+
+**Características demográficas y organizacionales:**
+- Personas naturales, principalmente mayores de 25 años, que sean propietarias o administradoras de uno o más espacios de estacionamiento.
+- Hombres y mujeres sin distinción de género.
+- Residentes principalmente de Lima Metropolitana.
+- Propietarios de viviendas, departamentos, cocheras u otros inmuebles que dispongan de espacios que permanezcan libres durante determinados horarios.
+- Empresas, negocios, edificios residenciales u organizaciones que administren espacios de estacionamiento.
+- Personas o administradores con acceso a teléfonos inteligentes e Internet para gestionar sus espacios mediante la plataforma.
+
+**Características de comportamiento:**
+- Cuentan con espacios de estacionamiento que no son utilizados permanentemente.
+- Buscan aprovechar mejor sus espacios disponibles.
+- Tienen interés en obtener ingresos adicionales.
+- Desean administrar horarios, disponibilidad y reservas de manera sencilla.
+- Buscan mecanismos digitales que permitan conectar sus espacios con potenciales usuarios.
+
+**Necesidades:**
+- Publicar espacios de estacionamiento fácilmente.
+- Establecer los horarios en los que se encuentran disponibles.
+- Definir precios por hora o periodo.
+- Gestionar solicitudes y reservas.
+- Recibir pagos de manera segura.
+- Incrementar el aprovechamiento de espacios que permanecen desocupados.
+
+**Relevancia del segmento:**
+
+Aunque actualmente no se dispone de una estadística oficial que determine específicamente cuántos propietarios particulares poseen cocheras libres para alquiler en Lima Metropolitana, existen indicadores que muestran una oferta considerable de infraestructura destinada al estacionamiento.
+
+Por ejemplo, la Municipalidad de San Isidro registra 914 espacios sujetos al servicio de estacionamiento vehicular y 1.658 espacios adicionales dentro de su sistema de estacionamiento rotativo. Asimismo, las plataformas geográficas oficiales utilizadas para el análisis de movilidad urbana de Lima contemplan categorías específicas de estacionamientos y estacionamientos formales.
+
+Estos datos permiten evidenciar la existencia de una oferta de espacios de estacionamiento en el entorno urbano. Para ParkLink, la cantidad específica de propietarios interesados en ofrecer espacios privados será determinada posteriormente mediante entrevistas, encuestas y la validación de la solución con usuarios potenciales.
 
