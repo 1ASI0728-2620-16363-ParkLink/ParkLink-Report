@@ -1017,6 +1017,18 @@ Juan usa su vehículo principalmente los fines de semana para salidas sociales. 
 
 ---
 
+| Información del entrevistado | Detalle | Evidencia / Foto |
+| :--- | :--- | :--- |
+| **Nombre:** | Diego Alonso Morales Peña | |
+| **Edad:** | 24 años | <img width="250" alt="Conductor 3" src="assets/cap-2/Conductor3.png" /> |
+| **Procedencia:** | San Miguel, Lima | |
+| **Link de Entrevista:** | [Ver Entrevista - Conductor 3](#) | |
+
+**Resumen:**
+Diego (24 años) se desplaza a diario en auto particular entre San Miguel, San Isidro y Surco para cumplir con sus horarios universitarios y de prácticas pre-profesionales. Explicó que su principal dolor radica en perder entre 15 y 25 minutos buscando estacionamiento en horas punta matutinas, sumado al peligro y estrés de manipular el teléfono celular mientras conduce en vías congestionadas como Javier Prado. Destacó como indispensable la incorporación de un asistente inteligente por voz que le permita reservar y gestionar su cochera con manos libres sin desviar la atención del camino. Asimismo, recalcó que la plataforma debe garantizar alta disponibilidad y estabilidad en horas de alta demanda para evitar bloqueos en las transacciones de pago o caídas al momento de ingresar al estacionamiento.
+
+---
+
 #### Segmento: Propietarios de estacionamientos
 
 | Información del entrevistado | Detalle | Evidencia / Foto |
@@ -1046,27 +1058,28 @@ Dlan administra espacios de un edificio residencial que quedan vacíos durante l
 #### Análisis de entrevistas al segmento Conductores urbanos
 
 ##### Datos demográficos
-**Edad:** Promedio: **37.5 años** | Rango: **25 - 50 años**
+**Edad:** Promedio: **33.0 años** | Rango: **24 - 50 años**
 **Sexo:** El **100%** de los entrevistados son de género **masculino**.
 **Procedencia:**
-● El **50% (1)** proviene de **Lima Centro** (Cercado de Lima / zonas céntricas)
-● El **50% (1)** proviene de **Miraflores**
+● El **33.3% (1)** proviene de **Lima Centro** (Cercado de Lima / zonas céntricas)
+● El **33.3% (1)** proviene de **Miraflores**
+● El **33.3% (1)** proviene de **San Miguel**
 
 ---
 
 ##### Estadísticas:
-● El **100%** de los entrevistados pierde entre 15 a 20 minutos buscando estacionamiento o se enfrenta a la incertidumbre de no hallar espacio.
-● El **50%** ha llegado a cancelar planes sociales debido a la falta de parqueo oportuno.
+● El **100%** de los entrevistados pierde entre 15 a 25 minutos buscando estacionamiento o se enfrenta a la incertidumbre de no hallar espacio.
+● El **66.7%** ha llegado a cancelar planes sociales o sufrir retrasos en compromisos debido a la falta de parqueo oportuno.
 ● El **100%** considera el estrés de búsqueda y la congestión como un factor altamente negativo en su rutina de movilidad.
-● El **100%** asevera que cualquier solución digital debe ser lo suficientemente robusta como para no sufrir caídas o saturaciones durante las horas punta.
+● El **100%** asevera que cualquier solución digital debe ser lo suficientemente robusta como para no sufrir caídas o saturaciones durante las horas punta (8:00 - 9:00 AM).
 ● El **100%** destaca la necesidad de interactuar con la aplicación de forma segura (modo manos libres / asistencia por voz), evitando distracciones peligrosas al volante en medio del tráfico.
 ---
 
 ##### Funcionalidades deseadas en la aplicación:
 ● Visualización de disponibilidad en tiempo real: **100%**
-● Sistema de reserva anticipada antes de salir: **50%**
-● Extensión del tiempo de reserva desde la app: **50%** (mencionado explícitamente por el Conductor 2)
-● Alertas y navegación integrada segura (evitando manipulación riesgosa conduciendo): **100%**
+● Sistema de reserva anticipada antes de salir: **66.7%** (mencionado por Conductor 2 y Conductor 3)
+● Extensión del tiempo de reserva desde la app: **66.7%** (mencionado por Conductor 2 y Conductor 3)
+● Alertas y navegación integrada segura con asistencia por voz (evitando manipulación riesgosa conduciendo): **100%**
 
 ---
 
