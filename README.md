@@ -1,6 +1,11 @@
 # ParkLink-Report
 
-# Capítulo II: Requirements & Analysis
+# Capítulo II: Requirements Elicitation & Analysis
+## 2.1 Competidores
+
+El presente análisis del panorama competitivo (Competitive Analysis Landscape) tiene como propósito fundamental examinar las soluciones digitales actuales orientadas a la gestión, pago, búsqueda y reserva de espacios de estacionamiento, evaluando tanto sus fortalezas como sus limitaciones en el mercado.
+
+Para diseñar una solución digital eficiente, confiable y diferenciada que permita a los conductores encontrar y reservar estacionamientos en tiempo real —reduciendo el tiempo de búsqueda, el tráfico urbano y el estrés—, es indispensable comprender las características de los principales actores del sector. A continuación, se evalúan cuatro actores clave del mercado: ParkLink (como propuesta de plataforma integral de búsqueda y reserva), Apparka (como referente local en pago digital de estacionamiento en vía pública), Parkopedia (como directorio global de amplia cobertura), y Quadra (como solución enfocada en la administración institucional de espacios). Este desglose contempla perfiles generales, estrategias de marketing, modelos de producto y una matriz de análisis FODA (SWOT) que identifica oportunidades estratégicas para el desarrollo de nuestra propuesta.
 
 ### 2.1.1 Competitive Analysis Landscape
 
@@ -219,96 +224,127 @@
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
-A partir del análisis competitivo realizado en la sección anterior, se identificaron diversas oportunidades y debilidades en los competidores actuales (Apparka, Parkopedia y Quadra). En base a estos hallazgos, se plantean las siguientes estrategias y tácticas para posicionar a ParkLink como una solución diferenciada en el mercado:
+A partir del análisis competitivo realizado, se evaluaron las fortalezas, debilidades y amenazas de los actores actuales en el mercado (Apparka, Parkopedia y Quadra). Para estructurar la respuesta de ParkLink frente a sus ventajas y mitigar los riesgos del entorno, se organiza la siguiente matriz de acción (Hallazgo / Competidor → Estrategia → Táctica):
 
-#### 1. Diferenciación mediante reservas en tiempo real
-Se identificó que competidores como Parkopedia no ofrecen disponibilidad en tiempo real ni permiten realizar reservas anticipadas, mientras que Apparka se limita únicamente al pago.
+<table>
+  <tr>
+    <th>Hallazgo y Competidor de Referencia</th>
+    <th>Estrategia Competitiva</th>
+    <th>Tácticas de Implementación</th>
+  </tr>
 
-**Estrategia:**
-Implementar un sistema de reservas en tiempo real que permita a los usuarios asegurar un espacio antes de llegar a su destino.
+  <tr>
+    <td>
+      <b>1. Falta de tiempo real y reservas</b><br>
+      <i>(Fortaleza/Amenaza de Parkopedia y Apparka: Tienen base de datos y pagos, pero no aseguran el espacio ni permiten reservar)</i>
+    </td>
+    <td>
+      <b>Diferenciación mediante reservas anticipadas en tiempo real.</b><br>
+      Aprovechar la debilidad de los líderes para ofrecer previsibilidad al conductor.
+    </td>
+    <td>
+      - Desarrollo de un mapa interactivo con disponibilidad actualizada.<br>
+      - Sistema de confirmación inmediata de reservas.<br>
+      - Integración de notificaciones en tiempo real.
+    </td>
+  </tr>
 
-**Tácticas:**
-- Desarrollo de un mapa interactivo con disponibilidad actualizada.
-- Sistema de confirmación inmediata de reservas.
-- Integración de notificaciones en tiempo real.
+  <tr>
+    <td>
+      <b>2. Fragmentación del mercado</b><br>
+      <i>(Fortaleza de Apparka en pagos y Quadra en gestión institucional, pero ofrecen soluciones parciales aisladas)</i>
+    </td>
+    <td>
+      <b>Plataforma integral y unificada.</b><br>
+      Superar la ventaja fragmentada de los competidores unificando búsqueda, reserva, pago y gestión en un solo sistema.
+    </td>
+    <td>
+      - Integración de múltiples funcionalidades en una sola aplicación.<br>
+      - Experiencia unificada para conductores y propietarios.<br>
+      - Optimización de flujos de usuario para reducir fricción.
+    </td>
+  </tr>
 
----
+  <tr>
+    <td>
+      <b>3. Infraestructura subutilizada</b><br>
+      <i>(Oportunidad de mercado frente al enfoque exclusivo en vía pública de Apparka o B2B de Quadra)</i>
+    </td>
+    <td>
+      <b>Enfoque en la monetización de espacios privados.</b><br>
+      Neutralizar la competencia tradicional abriendo una nueva fuente de oferta de estacionamientos.
+    </td>
+    <td>
+      - Sistema de registro sencillo para propietarios.<br>
+      - Panel de gestión de ingresos y reservas.<br>
+      - Incentivos para atraer nuevos espacios a la plataforma.
+    </td>
+  </tr>
 
-#### 2. Plataforma integral 
-Los competidores actuales ofrecen soluciones parciales: Apparka se enfoca en pagos, Parkopedia en información y Quadra en gestión.
+  <tr>
+    <td>
+      <b>4. Limitaciones en usabilidad de apps actuales</b><br>
+      <i>(Debilidad común observada en plataformas existentes centradas en procesos complejos)</i>
+    </td>
+    <td>
+      <b>Mejora radical de la experiencia de usuario (UX/UI).</b><br>
+      Convertir la usabilidad en un factor de retención frente a competidores consolidados pero rígidos.
+    </td>
+    <td>
+      - Diseño responsive y mobile-first.<br>
+      - Navegación simple basada en mapas.<br>
+      - Pruebas de usabilidad constantes con usuarios reales.
+    </td>
+  </tr>
 
-**Estrategia:**
-Ofrecer una plataforma integral que combine búsqueda, reserva, pago y gestión en un solo sistema.
+  <tr>
+    <td>
+      <b>5. Crecimiento de Smart Cities</b><br>
+      <i>(Oportunidad de posicionamiento alineada con las tendencias de movilidad urbana inteligente)</i>
+    </td>
+    <td>
+      <b>Posicionamiento como solución de Smart Mobility.</b><br>
+      Escalar la propuesta de valor hacia un concepto de ciudad inteligente que trasciende la simple aplicación de pagos.
+    </td>
+    <td>
+      - Integración con tecnologías de geolocalización y análisis de datos.<br>
+      - Uso de métricas para optimizar la oferta y demanda de estacionamientos.<br>
+      - Comunicación del impacto en reducción de tráfico y contaminación.
+    </td>
+  </tr>
 
-**Tácticas:**
-- Integración de múltiples funcionalidades dentro de una sola aplicación.
-- Experiencia unificada para conductores y propietarios.
-- Optimización de flujos de usuario para reducir fricción.
+  <tr>
+    <td>
+      <b>6. Barreras de adopción y competencia establecida</b><br>
+      <i>(Amenaza clave: Competencia de aplicaciones ya posicionadas y dependencia inicial)</i>
+    </td>
+    <td>
+      <b>Estrategia agresiva de crecimiento y adopción digital.</b><br>
+      Contrarrestar la ventaja de inercia de los competidores mediante marketing directo y alianzas estratégicas.
+    </td>
+    <td>
+      - Campañas en redes sociales dirigidas a conductores urbanos.<br>
+      - Alianzas con centros comerciales, empresas y parkings privados.<br>
+      - Programas de referidos para escalar la base de usuarios.
+    </td>
+  </tr>
 
----
-
-#### 3. Enfoque en la monetización de espacios privados
-Ninguno de los competidores explota completamente el potencial de los estacionamientos privados subutilizados.
-
-**Estrategia:**
-Permitir a los propietarios publicar y monetizar sus espacios de estacionamiento.
-
-**Tácticas:**
-- Sistema de registro sencillo para propietarios.
-- Panel de gestión de ingresos y reservas.
-- Incentivos para atraer nuevos espacios a la plataforma.
-
----
-
-#### 4. Mejora de la experiencia del usuario (UX/UI)
-Se observó que varias soluciones no están centradas completamente en la experiencia del usuario o presentan limitaciones en usabilidad.
-
-**Estrategia:**
-Desarrollar una interfaz intuitiva, rápida y centrada en el usuario.
-
-**Tácticas:**
-- Diseño responsive y mobile-first.
-- Navegación simple basada en mapas.
-- Pruebas de usabilidad constantes con usuarios reales.
-
----
-
-#### 5. Posicionamiento como solución de smart mobility
-El crecimiento de las ciudades inteligentes representa una gran oportunidad para soluciones innovadoras.
-
-**Estrategia:**
-Posicionar a ParkLink como una solución de movilidad inteligente (smart parking).
-
-**Tácticas:**
-- Integración con tecnologías de geolocalización y análisis de datos.
-- Uso de métricas para optimizar la oferta y demanda de estacionamientos.
-- Comunicación del impacto en reducción de tráfico y contaminación.
-
----
-
-#### 6. Estrategia de crecimiento y adopción
-Se identificó que algunos competidores dependen fuertemente de instituciones o tienen alcance limitado.
-
-**Estrategia:**
-Expandir la plataforma mediante estrategias digitales y alianzas estratégicas.
-
-**Tácticas:**
-- Campañas en redes sociales dirigidas a conductores urbanos.
-- Alianzas con centros comerciales, empresas y parkings privados.
-- Programas de referidos para aumentar la base de usuarios.
-
----
-
-#### 7. Mejora continua basada en datos
-Los competidores presentan limitaciones en actualización de datos o precisión.
-
-**Estrategia:**
-Implementar un modelo de mejora continua basado en datos y feedback de usuarios.
-
-**Tácticas:**
-- Recolección de métricas de uso en la plataforma.
-- Análisis del comportamiento del usuario.
-- Actualizaciones frecuentes con nuevas funcionalidades.
+  <tr>
+    <td>
+      <b>7. Imprecisión de datos en competidores</b><br>
+      <i>(Amenaza de Parkopedia: Dependencia de la actualización de datos y falta de precisión en tiempo real)</i>
+    </td>
+    <td>
+      <b>Mejora continua y robustez basada en datos (Data-Driven).</b><br>
+      Asegurar la fiabilidad del servicio para superar la principal queja de los usuarios de plataformas globales.
+    </td>
+    <td>
+      - Recolección constante de métricas de uso en la plataforma.<br>
+      - Análisis profundo del comportamiento del usuario.<br>
+      - Actualizaciones frecuentes con optimización de precisión.
+    </td>
+  </tr>
+</table>
 
 ## 2.2.Entrevistas.
 Esta parte del informe presentará la parte objetiva de las entrevistas junto con el análisis 
@@ -428,36 +464,34 @@ Dlan administra espacios de un edificio residencial que quedan vacíos durante l
 #### Análisis de entrevistas al segmento Conductores urbanos
 
 ##### Datos demográficos
-**Edad:** Promedio: **28.5 años** | Rango: **25 - 32 años**
+**Edad:** Promedio: **37.5 años** | Rango: **25 - 50 años**
 **Sexo:** El **100%** de los entrevistados son de género **masculino**.
 **Procedencia:**
-● El **50% (1)** proviene de **Lima Centro**
+● El **50% (1)** proviene de **Lima Centro** (Cercado de Lima / zonas céntricas)
 ● El **50% (1)** proviene de **Miraflores**
 
 ---
 
 ##### Estadísticas:
-● El **100%** de los entrevistados pierde entre 15 a 20 minutos buscando estacionamiento.  
-● El **100%** busca alternativas a manos libres, evitando riesgos y demoras.  
-● El **50%** ha llegado a cancelar planes sociales por falta de parqueo.  
-● El **100%** considera el estrés de búsqueda como un factor negativo en su rutina.  
-● El **100%** asevera que cualquier solución, debe ser suficientemente robusta como para sobrevivir a las horas punta.
-
+● El **100%** de los entrevistados pierde entre 15 a 20 minutos buscando estacionamiento o se enfrenta a la incertidumbre de no hallar espacio.
+● El **50%** ha llegado a cancelar planes sociales debido a la falta de parqueo oportuno.
+● El **100%** considera el estrés de búsqueda y la congestión como un factor altamente negativo en su rutina de movilidad.
+● El **100%** asevera que cualquier solución digital debe ser lo suficientemente robusta como para no sufrir caídas o saturaciones durante las horas punta.
+● El **100%** destaca la necesidad de interactuar con la aplicación de forma segura (modo manos libres / asistencia por voz), evitando distracciones peligrosas al volante en medio del tráfico.
 ---
 
 ##### Funcionalidades deseadas en la aplicación:
 ● Visualización de disponibilidad en tiempo real: **100%**
-● Sistema de reserva anticipada: **100%**
-● Extensión de tiempo desde la app: **50%**
-● Mapa con precios y distancias: **100%**
-● Asistente inteligente manejado por voz: **100%**
+● Sistema de reserva anticipada antes de salir: **50%**
+● Extensión del tiempo de reserva desde la app: **50%** (mencionado explícitamente por el Conductor 2)
+● Alertas y navegación integrada segura (evitando manipulación riesgosa conduciendo): **100%**
 
 ---
 
 #### Análisis de entrevistas al segmento Propietarios de estacionamientos
 
 ##### Datos demográficos
-**Edad:** Promedio: **41.5 años** | Rango: **38 - 45 años**
+**Edad:** Promedio: **23.5 años** | Rango: **23 - 24 años**
 **Sexo:** El **100%** de los entrevistados son de género **masculino**.
 **Procedencia:**
 ● El **50% (1)** proviene de **San Isidro**
@@ -466,18 +500,18 @@ Dlan administra espacios de un edificio residencial que quedan vacíos durante l
 ---
 
 ##### Estadísticas:
-● El **100%** de los entrevistados gestiona sus espacios de forma manual o informal (WhatsApp).  
-● El **100%** busca monetizar espacios subutilizados durante el día.  
-● El **50%** presenta dificultades para llevar un control ordenado de sus ingresos.  
-● El **100%** requiere autonomía total para decidir sus horarios de disponibilidad.  
+● El **100%** de los entrevistados gestiona sus espacios actuales de forma manual, informal o mediante mensajería (WhatsApp), lo que les genera confusión y pérdida de ingresos potenciales.
+● El **100%** busca monetizar espacios subutilizados (cocheras vacías de vecinos o espacios de edificios residenciales libres por las mañanas).
+● El **50%** presenta dificultades para organizar horarios de disponibilidad de manera flexible sin dar de baja definitiva los espacios.
+● El **100%** requiere autonomía total para configurar sus propios precios y horarios según el día de la semana.  
 
 ---
 
 ##### Funcionalidades deseadas en la aplicación:
-● Panel de configuración de horarios y precios: **100%**
-● Registro de ingresos y exportación de reportes: **50%**
-● Sistema de activación/desactivación rápida de espacios: **100%**
-● Verificación de identidad para mayor seguridad: **100%**
+● Panel de configuración de horarios y precios personalizados: **100%**
+● Sistema de activación/desactivación rápida de espacios según franjas horarias: **100%**
+● Arquitectura del sistema estable y libre de saturaciones en hora punta para evitar fallas en la gestión de registros: **100%**
+● Mayor visibilidad para captar clientes más allá de su círculo cercano: **100%**
 
 ## 2.3. Needfinding
 
