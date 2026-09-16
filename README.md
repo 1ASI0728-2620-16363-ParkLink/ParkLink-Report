@@ -12,9 +12,9 @@ El To-Be Scenario Mapping describe cómo cambiaría la experiencia de cada User 
 
 | | **Planificar** | **Buscar** | **Seleccionar** | **Reservar** | **Llegar y usar** |
 |---|---|---|---|---|---|
-| **Doing** | Revisa ParkLink antes de salir y busca espacios disponibles en su destino | Visualiza en el mapa los espacios libres cercanos a su destino con precio y horario | Compara opciones por precio, distancia y valoraciones | Confirma la reserva y realiza el pago desde la app | Llega directamente al espacio reservado, ingresa y usa el tiempo contratado |
-| **Thinking** | "Por fin sé si habrá lugar antes de salir" | "Puedo ver todo en tiempo real, es exactamente lo que necesitaba" | "Tengo varias opciones, voy a elegir la que me conviene más" | "Mi espacio está garantizado, ya no tengo que preocuparme" | "Llegué directo, sin dar vueltas, esto sí funciona" |
-| **Feeling** | Tranquilo y organizado | Seguro y con control de la situación | Empoderado para decidir | Aliviado y confiado | Satisfecho y con tiempo recuperado |
+| **Doing** | Revisa ParkLink antes de salir o activa el Agente IA por voz solicitando un espacio en su destino | Visualiza en el mapa los espacios libres o escucha las recomendaciones prioritarias del Agente IA en tiempo real | Compara opciones por precio, distancia y valoraciones con asistencia de sugerencias inteligentes | Confirma la reserva y autoriza el pago desde la app o mediante confirmación por comando de voz | Llega directamente al espacio reservado, ingresa y usa el tiempo contratado con opción de extensión autónoma |
+| **Thinking** | "Por fin sé si habrá lugar antes de salir, o le pido a ParkLink Copilot que lo busque mientras conduzco" | "Puedo ver todo en tiempo real y sin quitar las manos del volante, es exactamente lo que necesitaba" | "Tengo varias opciones filtradas automáticamente según mi presupuesto y hora de llegada" | "Mi espacio está garantizado sin distraerme en la pantalla, ya no tengo que preocuparme" | "Llegué directo, sin dar vueltas; el sistema incluso se adapta si encuentro tráfico" |
+| **Feeling** | Tranquilo y organizado | Seguro y con control total de la situación | Empoderado para decidir | Aliviado y confiado | Satisfecho y con tiempo recuperado |
 
 ---
 
@@ -34,7 +34,7 @@ El To-Be Scenario Mapping describe cómo cambiaría la experiencia de cada User 
 
 ## 3.2. User Stories
 
-A continuación se presentan las Épicas, User Stories y Technical Stories identificadas para ParkLink. Cada User Story incluye su descripción siguiendo el patrón "Como [rol], deseo [característica], para [beneficio]" y sus criterios de aceptación en formato Given-When-Then. Las Technical Stories recuperan los requisitos técnicos que sostienen la arquitectura, la seguridad, la consistencia transaccional y las integraciones externas del producto.
+A continuación se presentan las Épicas, User Stories y Technical Stories identificadas para ParkLink. Cada User Story incluye su descripción siguiendo el patrón "Como [rol], deseo [característica], para [beneficio]" y sus criterios de aceptación en formato Given-When-Then. Las Technical Stories recuperan los requisitos técnicos que sostienen la arquitectura distribuida de microservicios, la resiliencia transaccional, el pipeline de inteligencia artificial y las decisiones arquitectónicas estratégicas del Capítulo IV.
 
 ### Épicas
 
@@ -46,6 +46,7 @@ A continuación se presentan las Épicas, User Stories y Technical Stories ident
 | EP04 | Pagos y facturación | Funcionalidades relacionadas con el procesamiento de pagos, reembolsos y comprobantes. |
 | EP05 | Gestión de cuenta y autenticación | Funcionalidades de registro, inicio de sesión y administración del perfil de usuario. |
 | EP06 | Notificaciones y comunicación | Funcionalidades de alertas y mensajes para conductores y propietarios sobre el estado de sus reservas y espacios. |
+| EP07 | Asistencia Inteligente y Agente de Reserva Autónomo | Funcionalidades basadas en agentes autónomos e inteligencia artificial conversacional que permiten a los conductores delegar la búsqueda, recomendación y reserva de espacios por voz o lenguaje natural sin distracciones al volante. |
 
 ---
 
@@ -73,10 +74,15 @@ A continuación se presentan las Épicas, User Stories y Technical Stories ident
 | EP05 | US18 | Registrarse como propietario | Como usuario nuevo, deseo registrarme como propietario en ParkLink, para publicar mis espacios y recibir reservas. | **Given** que un usuario accede al registro y selecciona el rol "Propietario", **When** completa sus datos personales y bancarios para recibir pagos y confirma, **Then** el sistema crea su cuenta con perfil de propietario y le habilita el panel de gestión de espacios. | EP05 |
 | EP05 | US19 | Iniciar sesión | Como usuario registrado, deseo iniciar sesión con mi correo y contraseña, para acceder a mi cuenta y funcionalidades de la app. | **Given** que el usuario ingresa su correo y contraseña correctos, **When** presiona "Iniciar sesión", **Then** el sistema autentica al usuario y lo redirige a su pantalla principal según su rol (conductor o propietario). | EP05 |
 | EP06 | US20 | Recibir notificación de reserva confirmada | Como conductor, deseo recibir una notificación cuando mi reserva sea confirmada, para tener certeza de que el espacio está asegurado. | **Given** que el sistema procesa una reserva exitosa, **When** el pago es aprobado, **Then** el conductor recibe una notificación push y correo electrónico con los datos de la reserva (dirección, hora, código de acceso). | EP06 |
+| EP07 | US21 | Búsqueda y reserva conversacional asistida por Agente IA | Como conductor en ruta, deseo interactuar con un agente inteligente por comandos de voz o lenguaje natural, para encontrar y asegurar un estacionamiento sin manipular la pantalla mientras conduzco. | **Given** que el conductor activa el asistente por voz o chat, **When** indica su destino y restricciones de costo u horario, **Then** el agente consulta disponibilidad en tiempo real, presenta verbalmente la mejor opción y ejecuta la reserva con confirmación del usuario. | EP01, EP02, EP04, EP07 |
+| EP07 | US22 | Sugerencia predictiva y reserva proactiva por calendario y hábitos | Como conductor frecuente, deseo que el agente anticipe mis necesidades de parqueo según mis eventos agendados o rutas habituales, para reservar un espacio antes de que se agoten en horas punta. | **Given** que el conductor tiene un evento sincronizado o un patrón diario de llegada, **When** se aproxima la hora punta de ocupación en la zona, **Then** el agente notifica proactivamente la escasez de lugares y solicita autorización para asegurar un espacio recomendado. | EP01, EP02, EP06, EP07 |
+| EP07 | US23 | Reasignación autónoma ante contingencias o retrasos de tráfico | Como conductor con reserva activa, deseo que el agente monitoree el tráfico y el estado de mi espacio reservado, para que reasigne o extienda automáticamente la reserva si sufro un retraso imprevisto. | **Given** que el conductor tiene una reserva activa y enfrenta congestión severa en ruta, **When** el tiempo estimado de llegada supera el inicio de la reserva, **Then** el agente detecta el desfase y solicita confirmación verbal para extender el lapso o reasignar una cochera alternativa sin penalización. | EP02, EP04, EP06, EP07 |
+
+---
 
 ### 3.2.1. Technical Stories
 
-Las Technical Stories documentan necesidades técnicas del producto que no representan una interacción visible del usuario, pero que son necesarias para cumplir las User Stories, los atributos de calidad y las decisiones arquitectónicas posteriores del Capítulo IV.
+Las Technical Stories documentan necesidades técnicas del producto que no representan una interacción visible del usuario, pero que son necesarias para cumplir las User Stories, los atributos de calidad, la evolución hacia una arquitectura de microservicios distribuidos y las decisiones arquitectónicas estratégicas del Capítulo IV.
 
 | Technical Story ID | Título | Descripción | Criterios de Aceptación | Relacionado con |
 |---|---|---|---|---|
@@ -86,12 +92,16 @@ Las Technical Stories documentan necesidades técnicas del producto que no repre
 | TS04 | Auditoría de reservas, pagos, reembolsos y cambios de disponibilidad | Como equipo técnico, necesitamos registrar eventos auditables de operaciones críticas, para mantener trazabilidad de cambios relevantes y sustentar reclamos o revisiones posteriores. | **Given** que ocurre una reserva, cancelación, pago, reembolso o cambio de disponibilidad, **When** la operación se confirma, **Then** el sistema guarda un evento de auditoría inmutable con actor, acción, entidad afectada y fecha. | EP02, EP04, US05, US06, US14, US15, US16 |
 | TS05 | Almacenamiento de fotos en Object Storage compatible con S3 | Como equipo técnico, necesitamos almacenar fotos de estacionamientos en un servicio de objetos privado, para evitar cargar binarios en la base de datos y controlar el acceso a evidencias visuales. | **Given** que un propietario sube fotos de su espacio, **When** el sistema genera la carga, **Then** las imágenes se almacenan en un bucket privado y se accede a ellas mediante URLs firmadas o endpoints autorizados. | EP03, US04, US09, RNF03 |
 | TS06 | Manejo idempotente de pagos y webhooks | Como equipo técnico, necesitamos procesar pagos y webhooks de forma idempotente, para evitar cobros duplicados o cambios de estado repetidos ante reintentos de red o eventos duplicados del proveedor. | **Given** que una solicitud de pago o webhook llega más de una vez con la misma clave o identificador de evento, **When** el sistema procesa la repetición, **Then** reconoce que ya fue atendida y no duplica el cobro ni el cambio de estado. | EP04, US14, US15, US16, C-INT |
+| TS07 | Desacoplamiento de Bounded Contexts a Microservicios Distribuidos | Como equipo de arquitectura, necesitamos separar los dominios de negocio (Identity, Catalog/Search, Reservation/Booking, Payments, AI Copilot) en microservicios independientes, para habilitar despliegues autónomos y aislamiento de dependencias tecnológicas. | **Given** que se implementan los Bounded Contexts del sistema, **When** se ejecutan en contenedores independientes tras un API Gateway, **Then** cada microservicio posee su propia persistencia (Database-per-service) y se comunica mediante contratos REST/gRPC bien definidos. | EP01–EP07, C-01, C-02 |
+| TS08 | Escalado elástico independiente para búsqueda geoespacial de alta concurrencia | Como equipo de arquitectura, necesitamos que el microservicio de búsqueda geoespacial e inventario escale horizontalmente de forma autónoma durante horas punta, para atender ráfagas de lectura sin sobrecargar ni afectar el servicio de pagos. | **Given** un incremento abrupto de consultas de conductores en hora punta (+500 req/s en búsqueda), **When** se supera el umbral de CPU/memoria del servicio de catálogo, **Then** el cluster orquesta réplicas adicionales manteniendo la latencia < 300 ms sin reiniciar servicios transaccionales. | EP01, US01, US02, RNF01, RNF02 |
+| TS09 | Coreografía de reservas y pagos asíncronos mediante Event Broker | Como equipo de arquitectura, necesitamos desacoplar la confirmación de reservas del procesamiento de cobros mediante mensajería asíncrona (RabbitMQ/Kafka) y el patrón Outbox/Saga, para garantizar consistencia eventual y tolerancia a fallos. | **Given** que un conductor solicita una reserva, **When** el servicio de Booking emite el evento `ReservationInitiated`, **Then** el servicio de Payments consume el evento, procesa el cobro y emite `PaymentCompleted`, completando la reserva sin bloqueos síncronos entre servicios. | EP02, EP04, US05, US14, TS01, TS06 |
+| TS10 | Pipeline de integración de LLM con Function Calling para el Agente IA | Como equipo de arquitectura, necesitamos que el microservicio del Agente IA interactúe con un modelo de lenguaje con capacidades de Tool Use / Function Calling, para ejecutar búsquedas y reservas de manera confiable con validación estricta de esquemas JSON. | **Given** que el usuario emite una orden en lenguaje natural o voz, **When** el Agente IA interpreta la intención, **Then** genera llamadas a funciones estructuradas hacia los endpoints de búsqueda y reserva, valida parámetros y responde al usuario en menos de 1.5 segundos. | EP07, US21, US23, TS07 |
 
 ---
 
 ## 3.3. Impact Mapping
 
-El Impact Map se elaboró identificando los Business Goals SMART del producto, los actores clave (User Personas), los impactos esperados en su comportamiento y los entregables que ParkLink debe proveer para generarlos. Los User Stories se vinculan a los entregables correspondientes.
+El Impact Map se elaboró identificando los Business Goals SMART del producto, los actores clave (User Personas), los impactos esperados en su comportamiento y los entregables que ParkLink debe proveer para generarlos. Los User Stories y Technical Stories se vinculan a los entregables correspondientes para asegurar trazabilidad bidireccional.
 
 > Elaborado en Miro. Acceso al artefacto: [Ver en Miro](https://miro.com/app/board/uXjVGiIFZLU=/?share_link_id=410165343938)
 
@@ -105,6 +115,7 @@ El Impact Map se elaboró identificando los Business Goals SMART del producto, l
 | Carlos Mendoza (Conductor) | Usar ParkLink para todas sus búsquedas de estacionamiento en lugar de buscar manualmente | Sistema de búsqueda de espacios por ubicación en tiempo real | US01, US02, US03, US04 |
 | Carlos Mendoza (Conductor) | Completar su primera reserva en la plataforma con pago exitoso | Sistema de reservas con confirmación y pago integrado | US05, US14 |
 | Carlos Mendoza (Conductor) | Recomendar la app a compañeros de trabajo con el mismo problema | Sistema de notificaciones y comprobantes que generan confianza | US16, US20 |
+| Carlos Mendoza (Conductor) | Encontrar y asegurar estacionamiento mientras conduce sin desviar la vista del camino | Agente de IA Conversacional (ParkLink Copilot) para búsqueda y reserva autónoma por voz | US21, US22, US23 |
 
 ### Business Goal 2
 **"Lograr que 100 propietarios publiquen al menos un espacio activo en la plataforma durante los primeros 3 meses de lanzamiento."**
@@ -115,35 +126,49 @@ El Impact Map se elaboró identificando los Business Goals SMART del producto, l
 | Elena Torres (Propietaria) | Gestionar sus reservas y acceso desde el panel de propietario | Panel de gestión con reservas activas y control de disponibilidad | US11, US12 |
 | Elena Torres (Propietaria) | Recibir pagos automáticos y ver su historial de ingresos | Sistema de cobro automático e historial financiero | US13, US15 |
 
+### Business Goal 3 / Atributo de Calidad Arquitectónico
+**"Garantizar un 99.9% de disponibilidad del servicio y tiempos de respuesta < 300 ms en búsquedas durante horas punta en Lima Metropolitana."**
+
+| Actor | Impact | Deliverable | Technical Stories |
+|---|---|---|---|
+| Conductor y Operador del Sistema | Realizar búsquedas masivas simultáneas en horas punta sin experimentar caídas ni degradar la pasarela de pagos | Arquitectura de microservicios distribuidos con escalado elástico independiente y mensajería orientada a eventos | TS01, TS07, TS08, TS09, TS10 |
+
 ---
 
 ## 3.4. Product Backlog
 
-El Product Backlog se prioriza según el valor que cada User Story aporta al negocio y a los usuarios, poniendo primero las funcionalidades que entregan la propuesta de valor central de ParkLink. La estimación utiliza la escala Fibonacci (1, 2, 3, 5, 8).
+El Product Backlog se prioriza según el valor que cada User Story y Technical Enabler aporta al negocio y a los usuarios, situando primero las funcionalidades que entregan la propuesta de valor central de ParkLink y los habilitadores arquitectónicos que soportan la escala y la diferenciación con inteligencia artificial. La estimación utiliza la escala Fibonacci (1, 2, 3, 5, 8).
 
 > Elaborado en Trello. Acceso al Product Backlog: [Ver en Trello](https://trello.com/invite/b/69df03bb02e6ebfeb10cb05b/ATTI20390e86970646ac1ef1ccb1898c24b573D43151/product-backlog)
 
 ![Product Backlog](assets/productbacklog.jpg)
 
-| # Orden | User Story ID | Título | Descripción | Story Points |
-|---|---|---|---|---|
-| 1 | US01 | Buscar estacionamientos por ubicación | Como conductor, deseo buscar estacionamientos disponibles cerca de mi destino, para planificar mi llegada sin perder tiempo buscando en la calle. | 8 |
-| 2 | US02 | Ver disponibilidad en tiempo real | Como conductor, deseo ver en tiempo real si un espacio está disponible, para no llegar a un lugar ya ocupado. | 8 |
-| 3 | US09 | Registrar un espacio de estacionamiento | Como propietario, deseo registrar mi espacio de estacionamiento en la plataforma, para empezar a recibir reservas y generar ingresos. | 5 |
-| 4 | US05 | Reservar un espacio de estacionamiento | Como conductor, deseo reservar un espacio de estacionamiento con anticipación, para asegurar mi lugar antes de llegar al destino. | 8 |
-| 5 | US14 | Pagar una reserva en línea | Como conductor, deseo pagar mi reserva directamente en la app, para no manejar efectivo y tener comprobante inmediato. | 8 |
-| 6 | US10 | Configurar horarios y precio del espacio | Como propietario, deseo configurar los horarios y precio de mi cochera, para tener control total sobre cuándo y a qué precio se alquila. | 5 |
-| 7 | US03 | Filtrar estacionamientos por precio y horario | Como conductor, deseo filtrar los estacionamientos por precio y horario, para encontrar la opción que mejor se ajusta a mis necesidades. | 3 |
-| 8 | US04 | Ver detalle de un espacio de estacionamiento | Como conductor, deseo ver el detalle completo de un espacio antes de reservarlo, para tomar una decisión informada. | 3 |
-| 9 | US12 | Ver reservas activas de mi espacio | Como propietario, deseo ver las reservas activas de mis espacios, para saber quién usará mi cochera y cuándo. | 5 |
-| 10 | US20 | Recibir notificación de reserva confirmada | Como conductor, deseo recibir una notificación cuando mi reserva sea confirmada, para tener certeza de que el espacio está asegurado. | 3 |
-| 11 | US11 | Habilitar y deshabilitar un espacio | Como propietario, deseo habilitar o deshabilitar mi espacio temporalmente, para no recibir reservas cuando no esté disponible. | 3 |
-| 12 | US06 | Cancelar una reserva | Como conductor, deseo cancelar una reserva realizada, para liberar el espacio si ya no lo necesito. | 5 |
-| 13 | US15 | Recibir reembolso por cancelación | Como conductor, deseo recibir un reembolso automático si cancelo con anticipación, para no perder dinero por cambios de planes. | 5 |
-| 14 | US08 | Extender tiempo de reserva activa | Como conductor, deseo extender el tiempo de mi reserva activa, para evitar cargos por sobrepasar el tiempo contratado. | 5 |
-| 15 | US13 | Ver historial de ingresos | Como propietario, deseo ver el historial de ingresos de mis espacios, para hacer seguimiento de mis ganancias. | 3 |
-| 16 | US16 | Ver comprobante de pago | Como conductor, deseo ver y descargar el comprobante de cada pago, para tener respaldo de mis transacciones. | 2 |
-| 17 | US07 | Ver historial de reservas | Como conductor, deseo ver el historial de mis reservas anteriores, para llevar control de mis gastos. | 2 |
-| 18 | US17 | Registrarse como conductor | Como usuario nuevo, deseo registrarme como conductor, para acceder a la búsqueda y reserva de estacionamientos. | 3 |
-| 19 | US18 | Registrarse como propietario | Como usuario nuevo, deseo registrarme como propietario, para publicar mis espacios y recibir reservas. | 3 |
-| 20 | US19 | Iniciar sesión | Como usuario registrado, deseo iniciar sesión, para acceder a mi cuenta y funcionalidades de la app. | 2 |
+| # Orden | ID | Título | Tipo | Descripción | Story Points |
+|---|---|---|---|---|---|
+| 1 | US01 | Buscar estacionamientos por ubicación | User Story | Como conductor, deseo buscar estacionamientos disponibles cerca de mi destino, para planificar mi llegada sin perder tiempo buscando en la calle. | 8 |
+| 2 | US02 | Ver disponibilidad en tiempo real | User Story | Como conductor, deseo ver en tiempo real si un espacio está disponible, para no llegar a un lugar ya ocupado. | 8 |
+| 3 | US09 | Registrar un espacio de estacionamiento | User Story | Como propietario, deseo registrar mi espacio de estacionamiento en la plataforma, para empezar a recibir reservas y generar ingresos. | 5 |
+| 4 | US05 | Reservar un espacio de estacionamiento | User Story | Como conductor, deseo reservar un espacio de estacionamiento con anticipación, para asegurar mi lugar antes de llegar al destino. | 8 |
+| 5 | US14 | Pagar una reserva en línea | User Story | Como conductor, deseo pagar mi reserva directamente en la app, para no manejar efectivo y tener comprobante inmediato. | 8 |
+| 6 | US21 | Búsqueda y reserva conversacional con Agente IA | User Story | Como conductor en ruta, deseo interactuar con un agente inteligente por voz o texto, para asegurar un espacio sin manipular la pantalla al volante. | 8 |
+| 7 | TS07 | Desacoplamiento de Bounded Contexts a Microservicios | Tech Enabler | Como equipo de arquitectura, necesitamos separar los dominios en microservicios independientes con DB propia para permitir escalabilidad desacoplada. | 8 |
+| 8 | US10 | Configurar horarios y precio del espacio | User Story | Como propietario, deseo configurar los horarios y precio de mi cochera, para tener control total sobre cuándo y a qué precio se alquila. | 5 |
+| 9 | TS08 | Escalado elástico para búsqueda geoespacial | Tech Enabler | Como equipo de arquitectura, necesitamos que el microservicio de búsqueda escale de forma autónoma ante ráfagas en horas punta sin degradar pagos. | 5 |
+| 10 | US22 | Sugerencia predictiva y reserva proactiva | User Story | Como conductor frecuente, deseo que el agente anticipe mis necesidades de parqueo según mis eventos o rutas habituales en horas punta. | 5 |
+| 11 | TS09 | Coreografía asíncrona mediante Event Broker | Tech Enabler | Como equipo de arquitectura, necesitamos desacoplar reservas y pagos mediante eventos y patrón Saga para garantizar resiliencia y consistencia. | 5 |
+| 12 | US23 | Reasignación autónoma ante contingencias | User Story | Como conductor con reserva activa, deseo que el agente monitoree el tráfico y reasigne o extienda la reserva si sufro retrasos imprevistos. | 5 |
+| 13 | TS10 | Pipeline LLM con Function Calling para Agente IA | Tech Enabler | Como equipo de arquitectura, necesitamos conectar el agente IA a un LLM estructurado con Tool Use para ejecutar acciones seguras en las APIs. | 5 |
+| 14 | US03 | Filtrar estacionamientos por precio y horario | User Story | Como conductor, deseo filtrar los estacionamientos por precio y horario, para encontrar la opción que mejor se ajusta a mis necesidades. | 3 |
+| 15 | US04 | Ver detalle de un espacio de estacionamiento | User Story | Como conductor, deseo ver el detalle completo de un espacio antes de reservarlo, para tomar una decisión informada. | 3 |
+| 16 | US12 | Ver reservas activas de mi espacio | User Story | Como propietario, deseo ver las reservas activas de mis espacios, para saber quién usará mi cochera y cuándo. | 5 |
+| 17 | US20 | Recibir notificación de reserva confirmada | User Story | Como conductor, deseo recibir una notificación cuando mi reserva sea confirmada, para tener certeza de que el espacio está asegurado. | 3 |
+| 18 | US11 | Habilitar y deshabilitar un espacio | User Story | Como propietario, deseo habilitar o deshabilitar mi espacio temporalmente, para no recibir reservas cuando no esté disponible. | 3 |
+| 19 | US06 | Cancelar una reserva | User Story | Como conductor, deseo cancelar una reserva realizada, para liberar el espacio si ya no lo necesito. | 5 |
+| 20 | US15 | Recibir reembolso por cancelación | User Story | Como conductor, deseo recibir un reembolso automático si cancelo con anticipación, para no perder dinero por cambios de planes. | 5 |
+| 21 | US08 | Extender tiempo de reserva activa | User Story | Como conductor, deseo extender el tiempo de mi reserva activa, para evitar cargos por sobrepasar el tiempo contratado. | 5 |
+| 22 | US13 | Ver historial de ingresos | User Story | Como propietario, deseo ver el historial de ingresos de mis espacios, para hacer seguimiento de mis ganancias. | 3 |
+| 23 | US16 | Ver comprobante de pago | User Story | Como conductor, deseo ver y descargar el comprobante de cada pago, para tener respaldo de mis transacciones. | 2 |
+| 24 | US07 | Ver historial de reservas | User Story | Como conductor, deseo ver el historial de mis reservas anteriores, para llevar control de mis gastos. | 2 |
+| 25 | US17 | Registrarse como conductor | User Story | Como usuario nuevo, deseo registrarme como conductor, para acceder a la búsqueda y reserva de estacionamientos. | 3 |
+| 26 | US18 | Registrarse como propietario | User Story | Como usuario nuevo, deseo registrarme como propietario, para publicar mis espacios y recibir reservas. | 3 |
+| 27 | US19 | Iniciar sesión | User Story | Como usuario registrado, deseo iniciar sesión, para acceder a mi cuenta y funcionalidades de la app. | 2 |
