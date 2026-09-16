@@ -450,6 +450,7 @@ Dlan administra espacios de un edificio residencial que quedan vacíos durante l
 ● Sistema de reserva anticipada: **100%**
 ● Extensión de tiempo desde la app: **50%**
 ● Mapa con precios y distancias: **100%**
+● Asistente inteligente manejado por voz: **100%**
 
 ---
 
