@@ -168,119 +168,315 @@ Ser la plataforma líder en reserva de estacionamientos en Latinoamérica, contr
 
 ## 1.2. Solution Profile
 
-### 1.2.1. Nombre del producto
+ParkLink es una plataforma digital orientada a la búsqueda, reserva y gestión de espacios de estacionamiento. La solución busca conectar a conductores que necesitan encontrar un lugar donde estacionar con propietarios que disponen de espacios libres que pueden ser publicados y gestionados mediante la plataforma.
 
-El producto desarrollado lleva por nombre ParkLink, una plataforma digital orientada a la gestión y reserva de estacionamientos.
+El producto busca mejorar la experiencia de estacionamiento en zonas urbanas mediante herramientas como geolocalización, visualización de disponibilidad, consulta de precios y horarios, reservas anticipadas y gestión de espacios para propietarios.
 
-### 1.2.2 Antecedentes y problemática
+### 1.2.1. Antecedentes y problemática
 
-En entornos urbanos, encontrar estacionamiento se ha convertido en una tarea compleja debido al crecimiento exponencial del parque automotor y la limitada disponibilidad de espacios. Esta situación obliga a los conductores a recorrer largas distancias en busca de un lugar donde estacionar, generando efectos adversos en múltiples dimensiones de la vida cotidiana.
+El crecimiento del parque automotor y la alta concentración de vehículos en las principales ciudades generan nuevos desafíos relacionados con la movilidad urbana y la disponibilidad de estacionamientos. En zonas comerciales, empresariales, educativas y residenciales con alta demanda, los conductores pueden invertir una cantidad considerable de tiempo buscando un espacio disponible.
 
-El crecimiento sostenido de la circulación vehicular en las ciudades ha superado significativamente la capacidad de infraestructura disponible. Los espacios de estacionamiento públicos y privados no han aumentado en la misma proporción que el número de vehículos, creando un desequilibrio crónico entre la demanda y la oferta. Este problema se agrava especialmente en zonas comerciales, centros empresariales, instituciones educativas y áreas residenciales densamente pobladas.
+Esta problemática adquiere especial relevancia en Lima Metropolitana. De acuerdo con la Superintendencia Nacional de los Registros Públicos (SUNARP), durante el año 2025 se realizaron 648 497 nuevas inmatriculaciones vehiculares a nivel nacional, cifra que representó un incremento de 25,26 % respecto al año 2024. Asimismo, en Lima el incremento registrado fue de 14,25 % durante el mismo periodo (SUNARP, 2026).
 
-Para analizar esta problemática de manera integral, se aplica la técnica de las **5W's + 2H's**:
+A esto se suma el problema de la congestión vehicular. Según el TomTom Traffic Index, durante 2025 Lima registró un nivel promedio de congestión de 69,3 %. Además, un conductor que se moviliza regularmente durante las horas punta puede acumular aproximadamente 195 horas perdidas al año debido a la congestión vehicular (TomTom, 2026).
 
-#### - What (¿Qué sucede?)
-Los conductores no cuentan con información en tiempo real sobre la disponibilidad de estacionamientos, lo que los obliga a buscar manualmente. La falta de visibilidad sobre dónde hay espacios disponibles genera una búsqueda constante e ineficiente, donde los conductores circulan repetidamente por las mismas calles esperando encontrar un lugar libre.
+Dentro de este contexto, la búsqueda manual de estacionamientos puede generar desplazamientos adicionales y aumentar la incertidumbre de los conductores respecto a dónde encontrar un espacio disponible. Paralelamente, existen propietarios que cuentan con cocheras o espacios que permanecen disponibles durante determinadas horas del día y que podrían ser aprovechados mediante una plataforma que conecte la oferta y la demanda.
 
-#### - Why (¿Por qué es un problema?)
-- **Tráfico innecesario**: La búsqueda de estacionamiento genera viajes adicionales que congestionan las vías urbanas
-- **Consumo de combustible**: Se desperdicia combustible buscando un espacio que podría evitarse con información previa
-- **Estrés en los conductores**: La incertidumbre y el tiempo de búsqueda prolongado generan ansiedad y frustración
-- **Eficiencia del tiempo**: El tiempo invertido en buscar estacionamiento representa una pérdida significativa de productividad
-- **Contaminación ambiental**: Los vehículos en búsqueda constante de estacionamiento contribuyen a la emisión de gases contaminantes
-- **Accidentes**: El stress y la distracción aumentan el riesgo de incidentes viales menores
+Por ello, ParkLink plantea una alternativa digital que permita centralizar información sobre espacios disponibles y facilite tanto la búsqueda y reserva por parte de los conductores como la publicación y administración por parte de los propietarios.
 
-#### - Who (¿A quiénes afecta?)
-- **Conductores urbanos**: Todos aquellos que utilizan vehículo para movilizarse daily en zonas de alta demanda
-- **Propietarios de estacionamientos no utilizados**: Personas o empresas con espacios disponibles que no tienen forma de monetizarlos eficientemente
-- **Ciudades en general**: El tráfico causedo por la búsqueda de estacionamiento afecta la movilidad urbana
-- **Comercios locales**: Los clientes potenciales pueden evitar zonas donde es difícil estacionar
-- **Medio ambiente**: El increase de emisiones afecta la calidad del aire urbano
+Para analizar la problemática de manera integral se emplea la técnica de las **5W's + 2H's**.
 
-#### - When (¿Cuándo ocurre?)
-- Principalmente en horas pico de la mañana y tarde, cuando las personas se desplazan hacia sus centros de trabajo o estudio
-- En eventos especiales, días de pago, o fechas comerciales importantes
-- Durante horarios de lunch en zonas empresariales y comerciales
-- Los fines de semana en zonas de entretenimiento, centros comerciales y áreas recreativas
+#### What (¿Qué sucede?)
 
-#### - Where (¿Dónde ocurre?)
-- En zonas urbanas, comerciales y residenciales con alta densidad vehicular
-- Centros financieros y distritos empresariales
-- Alrededores de universidades, hospitales y centros comerciales
-- Calles y avenidas principales con alta circulación
-- Espacios de estacionamiento subutilizados en residencial areas
+Los conductores que se movilizan en zonas urbanas de alta demanda no siempre cuentan con información centralizada y actualizada sobre estacionamientos disponibles cerca de su destino.
 
-#### - How (¿Cómo sucede?)
-- **Falta de plataformas digitales centralizadas**: No existe una herramienta unificada que conecte oferta y demanda
-- **Información desactualizada o inexistente**: Los sistemas existentes no reflejan la disponibilidad real en tiempo real
-- **Procesos manuales**: tanto para propietarios como para usuarios, todo se maneja de forma tradicional
-- **Desconexión entre partes**: Los propietarios no tienen cómo dar a conocer sus espacios disponibles
-- **Ausencia de sistemas de reservas**: No hay forma de garantizar un espacio con anticipación
+Esto puede ocasionar que recorran diferentes calles o establecimientos buscando manualmente un espacio, incrementando el tiempo requerido para completar su desplazamiento.
 
-#### - How Much (¿Cuánto cuesta o impacta?)
-- **Económico**: Gasto adicional de combustible estimado en porcentajes significativos del presupuesto familiar
-- **Ambiental**: Aumento de emisiones de CO2 por vehículos circulando sin necesidad
-- **Social**: Estrés, pérdida de tiempo familiar y reducción de la calidad de vida
-- **Productividad**: Horas de trabajo perdidas en búsqueda de estacionamiento
-- **Económico para propietarios**: Ingresos no percibidos por espacios subutilizados
+Al mismo tiempo, algunos propietarios poseen espacios de estacionamiento disponibles durante determinados periodos, pero no cuentan con una herramienta especializada que les permita publicarlos y conectarse fácilmente con personas interesadas en utilizarlos.
 
-### 1.2.3 Lean UX Process
+#### Why (¿Por qué es un problema?)
 
-El proceso de Lean UX se enfoca en crear productos digitales eficientes mediante la experimentación rápida y la validación constante de hipótesis, priorizando la colaboración y el aprendizaje continuo. En el caso de ParkLink, plataforma de reserva de estacionamientos, el proceso Lean UX se desarrolló en las siguientes fases:
+La ausencia de información accesible sobre estacionamientos disponibles puede producir diferentes consecuencias:
 
-#### Comprender 
-En esta fase, se realizó una investigación cualitativa centrada en el comportamiento de los conductores en zonas urbanas, enfocándonos en entender cómo buscan actualmente estacionamiento y cuáles son las principales dificultades que enfrentan. A través de observaciones y supuestos iniciales del equipo, identificamos que la mayoría de los conductores pierde tiempo recorriendo calles sin tener información clara sobre la disponibilidad de espacios.
+- **Mayor tiempo de búsqueda:** los conductores deben recorrer diferentes calles o establecimientos antes de encontrar un espacio.
+- **Desplazamientos innecesarios:** la búsqueda de estacionamiento puede generar recorridos adicionales.
+- **Mayor consumo de combustible:** circular durante más tiempo incrementa el consumo asociado al desplazamiento.
+- **Estrés e incertidumbre:** desconocer si existirá un espacio disponible cerca del destino puede generar frustración en los conductores.
+- **Impacto en la movilidad urbana:** los desplazamientos adicionales se producen dentro de ciudades que ya presentan altos niveles de congestión.
+- **Espacios desaprovechados:** propietarios con cocheras disponibles pueden perder oportunidades de generar ingresos debido a la ausencia de mecanismos para ofrecerlas.
+- **Impacto ambiental:** una mayor circulación vehicular implica también un incremento potencial de emisiones generadas durante los desplazamientos.
+
+#### Who (¿A quiénes afecta?)
+
+La problemática involucra principalmente a los siguientes grupos:
+
+- **Conductores urbanos:** personas que utilizan vehículos particulares para desplazarse hacia zonas con alta demanda de estacionamiento.
+- **Propietarios de estacionamientos:** personas o empresas que cuentan con espacios que pueden encontrarse disponibles durante determinadas horas.
+- **Comercios y establecimientos:** negocios cuyos clientes requieren estacionamientos cercanos para acceder con mayor facilidad.
+- **Usuarios de las vías urbanas:** debido a que la circulación adicional de vehículos ocurre dentro de un entorno que ya presenta congestión.
+- **La ciudad y el medio ambiente:** debido al consumo de combustible y las emisiones asociadas a los desplazamientos vehiculares.
+
+#### When (¿Cuándo ocurre?)
+
+La dificultad para encontrar estacionamientos puede presentarse especialmente:
+
+- Durante las horas punta de la mañana y de la tarde.
+- En horarios de ingreso y salida de centros laborales y educativos.
+- Durante horarios comerciales.
+- En eventos que incrementan temporalmente la concentración vehicular.
+- Durante fines de semana en zonas comerciales, recreativas o de entretenimiento.
+- En periodos donde aumenta la cantidad de personas que se desplazan hacia una misma zona.
+
+#### Where (¿Dónde ocurre?)
+
+La problemática puede presentarse principalmente en:
+
+- Zonas comerciales con alta afluencia de personas.
+- Centros empresariales y financieros.
+- Alrededores de universidades e instituciones educativas.
+- Hospitales y centros médicos.
+- Centros comerciales.
+- Zonas residenciales con alta densidad vehicular.
+- Calles y avenidas cercanas a establecimientos con alta concurrencia.
+
+Para la primera etapa de validación de ParkLink se priorizarán zonas urbanas de Lima Metropolitana donde exista una alta demanda de estacionamientos.
+
+#### How (¿Cómo sucede?)
+
+La problemática se produce debido a diferentes factores:
+
+- **Información dispersa:** los conductores deben consultar diferentes alternativas para identificar dónde estacionar.
+- **Información limitada sobre disponibilidad:** no siempre es posible conocer previamente si un establecimiento cuenta con espacios.
+- **Ausencia de un sistema centralizado:** la oferta de estacionamientos públicos, privados o particulares se encuentra fragmentada.
+- **Procesos tradicionales:** algunos estacionamientos todavía dependen de consultas presenciales para conocer disponibilidad.
+- **Desconexión entre conductores y propietarios:** una persona puede tener una cochera disponible mientras otra busca estacionamiento en la misma zona sin que exista un mecanismo que permita conectarlos.
+- **Limitadas posibilidades de reserva anticipada:** en determinadas alternativas el conductor solo puede comprobar si existe disponibilidad cuando llega al lugar.
+
+#### How Much (¿Cuánto cuesta o impacta?)
+
+El impacto puede analizarse desde diferentes dimensiones.
+
+- **Tiempo:** TomTom reportó que durante 2025 los conductores de Lima podían acumular aproximadamente 195 horas perdidas al año debido al tráfico durante horas punta.
+- **Congestión:** Lima alcanzó un nivel promedio de congestión vehicular de 69,3 % durante 2025.
+- **Crecimiento vehicular:** SUNARP registró 648 497 nuevas inmatriculaciones vehiculares durante 2025 en Perú, 25,26 % más que durante 2024.
+- **Crecimiento en Lima:** durante el mismo periodo, las nuevas inmatriculaciones en Lima aumentaron 14,25 %.
+- **Económico:** los desplazamientos adicionales generan consumo adicional de combustible para los conductores.
+- **Productividad:** el tiempo empleado buscando estacionamiento reduce el tiempo disponible para actividades laborales, académicas o personales.
+- **Propietarios:** los espacios disponibles que permanecen sin utilizar representan oportunidades potenciales de ingreso que no están siendo aprovechadas.
+- **Ambiental:** una mayor circulación vehicular implica mayor consumo energético y generación de emisiones.
+
+Estas cifras no significan que toda la congestión de Lima sea causada por la búsqueda de estacionamiento; sin embargo, muestran que ParkLink se plantea dentro de un contexto urbano caracterizado por un parque vehicular creciente y elevados niveles de congestión.
+
+#### Objetivos del proyecto
+
+##### Objetivo general
+
+Diseñar y validar ParkLink como una plataforma digital que conecte a conductores que buscan estacionamiento con propietarios que poseen espacios disponibles, facilitando la búsqueda, reserva y gestión de estacionamientos en zonas urbanas.
+
+##### Objetivos específicos
+
+- Permitir que los conductores identifiquen estacionamientos disponibles cercanos a su ubicación o destino.
+- Facilitar la consulta de información relevante como ubicación, disponibilidad, precio y horario.
+- Permitir que los usuarios realicen reservas anticipadas de espacios de estacionamiento.
+- Proporcionar a los propietarios herramientas para registrar, publicar y administrar sus espacios disponibles.
+- Reducir la incertidumbre de los conductores durante el proceso de búsqueda de estacionamiento.
+- Validar mediante usuarios potenciales la facilidad de uso y utilidad de las principales funcionalidades de ParkLink.
+- Medir indicadores como el tiempo necesario para encontrar un estacionamiento, número de reservas y frecuencia de utilización de la plataforma.
+
+#### Restricciones y límites del alcance
+
+Durante la primera versión del producto, ParkLink tendrá las siguientes restricciones:
+
+- La solución se centrará inicialmente en zonas urbanas de Lima Metropolitana.
+- La disponibilidad mostrada dependerá de la información registrada o actualizada por los propietarios y administradores de los estacionamientos.
+- La plataforma no pretende gestionar ni solucionar directamente el tráfico vehicular de la ciudad.
+- ParkLink no administra estacionamientos municipales ni modifica la regulación existente sobre estacionamiento en espacios públicos.
+- La primera versión estará enfocada principalmente en las funcionalidades de búsqueda, visualización, publicación, reserva y gestión de espacios.
+- La solución no contempla inicialmente la instalación de sensores IoT para detectar automáticamente la ocupación de cada espacio.
+- Los resultados relacionados con reducción del tiempo de búsqueda deberán validarse mediante pruebas con usuarios y métricas obtenidas durante la utilización de la solución.
+
+### 1.2.2. Lean UX Process
+
+Lean UX es un enfoque de diseño centrado en la experimentación, validación de hipótesis y aprendizaje continuo. Su objetivo es reducir la incertidumbre durante el desarrollo de un producto mediante ciclos rápidos de creación, evaluación y mejora.
+
+En ParkLink, este enfoque permite evaluar si las funcionalidades propuestas realmente responden a las necesidades de conductores y propietarios antes de realizar implementaciones de mayor complejidad.
+
+El proceso se desarrolla mediante las siguientes etapas:
+
+#### Comprender
+
+Durante esta etapa se analiza la problemática relacionada con la búsqueda de estacionamientos y el aprovechamiento de espacios disponibles.
+
+Se consideran dos grupos principales: conductores que necesitan estacionarse en zonas de alta demanda y propietarios que cuentan con espacios que pueden ser ofrecidos temporalmente.
+
+A partir del análisis inicial se identifican problemas como la falta de información sobre disponibilidad, el tiempo destinado a la búsqueda de estacionamiento, la dificultad para planificar previamente dónde estacionarse y la falta de mecanismos mediante los cuales los propietarios puedan ofrecer sus espacios.
 
 #### Esbozar
-Con los hallazgos obtenidos, comenzamos a diseñar prototipos de baja fidelidad para la plataforma ParkLink. Estos prototipos se enfocaron en funcionalidades clave que respondieran directamente a las necesidades de los usuarios:
-- **Mapa interactivo**: Que muestra estacionamientos disponibles según la ubicación del conductor.
-- **Sistema de reservas anticipadas**: Para asegurar un espacio antes de llegar al destino.
-- **Visualización de precios y horarios**: Facilitando la toma de decisiones.
-- **Registro y gestión de espacios**: Permitiendo a los propietarios publicar y administrar sus cocheras.
+
+A partir de las necesidades identificadas se plantean posibles funcionalidades para ParkLink, entre ellas:
+
+- **Mapa interactivo:** permite visualizar estacionamientos cercanos según la ubicación o destino del conductor.
+- **Sistema de reservas:** permite asegurar un espacio antes de llegar al destino.
+- **Visualización de precios:** permite comparar alternativas antes de realizar una reserva.
+- **Visualización de horarios:** informa en qué periodos se encuentra disponible cada espacio.
+- **Registro de estacionamientos:** permite que los propietarios publiquen sus espacios.
+- **Gestión de espacios:** permite modificar información, disponibilidad y características de las cocheras registradas.
+
+Estas funcionalidades pueden representarse inicialmente mediante prototipos de baja fidelidad para evaluar su funcionamiento antes de desarrollar completamente el producto.
 
 #### Probar
-Se realizaron pruebas de usabilidad con usuarios potenciales, simulando escenarios reales de búsqueda de estacionamiento en zonas de alta demanda. Durante las pruebas, observamos cómo los usuarios interactuaban con el mapa y el sistema de reservas, evaluando la facilidad de uso y la comprensión de la plataforma.
 
-#### Medir 
-Una vez implementados los prototipos mejorados, se definieron métricas clave para evaluar el rendimiento de la plataforma. Se analizaron indicadores como el tiempo promedio que tarda un usuario en encontrar estacionamiento, la cantidad de reservas realizadas y la frecuencia de uso de la aplicación.
+Durante esta etapa los prototipos son presentados a usuarios potenciales para evaluar la comprensión y facilidad de uso de la plataforma.
 
-#### 1.2.3.1 Lean UX Problem Statements
+Las pruebas pueden considerar tareas representativas como:
 
-##### Problem Statement 1
-Muchos conductores en zonas urbanas pierden tiempo buscando estacionamiento debido a la falta de información en tiempo real sobre espacios disponibles. Esta situación genera congestión vehicular, mayor consumo de combustible, estrés en los usuarios y una experiencia de movilidad ineficiente.
+- Buscar estacionamientos cercanos.
+- Consultar información de un estacionamiento.
+- Seleccionar un horario.
+- Realizar una reserva.
+- Registrar una cochera.
+- Modificar la disponibilidad de un espacio.
 
-**¿Cómo podríamos diseñar una solución digital que permita a los conductores encontrar y reservar estacionamientos en tiempo real, reduciendo el tráfico y mejorando su experiencia de movilidad?**
+Las observaciones obtenidas permiten identificar dificultades, funcionalidades poco claras y oportunidades de mejora.
 
----
+#### Medir
 
-##### Problem Statement 2
+Para determinar si ParkLink genera valor para los usuarios se establecen indicadores que permitan comparar los resultados obtenidos durante las pruebas y posteriores versiones del producto.
 
-Actualmente, muchos propietarios de estacionamientos o espacios disponibles no cuentan con una plataforma que les permita ofrecer sus cocheras de manera sencilla, segura y organizada. Esto provoca que dichos espacios permanezcan desaprovechados, generando una pérdida de oportunidades económicas.
+Entre las principales métricas se consideran:
 
-**¿Cómo podríamos diseñar una plataforma que permita a los propietarios publicar y gestionar sus espacios de estacionamiento de forma fácil, segura y rentable?**
+- Tiempo promedio necesario para encontrar una alternativa de estacionamiento.
+- Tiempo requerido para completar una reserva.
+- Número de estacionamientos publicados.
+- Número de reservas realizadas.
+- Porcentaje de usuarios que completan correctamente el proceso de reserva.
+- Frecuencia de utilización de la plataforma.
+- Nivel de satisfacción de conductores y propietarios.
 
-#### 1.2.3.2 Lean UX Assumptions
+Los resultados obtenidos permiten generar nuevos aprendizajes y realizar ajustes antes de continuar con nuevas iteraciones del producto.
 
-### 1.2.3.2.1 Business Assumptions
-- Existe una alta demanda de soluciones digitales que optimicen la búsqueda de estacionamientos en zonas urbanas.
-- Los conductores están dispuestos a pagar por conveniencia, ahorro de tiempo y seguridad al estacionar.
-- Los propietarios de espacios buscan generar ingresos adicionales mediante la monetización de sus cocheras.
+#### 1.2.2.1. Lean UX Problem Statements
 
-### 1.2.3.2.2 Business Outcomes
-- Generar ingresos a través de comisiones por reservas realizadas en la plataforma.
-- Incrementar la base de usuarios activos (conductores y propietarios).
-- Posicionar la plataforma como una solución confiable en el mercado de movilidad urbana.
+Para formular los Problem Statements de ParkLink se consideran los siguientes elementos:
 
-### 1.2.3.2.3 User Assumptions
-- Los conductores actualmente buscan estacionamiento de forma manual, sin herramientas digitales especializadas.
-- Prefieren soluciones rápidas, intuitivas y que les permitan planificar con anticipación.
-- Los propietarios desean una forma sencilla de publicar y gestionar sus espacios sin procesos complejos.
+**Domain:**  
+ParkLink pertenece al dominio de movilidad urbana y gestión digital de estacionamientos, específicamente a soluciones tecnológicas que conectan la oferta y demanda de espacios disponibles.
 
-### 1.2.3.2.4 User Outcomes
-- Los conductores reducen significativamente el tiempo de búsqueda de estacionamiento.
-- Disminuye el estrés asociado a la conducción en zonas congestionadas.
-- Los propietarios logran generar ingresos adicionales mediante el uso eficiente de sus espacios.
+**Customer Segments:**
+
+Los principales segmentos identificados son:
+
+1. Conductores urbanos que necesitan encontrar estacionamiento en zonas de alta demanda.
+2. Propietarios de cocheras o espacios de estacionamiento que desean aprovechar espacios temporalmente disponibles.
+
+**Segmento inicial prioritario:**
+
+Para la primera etapa de validación, ParkLink priorizará a conductores urbanos de Lima Metropolitana que se desplazan frecuentemente hacia zonas comerciales, empresariales o educativas y experimentan dificultades para encontrar estacionamiento.
+
+Este segmento será priorizado porque constituye el usuario que inicia la demanda dentro de la plataforma. Posteriormente, el crecimiento de la oferta de propietarios permitirá ampliar progresivamente la cobertura de ParkLink.
+
+**Pain Points:**
+
+Los principales problemas identificados son:
+
+- Tiempo empleado buscando estacionamiento.
+- Falta de información sobre disponibilidad.
+- Incertidumbre antes de llegar al destino.
+- Dificultad para comparar precios y ubicaciones.
+- Falta de herramientas para realizar reservas anticipadas.
+- Espacios particulares que permanecen disponibles sin generar ingresos.
+- Falta de canales especializados para conectar conductores y propietarios.
+
+**Gap:**
+
+Actualmente existe una brecha entre los conductores que necesitan estacionamientos y propietarios que poseen espacios disponibles.
+
+La información se encuentra fragmentada y los usuarios no cuentan con una plataforma centralizada que integre ubicación, disponibilidad, horarios, precios, reservas y administración de espacios.
+
+ParkLink busca reducir esta brecha mediante una plataforma que concentre estos procesos dentro de una misma experiencia digital.
+
+**Vision / Strategy:**
+
+La visión de ParkLink es facilitar el acceso a espacios de estacionamiento mediante una experiencia digital sencilla, permitiendo que los conductores puedan planificar dónde estacionarse antes de llegar a su destino.
+
+La estrategia consiste en crear una plataforma que conecte progresivamente la demanda de los conductores con la oferta de estacionamientos y espacios particulares disponibles. En una primera etapa se priorizará la validación de las funciones de búsqueda, visualización y reserva; posteriormente se buscará ampliar la cantidad de propietarios y espacios disponibles.
+
+##### Problem Statement 1 – Conductores
+
+Los conductores que se desplazan hacia zonas urbanas de alta demanda necesitan una forma sencilla de identificar y reservar estacionamientos cercanos porque actualmente pueden invertir tiempo recorriendo diferentes lugares sin conocer previamente su disponibilidad.
+
+Esta situación genera incertidumbre, desplazamientos adicionales y una experiencia de movilidad poco eficiente.
+
+**¿Cómo podríamos diseñar una solución digital que permita a los conductores localizar, comparar y reservar espacios de estacionamiento antes de llegar a su destino?**
+
+##### Problem Statement 2 – Propietarios
+
+Los propietarios que cuentan con espacios de estacionamiento disponibles necesitan una manera sencilla de ofrecerlos a otros usuarios porque actualmente no poseen un canal especializado que les permita publicar su disponibilidad y administrar las posibles reservas.
+
+Como consecuencia, algunos espacios permanecen desaprovechados y no generan ningún beneficio para sus propietarios.
+
+**¿Cómo podríamos diseñar una plataforma que permita a los propietarios publicar, administrar y ofrecer sus espacios de estacionamiento de manera sencilla, segura y organizada?**
+
+#### 1.2.2.2. Lean UX Assumptions
+
+##### 1.2.2.2.1. Business Assumptions
+
+Para el desarrollo inicial de ParkLink se plantean los siguientes supuestos:
+
+- Existe una necesidad por parte de los conductores de reducir la incertidumbre asociada a la búsqueda de estacionamiento.
+- Los usuarios valorarán la posibilidad de conocer previamente ubicación, precio y disponibilidad.
+- Algunos conductores estarán dispuestos a utilizar una plataforma digital para reservar estacionamientos.
+- Existen propietarios interesados en generar ingresos mediante espacios que permanecen disponibles durante determinadas horas.
+- Una mayor cantidad de estacionamientos registrados incrementará el valor de la plataforma para los conductores.
+- Una mayor cantidad de conductores incrementará el atractivo de la plataforma para los propietarios.
+
+##### 1.2.2.2.2. Business Outcomes
+
+Los principales resultados esperados para el negocio son:
+
+- Incrementar progresivamente la cantidad de usuarios registrados.
+- Aumentar la cantidad de propietarios y estacionamientos publicados.
+- Generar reservas mediante la plataforma.
+- Generar ingresos mediante comisiones asociadas a las reservas.
+- Conseguir que los usuarios vuelvan a utilizar ParkLink después de su primera experiencia.
+- Posicionar ParkLink como una alternativa digital para la búsqueda y reserva de estacionamientos.
+
+##### 1.2.2.2.3. User Assumptions
+
+Respecto a los conductores, se plantea que:
+
+- Actualmente muchos identifican estacionamientos mediante búsqueda presencial o conocimiento previo de la zona.
+- Valoran soluciones rápidas y fáciles de utilizar.
+- Desean conocer el precio antes de seleccionar un estacionamiento.
+- Consideran importante conocer la ubicación exacta del espacio.
+- La posibilidad de reservar previamente puede reducir la incertidumbre de su desplazamiento.
+
+Respecto a los propietarios, se plantea que:
+
+- Algunos cuentan con espacios libres durante determinadas horas.
+- Están interesados en obtener un beneficio económico de espacios que actualmente no utilizan.
+- Prefieren herramientas sencillas para registrar y administrar sus estacionamientos.
+- Necesitan controlar los horarios durante los cuales sus espacios pueden ser reservados.
+
+Estos supuestos deberán ser comprobados progresivamente mediante entrevistas, pruebas de usabilidad y datos obtenidos durante las iteraciones de ParkLink.
+
+##### 1.2.2.2.4. User Outcomes
+
+Para los conductores se esperan los siguientes resultados:
+
+- Reducir el tiempo dedicado a identificar alternativas de estacionamiento.
+- Conocer previamente la ubicación, disponibilidad y precio.
+- Poder planificar dónde estacionarse antes de llegar al destino.
+- Reducir la incertidumbre asociada a la búsqueda de un espacio.
+- Realizar reservas mediante un proceso sencillo.
+
+Para los propietarios se esperan los siguientes resultados:
+
+- Publicar fácilmente sus espacios disponibles.
+- Definir horarios y disponibilidad.
+- Administrar las reservas recibidas.
+- Incrementar el aprovechamiento de espacios que permanecían sin utilizar.
+- Obtener una nueva alternativa para generar ingresos.
 
 ### 1.2.3.3 Lean UX Hypothesis Statements
 
