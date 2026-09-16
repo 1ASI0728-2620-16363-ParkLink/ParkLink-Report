@@ -24,9 +24,8 @@
 |---------------------------------------|--------------|
 | Fabian Alejandro Oliva Lopez          | U202312013   |
 | Pietro Osores Marchese                | U202310971   |
-|                                       |              |
-|                                       |              |
-|                                       |              |
+| Amir Gabriel Castro Sanchez           | U202310680   |
+| Daniel Elias Ruiz Huisa               | U202210764   |
 
 **Abril 2026**
 
@@ -34,14 +33,14 @@
 
 | Version | Fecha      | Autor                                                        | Descripción de modificación |
 |---------|------------|--------------------------------------------------------------|-----------------------------|
-| 1ra     | 15/04/2026 | Fabian Alejandro Oliva Lopez, Pietro Osores Marchese         | Avance1: En esta primera entrega se avanzó con los capítulos 1, 2 y 3 de forma organizada para iniciar el proyecto ParkLink, estableciendo la idea, el estudio del contexto y las funcionalidades. |
+| 1ra     | 15/04/2026 | Fabian Alejandro Oliva Lopez, Pietro Osores Marchese, Amir Gabriel Castro Sanchez, Daniel Elias Ruiz Huisa   | Avance1: En esta primera entrega se avanzó con los capítulos 1, 2 y 3 de forma organizada para iniciar el proyecto ParkLink, estableciendo la idea, el estudio del contexto y las funcionalidades. |
 
 ## Student Outcome
 
 | Criterio específico | Acciones realizadas por entregable e integrante | Conclusión general |
 |---|---|---|
-| **CO1:** Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y, en especial, para su proyecto en soluciones de software. | - **TB1 – Fabian Alejandro Oliva López:** Definió el ADN de la startup, estableciendo visión, misión, valores y segmentos objetivo.<br><br>- **TB1 – Pietro Osores Marchese:** Elaboró el Lean UX Canvas, User Stories, Impact Map y Product Backlog. | Ambos integrantes aplicaron conocimientos de estrategia de producto, Lean UX y gestión de requerimientos para definir ParkLink y organizar su propuesta de valor. |
-| **CO2:** Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software. | - **TB1 – Fabian Alejandro Oliva López:** Reconoció la importancia de actualizar conocimientos en estrategia de producto y liderazgo de proyectos.<br><br>- **TB1 – Pietro Osores Marchese:** Entendió la importancia del aprendizaje continuo en gestión de requerimientos y priorización ágil. | Ambos integrantes reconocieron que el aprendizaje continuo permite mejorar la estrategia del producto, la definición de requisitos y la priorización del trabajo. |
+| **CO1:** Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y, en especial, para su proyecto en soluciones de software. | - **TB1 – Fabian Alejandro Oliva López:** Definió el ADN de la startup, estableciendo visión, misión, valores y segmentos objetivo.<br><br>- **TB1 – Pietro Osores Marchese:** Elaboró el Lean UX Canvas, User Stories, Impact Map y Product Backlog.<br><br>- **TB1 – Amir Gabriel Castro Sanchez:** Participó en el diseño, registro y análisis de entrevistas a usuarios, identificando necesidades y características relevantes para la solución. Además, colaboró en la definición del Design Purpose y de las funcionalidades principales para el diseño estratégico del software.<br><br>- **TB1 – Daniel Elias Ruiz Huisa:** Desarrolló parte del análisis de competidores y del proceso de Needfinding mediante User Personas y Empathy Mapping. Asimismo, participó en la identificación de escenarios de atributos de calidad y restricciones para el diseño de la solución. | Los integrantes aplicaron conocimientos de estrategia de producto, investigación de usuarios, Lean UX, gestión de requerimientos y diseño estratégico de software para definir ParkLink y orientar el desarrollo de la solución según las necesidades identificadas. |
+| **CO2:** Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software. | - **TB1 – Fabian Alejandro Oliva López:** Reconoció la importancia de actualizar conocimientos en estrategia de producto y liderazgo de proyectos.<br><br>- **TB1 – Pietro Osores Marchese:** Entendió la importancia del aprendizaje continuo en gestión de requerimientos y priorización ágil.<br><br>- **TB1 – Amir Gabriel Castro Sanchez:** Reconoció la necesidad de fortalecer continuamente sus conocimientos en técnicas de entrevistas, análisis de usuarios y diseño estratégico para obtener requerimientos más precisos.<br><br>- **TB1 – Daniel Elias Ruiz Huisa:** Comprendió la importancia de actualizar sus conocimientos en análisis competitivo, técnicas de Needfinding y atributos de calidad para plantear soluciones de software mejor fundamentadas. | El equipo reconoció que el aprendizaje permanente es necesario para mejorar la investigación de usuarios, la definición de requisitos, la estrategia del producto y las decisiones de diseño durante el desarrollo de una solución de software. |
 
 ## Contenido
 
@@ -163,10 +162,9 @@ Ser la plataforma líder en reserva de estacionamientos en Latinoamérica, contr
 | Nombre                          | Descripción                                                                                                                                                                                                                                                                                                                                 | Foto |
 |---------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|
 | Fabian Alejandro Oliva Lopez     | Me considero una persona activa en los proyectos, impulsando al equipo a realizar buenos trabajos. Mi objetivo es brindar apoyo y dar lo mejor de mí para fomentar un ambiente colaborativo y de respeto.                                                                                                                                 | foto |
-|  Integrante   | descripcion      | foto |
+|  Amir Gabriel Castro Sanchez   | Soy estudiante de Ingeniería de Software con interés en el desarrollo backend y la creación de aplicaciones móviles. Tengo conocimientos en el diseño e implementación de servicios y APIs, integración con bases de datos y desarrollo de funcionalidades para aplicaciones móviles. Me caracterizo por ser una persona responsable, colaborativa y con disposición para aprender nuevas tecnologías que permitan desarrollar soluciones eficientes y escalables.      | foto |
 | Pietro Osores Marchese           | Soy Pietro Osores Marchese, estudiante de Ingeniería de Sistemas con interés en el desarrollo de software y la innovación tecnológica. Mi perfil combina habilidades en programación frontend, diseño de interfaces y gestión de proyectos ágiles, con un enfoque en la creación de soluciones digitales funcionales y escalables. Me caracterizo por el trabajo en equipo, la adaptabilidad y la búsqueda constante de nuevas herramientas para optimizar procesos y experiencias de usuario. | foto |
 | Daniel Elias Ruiz Huisa    | Soy un estudiante de Ingeniería de Software. Me intereso por el desarrollo web y la evolucion de tecnologias como los nuevos agentes AI. Tengo conocimientos en Frameworks orientados a node.js como Astro, Vue y Angular. Domino lenguajes como python, C++ y typescript. Soy una persona responsable que busca siempre generar un ambiente sano y agradable para todos.     | ![Daniel Ruiz](assets/cap-1/Daniel.jpeg ) |
-| Integrante    | descripcion     | foto |
 
 ## 1.2. Solution Profile
 
