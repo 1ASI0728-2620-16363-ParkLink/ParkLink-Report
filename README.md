@@ -526,3 +526,121 @@ Asimismo, a partir de las respuestas recopiladas, se construyeron los User Perso
 Finalmente, se realizó un análisis que permitió identificar los valores, habilidades (skills) y una frase representativa para cada perfil, con el fin de sintetizar de manera clara las características más importantes de los usuarios y facilitar la comprensión de sus necesidades dentro del desarrollo de la solución propuesta.
 <img width="837" height="1600" alt="image" src="assets/cap-2/user-persona-conductor.png" />
 <img width="890" height="1600" alt="image" src="assets/cap-2/user-persona-empresario.png" />
+
+### 2.3.2 User Task Matrix
+
+<table>
+  <tr>
+    <th rowspan="2">TASK</th>
+    <th colspan="2">Humberto García Calla<br>(Conductor Urbano)</th>
+    <th colspan="2">Jarol Saquiray Vargas<br>(Propietario / Microempresario)</th>
+  </tr>
+  <tr>
+    <th>Frequency</th>
+    <th>Importance</th>
+    <th>Frequency</th>
+    <th>Importance</th>
+  </tr>
+
+  <tr>
+    <td>Buscar estacionamiento disponible en tiempo real en un mapa</td>
+    <td>Always</td>
+    <td>High</td>
+    <td>Never</td>
+    <td>Low</td>
+  </tr>
+
+  <tr>
+    <td>Visualizar tarifas claras y costos antes de llegar al destino</td>
+    <td>Always</td>
+    <td>High</td>
+    <td>Rarely</td>
+    <td>Low</td>
+  </tr>
+
+  <tr>
+    <td>Realizar reservas anticipadas de espacios de estacionamiento</td>
+    <td>Often</td>
+    <td>High</td>
+    <td>Sometimes</td>
+    <td>Medium</td>
+  </tr>
+
+  <tr>
+    <td>Publicar y monetizar espacios de cochera vacíos o subutilizados</td>
+    <td>Never</td>
+    <td>Low</td>
+    <td>Always</td>
+    <td>High</td>
+  </tr>
+
+  <tr>
+    <td>Gestionar el control digital de quién entra y sale de su propiedad</td>
+    <td>Never</td>
+    <td>Low</td>
+    <td>Always</td>
+    <td>High</td>
+  </tr>
+
+  <tr>
+    <td>Configurar horarios y precios personalizados de los espacios según el día</td>
+    <td>Never</td>
+    <td>Low</td>
+    <td>Often</td>
+    <td>High</td>
+  </tr>
+
+  <tr>
+    <td>Recibir notificaciones sobre estado de reservas o confirmaciones de pago</td>
+    <td>Always</td>
+    <td>High</td>
+    <td>Always</td>
+    <td>High</td>
+  </tr>
+
+  <tr>
+    <td>Extender el tiempo de estacionamiento o reserva directamente desde la app</td>
+    <td>Sometimes</td>
+    <td>Medium</td>
+    <td>Never</td>
+    <td>Low</td>
+  </tr>
+
+  <tr>
+    <td>Visualizar reportes de ingresos y control de ganancias por alquiler</td>
+    <td>Never</td>
+    <td>Low</td>
+    <td>Often</td>
+    <td>Medium</td>
+  </tr>
+
+  <tr>
+    <td>Utilizar la plataforma de manera rápida y sencilla evitando distracciones al conducir</td>
+    <td>Always</td>
+    <td>High</td>
+    <td>Sometimes</td>
+    <td>Medium</td>
+  </tr>
+</table>
+
+A partir de la asignación de tareas, frecuencias e importancias en la User Task Matrix, se pueden contrastar los comportamientos esperados de ambos perfiles frente a los hallazgos operativos de la plataforma ParkLink:
+
+#### 2.3.2.1 Análisis de Coincidencias entre Perfiles
+
+**Tareas Críticas Compartidas (Always / High Importance):**
+
+- Tanto el conductor (Humberto) como el propietario (Jarol) coinciden en la máxima prioridad de recibir notificaciones en tiempo real sobre el estado de sus operaciones (confirmaciones de reservas, alertas de transacciones o avisos de estado).
+
+- Ambos perfiles coinciden en la necesidad de que la plataforma posea una alta estabilidad y facilidad de uso, evitando fricciones operativas en momentos críticos (como la congestión vehicular para el conductor o el control de accesos para el propietario).
+
+#### 2.3.2.2 Análisis de Diferencias Clave (Exclusividades por Rol)
+
+**Polaridad de Tareas (Always/High vs Never/Low):**
+
+- Las tareas de alta frecuencia para el segmento conductor —como la búsqueda de espacios en tiempo real y la visualización de tarifas claras antes de llegar— tienen una prioridad nula (Never/Low) para el propietario, ya que su rol está enfocado en la oferta y no en la demanda.
+
+- Inversamente, las tareas principales del propietario —como la publicación y monetización de espacios vacíos, la gestión del control de entradas y salidas y la configuración de horarios y precios personalizados— son completamente ajenas al conductor, marcando una separación clara de los módulos funcionales que requerirá cada interfaz en el desarrollo de la aplicación.
+
+**Frecuencias Intermedias:**
+
+- Se observa que tareas como la realización de reservas anticipadas tienen un grado de frecuencia alternativo o medio para el propietario cuando actúa de manera ocasional como usuario conductor, mientras que para su rol principal de microempresario su enfoque se centra en la administración activa de sus activos subutilizados.
