@@ -655,3 +655,37 @@ Empathy mapping de conductor que busca estacionamiento
 **Segmento Objetivo 2:**
 Empathy mapping de emprendedor que busca utilizar su espacio de parqueo
 <img width="837" height="1600" alt="image" src="assets/cap-2/empathy-map-empresario.png" />
+
+### 2.3.3 As-Is Scenario Mapping
+Se realizaron los siguientes cuadros en la herramienta Canva Whiteboard, el link original puede ser observado aquí:
+[Ver As-Is Scenario Mapping Conductor ](https://canva.link/jby3bjf8zc229cu)
+<img alt="image" src="assets/cap-2/AS-IS Escenario Mapping - Conductor.png">
+
+[Ver As-Is Scenario Mapping Empresario ](https://canva.link/h4eg6jtpslds5sb)
+<img alt="image" src="assets/cap-2/AS-IS Escenario Mapping - Empresario.png">
+
+### 2.4. Ubiquitous Language (Lenguaje Ubicuo)
+
+En el desarrollo de ParkLink, y bajo los principios del Domain-Driven Design (DDD) propuestos por Eric Evans, es fundamental mantener un glosario compartido y sin ambigüedades. Este lenguaje común es empleado por todos los miembros del equipo y stakeholders para asegurar un entendimiento uniforme del negocio, centrándose exclusivamente en conceptos del dominio de la movilidad urbana y la gestión de espacios, sin incluir terminología técnica de desarrollo de software.
+
+A continuación, se detalla el glosario oficial del dominio:
+
+- **Parking Space (Espacio de estacionamiento):** Área delimitada, física o virtual, destinada al depósito temporal de un vehículo automotor. Puede pertenecer a infraestructura pública, privada o residencial.
+
+- **Real-Time Availability (Disponibilidad en tiempo real):** Estado actualizado al instante que indica si un espacio de estacionamiento se encuentra libre, ocupado o reservado, permitiendo al conductor tomar decisiones de movilidad sin incertidumbre.
+
+- **Smart Parking (Estacionamiento inteligente):** Solución tecnológica basada en plataformas digitales que optimiza la búsqueda, reserva, pago y gestión de espacios de estacionamiento mediante el uso de datos en tiempo real.
+
+- **Reservation (Reserva):** Acuerdo temporal y digital mediante el cual un conductor asegura y bloquea un espacio de estacionamiento específico durante un intervalo de tiempo determinado antes de su llegada.
+
+- **Space Owner (Propietario de espacio):** Persona natural o jurídica que posee la titularidad o administración de uno o más espacios de estacionamiento subutilizados y busca monetizarlos a través de la plataforma.
+
+- **Urban Driver (Conductor urbano):** Usuario conductor que transita por zonas de alta congestión vehicular y utiliza la plataforma para optimizar su tiempo en la búsqueda de parqueo.
+
+- **Private Monetization (Monetización de espacios privados):** Proceso comercial mediante el cual los propietarios de cocheras particulares o residenciales generan ingresos pasivos al alquilar sus espacios ociosos a terceros a través de la plataforma.
+
+- **Dynamic Pricing (Precios dinámicos):** Modelo de tarificación flexible que permite a los propietarios configurar y ajustar las tarifas de sus espacios de estacionamiento en función de la demanda, el horario o el día de la semana.
+
+- **Urban Mobility (Movilidad urbana):** Conjunto de desplazamientos de personas y vehículos dentro de un entorno de ciudad, cuya eficiencia ParkLink busca mejorar mediante la reducción del tráfico inducido por la búsqueda de parqueo.
+
+- **Peak Hours (Horas punta):** Franjas horarias del día caracterizadas por la máxima congestión vehicular y alta demanda de estacionamientos, donde los sistemas requieren mayor robustez.
