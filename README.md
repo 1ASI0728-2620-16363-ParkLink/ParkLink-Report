@@ -13,6 +13,7 @@ La especificación de requisitos formaliza la transición desde la investigació
 
 El To-Be Scenario Mapping plasma la visión de servicio de ParkLink en el día a día de nuestros segmentos objetivo. El proceso de elaboración se desarrolló mediante las siguientes etapas metodológicas:
 - **Preparación y análisis de necesidades:** Se tomó como base la información cuantitativa y cualitativa obtenida en las entrevistas del Capítulo II, donde se comprobó que el 100% de los conductores urbanos entrevistados pierde entre 15 y 20 minutos al día buscando estacionamiento, y que el 100% de los propietarios gestiona sus cocheras de manera informal y desordenada vía WhatsApp.
+- **Contraste con el As-Is Scenario Mapping:** A partir del As-Is Scenario Mapping formalizado en la sección 2.3.4 del Capítulo II (donde se evidenciaron los recorridos inciertos, la desinformación de tarifas y el estrés de Humberto, así como los cobros desordenados y la desconfianza de Jarol), se estructuraron los mapas To-Be para evidenciar cómo ParkLink resuelve cada punto de fricción operativa.
 - **Lluvia de ideas y diseño de la experiencia deseada:** Se propusieron flujos optimizados donde la automatización de reservas, la pasarela de pagos digitales y el Agente Autónomo de IA eliminan la fricción, la pérdida de tiempo y la conducción distraída.
 - **Estandarización de fases:** Se articularon columnas cronológicas que abarcan todo el ciclo de interacción, desde la planificación inicial hasta la salida del estacionamiento o la liquidación de ingresos.
 - **Mapeo de Doing, Thinking y Feeling:** Se determinaron de forma sistemática las acciones observables, los modelos mentales y los estados emocionales para reflejar el alivio, la seguridad y el empoderamiento que introduce la solución.
@@ -23,33 +24,33 @@ Los mapas fueron elaborados para las dos User Personas definidas en el Capítulo
 
 ### To-Be Scenario Map — Conductor Urbano (Humberto García Calla)
 
-Humberto es un conductor de 50 años que transita a diario por distritos con alta congestión vehicular en Lima Metropolitana (San Isidro y Miraflores). Su mayor dolor es la incertidumbre de llegar y no hallar parqueo, provocando retrasos en su centro laboral y elevados niveles de estrés. En el escenario To-Be, Humberto se apoya en ParkLink y su asistente conversacional por voz para asegurar su cochera de manera anticipada o sobre la marcha sin desviar la vista del camino.
+Humberto es un conductor de 50 años que transita a diario por distritos con alta congestión vehicular en Lima Metropolitana (San Isidro y Miraflores). Su mayor dolor en el As-Is era la incertidumbre de llegar y no hallar parqueo, provocando retrasos en su centro laboral y elevados niveles de estrés. En el escenario To-Be, Humberto se apoya en ParkLink para planificar, buscar y reservar su cochera de manera anticipada o sobre la marcha con asistencia en tiempo real.
 
 > Tablero colaborativo elaborado en Miro: [Ver To-Be Scenario Map - Conductor](https://miro.com/app/board/uXjVGiIH610=/?share_link_id=240859047074)
 
-![To-Be Scenario Map - Humberto García Calla](assets/tobescenariocarlos.jpg)
+![To-Be Scenario Map - Humberto García Calla](assets/tobescenario-humberto.png)
 
-| Dimensión | Planificar | Buscar | Seleccionar | Reservar | Llegar y Usar |
+| Dimensión | Planificar | Buscar | Seleccionar | Reservar | Llegar y usar |
 |---|---|---|---|---|---|
-| **Doing** | Consulta la aplicación antes de partir o activa por comando de voz el Agente IA de ParkLink solicitando una cochera disponible en su destino. | Visualiza en el mapa interactivo los espacios disponibles en tiempo real o escucha las recomendaciones del Agente IA según tarifa y cercanía. | Compara alternativas filtradas automáticamente por precio por hora, distancia caminable y calificaciones de seguridad. | Confirma la reserva de la plaza elegida y autoriza el pago digital mediante confirmación verbal o un solo toque en la app. | Conduce guiado por navegación asistida, valida su acceso en la cochera mediante código digital y utiliza el tiempo contratado con opción de extensión autónoma. |
-| **Thinking** | "Por fin salgo de casa con la tranquilidad de que tendré dónde parquear; le pido a ParkLink Copilot que busque mientras termino de alistarme." | "Puedo ver la disponibilidad real en el mapa sin quitar las manos del volante ni distraerme en el camino." | "Las sugerencias destacan cocheras techadas con vigilancia dentro de mi presupuesto diario de movilidad." | "Mi lugar está garantizado antes de llegar; ya no perderé 20 minutos dando vueltas por las calles." | "Llegué directo y puntual a mi trabajo; si mi reunión se retrasa, el sistema me permite extender el tiempo sin problemas." |
-| **Feeling** | Prevenido, organizado y libre de la ansiedad típica del tráfico limeño. | Seguro, con pleno control de su tiempo y concentrado en el volante. | Empoderado para tomar una decisión rápida, económica y confiable. | Aliviado, confiado en el servicio y satisfecho con el pago transparente. | Satisfecho, puntual y con tiempo productivo recuperado. |
+| **Doing** | Revisa ParkLink antes de salir y busca espacios disponibles en su destino. | Visualiza en el mapa los espacios libres cercanos a su destino con precio y horario. | Compara opciones por precio, distancia y valoraciones. | Confirma la reserva y realiza el pago digital desde la app. | Llega directamente al espacio reservado, ingresa y usa el tiempo contratado. |
+| **Thinking** | "Por fin sé si habrá lugar antes de salir" | "Puedo ver todo en tiempo real, es exactamente lo que necesitaba" | "Tengo varias opciones, voy a elegir la que me conviene más" | "Mi espacio está garantizado, ya no tengo que preocuparme" | "Llegué directo, sin dar vueltas, esto sí funciona" |
+| **Feeling** | Tranquilo y organizado | Seguro y con control de la situación | Empoderado para decidir | Aliviado y confiado | Satisfecho y con tiempo recuperado |
 
 ---
 
 ### To-Be Scenario Map — Propietario de Espacio (Jarol Saquiray Vargas)
 
-Jarol es un joven microempresario de 24 años que cuenta con cocheras desocupadas durante el horario laboral en San Isidro. Su frustración principal era la informalidad, la desconfianza de recibir desconocidos y la gestión manual mediante mensajes de WhatsApp. En el escenario To-Be, ParkLink le proporciona una plataforma formal que automatiza el registro, valida la identidad de los conductores y gestiona los cobros sin intervención manual.
+Jarol es un joven microempresario de 24 años que cuenta con cocheras desocupadas durante el horario laboral en San Isidro. Su frustración principal en el As-Is era la informalidad, la desconfianza de recibir desconocidos y la gestión manual mediante mensajes de WhatsApp. En el escenario To-Be, ParkLink le proporciona una plataforma formal que automatiza el registro, valida la identidad de los conductores y gestiona los cobros sin intervención manual.
 
 > Tablero colaborativo elaborado en Miro: [Ver To-Be Scenario Map - Propietario](https://miro.com/app/board/uXjVGiIFZLU=/?share_link_id=511863885761)
 
-![To-Be Scenario Map - Jarol Saquiray Vargas](assets/tobescenarioelena.jpg)
+![To-Be Scenario Map - Jarol Saquiray Vargas](assets/tobescenario-jarol.png)
 
-| Dimensión | Registrar | Configurar | Recibir Reserva | Gestionar Acceso | Cobrar |
+| Dimensión | Registrar | Configurar | Recibir reserva | Permitir entrada | Cobrar |
 |---|---|---|---|---|---|
-| **Doing** | Descarga la aplicación, completa su registro como microempresario y publica sus espacios ingresando fotos, dimensiones y ubicación del inmueble. | Define las reglas de acceso, los días y rangos horarios de atención (ej. lunes a viernes de 08:00 a 18:00) y la tarifa por hora. | Recibe notificaciones push inmediatas cada vez que un conductor reserva y abona un espacio en su cochera. | Consulta en su panel digital la lista de conductores agendados con número de placa y valida el ingreso de manera ágil y segura. | Recibe abonos directos y automatizados en su cuenta bancaria y consulta en su panel el historial detallado de ganancias acumuladas. |
-| **Thinking** | "Completé la publicación en menos de diez minutos y ya tengo mis cocheras visibles en la plataforma." | "Tengo control absoluto de cuándo y a qué precio se alquilan mis espacios sin tener que coordinar llamadas constantes." | "La plataforma gestionó el cobro y me notificó de inmediato; se acabaron los acuerdos informales por WhatsApp." | "Sé con certeza quién ingresa, qué vehículo trae y por cuántas horas; mi propiedad está segura." | "Estoy monetizando mis espacios ociosos de forma pasiva y sin riesgo de falta de pago." |
-| **Feeling** | Motivado por la simplicidad y rapidez del alta en el sistema. | Autónomo, confiado y con control formal sobre sus propiedades. | Entusiasmado por el flujo constante de solicitudes verificadas. | Tranquilo, respaldado por la formalidad del registro de accesos. | Satisfecho financieramente y seguro de la rentabilidad del servicio. |
+| **Doing** | Publica su cochera en ParkLink con foto, precio y horarios disponibles. | Define reglas de entrada, horarios bloqueados y precio por hora o día. | Recibe notificación de reserva confirmada con datos del conductor. | Autoriza la entrada desde la app en el horario pactado. | Recibe el pago digital automáticamente en su cuenta. |
+| **Thinking** | "Fue sencillo, tardé menos de 10 minutos" | "Tengo control total de cuándo y a quién le presto mi espacio" | "Alguien reservó, la plataforma funciona" | "Sé exactamente quién entra y cuándo, me da seguridad" | "Gané dinero sin hacer nada extra, solo configuré una vez" |
+| **Feeling** | Sorprendido por la simplicidad | Seguro y con control | Entusiasmado con el ingreso | Tranquilo y confiado | Satisfecho con el ingreso pasivo generado |
 
 ---
 
