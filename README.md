@@ -644,3 +644,14 @@ A partir de la asignación de tareas, frecuencias e importancias en la User Task
 **Frecuencias Intermedias:**
 
 - Se observa que tareas como la realización de reservas anticipadas tienen un grado de frecuencia alternativo o medio para el propietario cuando actúa de manera ocasional como usuario conductor, mientras que para su rol principal de microempresario su enfoque se centra en la administración activa de sus activos subutilizados.
+
+### 2.3.3 Empathy Mapping
+
+**Segmento Objetivo 1:**
+Empathy mapping de conductor que busca estacionamiento
+
+<img width="837" height="1600" alt="image" src="assets/cap-2/empathy-map-conductor.png" />
+
+**Segmento Objetivo 2:**
+Empathy mapping de emprendedor que busca utilizar su espacio de parqueo
+<img width="837" height="1600" alt="image" src="assets/cap-2/empathy-map-empresario.png" />
