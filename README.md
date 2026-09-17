@@ -34,13 +34,38 @@
 | Version | Fecha      | Autor                                                        | Descripción de modificación |
 |---------|------------|--------------------------------------------------------------|-----------------------------|
 | 1ra     | 15/04/2026 | Fabian Alejandro Oliva Lopez, Pietro Osores Marchese, Amir Gabriel Castro Sanchez, Daniel Elias Ruiz Huisa   | Avance1: En esta primera entrega se avanzó con los capítulos 1, 2 y 3 de forma organizada para iniciar el proyecto ParkLink, estableciendo la idea, el estudio del contexto y las funcionalidades. |
+| 2da     | 16/04/2026 | Fabian Alejandro Oliva Lopez, Pietro Osores Marchese, Amir Gabriel Castro Sanchez, Daniel Elias Ruiz Huisa   | Entrega TB1: Consolidación final de Capítulos I a IV, incorporación de Project Report Collaboration Insights, avance de Conclusiones y recomendaciones, Video About-the-Team, Bibliografía APA y Anexos A-E. |
+
+## Project Report Collaboration Insights
+
+El equipo gestiona el desarrollo y versionado del informe a través de la organización de GitHub del proyecto:
+- **Organización / Repositorio oficial:** [1ASI0728-2620-16363-ParkLink/ParkLink-Report](https://github.com/1ASI0728-2620-16363-ParkLink/ParkLink-Report)
+
+Para asegurar la calidad técnica, consistencia y trazabilidad de los artefactos del informe, el equipo adoptó las siguientes prácticas de ingeniería colaborativa:
+1. **Flujo de ramificación estructurado (GitFlow adaptado):** La rama `main` almacena las versiones de producción aprobadas para cada hito de entrega. La rama `develop` actúa como integrador continuo. Cada capítulo o grupo de artefactos se trabaja en ramas dedicadas de características (`feature/chapter-1`, `feature/chapter-2`, `feature/chapter-3`, `feature/chapter-4`, `feature/conclusiones-bibliografia-anexos`) antes de someterse a Pull Request con revisión cruzada entre integrantes.
+2. **Estándar de confirmaciones atómicas (Conventional Commits v1.0.0):** Se aplican mensajes con tipos y alcances rigurosos (`docs(report):`, `feat(architecture):`, `chore(assets):`) en tiempo presente imperativo, garantizando la trazabilidad histórica de cada aporte individual.
+3. **Distribución equitativa y auditoría de aportes:** Todos los integrantes han contribuido activamente en la redacción, modelado y revisión de los artefactos del informe. Las métricas de colaboración y gráficos de red reflejan una participación balanceada y sincronizada a lo largo de las sesiones de trabajo.
 
 ## Student Outcome
 
-| Criterio específico | Acciones realizadas por entregable e integrante | Conclusión general |
+El curso contribuye al cumplimiento del Student Outcome ABET:
+
+**ABET – EAC - Student Outcome 3**  
+**Criterio:** Capacidad de comunicarse efectivamente con un rango de audiencias.
+
+En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 3.
+
+| Criterio específico | Acciones realizadas por entregable e integrante | Conclusiones |
 |---|---|---|
-| **CO1:** Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y, en especial, para su proyecto en soluciones de software. | - **TB1 – Fabian Alejandro Oliva López:** Definió el ADN de la startup, estableciendo visión, misión, valores y segmentos objetivo.<br><br>- **TB1 – Pietro Osores Marchese:** Elaboró el Lean UX Canvas, User Stories, Impact Map y Product Backlog.<br><br>- **TB1 – Amir Gabriel Castro Sanchez:** Participó en el diseño, registro y análisis de entrevistas a usuarios, identificando necesidades y características relevantes para la solución. Además, colaboró en la definición del Design Purpose y de las funcionalidades principales para el diseño estratégico del software.<br><br>- **TB1 – Daniel Elias Ruiz Huisa:** Desarrolló parte del análisis de competidores y del proceso de Needfinding mediante User Personas y Empathy Mapping. Asimismo, participó en la identificación de escenarios de atributos de calidad y restricciones para el diseño de la solución. | Los integrantes aplicaron conocimientos de estrategia de producto, investigación de usuarios, Lean UX, gestión de requerimientos y diseño estratégico de software para definir ParkLink y orientar el desarrollo de la solución según las necesidades identificadas. |
-| **CO2:** Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software. | - **TB1 – Fabian Alejandro Oliva López:** Reconoció la importancia de actualizar conocimientos en estrategia de producto y liderazgo de proyectos.<br><br>- **TB1 – Pietro Osores Marchese:** Entendió la importancia del aprendizaje continuo en gestión de requerimientos y priorización ágil.<br><br>- **TB1 – Amir Gabriel Castro Sanchez:** Reconoció la necesidad de fortalecer continuamente sus conocimientos en técnicas de entrevistas, análisis de usuarios y diseño estratégico para obtener requerimientos más precisos.<br><br>- **TB1 – Daniel Elias Ruiz Huisa:** Comprendió la importancia de actualizar sus conocimientos en análisis competitivo, técnicas de Needfinding y atributos de calidad para plantear soluciones de software mejor fundamentadas. | El equipo reconoció que el aprendizaje permanente es necesario para mejorar la investigación de usuarios, la definición de requisitos, la estrategia del producto y las decisiones de diseño durante el desarrollo de una solución de software. |
+| **Comunica oralmente sus ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerárquicos, en el marco del desarrollo de un proyecto en ingeniería.** | - **TB1 – Fabian Alejandro Oliva López:** Lideró y expuso la fundamentación del ADN de la startup, la problemática urbana de parqueo y la propuesta de valor de ParkLink durante la grabación de la sustentación oral y sesiones de alineamiento del equipo.<br><br>- **TB1 – Pietro Osores Marchese:** Comunicó de forma clara la estructura del Lean UX Canvas, la priorización ágil del Product Backlog y los criterios de estimación en Fibonacci ante los miembros del equipo y stakeholders durante las reuniones de refinamiento.<br><br>- **TB1 – Amir Gabriel Castro Sanchez:** Condujo técnicamente las entrevistas semiestructuradas a conductores urbanos y propietarios de espacios de estacionamiento, adaptando el registro y lenguaje según el perfil del entrevistado y exponiendo los hallazgos en la sustentación del TB1.<br><br>- **TB1 – Daniel Elias Ruiz Huisa:** Presentó los resultados de la matriz comparativa de competidores, arquetipos User Persona y la arquitectura estratégica (ADD y C4) en la exposición grabada del equipo, argumentando con rigor las decisiones de diseño. | El equipo demostró la capacidad de comunicar oralmente conceptos complejos de arquitectura de software, investigación de campo y gestión ágil con objetividad, claridad y lenguaje profesional adaptado a audiencias académicas, técnicas y de negocio en el hito TB1. |
+| **Comunica en forma escrita ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerárquicos, en el marco del desarrollo de un proyecto en ingeniería.** | - **TB1 – Fabian Alejandro Oliva López:** Redactó formalmente el perfil de la organización, antecedentes, técnica 5W2H, objetivos SMART y restricciones del proyecto en el Capítulo I, asegurando coherencia conceptual y ortotipográfica.<br><br>- **TB1 – Pietro Osores Marchese:** Documentó con precisión técnica las hipótesis Lean UX, el Impact Mapping, la totalidad de Épicas, User Stories y Technical Stories con criterios de aceptación Gherkin en los Capítulos I y III.<br><br>- **TB1 – Amir Gabriel Castro Sanchez:** Elaboró los resúmenes y análisis estadísticos porcentuales de las entrevistas de Needfinding en el Capítulo II, así como la definición formal de los Architectural Drivers y Bounded Contexts en el Capítulo IV.<br><br>- **TB1 – Daniel Elias Ruiz Huisa:** Redactó el Competitive Analysis Landscape, el Lenguaje Ubicuo en inglés/español, los Quality Attribute Scenarios (QAS) refinados y la especificación de diagramas C4 en el Capítulo IV bajo estándares internacionales. | El equipo sustentó por escrito con rigor metodológico los artefactos de análisis de requerimientos, diseño estratégico ADD y DDD en formato Markdown profesional, facilitando la comprensión y reproducibilidad por parte de evaluadores y desarrolladores. |
+
+Adicionalmente, el equipo mantiene el seguimiento de competencias complementarias de formación profesional:
+
+| Criterio específico complementario | Acciones realizadas por entregable e integrante | Conclusión general |
+|---|---|---|
+| **CO1:** Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y, en especial, para su proyecto en soluciones de software. | - **TB1 – Fabian Alejandro Oliva López:** Definió el ADN de la startup, estableciendo visión, misión, valores y segmentos objetivo.<br><br>- **TB1 – Pietro Osores Marchese:** Elaboró el Lean UX Canvas, User Stories, Impact Map y Product Backlog.<br><br>- **TB1 – Amir Gabriel Castro Sanchez:** Participó en el diseño, registro y análisis de entrevistas a usuarios y colaboró en el diseño estratégico del software.<br><br>- **TB1 – Daniel Elias Ruiz Huisa:** Desarrolló el análisis de competidores, Needfinding y escenarios de atributos de calidad para el diseño de la solución. | Los integrantes aplicaron conocimientos de estrategia de producto, investigación de usuarios, Lean UX, gestión de requerimientos y diseño estratégico de software para definir ParkLink y orientar el desarrollo de la solución. |
+| **CO2:** Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software. | - **TB1 – Fabian Alejandro Oliva López:** Reconoció la importancia de actualizar conocimientos en estrategia de producto y liderazgo de proyectos.<br><br>- **TB1 – Pietro Osores Marchese:** Entendió la importancia del aprendizaje continuo en gestión de requerimientos y priorización ágil.<br><br>- **TB1 – Amir Gabriel Castro Sanchez:** Reconoció la necesidad de fortalecer continuamente sus conocimientos en técnicas de entrevistas y diseño estratégico.<br><br>- **TB1 – Daniel Elias Ruiz Huisa:** Comprendió la importancia de actualizar sus conocimientos en análisis competitivo, Needfinding y atributos de calidad. | El equipo reconoció que el aprendizaje permanente es necesario para mejorar la investigación de usuarios, la definición de requisitos, la estrategia del producto y las decisiones de diseño durante el desarrollo de software. |
 
 ## Contenido
 
@@ -135,6 +160,16 @@
     - [5.4.3.6 Software Deployment Evidence for Sprint Review](#5436-software-deployment-evidence-for-sprint-review)
     - [5.4.3.7 Team Collaboration Insights during Sprint](#5437-team-collaboration-insights-during-sprint)
     - [5.4.3.8 Kanban Board](#5438-kanban-board)
+- [Conclusiones](#conclusiones)
+    - [Conclusiones y recomendaciones](#conclusiones-y-recomendaciones)
+    - [Video About-the-Team](#video-about-the-team)
+- [Bibliografía](#bibliografía)
+- [Anexos](#anexos)
+    - [Anexo A. Estructura para la sección Objetivo del Estudiante (Student Outcome)](#anexo-a-estructura-para-la-sección-objetivo-del-estudiante-student-outcome)
+    - [Anexo B. Estructura para el Informe de participación (Participant Performance Report)](#anexo-b-estructura-para-el-informe-de-participación)
+    - [Anexo C. Consideraciones y Registro sobre secciones que incluyen Videos](#anexo-c-consideraciones-y-registro-sobre-secciones-que-incluyen-videos)
+    - [Anexo D. Videos de Exposiciones](#anexo-d-videos-de-exposiciones)
+    - [Anexo E. Formato para Evaluación de User Experience según Heurísticas](#anexo-e-formato-para-evaluación-de-user-experience-según-heurísticas)
 
 
 # Capítulo I: Introducción
@@ -2047,3 +2082,199 @@ Los diagramas C4 se modelan en un workspace Structurizr único. Las vistas DDD s
 | System Landscape, Context, Container y Deployment | `docs/architecture/workspace.dsl` y `docs/architecture/structurizr-export/` | `assets/architecture-v2/` |
 
 Cada gráfico tiene una explicación asociada y responde a una pregunta arquitectónica específica. La fuente textual permite revisar decisiones y volver a generar la evidencia sin depender de capturas manuales.
+
+---
+
+# Conclusiones
+
+## Conclusiones y recomendaciones
+
+### Conclusiones
+
+1. **Validación de Problem Statements y Necesidad del Dominio:**
+   - Para el segmento de **Conductores urbanos**, la investigación de campo confirmó que el tiempo promedio perdido buscando estacionamiento en distritos comerciales de alta congestión (San Isidro, Miraflores, Surco) oscila entre 15 y 30 minutos, generando estrés severo e incremento de consumo de combustible. La solución propuesta a través de ParkLink ataca directamente este dolor al permitir la reserva anticipada garantizada y la navegación guiada.
+   - Para el segmento de **Propietarios de estacionamientos y cocheras residenciales**, se validó la existencia de capacidad ociosa durante horarios laborales y nocturnos. Los propietarios demostraron alta disposición a monetizar estos espacios subutilizados siempre que la plataforma ofrezca garantías de seguridad, control de acceso, verificación de identidad de los conductores y pagos automatizados y transparentes.
+
+2. **Evaluación de Lean UX Assumptions y Comportamiento Real:**
+   - Los supuestos iniciales respecto a la adopción tecnológica fueron validados favorablemente: el 100% de los conductores entrevistados utiliza smartphones con sistemas de navegación (Google Maps / Waze) y realiza pagos digitales habitualmente (billeteras electrónicas y tarjetas).
+   - Sin embargo, un hallazgo crítico durante el Needfinding demostró que los conductores en movimiento no pueden interactuar visualmente con interfaces complejas. Esta fricción justificó la priorización e integración de un **Agente Conversacional con soporte de voz**, permitiendo interacciones seguras de manos libres durante la conducción urbana.
+
+3. **Hipótesis y Criterios de Éxito del Modelo de Negocio:**
+   - Las tres hipótesis Lean UX formuladas orientan adecuadamente las métricas de negocio (Business Outcomes) y de usuario (User Outcomes): reducción del 70% en el tiempo de búsqueda de estacionamiento, ocupación superior al 65% de plazas residenciales publicadas, y tasa de recurrencia superior al 40% mensual mediante confianza transaccional.
+
+4. **Sustento del Diseño Arquitectónico Estratégico (ADD & DDD):**
+   - La aplicación del método **Attribute-Driven Design (ADD 3.0)** permitió guiar la arquitectura a partir de requerimientos de calidad intransigibles (Drivers Arquitectónicos): consistencia estricta en reservas para evitar sobreventa (doble reserva), resiliencia desacoplada del canal de IA, idempotencia transaccional y protección contra ataques por inyección de prompts.
+   - Mediante **Domain-Driven Design (DDD)** estratégico (EventStorming y Bounded Contexts), se definió un núcleo transaccional claro liderado por el *Reservation Management Context* y el *Parking Supply Context*, aislándolo de proyecciones optimizadas para lectura geoespacial (*Parking Discovery Context*) mediante sincronización asíncrona sobre RabbitMQ.
+   - El **Agente Conversacional** se diseñó bajo un principio estricto de no autoridad de dominio: opera como un orquestador que interpreta lenguaje natural y consulta catálogos, pero cualquier mutación de estado o retención monetaria requiere confirmación humana explícita y es despachada al Command Broker, previniendo fallos catastróficos o alucinaciones del modelo fundacional.
+
+### Recomendaciones
+
+1. **Fase Táctica (Hito TP1 / Sprint 1):**
+   - Desarrollar la arquitectura a nivel de componentes (C4 Component Diagrams) y diseño de clases de dominio para los Bounded Contexts críticos (*Reservation*, *Supply* e *Identity*), implementando arquitectura hexagonal o de capas limpias en NestJS / TypeScript.
+   - Formalizar los esquemas de bases de datos relacionales (PostgreSQL) con restricciones de integridad a nivel de transacción (índices GiST o exclusión temporal para rangos de reserva) garantizando matemáticamente la prevención de sobreventa.
+   - Diseñar las guías de estilo UI/UX, arquitectura de información y prototipos de alta fidelidad en Figma / Material Design para el Landing Page (HTML5/CSS3) y las aplicaciones móviles en Flutter.
+
+2. **Fase de Implementación y Despliegue (Hitos TB2 y TF1 / Sprints 2 y 3):**
+   - Configurar el clúster de mensajería RabbitMQ con colas Quorum y mecanismos de Dead Letter Queue (DLQ) para garantizar la durabilidad de eventos y compensación automática de fallos en la Saga de reservas y pagos.
+   - Implementar pruebas automatizadas unitarias, de integración y de concurrencia simulando ráfagas simultáneas sobre la misma plaza de estacionamiento.
+   - Establecer pipelines de Integración y Despliegue Continuo (CI/CD) sobre GitHub Actions hacia entornos administrados basados en contenedores (Kubernetes/Docker), incorporando análisis estático de código y pruebas de seguridad.
+
+---
+
+## Video About-the-Team
+
+### Resumen del Video
+
+El video **About-the-Team** consolida la experiencia colaborativa, dinámica de trabajo ágil y aprendizajes del equipo **ParkTeam** durante el desarrollo de los Capítulos I al IV para la entrega del hito **TB1**. El material audiovisual documenta las reuniones de ideación, sesiones de trabajo sincrónico mediante Discord y GitHub, el modelado arquitectónico conjunto en Structurizr y Lucidchart, y las lecciones aprendidas al abordar problemas de alta concurrencia y seguridad en sistemas distribuidos.
+
+Asimismo, cada integrante presenta su testimonio individual ante cámara detallando las actividades técnicas asumidas, los desafíos superados y cómo el desarrollo del proyecto ha fortalecido las competencias profesionales del perfil de egreso en Ingeniería de Software.
+
+### Pauta de Secuencias de Contenido
+
+| Segmento | Inicio (hh:mm:ss) | Duración | Descripción del contenido | Participantes |
+|---|---|---|---|---|
+| **1. Introducción y Propósito del Startup** | 00:00:00 | 01:30 | Presentación del equipo ParkTeam, justificación del producto ParkLink y la misión del proyecto. | Todo el equipo |
+| **2. Retrospectiva del Ciclo de Trabajo Grupal** | 00:01:30 | 03:30 | Explicación del proceso colaborativo: Needfinding, Lean UX, definición de drivers ADD, EventStorming y arquitectura en C4. | Todo el equipo |
+| **3. Testimonio Individual: Fabian Oliva** | 00:05:00 | 01:00 | Reflexión sobre la dirección estratégica de producto, definición del ADN corporativo y comunicación técnica. | Fabian Alejandro Oliva Lopez |
+| **4. Testimonio Individual: Pietro Osores** | 00:06:00 | 01:00 | Balance sobre la especificación de User Stories, criterios Gherkin, impacto ágil y backlog priorizado. | Pietro Osores Marchese |
+| **5. Testimonio Individual: Amir Castro** | 00:07:00 | 01:00 | Conclusiones sobre la conducción de entrevistas cualitativas, empatía con usuarios y modelado de Bounded Contexts. | Amir Gabriel Castro Sanchez |
+| **6. Testimonio Individual: Daniel Ruiz** | 00:08:00 | 01:00 | Análisis de los drivers de calidad, aislamiento transaccional y diseño arquitectónico C4 as Code. | Daniel Elias Ruiz Huisa |
+| **7. Conclusiones Finales y Próximos Pasos** | 00:09:00 | 01:00 | Cierre del video, resumen de competencias alcanzadas (ABET Outcome 3) y proyección hacia la fase táctica. | Todo el equipo |
+
+**Duración total aproximada:** 10 minutos.
+
+### Registro y Enlaces de Publicación
+
+- **Versión Privada Institucional (Microsoft Stream):** [Ver Video About-the-Team en Microsoft Stream](https://web.microsoftstream.com/video/placeholder-parklink-about-the-team-tb1) *(Requiere credenciales UPC)*
+- **Versión Pública para Landing Page (YouTube):** [Ver Video About-the-Team en YouTube](https://youtu.be/placeholder-parklink-about-the-team-tb1)
+
+![Video About the Team Placeholder](https://img.youtube.com/vi/placeholder/maxresdefault.jpg)
+*Captura de secuencia representativa del Video About-the-Team del equipo ParkTeam.*
+
+---
+
+# Bibliografía
+
+1. Bass, L., Clements, P., & Kazman, R. (2021). *Software Architecture in Practice* (4th ed.). Addison-Wesley Professional.
+2. Brandolini, A. (2021). *Introducing EventStorming: An agile modeling method*. Leanpub. https://leanpub.com/introducing_eventstorming
+3. Brown, S. (2018). *The C4 model for visualising software architecture*. Leanpub. https://c4model.com/
+4. Context Mapper Team. (2024). *Context Mapper: A Modeling Framework for Strategic Domain-driven Design*. https://contextmapper.org/
+5. Driessen, V. (2010). *A successful Git branching model*. nvie.com. https://nvie.com/posts/a-successful-git-branching-model/
+6. Evans, E. (2003). *Domain-Driven Design: Tackling Complexity in the Heart of Software*. Addison-Wesley Professional.
+7. Fowler, M. (2014). *Microservices: A definition of this new architectural term*. martinfowler.com. https://martinfowler.com/articles/microservices.html
+8. Fowler, M. (2015). *Ubiquitous Language*. martinfowler.com. https://martinfowler.com/bliki/UbiquitousLanguage.html
+9. Gothelf, J., & Seiden, J. (2021). *Lean UX: Designing Great Products with Agile Teams* (3rd ed.). O'Reilly Media.
+10. Hohpe, G., & Woolf, B. (2003). *Enterprise Integration Patterns: Designing, Building, and Deploying Messaging Solutions*. Addison-Wesley Professional.
+11. Newman, S. (2021). *Building Microservices: Designing Fine-Grained Systems* (2nd ed.). O'Reilly Media.
+12. Nielsen, J. (1994). *10 Usability Heuristics for User Interface Design*. Nielsen Norman Group. https://www.nngroup.com/articles/ten-usability-heuristics/
+13. OpenID Foundation. (2014). *OpenID Connect Core 1.0 incorporating errata set 1*. https://openid.net/specs/openid-connect-core-1_0.html
+14. Richardson, C. (2018). *Microservices Patterns: With examples in Java*. Manning Publications.
+15. The Conventional Commits Team. (2020). *Conventional Commits v1.0.0: A specification for adding human and machine readable meaning to commit messages*. https://www.conventionalcommits.org/en/v1.0.0/
+16. Vernon, V. (2013). *Implementing Domain-Driven Design*. Addison-Wesley Professional.
+17. World Wide Web Consortium. (2018). *Web Content Accessibility Guidelines (WCAG) 2.1*. W3C Recommendation. https://www.w3.org/TR/WCAG21/
+
+---
+
+# Anexos
+
+## Anexo A. Estructura para la sección Objetivo del Estudiante (Student Outcome)
+
+El curso 1ASI0728 Arquitecturas de Software Emergentes contribuye de manera directa al cumplimiento del Student Outcome ABET de la carrera de Ingeniería de Software:
+
+> **ABET – EAC - Student Outcome 3**  
+> **Criterio:** Capacidad de comunicarse efectivamente con un rango de audiencias.
+
+El siguiente cuadro formal consolida la autoevaluación del logro de las dimensiones de comunicación oral y escrita alcanzadas por los integrantes de la startup ParkTeam en la entrega del hito **TB1**:
+
+| Criterio específico | Integrante | Hito | Acciones específicas realizadas | Conclusiones grupales acumuladas |
+|---|---|---|---|---|
+| **Comunica oralmente sus ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerárquicos, en el marco del desarrollo de un proyecto en ingeniería.** | Fabian Alejandro Oliva Lopez | TB1 | Expuso con claridad la visión del negocio, justificación socioeconómica del problema de parqueo y sustentó el Lean Canvas ante el equipo y en la grabación oficial del video de exposición. | El grupo ha logrado articular discursos estructurados, precisos y con terminología de ingeniería de software adecuada, adaptando la profundidad técnica tanto para exposiciones ejecutivas de negocio como para revisiones de diseño arquitectónico ante pares y docentes evaluadores. |
+| ^ | Pietro Osores Marchese | TB1 | Condujo las discusiones técnicas de priorización del Product Backlog, sustentando la estimación en puntos de historia (Fibonacci) y el valor de negocio de las historias de usuario de la Landing Page y la app móvil. | ^ |
+| ^ | Amir Gabriel Castro Sanchez | TB1 | Ejecutó la comunicación verbal directa en las entrevistas de campo semiestructuradas con conductores y propietarios de inmuebles, moderando el diálogo y extrayendo insights cualitativos clave. | ^ |
+| ^ | Daniel Elias Ruiz Huisa | TB1 | Sustentó oralmente en la sesión de presentación las decisiones arquitectónicas de desacoplamiento de componentes, patrones de tolerancia a fallos y justificación de drivers ADD. | ^ |
+| **Comunica en forma escrita ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerárquicos, en el marco del desarrollo de un proyecto en ingeniería.** | Fabian Alejandro Oliva Lopez | TB1 | Redactó con rigor académico la problemática (5W2H), el perfil de la startup, los objetivos del proyecto y las restricciones del sistema en el Capítulo I, cuidando la ortografía, coherencia y estilo técnico. | El equipo consolidó un informe técnico exhaustivo bajo estándar Markdown, aplicando formalismo formal en diagramas arquitectónicos C4 y especificaciones de requerimientos en Gherkin, asegurando una lectura sin ambigüedades para futuros equipos de desarrollo y auditoría. |
+| ^ | Pietro Osores Marchese | TB1 | Elaboró y redactó las User Stories y Technical Stories con sus criterios de aceptación formales en formato Given-When-Then, así como las matrices de Impact Mapping y Lean UX Canvas. | ^ |
+| ^ | Amir Gabriel Castro Sanchez | TB1 | Redactó los informes descriptivos y tablas estadísticas de las entrevistas de Needfinding en el Capítulo II, y documentó las fichas Bounded Context Canvas en el Capítulo IV. | ^ |
+| ^ | Daniel Elias Ruiz Huisa | TB1 | Documentó formalmente el análisis de la competencia, el Glosario de Lenguaje Ubicuo y los escenarios refinados de atributos de calidad (QAS) en el diseño de arquitectura estratégica. | ^ |
+
+---
+
+## Anexo B. Estructura para el Informe de participación (Participant Performance Report)
+
+El **Participant Performance Report** es elaborado por el Team Leader al cierre de cada entrega para documentar y calificar el nivel de compromiso, cumplimiento de plazos y calidad de los entregables individuales de cada miembro de la startup.
+
+- **Startup:** ParkTeam  
+- **Producto:** ParkLink  
+- **Entrega evaluada:** TB1 (Semana 4)  
+- **Team Leader responsable:** Fabian Alejandro Oliva Lopez  
+- **Enlace al documento formal (.docx):** [Descargar Participant Performance Report - TB1](docs/performance-reports/Participant_Performance_Report_TB1.docx) *(Archivado en repositorio)*
+
+| Ítem | Estudiante | Responsabilidades asignadas en el hito TB1 | Cumplió a tiempo | Cumplió a destiempo | Cumplió parcialmente | No cumplió (0) | Calificación asignada (0 - 20) |
+|---|---|---|:---:|:---:|:---:|:---:|:---:|
+| 1 | Fabian Alejandro Oliva Lopez | Coordinación general de equipo, Capítulo I (Startup Profile, Problemática 5W2H, Objetivos), Video About-the-Team y revisión cruzada de entrega. | **X** | | | | **20** |
+| 2 | Pietro Osores Marchese | Capítulo I (Lean UX Process, Canvas, Assumptions, Hypotheses), Capítulo III (User Stories funcionales y técnicas, Impact Mapping, Product Backlog en Trello). | **X** | | | | **20** |
+| 3 | Amir Gabriel Castro Sanchez | Capítulo II (Diseño, registro y análisis estadístico de entrevistas), Capítulo IV (Strategic DDD, EventStorming, Bounded Context Canvases). | **X** | | | | **20** |
+| 4 | Daniel Elias Ruiz Huisa | Capítulo II (Análisis de competidores, Needfinding, Lenguaje Ubicuo), Capítulo IV (Strategic ADD, Drivers, Decisiones, C4 Model y trazabilidad de arquitectura as Code). | **X** | | | | **20** |
+
+---
+
+## Anexo C. Consideraciones y Registro sobre secciones que incluyen Videos
+
+El proyecto contempla una serie de producciones audiovisuales que evidencian el proceso de ingeniería de software a lo largo del ciclo de vida del producto:
+
+| Sección / Tipo de Video | Cantidad | Formato | Duración requerida | Propósito y Contenido | Canal y Enlace de Entrega |
+|---|---|---|---|---|---|
+| **Needfinding Interviews** | 1 consolidado | .mp4 | 3 a 5 min por entrevista | Consolida las entrevistas a conductores y propietarios con títulos de entrevistado, segmento, fecha y análisis cualitativo. | Microsoft Stream (Canal privado del curso) |
+| **Video de Exposición TB1** | 1 | .mp4 | Máx. 12 minutos | Presentación editada de diapositivas y diagramas sincronizados con explicación ante cámara de los 4 integrantes. | Microsoft Stream (Enlace privado) · *Ver Anexo D* |
+| **About the Team (TB1 / TF1)** | 1 | .mp4 | ~9 a 10 minutos | Retrospectiva colaborativa del equipo con narración y testimonios individuales de logros y competencias (ABET Outcome 3). | Microsoft Stream y YouTube (Incrustado en Landing Page) |
+| **Prototypes Navigation (TP1)** | 1 | .mp4 | 3 a 5 min por flujo | Demostración guiada de flujos de navegación del Landing Page y aplicaciones cliente, priorizando el core de reservas. | Microsoft Stream (Hito TP1) |
+| **Validation Interviews (TB2 / TF1)**| 1 | .mp4 | 3 a 5 min por entrevista | Sesiones de prueba con usuarios reales interactuando con las interfaces y evaluando heurísticas de usabilidad. | Microsoft Stream (Hito TB2/TF1) |
+| **About the Product (TB2 / TF1)** | 1 | .mp4 | 1 a 3 minutos | Video promocional de la propuesta de valor, beneficios para conductores y propietarios, y opiniones de usuarios. | Microsoft Stream y YouTube (Incrustado en Landing Page) |
+
+---
+
+## Anexo D. Videos de Exposiciones
+
+De acuerdo con lo establecido en la rúbrica oficial del curso, cada hito de entrega incluye la grabación de la sustentación en video con antelación. Dicho video combina la presentación formal de diapositivas y diagramas arquitectónicos de alta resolución con la explicación sincronizada ante cámara de cada uno de los integrantes del equipo.
+
+### Registro de Exposición — Hito TB1
+
+- **Hito de entrega:** Primer Hito: TB1 (Semana 4)
+- **Fecha de grabación:** 16 de Abril de 2026
+- **Plataforma de alojamiento:** Microsoft Stream (UPC)
+- **Acceso:** Enlace privado institucional para el docente y evaluadores
+- **Enlace de visualización:** [Ver Video de Exposición TB1 - ParkTeam](https://web.microsoftstream.com/video/placeholder-parklink-exposicion-tb1)
+- **Integrantes expositores:**
+  1. Fabian Alejandro Oliva Lopez (Introducción, Startup Profile y Problemática)
+  2. Amir Gabriel Castro Sanchez (Requirements Elicitation, Entrevistas y Needfinding)
+  3. Pietro Osores Marchese (Requirements Specification, User Stories y Product Backlog)
+  4. Daniel Elias Ruiz Huisa (Strategic-Level ADD, Domain-Driven Design y Modelos C4)
+
+---
+
+## Anexo E. Formato para Evaluación de User Experience según Heurísticas
+
+Para las fases de validación de prototipos y aplicaciones (hitos posteriores TB2 y TF1), el equipo adoptará el formato oficial de auditoría de experiencia de usuario establecido por la cátedra:
+
+- **Carrera:** Ingeniería de Software
+- **Curso:** Arquitecturas de Software Emergentes (1ASI0728)
+- **Sección:** 2620-16363
+- **Auditor:** ParkTeam
+- **Criterios evaluados:** Usabilidad (Nielsen), Diseño Inclusivo (a11y / ARIA), Arquitectura de Información.
+
+### Escala de Severidad de Errores
+
+| Nivel | Clasificación | Criterio de impacto |
+|:---:|---|---|
+| **1** | Problema superficial | Puede ser fácilmente superado por el usuario u ocurre con muy baja frecuencia. No requiere corrección inmediata. |
+| **2** | Problema menor | Ocurre con frecuencia moderada o presenta dificultad menor. Se programa para resolución con prioridad baja en el siguiente release. |
+| **3** | Problema mayor | Ocurre frecuentemente o impide al usuario completar su flujo de forma autónoma. Requiere corrección con prioridad alta. |
+| **4** | Problema muy grave | Error crítico o catástrofe de usabilidad que bloquea totalmente la operación del producto. Es imperativo resolverlo antes de desplegar. |
+
+### Matriz de Registro Heurístico para Sesiones de Validación
+
+| # | Problema identificado | Severidad (1-4) | Heurística / Principio vulnerado | Evidencia y recomendación |
+|:---:|---|:---:|---|---|
+| 1 | *Ejemplo:* Ausencia de confirmación explícita antes del bloqueo de saldo | 3 | Usabilidad: Prevención de errores / Libertad del usuario | Incluir modal con desglose de tarifa y tiempo estimado antes de despachar comando de retención. |
+| 2 | *Ejemplo:* Contraste insuficiente en estados de disponibilidad del mapa | 2 | Diseño Inclusivo: Percepción visual accesible (WCAG 2.1 AA) | Ajustar paleta de colores asegurando un ratio de contraste mínimo de 4.5:1 entre fondo e indicador de plaza libre. |
+| 3 | *Ejemplo:* Ambigüedad en etiquetas de navegación de cocheras compartidas | 2 | Arquitectura de Información: Sistema de etiquetado claro | Renombrar "Espacios vinculados" por "Mis Cocheras Publicadas" para evitar confusión de rol. |
