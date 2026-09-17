@@ -2115,20 +2115,23 @@ Cada gráfico tiene una explicación asociada y responde a una pregunta arquitec
 
 # Bibliografía
 
-1. Bass, L., Clements, P., & Kazman, R. (2021). *Software Architecture in Practice* (4th ed.). Addison-Wesley Professional.
+1. Bass, L., Clements, P., & Kazman, R. (2021). *Software architecture in practice* (4th ed.). Addison-Wesley Professional.
 2. Brandolini, A. (2021). *Introducing EventStorming: An agile modeling method*. Leanpub. https://leanpub.com/introducing_eventstorming
 3. Brown, S. (2018). *The C4 model for visualising software architecture*. Leanpub. https://c4model.com/
-4. Context Mapper Team. (2024). *Context Mapper: A Modeling Framework for Strategic Domain-driven Design*. https://contextmapper.org/
-5. Driessen, V. (2010). *A successful Git branching model*. nvie.com. https://nvie.com/posts/a-successful-git-branching-model/
-6. Evans, E. (2003). *Domain-Driven Design: Tackling Complexity in the Heart of Software*. Addison-Wesley Professional.
-7. Fowler, M. (2014). *Microservices: A definition of this new architectural term*. martinfowler.com. https://martinfowler.com/articles/microservices.html
-8. Fowler, M. (2015). *Ubiquitous Language*. martinfowler.com. https://martinfowler.com/bliki/UbiquitousLanguage.html
-9. Gothelf, J., & Seiden, J. (2021). *Lean UX: Designing Great Products with Agile Teams* (3rd ed.). O'Reilly Media.
-10. Hohpe, G., & Woolf, B. (2003). *Enterprise Integration Patterns: Designing, Building, and Deploying Messaging Solutions*. Addison-Wesley Professional.
-11. Newman, S. (2021). *Building Microservices: Designing Fine-Grained Systems* (2nd ed.). O'Reilly Media.
-12. Nielsen, J. (1994). *10 Usability Heuristics for User Interface Design*. Nielsen Norman Group. https://www.nngroup.com/articles/ten-usability-heuristics/
-13. OpenID Foundation. (2014). *OpenID Connect Core 1.0 incorporating errata set 1*. https://openid.net/specs/openid-connect-core-1_0.html
-14. Richardson, C. (2018). *Microservices Patterns: With examples in Java*. Manning Publications.
-15. The Conventional Commits Team. (2020). *Conventional Commits v1.0.0: A specification for adding human and machine readable meaning to commit messages*. https://www.conventionalcommits.org/en/v1.0.0/
-16. Vernon, V. (2013). *Implementing Domain-Driven Design*. Addison-Wesley Professional.
-17. World Wide Web Consortium. (2018). *Web Content Accessibility Guidelines (WCAG) 2.1*. W3C Recommendation. https://www.w3.org/TR/WCAG21/
+4. Context Mapper Team. (2024). *Context Mapper: A modeling framework for strategic domain-driven design*. https://contextmapper.org/
+5. Conventional Commits Team. (2020). *Conventional Commits v1.0.0: A specification for adding human and machine readable meaning to commit messages*. https://www.conventionalcommits.org/en/v1.0.0/
+6. Driessen, V. (2010, January 5). *A successful Git branching model*. nvie.com. https://nvie.com/posts/a-successful-git-branching-model/
+7. Evans, E. (2003). *Domain-driven design: Tackling complexity in the heart of software*. Addison-Wesley Professional.
+8. Fowler, M. (2014, March 25). *Microservices: A definition of this new architectural term*. martinfowler.com. https://martinfowler.com/articles/microservices.html
+9. Fowler, M. (2015, December 1). *Ubiquitous language*. martinfowler.com. https://martinfowler.com/bliki/UbiquitousLanguage.html
+10. Gothelf, J., & Seiden, J. (2021). *Lean UX: Designing great products with agile teams* (3rd ed.). O'Reilly Media.
+11. Hohpe, G., & Woolf, B. (2003). *Enterprise integration patterns: Designing, building, and deploying messaging solutions*. Addison-Wesley Professional.
+12. Instituto Nacional de Estadística e Informática. (2025). *Condiciones de vida en el Perú: Acceso a tecnologías y equipamiento del hogar en Lima Metropolitana*. INEI.
+13. Newman, S. (2021). *Building microservices: Designing fine-grained systems* (2nd ed.). O'Reilly Media.
+14. Nielsen, J. (1994, April 24). *10 usability heuristics for user interface design*. Nielsen Norman Group. https://www.nngroup.com/articles/ten-usability-heuristics/
+15. OpenID Foundation. (2014). *OpenID Connect Core 1.0 incorporating errata set 1*. https://openid.net/specs/openid-connect-core-1_0.html
+16. Richardson, C. (2018). *Microservices patterns: With examples in Java*. Manning Publications.
+17. Superintendencia Nacional de los Registros Públicos. (2026). *Reporte estadístico anual de inmatriculaciones y registro vehicular 2025*. Gobierno del Perú.
+18. TomTom. (2026). *TomTom Traffic Index: Lima traffic report 2025*. https://www.tomtom.com/traffic-index/lima-traffic/
+19. Vernon, V. (2013). *Implementing Domain-Driven Design*. Addison-Wesley Professional.
+20. World Wide Web Consortium. (2018). *Web Content Accessibility Guidelines (WCAG) 2.1* (W3C Recommendation). https://www.w3.org/TR/WCAG21/
