@@ -34,13 +34,38 @@
 | Version | Fecha      | Autor                                                        | Descripción de modificación |
 |---------|------------|--------------------------------------------------------------|-----------------------------|
 | 1ra     | 15/04/2026 | Fabian Alejandro Oliva Lopez, Pietro Osores Marchese, Amir Gabriel Castro Sanchez, Daniel Elias Ruiz Huisa   | Avance1: En esta primera entrega se avanzó con los capítulos 1, 2 y 3 de forma organizada para iniciar el proyecto ParkLink, estableciendo la idea, el estudio del contexto y las funcionalidades. |
+| 2da     | 16/04/2026 | Fabian Alejandro Oliva Lopez, Pietro Osores Marchese, Amir Gabriel Castro Sanchez, Daniel Elias Ruiz Huisa   | Entrega TB1: Consolidación final de Capítulos I a IV, incorporación de Project Report Collaboration Insights, avance de Conclusiones y recomendaciones, Video About-the-Team, Bibliografía APA y Anexos A-E. |
+
+## Project Report Collaboration Insights
+
+El equipo gestiona el desarrollo y versionado del informe a través de la organización de GitHub del proyecto:
+- **Organización / Repositorio oficial:** [1ASI0728-2620-16363-ParkLink/ParkLink-Report](https://github.com/1ASI0728-2620-16363-ParkLink/ParkLink-Report)
+
+Para asegurar la calidad técnica, consistencia y trazabilidad de los artefactos del informe, el equipo adoptó las siguientes prácticas de ingeniería colaborativa:
+1. **Flujo de ramificación estructurado (GitFlow adaptado):** La rama `main` almacena las versiones de producción aprobadas para cada hito de entrega. La rama `develop` actúa como integrador continuo. Cada capítulo o grupo de artefactos se trabaja en ramas dedicadas de características (`feature/chapter-1`, `feature/chapter-2`, `feature/chapter-3`, `feature/chapter-4`, `feature/conclusiones-bibliografia-anexos`) antes de someterse a Pull Request con revisión cruzada entre integrantes.
+2. **Estándar de confirmaciones atómicas (Conventional Commits v1.0.0):** Se aplican mensajes con tipos y alcances rigurosos (`docs(report):`, `feat(architecture):`, `chore(assets):`) en tiempo presente imperativo, garantizando la trazabilidad histórica de cada aporte individual.
+3. **Distribución equitativa y auditoría de aportes:** Todos los integrantes han contribuido activamente en la redacción, modelado y revisión de los artefactos del informe. Las métricas de colaboración y gráficos de red reflejan una participación balanceada y sincronizada a lo largo de las sesiones de trabajo.
 
 ## Student Outcome
 
-| Criterio específico | Acciones realizadas por entregable e integrante | Conclusión general |
+El curso contribuye al cumplimiento del Student Outcome ABET:
+
+**ABET – EAC - Student Outcome 3**  
+**Criterio:** Capacidad de comunicarse efectivamente con un rango de audiencias.
+
+En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 3.
+
+| Criterio específico | Acciones realizadas por entregable e integrante | Conclusiones |
 |---|---|---|
-| **CO1:** Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y, en especial, para su proyecto en soluciones de software. | - **TB1 – Fabian Alejandro Oliva López:** Definió el ADN de la startup, estableciendo visión, misión, valores y segmentos objetivo.<br><br>- **TB1 – Pietro Osores Marchese:** Elaboró el Lean UX Canvas, User Stories, Impact Map y Product Backlog.<br><br>- **TB1 – Amir Gabriel Castro Sanchez:** Participó en el diseño, registro y análisis de entrevistas a usuarios, identificando necesidades y características relevantes para la solución. Además, colaboró en la definición del Design Purpose y de las funcionalidades principales para el diseño estratégico del software.<br><br>- **TB1 – Daniel Elias Ruiz Huisa:** Desarrolló parte del análisis de competidores y del proceso de Needfinding mediante User Personas y Empathy Mapping. Asimismo, participó en la identificación de escenarios de atributos de calidad y restricciones para el diseño de la solución. | Los integrantes aplicaron conocimientos de estrategia de producto, investigación de usuarios, Lean UX, gestión de requerimientos y diseño estratégico de software para definir ParkLink y orientar el desarrollo de la solución según las necesidades identificadas. |
-| **CO2:** Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software. | - **TB1 – Fabian Alejandro Oliva López:** Reconoció la importancia de actualizar conocimientos en estrategia de producto y liderazgo de proyectos.<br><br>- **TB1 – Pietro Osores Marchese:** Entendió la importancia del aprendizaje continuo en gestión de requerimientos y priorización ágil.<br><br>- **TB1 – Amir Gabriel Castro Sanchez:** Reconoció la necesidad de fortalecer continuamente sus conocimientos en técnicas de entrevistas, análisis de usuarios y diseño estratégico para obtener requerimientos más precisos.<br><br>- **TB1 – Daniel Elias Ruiz Huisa:** Comprendió la importancia de actualizar sus conocimientos en análisis competitivo, técnicas de Needfinding y atributos de calidad para plantear soluciones de software mejor fundamentadas. | El equipo reconoció que el aprendizaje permanente es necesario para mejorar la investigación de usuarios, la definición de requisitos, la estrategia del producto y las decisiones de diseño durante el desarrollo de una solución de software. |
+| **Comunica oralmente sus ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerárquicos, en el marco del desarrollo de un proyecto en ingeniería.** | - **TB1 – Fabian Alejandro Oliva López:** Lideró y expuso la fundamentación del ADN de la startup, la problemática urbana de parqueo y la propuesta de valor de ParkLink durante la grabación de la sustentación oral y sesiones de alineamiento del equipo.<br><br>- **TB1 – Pietro Osores Marchese:** Comunicó de forma clara la estructura del Lean UX Canvas, la priorización ágil del Product Backlog y los criterios de estimación en Fibonacci ante los miembros del equipo y stakeholders durante las reuniones de refinamiento.<br><br>- **TB1 – Amir Gabriel Castro Sanchez:** Condujo técnicamente las entrevistas semiestructuradas a conductores urbanos y propietarios de espacios de estacionamiento, adaptando el registro y lenguaje según el perfil del entrevistado y exponiendo los hallazgos en la sustentación del TB1.<br><br>- **TB1 – Daniel Elias Ruiz Huisa:** Presentó los resultados de la matriz comparativa de competidores, arquetipos User Persona y la arquitectura estratégica (ADD y C4) en la exposición grabada del equipo, argumentando con rigor las decisiones de diseño. | El equipo demostró la capacidad de comunicar oralmente conceptos complejos de arquitectura de software, investigación de campo y gestión ágil con objetividad, claridad y lenguaje profesional adaptado a audiencias académicas, técnicas y de negocio en el hito TB1. |
+| **Comunica en forma escrita ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerárquicos, en el marco del desarrollo de un proyecto en ingeniería.** | - **TB1 – Fabian Alejandro Oliva López:** Redactó formalmente el perfil de la organización, antecedentes, técnica 5W2H, objetivos SMART y restricciones del proyecto en el Capítulo I, asegurando coherencia conceptual y ortotipográfica.<br><br>- **TB1 – Pietro Osores Marchese:** Documentó con precisión técnica las hipótesis Lean UX, el Impact Mapping, la totalidad de Épicas, User Stories y Technical Stories con criterios de aceptación Gherkin en los Capítulos I y III.<br><br>- **TB1 – Amir Gabriel Castro Sanchez:** Elaboró los resúmenes y análisis estadísticos porcentuales de las entrevistas de Needfinding en el Capítulo II, así como la definición formal de los Architectural Drivers y Bounded Contexts en el Capítulo IV.<br><br>- **TB1 – Daniel Elias Ruiz Huisa:** Redactó el Competitive Analysis Landscape, el Lenguaje Ubicuo en inglés/español, los Quality Attribute Scenarios (QAS) refinados y la especificación de diagramas C4 en el Capítulo IV bajo estándares internacionales. | El equipo sustentó por escrito con rigor metodológico los artefactos de análisis de requerimientos, diseño estratégico ADD y DDD en formato Markdown profesional, facilitando la comprensión y reproducibilidad por parte de evaluadores y desarrolladores. |
+
+Adicionalmente, el equipo mantiene el seguimiento de competencias complementarias de formación profesional:
+
+| Criterio específico complementario | Acciones realizadas por entregable e integrante | Conclusión general |
+|---|---|---|
+| **CO1:** Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y, en especial, para su proyecto en soluciones de software. | - **TB1 – Fabian Alejandro Oliva López:** Definió el ADN de la startup, estableciendo visión, misión, valores y segmentos objetivo.<br><br>- **TB1 – Pietro Osores Marchese:** Elaboró el Lean UX Canvas, User Stories, Impact Map y Product Backlog.<br><br>- **TB1 – Amir Gabriel Castro Sanchez:** Participó en el diseño, registro y análisis de entrevistas a usuarios y colaboró en el diseño estratégico del software.<br><br>- **TB1 – Daniel Elias Ruiz Huisa:** Desarrolló el análisis de competidores, Needfinding y escenarios de atributos de calidad para el diseño de la solución. | Los integrantes aplicaron conocimientos de estrategia de producto, investigación de usuarios, Lean UX, gestión de requerimientos y diseño estratégico de software para definir ParkLink y orientar el desarrollo de la solución. |
+| **CO2:** Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software. | - **TB1 – Fabian Alejandro Oliva López:** Reconoció la importancia de actualizar conocimientos en estrategia de producto y liderazgo de proyectos.<br><br>- **TB1 – Pietro Osores Marchese:** Entendió la importancia del aprendizaje continuo en gestión de requerimientos y priorización ágil.<br><br>- **TB1 – Amir Gabriel Castro Sanchez:** Reconoció la necesidad de fortalecer continuamente sus conocimientos en técnicas de entrevistas y diseño estratégico.<br><br>- **TB1 – Daniel Elias Ruiz Huisa:** Comprendió la importancia de actualizar sus conocimientos en análisis competitivo, Needfinding y atributos de calidad. | El equipo reconoció que el aprendizaje permanente es necesario para mejorar la investigación de usuarios, la definición de requisitos, la estrategia del producto y las decisiones de diseño durante el desarrollo de software. |
 
 ## Contenido
 
@@ -135,6 +160,8 @@
     - [5.4.3.6 Software Deployment Evidence for Sprint Review](#5436-software-deployment-evidence-for-sprint-review)
     - [5.4.3.7 Team Collaboration Insights during Sprint](#5437-team-collaboration-insights-during-sprint)
     - [5.4.3.8 Kanban Board](#5438-kanban-board)
+- [Conclusiones y recomendaciones](#conclusiones-y-recomendaciones)
+- [Bibliografía](#bibliografía)
 
 
 # Capítulo I: Introducción
@@ -1022,7 +1049,7 @@ Juan usa su vehículo principalmente los fines de semana para salidas sociales. 
 | **Nombre:** | Diego Alonso Morales Peña | |
 | **Edad:** | 24 años | <img width="250" alt="Conductor 3" src="assets/cap-2/Conductor3.png" /> |
 | **Procedencia:** | San Miguel, Lima | |
-| **Link de Entrevista:** | [Ver Entrevista - Conductor 3](#) | |
+| **Link de Entrevista:** | [Ver Entrevista - Conductor 3](https://drive.google.com/file/d/1hkFz6pYGuh_bpg82aeJzvNAGLtz0hksD/view?usp=sharing) | |
 
 **Resumen:**
 Diego (24 años) se desplaza a diario en auto particular entre San Miguel, San Isidro y Surco para cumplir con sus horarios universitarios y de prácticas pre-profesionales. Explicó que su principal dolor radica en perder entre 15 y 25 minutos buscando estacionamiento en horas punta matutinas, sumado al peligro y estrés de manipular el teléfono celular mientras conduce en vías congestionadas como Javier Prado. Destacó como indispensable la incorporación de un asistente inteligente por voz que le permita reservar y gestionar su cochera con manos libres sin desviar la atención del camino. Asimismo, recalcó que la plataforma debe garantizar alta disponibilidad y estabilidad en horas de alta demanda para evitar bloqueos en las transacciones de pago o caídas al momento de ingresar al estacionamiento.
@@ -2047,3 +2074,64 @@ Los diagramas C4 se modelan en un workspace Structurizr único. Las vistas DDD s
 | System Landscape, Context, Container y Deployment | `docs/architecture/workspace.dsl` y `docs/architecture/structurizr-export/` | `assets/architecture-v2/` |
 
 Cada gráfico tiene una explicación asociada y responde a una pregunta arquitectónica específica. La fuente textual permite revisar decisiones y volver a generar la evidencia sin depender de capturas manuales.
+
+---
+
+# Conclusiones
+
+## Conclusiones y recomendaciones
+
+### Conclusiones
+
+1. **Validación de Problem Statements y Necesidad del Dominio:**
+   - Para el segmento de **Conductores urbanos**, la investigación de campo confirmó que el tiempo promedio perdido buscando estacionamiento en distritos comerciales de alta congestión (San Isidro, Miraflores, Surco) oscila entre 15 y 30 minutos, generando estrés severo e incremento de consumo de combustible. La solución propuesta a través de ParkLink ataca directamente este dolor al permitir la reserva anticipada garantizada y la navegación guiada.
+   - Para el segmento de **Propietarios de estacionamientos y cocheras residenciales**, se validó la existencia de capacidad ociosa durante horarios laborales y nocturnos. Los propietarios demostraron alta disposición a monetizar estos espacios subutilizados siempre que la plataforma ofrezca garantías de seguridad, control de acceso, verificación de identidad de los conductores y pagos automatizados y transparentes.
+
+2. **Evaluación de Lean UX Assumptions y Comportamiento Real:**
+   - Los supuestos iniciales respecto a la adopción tecnológica fueron validados favorablemente: el 100% de los conductores entrevistados utiliza smartphones con sistemas de navegación (Google Maps / Waze) y realiza pagos digitales habitualmente (billeteras electrónicas y tarjetas).
+   - Sin embargo, un hallazgo crítico durante el Needfinding demostró que los conductores en movimiento no pueden interactuar visualmente con interfaces complejas. Esta fricción justificó la priorización e integración de un **Agente Conversacional con soporte de voz**, permitiendo interacciones seguras de manos libres durante la conducción urbana.
+
+3. **Hipótesis y Criterios de Éxito del Modelo de Negocio:**
+   - Las tres hipótesis Lean UX formuladas orientan adecuadamente las métricas de negocio (Business Outcomes) y de usuario (User Outcomes): reducción del 70% en el tiempo de búsqueda de estacionamiento, ocupación superior al 65% de plazas residenciales publicadas, y tasa de recurrencia superior al 40% mensual mediante confianza transaccional.
+
+4. **Sustento del Diseño Arquitectónico Estratégico (ADD & DDD):**
+   - La aplicación del método **Attribute-Driven Design (ADD 3.0)** permitió guiar la arquitectura a partir de requerimientos de calidad intransigibles (Drivers Arquitectónicos): consistencia estricta en reservas para evitar sobreventa (doble reserva), resiliencia desacoplada del canal de IA, idempotencia transaccional y protección contra ataques por inyección de prompts.
+   - Mediante **Domain-Driven Design (DDD)** estratégico (EventStorming y Bounded Contexts), se definió un núcleo transaccional claro liderado por el *Reservation Management Context* y el *Parking Supply Context*, aislándolo de proyecciones optimizadas para lectura geoespacial (*Parking Discovery Context*) mediante sincronización asíncrona sobre RabbitMQ.
+   - El **Agente Conversacional** se diseñó bajo un principio estricto de no autoridad de dominio: opera como un orquestador que interpreta lenguaje natural y consulta catálogos, pero cualquier mutación de estado o retención monetaria requiere confirmación humana explícita y es despachada al Command Broker, previniendo fallos catastróficos o alucinaciones del modelo fundacional.
+
+### Recomendaciones
+
+1. **Fase Táctica (Hito TP1 / Sprint 1):**
+   - Desarrollar la arquitectura a nivel de componentes (C4 Component Diagrams) y diseño de clases de dominio para los Bounded Contexts críticos (*Reservation*, *Supply* e *Identity*), implementando arquitectura hexagonal o de capas limpias en NestJS / TypeScript.
+   - Formalizar los esquemas de bases de datos relacionales (PostgreSQL) con restricciones de integridad a nivel de transacción (índices GiST o exclusión temporal para rangos de reserva) garantizando matemáticamente la prevención de sobreventa.
+   - Diseñar las guías de estilo UI/UX, arquitectura de información y prototipos de alta fidelidad en Figma / Material Design para el Landing Page (HTML5/CSS3) y las aplicaciones móviles en Flutter.
+
+2. **Fase de Implementación y Despliegue (Hitos TB2 y TF1 / Sprints 2 y 3):**
+   - Configurar el clúster de mensajería RabbitMQ con colas Quorum y mecanismos de Dead Letter Queue (DLQ) para garantizar la durabilidad de eventos y compensación automática de fallos en la Saga de reservas y pagos.
+   - Implementar pruebas automatizadas unitarias, de integración y de concurrencia simulando ráfagas simultáneas sobre la misma plaza de estacionamiento.
+   - Establecer pipelines de Integración y Despliegue Continuo (CI/CD) sobre GitHub Actions hacia entornos administrados basados en contenedores (Kubernetes/Docker), incorporando análisis estático de código y pruebas de seguridad.
+
+---
+
+# Bibliografía
+
+1. Bass, L., Clements, P., & Kazman, R. (2021). *Software architecture in practice* (4th ed.). Addison-Wesley Professional.
+2. Brandolini, A. (2021). *Introducing EventStorming: An agile modeling method*. Leanpub. https://leanpub.com/introducing_eventstorming
+3. Brown, S. (2018). *The C4 model for visualising software architecture*. Leanpub. https://c4model.com/
+4. Context Mapper Team. (2024). *Context Mapper: A modeling framework for strategic domain-driven design*. https://contextmapper.org/
+5. Conventional Commits Team. (2020). *Conventional Commits v1.0.0: A specification for adding human and machine readable meaning to commit messages*. https://www.conventionalcommits.org/en/v1.0.0/
+6. Driessen, V. (2010, January 5). *A successful Git branching model*. nvie.com. https://nvie.com/posts/a-successful-git-branching-model/
+7. Evans, E. (2003). *Domain-driven design: Tackling complexity in the heart of software*. Addison-Wesley Professional.
+8. Fowler, M. (2014, March 25). *Microservices: A definition of this new architectural term*. martinfowler.com. https://martinfowler.com/articles/microservices.html
+9. Fowler, M. (2015, December 1). *Ubiquitous language*. martinfowler.com. https://martinfowler.com/bliki/UbiquitousLanguage.html
+10. Gothelf, J., & Seiden, J. (2021). *Lean UX: Designing great products with agile teams* (3rd ed.). O'Reilly Media.
+11. Hohpe, G., & Woolf, B. (2003). *Enterprise integration patterns: Designing, building, and deploying messaging solutions*. Addison-Wesley Professional.
+12. Instituto Nacional de Estadística e Informática. (2025). *Condiciones de vida en el Perú: Acceso a tecnologías y equipamiento del hogar en Lima Metropolitana*. INEI.
+13. Newman, S. (2021). *Building microservices: Designing fine-grained systems* (2nd ed.). O'Reilly Media.
+14. Nielsen, J. (1994, April 24). *10 usability heuristics for user interface design*. Nielsen Norman Group. https://www.nngroup.com/articles/ten-usability-heuristics/
+15. OpenID Foundation. (2014). *OpenID Connect Core 1.0 incorporating errata set 1*. https://openid.net/specs/openid-connect-core-1_0.html
+16. Richardson, C. (2018). *Microservices patterns: With examples in Java*. Manning Publications.
+17. Superintendencia Nacional de los Registros Públicos. (2026). *Reporte estadístico anual de inmatriculaciones y registro vehicular 2025*. Gobierno del Perú.
+18. TomTom. (2026). *TomTom Traffic Index: Lima traffic report 2025*. https://www.tomtom.com/traffic-index/lima-traffic/
+19. Vernon, V. (2013). *Implementing Domain-Driven Design*. Addison-Wesley Professional.
+20. World Wide Web Consortium. (2018). *Web Content Accessibility Guidelines (WCAG) 2.1* (W3C Recommendation). https://www.w3.org/TR/WCAG21/
