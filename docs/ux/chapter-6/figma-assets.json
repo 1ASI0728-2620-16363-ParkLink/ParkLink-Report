@@ -464,18 +464,6 @@
       "method": "Screenshot captured from the live production deployment."
     },
     {
-      "node_id": "deployed-landing",
-      "figma_name": "Landing Page wireframe · landing-wireframe-mobile",
-      "category": "landing-wireframe",
-      "path": "assets/chapter-6/landing/landing-wireframe-mobile.png",
-      "source_url": "https://parklink-tp1-landing.vercel.app",
-      "width_px": 390,
-      "height_px": 4003,
-      "sha256": "8645511b1db291a3e5a44e081ba94d1a927fa4b3c46e9232ee432b3d67119375",
-      "bytes": 50856,
-      "method": "Low-fidelity wireframe rendered from the deployed layout; NOT a Figma node (MCP connector is read-only)."
-    },
-    {
       "node_id": "18:3683",
       "figma_name": "landing wirefrmae",
       "category": "landing-wireframe",
@@ -606,6 +594,18 @@
       "sha256": "31cc44972152f89944b40e064ac0c9c6753b0f3f10d2c7d88de75643160659f2",
       "bytes": 16916,
       "method": "Figma Desktop MCP get_screenshot; unchanged design render."
+    },
+    {
+      "node_id": "derived-from-18:3683",
+      "figma_name": "Landing Page mobile wireframe · reflow of 18:3683 to one column",
+      "category": "landing-wireframe",
+      "path": "assets/chapter-6/landing/landing-wireframe-figma-movil.png",
+      "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=18-3683&m=dev",
+      "width_px": 430,
+      "height_px": 4502,
+      "sha256": "bcb978f49f767b69193e279f9f8c086ea0454b257d0b06c269fe6332cde4c985",
+      "bytes": 282783,
+      "method": "NOT a Figma export. One-column reflow of node 18:3683 authored by the team: same ten sections, same hierarchy and the original copy extracted from the frame's text nodes. The Figma file contains no mobile landing frame."
     }
   ],
   "exported_at_utc": "2026-10-05T20:15:37.656194+00:00",
@@ -623,8 +623,10 @@
     "node_id": "18:3683",
     "figma_name": "landing wirefrmae",
     "logical_size_px": "1280 x 7175.5",
-    "viewports": "desktop only",
+    "viewports": "desktop frame in Figma (18:3683); mobile derived from the same node, not a Figma frame",
     "sections": 10,
-    "note": "Authoritative Landing Page wireframe, authored in Figma by the team. Supersedes the low-fidelity wireframes rendered from the deployed layout. The Figma frame covers desktop only; no mobile wireframe frame exists in the file. get_screenshot downscales frames taller than 1024px, so each section was exported separately to stay legible."
+    "note": "Authoritative Landing Page wireframe, authored in Figma by the team. Supersedes the low-fidelity wireframes rendered from the deployed layout. The Figma frame covers desktop only; no mobile wireframe frame exists in the file. get_screenshot downscales frames taller than 1024px, so each section was exported separately to stay legible.",
+    "mobile_evidence": "assets/chapter-6/landing/landing-wireframe-figma-movil.png",
+    "no_mobile_frame_verification": "Scanned all 2594 frames in the document: the 417 nodes in the 18:* range are descendants of 18:3683 itself, and every 390px-wide frame belongs to the application views (4:* and 8:*). No mobile landing frame exists."
   }
 }

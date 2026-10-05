@@ -119,8 +119,8 @@ que reutilizan esas capturas; esa autoría se declara en el pie de cada figura.
 ## Wireframe de la Landing Page en Figma
 
 El wireframe autoritativo de 6.3.1 es el nodo `18:3683` («landing wirefrmae»),
-elaborado por el equipo en el archivo original. Tamaño lógico 1280 × 7175,5 px,
-**solo escritorio**: no existe un frame móvil equivalente en el documento.
+elaborado por el equipo en el archivo original. Tamaño lógico 1280 × 7175,5 px.
+**Solo escritorio**: el documento no contiene un frame móvil de la Landing.
 
 ```sh
 # Frame completo, para trazabilidad (el MCP lo entrega en 185x1024 por su altura)
@@ -139,8 +139,16 @@ los frames de más de 1024 px de alto. Un frame de 7175 px llega en 185 × 1024:
 inservible. Para legibilidad, exportar **cada sección por separado**; el frame
 completo se conserva solo como registro de trazabilidad.
 
-La evidencia móvil de 6.3.1 no proviene de Figma: es una representación de baja
-fidelidad del layout desplegado, rotulada como tal en el informe.
+La evidencia móvil de 6.3.1 es el reflujo a una columna del mismo nodo, en
+`assets/chapter-6/landing/landing-wireframe-figma-movil.png`. Conserva las diez
+secciones, la jerarquía y el copy original del frame, reorganizadas en 390 px.
+**No es una exportación de Figma** y así se rotula en el informe.
+
+**Verificación de que no existe frame móvil.** Recorriendo los 2 594 frames del
+documento: los 417 nodos del rango `18:*` son descendientes del propio `18:3683`,
+y todo frame de 390 px de ancho corresponde a vistas de las aplicaciones
+(`4:*` mocks, `8:*` wireframes). Un rango de nodos vecino no aporta un frame móvil
+de la Landing. Para crearlo haría falta un conector con permisos de escritura.
 
 ## Limitación de escritura en Figma
 

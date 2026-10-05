@@ -3360,19 +3360,26 @@ Frame completo y exportaciones por sección, sin modificar:
 
 *Frame `18:3683` completo. El servidor MCP lo entrega en 185 × 1024 px por su altura; se conserva por trazabilidad, no por legibilidad. Use las exportaciones por sección para revisar el detalle.*
 
-> **Alcance del viewport.** El archivo no contiene un frame móvil equivalente a `18:3683`: la búsqueda de frames con nombre de wireframe de landing en todo el documento devuelve únicamente el nodo de escritorio. La adaptación móvil descrita arriba se verificó sobre el layout desplegado, por lo que su evidencia es una representación del sitio en producción y no una exportación de Figma. Se declara la diferencia en lugar de atribuir a Figma un frame móvil que no existe.
+> **Alcance del viewport.** El archivo no contiene un frame móvil equivalente a `18:3683`. Se verificó recorriendo los 2 594 frames del documento: los 417 nodos del rango `18:*` son descendientes del propio frame de escritorio, y todos los frames de ancho móvil (390 px) pertenecen a las vistas de las aplicaciones (`4:*` y `8:*`). No existe un frame móvil de la Landing.
 
-**Móvil — verificación del layout desplegado en 390 px.**
+**Móvil — wireframe derivado de `18:3683`, reflujo a una columna (390 px).**
 
-![Wireframe móvil de la Landing Page derivado del layout desplegado](assets/chapter-6/landing/landing-wireframe-mobile.png)
+![Wireframe móvil de la Landing Page derivado del nodo de Figma](assets/chapter-6/landing/landing-wireframe-figma-movil.png)
 
-*Representación de baja fidelidad del layout en móvil, obtenida del sitio desplegado en [https://parklink-tp1-landing.vercel.app](https://parklink-tp1-landing.vercel.app). No es un nodo de Figma. Sirve para evidenciar el orden semántico en una columna, los CTA separados y el menú compacto.*
+*Reflujo móvil de la misma estructura del nodo `18:3683`. Conserva las diez secciones, la jerarquía y el texto original del archivo; reorganiza cada una en una columna. Este artefacto **no es una exportación de Figma**: es una representación derivada, necesarias porque el archivo no incluye el frame móvil. Cada bloque indica el nodo del que procede.*
 
+**Qué resuelve el reflujo móvil:**
 
-![Wireframe de la Landing Page en móvil, 390 px de ancho](assets/chapter-6/landing/landing-wireframe-mobile.png)
+| Requisito de 6.3.1 | Decisión en el wireframe móvil | Verificación en producción |
+|---|---|---|
+| Orden semántico en una columna | Las diez secciones se apilan sin alterar su orden | Confirmado en el hero y en las nueve secciones |
+| CTA separados, no adyacentes | «Buscar estacionamiento» y «Publicar mi cochera» en bloques apilados | 390 px sin solapamiento ni desbordamiento |
+| Menú compacto accesible | Menú de una sola línea con marca, destino y control de apertura | `aria-expanded` alterna y el menú cierra al navegar |
+| Comparación sin recortar texto | La tabla de tres columnas pasa a filas por necesidad | Sin desplazamiento lateral de la página |
+| Sin tapar contenido con cabecera fija | El encabezado no superpone títulos al navegar por anclas | Título siempre por debajo del encabezado |
+| Ampliable y legible con lector de pantalla | Objetivo táctil ≥ 44 px, foco visible, jerarquía de encabezados única | 0 objetivos bajo 24 px; un solo `h1` sin saltos |
 
-*Wireframe de baja fidelidad derivado del layout desplegado. Ancho de captura 390 px. Se mantiene el orden semántico en una columna, los CTA separados y el menú compacto.*
-
+*Las comprobaciones de la última columna se realizaron sobre el sitio desplegado en [https://parklink-tp1-landing.vercel.app](https://parklink-tp1-landing.vercel.app), que implementa esta misma estructura. Esa evidencia es una captura del sitio en producción, no una exportación de Figma.*
 
 ### 6.3.2. Landing Page Mock-up
 
