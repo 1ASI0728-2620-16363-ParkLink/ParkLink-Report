@@ -1,0 +1,15 @@
+flowchart TD
+    ROOT["ParkLink — solución propuesta"]
+    ROOT --> L["Landing Page pública — información y adopción"]
+    ROOT --> M["Aplicación móvil Flutter — operaciones por rol"]
+    ROOT --> W["Panel web React — monitoreo del propietario"]
+    L --> LS["Propuesta, beneficios, funcionamiento, equipo y FAQ"]
+    L --> LC["Adopción de app / requisitos para publicar"]
+    M --> MA["Registro, acceso y perfil"]
+    M --> MD["Conductor: búsqueda, reservas, pagos y Copilot"]
+    M --> MO["Propietario: espacios, horarios, accesos e ingresos"]
+    M --> MN["Notificaciones y preferencias"]
+    W --> WA["Acceso del propietario"]
+    W --> WM["Consulta: espacios, agenda e ingresos"]
+    LC -. "Destino previsto; no enlace de tienda acreditado" .-> MA
+    WM -. "Gestión operativa fuera del panel" .-> MO

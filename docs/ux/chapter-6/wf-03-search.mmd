@@ -1,0 +1,24 @@
+flowchart TD
+    A(["Inicio: Buscar"]) --> B{"¿Usar ubicación actual?"}
+    B -->|Sí| C{"¿Permiso disponible?"}
+    C -->|No| D["Ingresar destino manualmente"]
+    C -->|Sí| E["Ubicar destino en mapa"]
+    B -->|No| D
+    D --> F["Definir fecha, intervalo y tarifa máxima"]
+    E --> F
+    F --> G["Aplicar búsqueda y filtros"]
+    G --> H{"¿Consulta exitosa?"}
+    H -->|No| I["Conservar filtros; informar error y ofrecer reintento"]
+    I --> G
+    H -->|Sí| J{"¿Hay resultados en 1 km?"}
+    J -->|No| K["Informar ampliación a 2 km"]
+    K --> Q{"¿Hay alternativas?"}
+    Q -->|No| R["Mostrar estado vacío y ajustar criterios"]
+    R --> F
+    Q -->|Sí| L["Comparar tarifa, distancia y horario"]
+    J -->|Sí| L
+    L --> M["Consultar ficha, fotos y restricciones"]
+    M --> N{"¿La opción cumple sus necesidades?"}
+    N -->|No| L
+    N -->|Sí| O["Confirmación de selección; disponibilidad informativa"]
+    O --> P(["Fin: selección preparada para reservar"])

@@ -1,0 +1,24 @@
+flowchart TD
+    A(["Inicio: activar Copilot en un contexto seguro"]) --> B{"¿Voz disponible y micrófono autorizado?"}
+    B -->|No| C["Informar alternativa textual o visual al detenerse"]
+    C --> Z(["Fin del canal de voz sin operación"])
+    B -->|Sí| D["Expresar destino, horario y presupuesto"]
+    D --> E{"¿IA responde dentro del umbral de TS09?"}
+    E -->|No| C
+    E -->|Sí| F{"¿Intención clara y herramienta permitida?"}
+    F -->|No| G["Pedir aclaración sin ejecutar acciones"]
+    G --> D
+    F -->|Sí| H["Buscar y comunicar alternativas verificables"]
+    H --> I["Leer acción, espacio, intervalo, precio y condiciones"]
+    I --> J{"¿Aprobación explícita y vigente?"}
+    J -->|No| K["No despachar; cancelar propuesta o volver a aclarar"]
+    K --> Z
+    J -->|Sí| L["Despachar comando autorizado e idempotente"]
+    L --> M{"¿Resultado de Reservation?"}
+    M -->|Pendiente| N["Comunicar En proceso; no afirmar éxito"]
+    N --> M
+    M -->|Rechazado o datos cambiaron| O["Explicar resultado y generar propuesta nueva"]
+    O --> H
+    M -->|Aceptado| P["Continuar pago explícito si aplica y verificar confirmación"]
+    P --> Q["Comunicar estado real y código cuando esté confirmado"]
+    Q --> R(["Fin: resultado conocido por el usuario"])

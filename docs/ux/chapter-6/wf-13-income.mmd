@@ -1,0 +1,17 @@
+flowchart TD
+    A(["Inicio: Jarol abre Ingresos en web o móvil"]) --> B["Seleccionar periodo de consulta"]
+    B --> C["Consultar balance de espacios propios"]
+    C --> D{"¿Consulta autorizada y disponible?"}
+    D -->|No| E["Mostrar error; conservar periodo y no mostrar totales falsos"]
+    E --> C
+    D -->|Sí| F{"¿Hay transacciones en el periodo?"}
+    F -->|No| G["Mostrar sin movimientos y periodo consultado"]
+    G --> Z(["Fin sin reporte de movimientos"])
+    F -->|Sí| H["Revisar bruto, comisiones, neto y estado de transferencia"]
+    H --> I["Consultar detalle y seleccionar Exportar reporte"]
+    I --> J["Solicitar documento de consulta con los mismos filtros"]
+    J --> K{"¿Reporte disponible?"}
+    K -->|No o pendiente| L["Informar estado; reintentar consulta sin alterar cobros"]
+    L --> J
+    K -->|Sí| M["Descargar y confirmar obtención del documento"]
+    M --> N(["Fin: ingresos revisados; ninguna orden de cobro enviada"])

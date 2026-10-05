@@ -1,0 +1,17 @@
+flowchart TD
+    A(["Inicio: espacio propio en la app móvil"]) --> B["Elegir horarios, tarifa o habilitación"]
+    B --> C["Editar ventanas y precio o elegir pausar/reactivar"]
+    C --> D{"¿Configuración válida?"}
+    D -->|No| E["Explicar horarios solapados o tarifa inválida"]
+    E --> C
+    D -->|Sí| F["Mostrar impacto solo en oferta futura y reservas vigentes"]
+    F --> G{"¿Confirma guardar o cambiar estado?"}
+    G -->|No| Z(["Fin sin cambios"])
+    G -->|Sí| H["Enviar revisión con versión esperada"]
+    H --> I{"¿Resultado de actualización?"}
+    I -->|Versión cambió o error| J["Recargar oferta y pedir revisar cambios"]
+    J --> C
+    I -->|Pendiente| H
+    I -->|Aceptado| K["Confirmar configuración y sincronización de disponibilidad"]
+    K --> L["Verificar que reservas ya pactadas siguen vigentes"]
+    L --> M(["Fin: oferta actualizada sin alterar compromisos"])

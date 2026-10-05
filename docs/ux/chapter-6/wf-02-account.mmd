@@ -1,0 +1,20 @@
+flowchart TD
+    A(["Inicio: abrir acceso"]) --> B{"¿Tiene cuenta?"}
+    B -->|No| C["Elegir conductor o propietario"]
+    C --> D["Completar datos personales y datos propios del rol"]
+    D --> E{"¿Datos válidos y correo disponible?"}
+    E -->|No| F["Identificar error; conservar datos no sensibles"]
+    F --> D
+    E -->|Sí| G["Registrar y seguir verificación de correo prevista"]
+    G --> H["Confirmar registro; ir a inicio de sesión"]
+    B -->|Sí| I["Ingresar credenciales o método federado habilitado"]
+    H --> I
+    I --> J{"¿Autenticación correcta?"}
+    J -->|No| K["Mensaje genérico de acceso fallido; permitir reintentar"]
+    K --> I
+    J -->|Sí| L{"¿Rol autorizado para el canal?"}
+    L -->|No| M["Informar acceso denegado; orientar al canal correcto"]
+    M --> Z(["Fin sin acceso no autorizado"])
+    L -->|Sí| N["Abrir inicio por rol y restaurar tarea permitida"]
+    N --> O["Confirmar sesión activa sin exponer secretos"]
+    O --> P(["Fin: cuenta y acceso válidos"])

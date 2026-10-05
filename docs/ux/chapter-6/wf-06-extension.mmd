@@ -1,0 +1,23 @@
+flowchart TD
+    A(["Inicio: reserva activa o aviso de vencimiento"]) --> B["Abrir detalle y consultar horario actualizado"]
+    B --> C["Seleccionar Extender tiempo y nuevo fin"]
+    C --> D{"¿Intervalo y estado válidos?"}
+    D -->|No| E["Mostrar límite o conflicto; conservar reserva original"]
+    E --> Z(["Fin sin extensión"])
+    D -->|Sí| F["Consultar disponibilidad y suplemento"]
+    F --> G{"¿Hay intervalo disponible?"}
+    G -->|No| H["Informar reserva consecutiva y alternativas cercanas"]
+    H --> Z
+    G -->|Sí| I["Mostrar nuevo horario, importe y condiciones"]
+    I --> J{"¿Confirma extensión y coste?"}
+    J -->|No| Z
+    J -->|Sí| K["Solicitar extensión; pagar suplemento cuando corresponda"]
+    K --> L{"¿Resultado definitivo?"}
+    L -->|Pendiente o red interrumpida| M["Consultar misma operación sin repetir pago"]
+    M --> L
+    L -->|Pago rechazado| N["Mantener horario original y mostrar error"]
+    N --> Z
+    L -->|Conflicto tras pago| O["Conservar original y mostrar compensación del suplemento"]
+    O --> Z
+    L -->|Extensión aceptada| P["Confirmar nuevo fin y total actualizado"]
+    P --> Q(["Fin: extensión confirmada"])

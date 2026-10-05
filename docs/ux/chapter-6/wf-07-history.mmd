@@ -1,0 +1,20 @@
+flowchart TD
+    A(["Inicio: Mis reservas"]) --> B["Abrir historial y seleccionar periodo"]
+    B --> C["Consultar listado y gasto acumulado"]
+    C --> D{"¿Consulta exitosa?"}
+    D -->|No| E["Conservar periodo y ofrecer reintento"]
+    E --> C
+    D -->|Sí| F{"¿Existen reservas?"}
+    F -->|No| G["Mostrar historial vacío sin inventar importes"]
+    G --> Z(["Fin sin comprobante"])
+    F -->|Sí| H["Abrir reserva y detalle de pago"]
+    H --> I["Elegir Ver o Descargar comprobante"]
+    I --> J{"¿Comprobante emitido y autorizado?"}
+    J -->|No| K["Mostrar pendiente o no disponible; conservar detalle"]
+    K --> Z
+    J -->|Sí| L["Completar datos fiscales requeridos y descargar"]
+    L --> M{"¿Descarga completada?"}
+    M -->|No| N["Mostrar error; reintentar la descarga, no el pago"]
+    N --> L
+    M -->|Sí| O["Confirmar documento obtenido"]
+    O --> P(["Fin: gasto consultado y comprobante disponible"])

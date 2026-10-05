@@ -1,0 +1,28 @@
+flowchart TD
+    L["Landing Page"] --> V["Beneficios y CTA por audiencia"]
+    V --> A["Acceso a la aplicación móvil"]
+    A --> ROLE{"Rol autenticado"}
+    ROLE -->|Conductor| D["Buscar"]
+    D --> MAP["Resultados y filtros"]
+    MAP --> DET["Ficha del espacio"]
+    DET --> SUM["Resumen de reserva"]
+    SUM --> PAY["Pago y resultado de la operación"]
+    PAY --> RES["Detalle de reserva / Mis reservas"]
+    RES --> ACT["Cancelar, extender o consultar comprobante"]
+    MAP -. "Retorno conserva filtros" .-> D
+    DET -. "Volver a resultados" .-> MAP
+    SUM -. "Volver sin confirmar" .-> DET
+    ROLE -->|Propietario| O["Mis espacios"]
+    O --> OF["Publicar o configurar oferta"]
+    ROLE -->|Propietario| AG["Agenda: detalle y validación de ingreso"]
+    ROLE -->|Propietario| IN["Ingresos: balance y reporte"]
+    ROLE --> N["Notificaciones y perfil"]
+    N -. "Abrir reserva permitida por rol" .-> RES
+    N -. "Abrir agenda propia" .-> AG
+    D --> CP["Copilot: búsqueda y propuesta"]
+    CP --> CONF["Confirmación humana de acción exacta"]
+    CONF --> SUM
+    L --> WL["Acceso al panel web del propietario"]
+    WL --> WR["Monitoreo: espacios, reservas e ingresos"]
+    WR --> WD["Detalle de consulta"]
+    WD -. "Volver conserva periodo y filtros" .-> WR

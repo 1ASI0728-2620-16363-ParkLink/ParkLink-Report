@@ -1,0 +1,13 @@
+flowchart TD
+    W["Panel web — propietario, solo monitoreo"] --> A["Inicio de sesión"]
+    A --> R["Resumen de monitoreo"]
+    R --> S["Espacios propios: listado y estado"]
+    S --> SD["Detalle de espacio — consulta"]
+    R --> Q["Reservas: cronograma diario"]
+    Q --> QD["Detalle: conductor, placa, horario y estado"]
+    R --> I["Ingresos: periodo y balance"]
+    I --> ID["Detalle transaccional y reporte de lectura"]
+    R --> X["Cerrar sesión"]
+    SD -. "La edición se realiza en la app móvil" .-> M["Aplicación móvil del propietario"]
+    QD -. "El registro de ingreso se realiza en la app móvil" .-> M
+    A -. "Rol no autorizado: acceso denegado" .-> E["Orientación a la aplicación correspondiente"]

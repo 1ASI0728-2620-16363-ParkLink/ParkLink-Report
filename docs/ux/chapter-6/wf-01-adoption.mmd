@@ -1,0 +1,16 @@
+flowchart TD
+    A(["Inicio: Humberto o Jarol llega a la Landing"]) --> B["Leer propuesta y cómo funciona"]
+    B --> C["Revisar beneficios, características y FAQ"]
+    C --> D{"¿Qué desea hacer?"}
+    D -->|Buscar estacionamiento| E["CTA para conductor: revisar adopción de app"]
+    D -->|Publicar mi cochera| F["CTA para propietario: revisar requisitos"]
+    E --> G{"¿Acceso o distribución disponible?"}
+    F --> G
+    G -->|Sí| H["Abrir el destino habilitado y verificar rol"]
+    G -->|No| I["Informar que aún no está disponible; no simular descarga"]
+    I --> C
+    H --> J{"¿El destino abrió correctamente?"}
+    J -->|No| K["Mostrar alternativa de acceso y retorno a la Landing"]
+    K --> C
+    J -->|Sí| L["Confirmar llegada al acceso o registro correspondiente"]
+    L --> Z(["Fin: adopción iniciada sin operación de negocio"])

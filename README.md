@@ -191,6 +191,23 @@ Adicionalmente, el equipo mantiene el seguimiento de competencias complementaria
         - [5.8.7. Code Level Diagrams](#587-code-level-diagrams)
             - [5.8.7.1. Domain Layer Class Diagram](#5871-domain-layer-class-diagram)
             - [5.8.7.2. Database Design Diagram](#5872-database-design-diagram)
+- [Capítulo VI: Solution UX Design](#capítulo-vi-solution-ux-design)
+    - [6.1. Style Guidelines](#61-style-guidelines)
+        - [6.1.1. General Style Guidelines](#611-general-style-guidelines)
+        - [6.1.2. Web, Mobile & Devices Style Guidelines](#612-web-mobile--devices-style-guidelines)
+    - [6.2. Information Architecture](#62-information-architecture)
+        - [6.2.1. Organization Systems](#621-organization-systems)
+        - [6.2.2. Labeling Systems](#622-labeling-systems)
+        - [6.2.3. Searching Systems](#623-searching-systems)
+        - [6.2.4. SEO Tags and Meta Tags](#624-seo-tags-and-meta-tags)
+        - [6.2.5. Navigation Systems](#625-navigation-systems)
+    - [6.3. Landing Page UI Design](#63-landing-page-ui-design)
+        - [6.3.1. Landing Page Wireframe](#631-landing-page-wireframe)
+        - [6.3.2. Landing Page Mock-up](#632-landing-page-mock-up)
+    - [6.4. Applications UX/UI Design](#64-applications-uxui-design)
+        - [6.4.1. Applications Wireframes](#641-applications-wireframes)
+        - [6.4.2. Applications Wireflow Diagrams](#642-applications-wireflow-diagrams)
+        - [6.4.3. Applications Mock-ups and Visual Evidence](#643-applications-mock-ups-and-visual-evidence)
 - [Conclusiones y recomendaciones](#conclusiones-y-recomendaciones)
 - [Bibliografía](#bibliografía)
 
@@ -2954,6 +2971,662 @@ El esquema propuesto utiliza una tabla operacional de evidencia en Audit Log Sto
 `audit_events.id` es PK y `source_event_id` es único para deduplicar. Productor, acción, tipo de entidad, correlación y versión de esquema son obligatorios; actor y entidad pueden ser nulos para eventos de sistema. `actor_id` y `entity_id` son referencias externas **sin FK**: la evidencia debe persistir incluso si la entidad original se archiva. Índices `(correlation_id, occurred_at)`, `(actor_id, recorded_at)` y `(action, entity_type, recorded_at)` permiten trazas paginadas. La tabla no requiere relaciones inventadas para satisfacer un ER: su independencia es una decisión explícita. La unicidad del evento y el append son una sola transacción, por lo que no necesita un Inbox separado para ese mismo efecto.
 
 El resultado del capítulo es un diseño táctico verificable para ocho servicios desplegables de forma independiente. Los componentes y clases mantienen la autoridad de Reservation, la separación entre oferta y búsqueda, la soberanía financiera de Payment y la barrera de confirmación del agente. Los diagramas describen el objetivo de implementación y sus restricciones; no sustituyen pruebas de concurrencia, seguridad, contratos o despliegue que deberán ejecutarse al implementar el backend.
+
+---
+
+# Capítulo VI: Solution UX Design
+
+La propuesta UX/UI de ParkLink traduce las necesidades de los **User Personas**, sus **User Goals**, los segmentos objetivo y las **User Stories** en recorridos comprensibles y consistentes. Se fundamenta en las entrevistas y la User Task Matrix del Capítulo II, el To-Be Scenario Mapping y la **Requirements Specification** del Capítulo III, los límites arquitectónicos del Capítulo IV y las reglas tácticas del Capítulo V. El objetivo es reducir la incertidumbre del conductor y la gestión informal del propietario mediante información clara, acciones controladas y resultados verificables.
+
+Los perfiles de referencia son **Humberto García Calla**, conductor urbano, y **Jarol Saquiray Vargas**, propietario/microempresario. Sus metas originales se mantienen; los objetivos operacionales de este capítulo descomponen esas metas en tareas, no incorporan nuevos perfiles ni funcionalidades sin respaldo. El diseño abarca tres canales: Landing Page pública, aplicación móvil Flutter para ambos roles y panel web React/TypeScript **exclusivo de monitoreo para propietarios**. Publicar, modificar oferta o registrar ingreso se realiza en la aplicación móvil; el panel web consulta espacios, reservas e ingresos, sin ejecutar esos comandos.
+
+Este capítulo constituye una **propuesta de diseño**, no evidencia de interfaces implementadas o evaluaciones de usabilidad realizadas. Se desarrollan el texto, las tablas y los diagramas de organización/navegación/proceso. Los wireframes gráficos, mock-ups, screenshots y prototipos visuales serán elaborados manualmente por el equipo y se identifican mediante el marcador solicitado. Los flujogramas renderizados son modelos de interacción, **no imágenes de pantallas ni wireframes**.
+
+| Insumo existente | Decisión UX que deriva de él | Trazabilidad |
+|---|---|---|
+| Humberto: rapidez, certeza, tarifas claras y menor estrés | Búsqueda por destino/franja, comparación de precios, resumen previo y confirmación de reserva verificable. | 2.3.1–2.3.2; US01–US08, US14–US16. |
+| Jarol: monetización, control digital, cobros formales y visibilidad | Publicación guiada, configuración de oferta, agenda por espacio y reportes de ingresos. | 2.3.1–2.3.2; US09–US13, US18. |
+| Adquisición por segmento | Landing informativa con CTA diferentes para conductor y propietario. | US-LP01–US-LP04. |
+| Identidad y ownership | Acceso por rol y verificación de pertenencia; no basta ocultar botones. | US17–US19, TS03; 5.1. |
+| Disponibilidad visible versus confirmable | Mostrar frescura y distinguir selección, retención, pago pendiente y reserva confirmada. | ADR-104/105; 5.3–5.5. |
+| Comandos durables e idempotencia | Estado «En proceso», recuperación de la operación y consulta antes de reintentar pago. | TS01/TS06/TS10; 5.4–5.5. |
+| Confirmación humana y fallback del agente | Resumen exacto antes de efectos, aclaración de ambigüedad y alternativa manual ante falla de IA. | US21–US23, TS07/TS09; 5.7. |
+
+## 6.1. Style Guidelines
+
+Las Style Guidelines definen un lenguaje visual común entre Landing Page y aplicaciones. La identidad permanece reconocible aunque cambien el tamaño del dispositivo, el rol o la densidad de información. No se exige que una página promocional y un cronograma operativo tengan la misma composición: comparten tokens, tipografía, jerarquía de acciones y reglas de accesibilidad, adaptados a su propósito.
+
+### 6.1.1. General Style Guidelines
+
+#### Branding
+
+**ParkLink** representa el vínculo entre conductores que requieren estacionamiento y propietarios con espacios disponibles. **ParkTeam** identifica al equipo responsable, no un servicio separado. La marca se utilizará de manera uniforme en cabeceras, acceso y comunicaciones; la denominación **ParkLink Copilot** se reservará al asistente especificado en EP07. No se inventa un logotipo, isotipo, slogan registrado ni certificación de seguridad.
+
+El estilo será **moderno, tecnológico, minimalista, consistente, de alto contraste y profesional**. Se priorizan superficies simples, lectura inmediata, alineación y espacio en blanco/negativo sobre ornamentos. Las tarjetas agrupan contenido real; no se agregan paneles vacíos para completar composiciones. Fotografías de espacios, cuando se incorporen a la aplicación, deben provenir del propietario y mostrar las condiciones reales de acceso; una ilustración promocional no se presenta como fotografía de un estacionamiento publicado.
+
+#### Typography
+
+La familia obligatoria es **Inter**. **Bold (700)** es el peso principal para títulos y acciones, mientras Regular (400) y Medium (500) preservan legibilidad en textos extensos y formularios. Usar Bold como énfasis principal no significa componer todo el contenido en negrita: perdería jerarquía y dificultaría la lectura de tarifas y condiciones.
+
+| Elemento | Font Family | Weight | Tamaño de referencia web | Uso |
+|---|---|---|---|---|
+| H1 | Inter | Bold 700 | Desktop 48–56 px; compacto 32–40 px | Propuesta principal de Landing; títulos de aplicación más contenidos. |
+| H2 | Inter | Bold 700 | 28–36 px | Secciones y títulos de vistas principales. |
+| H3 | Inter | Bold 700 | 20–24 px | Subsecciones y agrupaciones de datos. |
+| Body | Inter | Regular 400 / Medium 500 | 16–18 px | Explicaciones, detalles, condiciones y mensajes. |
+| Button | Inter | Bold 700 | 16 px | Acciones identificables y breves. |
+| Label | Inter | Medium 500 / Bold 700 | 14–16 px | Campos, navegación y controles. |
+| Caption / metadata | Inter | Regular 400 / Medium 500 | 14 px | Fecha de actualización, aclaraciones y datos secundarios. |
+
+Estos valores son decisiones de diseño iniciales, no medidas de pantallas ya producidas. En web se expresarán mediante unidades relativas y tamaños fluidos; la configuración de texto del usuario no se anulará. En móvil se aplicarán roles equivalentes con escalado accesible de Flutter, sin convertir píxeles CSS en dimensiones físicas. El texto principal tendrá interlineado de 1,5 a 1,6; títulos, de 1,15 a 1,3. Se recomienda un ancho de lectura de 60–75 caracteres y cifras alineables para montos/horas. No se recortarán mediante elipsis precios, fechas o condiciones esenciales.
+
+Inter se incorporará como recurso tipográfico autorizado; en web se utilizará una alternativa `sans-serif` durante su carga. Los diagramas declaran Inter con fallback para lectura documental; no constituyen el diseño final de tipografía de las pantallas. Los montos se expresarán en soles (`S/`, moneda PEN) y los horarios de uso se presentarán en hora de Lima, indicando fecha e inicio/fin en formato consistente.
+
+#### Colors
+
+| Rol | Color obligatorio | Token conceptual | Uso permitido |
+|---|---|---|---|
+| Primary | **#080808 — Negro** | `color-primary` / `surface-dark` | Fondos, superficies oscuras, estructura, texto sobre superficies claras y sobre CTA turquesa. |
+| Secondary / Accent | **#02EBD8 — Turquesa** | `color-accent` | CTA principales, enlaces sobre oscuro, controles activos, indicadores y énfasis interactivo acotado. |
+| Tertiary | **#FFFFFF — Blanco** | `color-tertiary` / `text-on-dark` | Texto sobre oscuro, contraste y superficies claras cuando aporten legibilidad. |
+
+La paleta no utiliza turquesa para grandes masas decorativas que compitan con el contenido. El botón principal combina **fondo #02EBD8 y texto #080808**; las acciones secundarias emplean contorno y texto contrastantes sobre la superficie. En una superficie blanca, enlaces y bordes esenciales serán negros; puede conservarse el turquesa como señal complementaria, pero no como único contraste.
+
+| Combinación evaluada en sRGB | Contraste calculado | Decisión |
+|---|---|---|
+| #FFFFFF sobre #080808 | **20,03:1** | Apta para texto y componentes de alto contraste. |
+| #080808 sobre #02EBD8 | **13,23:1** | Apta para texto de botones y controles con accent. |
+| #FFFFFF sobre #02EBD8, o turquesa sobre blanco | **1,51:1** | No se usa para texto ni límites esenciales de controles. |
+
+Los ratios se calcularon con luminancia relativa de los colores completos; transparencia, fotografía o overlays requieren una nueva verificación. El objetivo de accesibilidad es [WCAG 2.2 AA](https://www.w3.org/TR/WCAG22/): al menos 4,5:1 para texto normal y 3:1 para texto grande y contraste no textual aplicable. Los estados se expresan mediante **texto e iconos**, no únicamente por color: «Reserva confirmada», «Pago pendiente» o «No se pudo completar». La paleta no obliga a inventar rojo/verde ni a llamar «éxito» a todo estado turquesa.
+
+#### Spacing
+
+Se adopta una escala base de **4 y 8 unidades**: 4, 8, 12, 16, 24, 32, 48 y 64. En web se representa con unidades relativas; en móvil con unidades lógicas y adaptación al escalado. La proximidad comunica relación: label, campo y ayuda estarán más próximos entre sí que a otro grupo de datos.
+
+| Nivel | Referencia | Uso |
+|---|---|---|
+| Micro | 4–8 | Relación entre icono, etiqueta y metadato; no determina por sí sola el área táctil. |
+| Componente | 12–16 | Padding de controles y separación entre campos relacionados. |
+| Grupo | 24–32 | Tarjetas, bloques de información y conjuntos de formulario. |
+| Sección | 48–64 | Separación editorial en Landing; se reduce en vistas operativas densas. |
+
+Las superficies oscuras se distinguen mediante bordes, padding y alineación, no con gradientes o sombras indispensables para comprender su límite. Se mantiene un radio de referencia de 8–12 unidades en tarjetas y controles; es un token ajustable, no una composición visual final. El espaciado nunca se reduce a costa de separar insuficientemente objetivos táctiles.
+
+#### Tono de comunicación
+
+| Dimensión | Decisión | Justificación y aplicación |
+|---|---|---|
+| Divertido / Serio | Predominantemente **serio**, cercano y útil. | Se gestionan horarios, propiedades y dinero; no se bromea ante un rechazo o un reembolso. |
+| Formal / Casual | **Profesional y accesible**, sin solemnidad ni jerga técnica. | «Pago en proceso» es comprensible; «saga AMQP pendiente» no ayuda al usuario. |
+| Respetuoso / Irreverente | **Respetuoso**. | No culpa al conductor por un error ni al propietario por un campo incompleto. |
+| Entusiasta / Sereno | **Sereno** durante tareas; entusiasmo moderado en adquisición. | Reduce presión en decisiones financieras y evita distracciones; la Landing comunica beneficios sin promesas absolutas. |
+
+La microcopia se redactará en español profesional, con verbos concretos y mensajes breves. Cada error explica **qué ocurrió, qué permanece vigente y qué puede hacer la persona**. Ejemplos: «Este horario ya no está disponible. Puedes elegir otra opción»; «No pudimos consultar el pago. Revisa su estado antes de intentar nuevamente»; «La reserva se canceló. Tu devolución sigue en proceso». No se promete ahorro, disponibilidad, transferencia inmediata o conducción segura como hecho probado sin evidencia.
+
+#### Principios de diseño
+
+1. **Claridad antes que decoración:** tarifa, horario, dirección y estado tienen prioridad sobre recursos promocionales.
+2. **Reconocimiento antes que memoria:** rol, filtros, paso del proceso y consecuencias de la acción permanecen identificables.
+3. **Control y consentimiento:** retener, pagar, cancelar, extender y reasignar requieren la aprobación correspondiente; el agente no reemplaza la voluntad del usuario.
+4. **Estado real del sistema:** «Solicitud recibida» no equivale a «Reserva confirmada»; cancelación y devolución son resultados distintos.
+5. **Prevención y recuperación:** validar antes de enviar, conservar datos no sensibles y consultar operaciones inciertas para evitar duplicados.
+6. **Accesibilidad equivalente:** información disponible para lectores de pantalla, teclado, voz y lista alternativa al mapa; no depender de gestos ocultos.
+7. **Seguridad contextual:** favorecer planificación antes del viaje. La voz puede reducir manipulación, pero no elimina distracción; un fallback visual durante la conducción se consulta solo tras detenerse en un lugar seguro.
+8. **Consistencia entre canales:** mismas etiquetas y estados, respetando que el panel web no ejecuta operaciones de la app móvil.
+
+[DEJAR VACÍO – INSERTAR AQUÍ: Design System Visual]
+
+### 6.1.2. Web, Mobile & Devices Style Guidelines
+
+La adaptación se basa en el **ancho disponible, contenido y método de entrada**, no en marcas de dispositivos. Los siguientes breakpoints son puntos iniciales de diseño a comprobar al construir wireframes; no se afirma que ya estén implementados.
+
+| Ancho web de referencia | Layout propuesto | Navegación y densidad |
+|---|---|---|
+| 320–767 px | Una columna; márgenes 16–24 px; contenido apilado. | Landing con menú compacto accesible; panel web con acceso visible a sus tres consultas. |
+| 768–1023 px | Grid flexible de 8 columnas; una o dos áreas según contenido. | Menú compacto o lateral; listas/detalles sin comprimir formularios. |
+| Desde 1024 px | Grid de 12 columnas; ancho de contenido máximo aproximado de 1200 px. | Cabecera de Landing y navegación lateral del panel; mayor simultaneidad de consultas, no nuevas funcionalidades. |
+
+**Desktop y Responsive Web.** La Landing puede distribuir textos y grupos informativos en varias columnas; el panel organiza listados, periodos y balances con estructura tabular legible. Al reducir el ancho, los grupos se apilan y las tablas esenciales mantienen encabezados y lectura alternativa. Se evita desplazamiento horizontal de toda la página; una tabla extensa puede usar un contenedor delimitado. Se preservan zoom y reflow a 320 píxeles CSS. Hover tiene una alternativa mediante foco/teclado y no revela la única acción disponible.
+
+**Mobile.** La aplicación Flutter utiliza una estructura compacta por rol, espacios seguros del sistema y controles principales alcanzables sin cubrir mapa, lista o información de pago. En conductor, las áreas globales serán **Buscar, Mis reservas, Notificaciones y Perfil**; Copilot se accede desde Buscar como capacidad de esa tarea. En propietario serán **Mis espacios, Agenda, Ingresos, Notificaciones y Perfil**. No se copian íntegramente tablas de escritorio a pantallas pequeñas; se agrupan los mismos datos en listas y detalles, manteniendo etiquetas y unidades. Se respetan los gestos de retorno de iOS/Android y se adapta el layout cuando crece el texto.
+
+| Componente | Desktop / Responsive Web | Mobile |
+|---|---|---|
+| Jerarquía | Un título principal por vista, agrupaciones claras y énfasis en datos operativos. | Prioridad a objetivo, estado y siguiente acción; detalle secundario progresivo. |
+| Botones | Principal turquesa con texto negro; secundarios contrastantes; foco visible. | Áreas mínimas de referencia: 44×44 pt en iOS y 48×48 dp en Android; no equivalen a píxeles CSS. |
+| Cards | Una unidad por espacio/resultado, con precio, horario y acción explícita. | Mismos datos; no depender de hover ni forzar tarjetas anidadas. |
+| Formularios | Labels persistentes, ayudas por campo, orden de teclado y errores asociados. | Teclado adecuado para correo/teléfono, controles de fecha/hora accesibles y acción no cubierta por teclado. |
+| Navegación | Estado activo, retorno de navegador y filtros/periodo restaurables. | Destinos globales etiquetados, retorno jerárquico y conservación de tarea por sección. |
+| Tipografía | Inter en unidades relativas; Bold para títulos/acciones. | Inter con escalado accesible; pruebas al 200 % sin recortar datos críticos. |
+| Espaciado | Tokens comunes y ancho de lectura limitado. | Padding e insets adaptables; no comprimir el área táctil para «hacer caber» contenido. |
+| Estados | Default, hover, foco, activo, procesando, completado, error y vacío identificables. | Default, pressed, seleccionado, procesando, error y vacío; mensajes equivalentes sin hover. |
+
+Los controles de web tendrán un objetivo práctico de al menos 44×44 píxeles CSS cuando resulte aplicable; no se confunde ese objetivo con el mínimo normativo de 24×24 de WCAG 2.2 AA y sus excepciones. Un anillo de foco de referencia de 2–3 píxeles, con contraste suficiente y sin quedar oculto, ayuda a identificar el control activo. En superficies blancas se usa negro; en oscuras, turquesa/blanco según contexto. Los controles deshabilitados muestran por qué no están disponibles; los errores de formulario no se resuelven mediante un botón permanentemente inactivo sin explicación.
+
+Ubicación, micrófono, notificaciones y acceso a fotografías se solicitan **cuando la tarea los necesita**. Negar ubicación permite introducir destino manual; negar micrófono conserva la navegación visual. El sistema conserva los campos no sensibles ante una falla y nunca persiste contraseñas ni datos completos de tarjeta para «continuar después». Los cambios de estado se anuncian mediante mecanismos accesibles equivalentes a mensajes de estado; mapa y gráficos tienen alternativas textuales. Se respetan reducción de movimiento y preferencias de accesibilidad. La marca mantiene la paleta requerida sin añadir un selector de temas o personalización no especificados.
+
+## 6.2. Information Architecture
+
+La Information Architecture organiza la información según la tarea y el rol, para que cada persona encuentre su siguiente paso sin comprender los microservicios internos. La Landing responde «qué es, para quién sirve y cómo comenzar»; la aplicación móvil facilita operaciones; el panel web ofrece consulta de la actividad del propietario. Los Bounded Contexts ordenan responsabilidades técnicas, pero no se convierten automáticamente en ocho entradas de menú: no se añade un menú «Audit» o «Infrastructure» para usuarios finales.
+
+### 6.2.1. Organization Systems
+
+| Sistema seleccionado | Aplicación en ParkLink | Razón |
+|---|---|---|
+| **Jerárquico** | Inicio por rol → módulo → listado → detalle → acción. | Facilita ubicación, profundidad controlada y retorno a un punto conocido. |
+| **Secuencial** | Registro, publicación, reserva/pago y confirmación de cambios. | Hace visibles los requisitos y resultados de cada paso. |
+| **Por tópicos** | Secciones de Landing: funcionamiento, beneficios, características, equipo y FAQ. | Permite resolver dudas sin obligar a recorrer todo el contenido. |
+| **Cronológico** | Agenda de reservas, historial, notificaciones e ingresos por periodo. | El tiempo determina relevancia y comparación operacional. |
+| **Por audiencia** | Conductor y propietario en CTA, acceso y módulos permitidos. | Evita confundir quien busca un espacio con quien administra su oferta. |
+
+No se adopta un sistema **matricial** como organización global: combinar indiscriminadamente rol, servicio técnico y etapa financiera produciría rutas duplicadas. Los filtros de un listado pueden combinar criterios sin que eso convierta toda la solución en una arquitectura de navegación matricial.
+
+#### Sitemap completo de la solución
+
+El Sitemap se presenta en **cuatro vistas complementarias** para conservar legibilidad. La primera muestra los canales y las siguientes desarrollan íntegramente sus módulos. Son jerarquías de información propuestas a partir de capacidades ya especificadas; no son URLs desplegadas ni pantallas finales. Las flechas continuas muestran pertenencia; las discontinuas indican acceso cruzado o cambio de canal.
+
+![Sitemap general de ParkLink](assets/chapter-6/sitemap-overview.svg)
+
+**Fuente:** [sitemap-overview.mmd](docs/ux/chapter-6/sitemap-overview.mmd).
+
+La raíz se divide en Landing pública, app móvil y panel web de monitoreo. Registro y acceso habilitan el rol correspondiente; no se crea una aplicación web de reservas para conductores que contradiga Capítulo IV.
+
+![Sitemap de Landing Page](assets/chapter-6/sitemap-landing.svg)
+
+**Fuente:** [sitemap-landing.mmd](docs/ux/chapter-6/sitemap-landing.mmd).
+
+La Landing es una sola página con secciones y anclas. «Para conductores» y «Para propietarios» segmentan beneficios; «Ayuda y preguntas frecuentes» y las referencias legales provienen de US-LP04. No se inventan páginas de blog, precios por suscripción, marketplace de productos ni formularios de captación ajenos al backlog. El acceso/distribución de app solo se enlaza cuando exista un destino válido.
+
+![Sitemap de aplicación móvil por rol](assets/chapter-6/sitemap-mobile.svg)
+
+**Fuente:** [sitemap-mobile.mmd](docs/ux/chapter-6/sitemap-mobile.mmd).
+
+El conductor navega por búsqueda, ficha, reserva, pago, historial y Copilot. El propietario dispone de publicación, oferta, agenda, validación de ingreso e ingresos. Notificaciones y perfil son capacidades comunes con datos y acciones filtrados por ownership. La consulta de dimensiones/reseñas de US04 no incorpora creación de reseñas ni un módulo social nuevo; si faltan datos, se indica «Información no disponible» en lugar de inventarlos.
+
+![Sitemap de panel web de monitoreo](assets/chapter-6/sitemap-web.svg)
+
+**Fuente:** [sitemap-web.mmd](docs/ux/chapter-6/sitemap-web.mmd).
+
+El panel contiene acceso, resumen, espacios propios, agenda, ingresos y detalles de consulta. Exportar un reporte de US13 es obtener un documento de lectura, no dar una orden de cobro. Registrar ingreso o editar horarios exige pasar a la app móvil; el enlace no debe saltarse permisos. La consulta de horarios de salida no implica añadir un comando de «registrar salida» no especificado en US12.
+
+### 6.2.2. Labeling Systems
+
+Las etiquetas serán breves, simples y consistentes, con sustantivos para destinos y verbos para acciones. Se utilizará «espacio» para la unidad ofrecida y «reserva» para el compromiso temporal. El vocabulario técnico `Hold`, `Outbox` o `Command Broker` no se mostrará al usuario. Cada etiqueta accesible conservará el texto visible, de modo que lectura asistida y control por voz puedan identificar el mismo elemento.
+
+| Elemento | Label | Propósito |
+|---|---|---|
+| Menú Landing | Cómo funciona | Explicar el recorrido de búsqueda, reserva y uso. |
+| Menú Landing | Para conductores / Para propietarios | Identificar beneficios y CTA según audiencia. |
+| Sección Landing | Características | Mostrar capacidades reales y comparación de US-LP02. |
+| Sección Landing | Nuestro equipo | Identificar a ParkTeam sin inventar acreditaciones. |
+| Navegación de ayuda | Preguntas frecuentes | Resolver dudas operativas y condiciones de uso. |
+| CTA conductor | Buscar estacionamiento | Iniciar adopción de app/búsqueda según el destino disponible. |
+| CTA propietario | Publicar mi cochera | Orientar a requisitos y registro/publicación. |
+| Acceso | Crear cuenta / Iniciar sesión | Diferenciar registro de autenticación. |
+| Selector de registro | Soy conductor / Soy propietario | Elegir el perfil sin atribuir permisos adicionales. |
+| Campo de búsqueda | Destino | Pedir el lugar donde se necesita estacionar, no confundirlo con ubicación actual. |
+| Acceso a ubicación | Usar mi ubicación | Solicitar ubicación contextual y opcional. |
+| Filtros | Fecha / Hora de inicio / Hora de fin / Tarifa máxima por hora | Especificar el intervalo y presupuesto con unidades visibles. |
+| Acción de búsqueda | Aplicar filtros / Limpiar filtros | Actualizar o restablecer criterios de manera explícita. |
+| Resultado | Ver detalles | Abrir ficha y condiciones del espacio. |
+| Reserva | Solicitar reserva | Solicitar retención; no anunciar aún confirmación definitiva. |
+| Pago | Confirmar pago | Aprobar importe y medio después de revisar resumen. |
+| Navegación conductor | Mis reservas | Consultar reservas activas e historial. |
+| Acción conductor | Cancelar reserva / Extender tiempo | Comunicar la operación concreta y exigir revisión de consecuencias. |
+| Documento | Ver comprobante / Descargar comprobante | Consultar respaldo sin repetir un cobro. |
+| Asistente | Copilot / Confirmar esta acción | Identificar canal asistido y consentimiento al resumen exacto. |
+| Navegación propietario | Mis espacios / Agenda / Ingresos | Separar oferta, actividad temporal y balance financiero. |
+| Oferta móvil | Guardar cambios / Pausar disponibilidad / Reactivar disponibilidad | Modificar únicamente oferta futura según US10/US11. |
+| Campo de publicación | Dirección / Medidas del espacio / Fotografías / Tarifa por hora | Obtener información de US09 con formato y ayuda contextual. |
+| Control de acceso móvil | Código de reserva / Validar ingreso | Verificar el código y registrar acceso autorizado de US12. |
+| Reporte | Periodo / Exportar reporte | Consultar el balance y obtener el documento correspondiente. |
+| Retorno | Volver a resultados / Volver a agenda | Explicar destino de retorno conservando el contexto. |
+| Recuperación | Reintentar consulta / Consultar estado | Distinguir obtener información de volver a ejecutar una transacción. |
+| Estados | En proceso / Pendiente de pago / Confirmada / Cancelada / Expirada | Comunicar el hecho real, acompañado de explicación cuando sea necesaria. |
+
+Las ayudas de formulario detallan obligatoriedad, formato y ejemplos próximos al campo. El placeholder nunca sustituye al label. «Error» por sí solo no basta; tampoco «Aceptar» cuando se paga o cancela: se identifica la consecuencia. Nombres, DNI, CCI, placa y datos fiscales se solicitan únicamente en las tareas especificadas y se protegen frente a exposición innecesaria.
+
+### 6.2.3. Searching Systems
+
+El sistema principal de búsqueda se orienta al conductor: **destino, fecha e intervalo de uso** son el punto de partida. Puede ingresar una dirección o utilizar ubicación autorizada; la aplicación no exige geolocalización para todas las consultas. Copilot transforma una solicitud verbal en los mismos criterios y no dispone de un buscador independiente que ignore reglas del servicio.
+
+| Canal / necesidad | Campos y filtros definidos | Información encontrada | Presentación |
+|---|---|---|---|
+| Conductor, US01–US04 | Destino/coordenadas, fecha, inicio, fin, tarifa máxima y disponibilidad para el intervalo. | Espacios cercanos con tarifa, distancia, atención, fotos y restricciones disponibles. | Mapa y lista equivalente; detalle accesible, unidades visibles y momento de actualización. |
+| Historial, US07 | Periodo de fechas de las reservas propias. | Reservas, estados, importe y gasto acumulado. | Orden cronológico y detalle de reserva/pago. |
+| Agenda del propietario, US12 | Fecha y selección de espacio propio cuando tiene varios. | Ingresos programados, conductor, placa, inicio/fin y estado. | Cronograma/lista diaria y detalle; web de consulta, móvil con acción de ingreso. |
+| Ingresos del propietario, US13 | Periodo del balance. | Bruto, comisiones, neto y transacciones del propietario. | Resumen textual, listado y reporte con los mismos filtros. |
+| FAQ, US-LP04 | Navegación por preguntas/tópicos. | Respuestas sobre uso, pagos, cancelación y publicación. | Preguntas agrupadas; no se añade un motor global de búsqueda documental. |
+
+La búsqueda geográfica empieza con radio de 1 km y, si no hay opciones, informa la ampliación a 2 km conforme a US01. Los filtros de tarifa y horario se combinan; no se añaden filtros de favoritos, descuentos, clasificación premium o servicios no definidos. El orden inicial se basa en distancia y precio con desempate estable, como en 5.3. No se ocultan alternativas para inducir una compra.
+
+![Proceso de búsqueda y recuperación](assets/chapter-6/search-flow.svg)
+
+**Fuente:** [search-flow.mmd](docs/ux/chapter-6/search-flow.mmd).
+
+El diagrama separa validación, consulta, ampliación de radio, estados vacíos y errores de conexión. Un resultado disponible en Discovery sigue siendo informativo: al reservar, Reservation vuelve a validar la franja. Si se pierde red o el índice está desactualizado, se comunica la limitación; no se representa una disponibilidad desconocida como garantía. Los filtros se conservan al regresar de la ficha y los cambios de resultados se anuncian sin desplazar arbitrariamente el foco.
+
+### 6.2.4. SEO Tags and Meta Tags
+
+La estrategia distingue **descubrimiento público** y **vistas privadas**. La Landing debe describir honestamente el producto; el panel autenticado no es contenido promocional para indexación. La tabla presenta valores propuestos para vistas definidas en el Sitemap, no confirma que existan URLs o despliegues. Las secciones ancla de la Landing comparten el `<head>` de su única página: no reciben titles independientes como si fueran páginas distintas.
+
+| Página / vista real de la propuesta | Title | Description | Keywords | Author |
+|---|---|---|---|---|
+| Landing Page pública | ParkLink: busca y reserva estacionamiento en Lima | Conoce ParkLink: búsqueda de estacionamientos, reservas y pagos digitales para conductores, y publicación de espacios para propietarios en Lima. | estacionamiento, Lima, reservas, cocheras, propietarios | ParkTeam |
+| Acceso al panel web | Iniciar sesión en el panel de propietarios — ParkLink | Accede al monitoreo de tus espacios, reservas e ingresos de ParkLink con una cuenta de propietario autorizada. | ParkLink, acceso, propietarios | ParkTeam |
+| Resumen del panel web | Monitoreo de mis espacios — ParkLink | Consulta la actividad de tus espacios, las reservas programadas y el balance de ingresos del periodo. | espacios propios, monitoreo, reservas | ParkTeam |
+| Espacios y detalle de consulta web | Mis espacios — ParkLink | Revisa el estado y los datos de tus espacios publicados. La gestión operativa se realiza en la aplicación móvil. | espacios, disponibilidad, propietario | ParkTeam |
+| Agenda y detalle de consulta web | Agenda de reservas — ParkLink | Consulta el cronograma de reservas de tus espacios con fecha, horario y estado de cada compromiso. | agenda, reservas, horarios | ParkTeam |
+| Ingresos y detalle transaccional web | Ingresos de mis espacios — ParkLink | Consulta el balance del periodo, las comisiones y el detalle de movimientos correspondientes a tus espacios. | ingresos, balance, reportes | ParkTeam |
+
+`Keywords` se incluye para cubrir el campo académico solicitado, **no como promesa de ranking**: [Google Search no utiliza meta keywords](https://developers.google.com/search/docs/crawling-indexing/special-tags#unsupported) para indexar o posicionar. `Author` identifica al responsable; tampoco acredita implementación, publicación o confianza automáticamente. Title y Description son únicos por página real, evitan keyword stuffing y no incluyen datos personales. [Google puede generar el snippet desde el contenido](https://developers.google.com/search/docs/appearance/snippet), por lo que no se garantiza mostrar exactamente la descripción propuesta.
+
+| Metadato / regla | Aplicación |
+|---|---|
+| `charset` y `viewport` | UTF-8 y ancho del dispositivo; sin bloquear zoom. |
+| `lang` | Español del contenido (`es-PE`) para accesibilidad y herramientas; no reemplaza el texto real. |
+| `robots` | Landing pública indexable cuando exista; acceso/panel privado con `noindex` como control adicional. |
+| Autenticación | Protege contenido privado; `robots.txt` y `noindex` **no son controles de seguridad**. |
+| Canonical | URL real de la Landing cuando se determine el dominio de publicación; no se inventa un dominio en este informe. |
+| Open Graph / vista previa | Título y descripción coherentes; imagen solo cuando el equipo produzca un recurso autorizado. |
+| `theme-color` | #080808, consistente con la identidad. |
+| Sitemap XML para buscadores | Solo URLs públicas realmente desplegadas; no contiene reservas, usuarios ni anclas como páginas independientes. |
+
+El Sitemap UX de 6.2.1 describe jerarquía funcional; **no es el archivo `sitemap.xml`** que consumen buscadores. Los documentos financieros requieren acceso autorizado y controles de no indexación cuando corresponda. No se agregan rich snippets de calificaciones inexistentes, schemas comerciales de locales inventados ni cifras de adopción no verificadas.
+
+#### Metadatos propuestos para la aplicación móvil iOS
+
+El Capítulo IV contempla Flutter en **iOS/Android**, por lo que se prepara una ficha textual de App Store como destino posible de distribución. No se afirma que la aplicación esté publicada, aprobada o registrada. La publicación concreta y sus enlaces deben verificarse antes de habilitar CTAs de descarga; al panel web no le aplican metadatos de App Store.
+
+| Campo | Propuesta |
+|---|---|
+| App Title | **ParkLink: estaciona en Lima** |
+| App Subtitle | **Busca, reserva y publica** |
+| App Keywords | **parking,cochera,parqueo,reserva,conductor,propietario,horarios,pagos,mapa** |
+| App Description | Texto propuesto a continuación; debe ajustarse a las capacidades efectivamente entregadas antes de su publicación. |
+
+**App Description — propuesta editorial completa:**
+
+> ParkLink conecta a conductores que necesitan estacionamiento en Lima con propietarios que desean publicar sus espacios disponibles.
+>
+> Como conductor, busca opciones cercanas a tu destino, compara tarifas y horarios y revisa los detalles del espacio antes de solicitar una reserva. Consulta el resultado del pago, el código de tu reserva y tu historial. Gestiona cancelaciones o extensiones según las condiciones y la disponibilidad aplicables.
+>
+> Como propietario, publica tu cochera con dirección, fotografías y tarifa. Define cuándo está disponible, consulta las reservas de tus espacios y revisa tu balance de ingresos. La aplicación permite realizar las operaciones autorizadas de tu perfil; el panel web complementa la experiencia con monitoreo.
+>
+> ParkLink Copilot propone búsquedas y acciones mediante conversación. Toda acción con efecto requiere la confirmación correspondiente y se informa según el resultado real del servicio. La asistencia por voz no elimina los riesgos de distracción: planifica antes de salir y utiliza los controles visuales únicamente cuando estés detenido en un lugar seguro.
+>
+> La oferta, los medios de pago y las operaciones disponibles dependen de los servicios habilitados. Revisa las tarifas y políticas antes de confirmar. La ubicación, el micrófono y las notificaciones se solicitan en el contexto de la tarea; puedes utilizar alternativas visuales o ingresar el destino manualmente cuando corresponda.
+
+Se proponen nombre y subtítulo dentro de 30 caracteres, keywords dentro de 100 bytes y descripción dentro del máximo de 4000 caracteres de la [referencia de App Store Connect](https://developer.apple.com/help/app-store-connect/reference/app-information/platform-version-information). No se rellenan estos campos con nombres de competidores. La descripción es un borrador de producto objetivo, no evidencia de capacidades actuales: las funciones no implementadas no se anunciarán en una ficha publicada. Screenshots y previews de tienda son evidencia visual manual pendiente y no se sustituyen con diagramas.
+
+### 6.2.5. Navigation Systems
+
+La navegación global mantiene accesibles los destinos principales; la local conduce de lista a detalle y acción. Los CTA enlazan a tareas concretas y el retorno conserva contexto, filtros y posición cuando es seguro. La consistencia no significa atribuir al panel web las operaciones de la aplicación móvil.
+
+| Canal | Navegación global | Navegación local / retorno | CTA y acceso |
+|---|---|---|---|
+| Landing Page | Anclas a funcionamiento, características, beneficios, equipo y FAQ. | Regreso a inicio mediante marca; enlaces comprensibles a las secciones. | Buscar estacionamiento / Publicar mi cochera; acceso/distribución solo con destino real. |
+| Panel web propietario | Resumen, Espacios, Reservas e Ingresos; cierre de sesión visible. | Lista/cronograma → detalle; retorno conserva periodo y filtros; Back del navegador funciona. | Consultar, ver detalle y exportar información de US13; orientación a móvil para operaciones. |
+| App móvil conductor | Buscar, Mis reservas, Notificaciones, Perfil. | Resultados → ficha → resumen/pago → detalle; retorno conserva filtros, no vuelve a cobrar. | Solicitar reserva, confirmar pago, cancelar, extender y Copilot desde Buscar. |
+| App móvil propietario | Mis espacios, Agenda, Ingresos, Notificaciones, Perfil. | Espacio → configuración; agenda → reserva → ingreso; balance → detalle/reporte. | Publicar, guardar cambios, pausar/reactivar y validar ingreso, según permisos. |
+
+Las notificaciones abren el recurso relacionado tras verificar sesión y ownership; no muestran registros ajenos al pulsar un enlace. Ante sesión expirada se solicita acceso y se restaura la intención de consulta, pero una acción de pago/cancelación requiere revisar nuevamente sus condiciones. Las confirmaciones ofrecen un retorno explícito, y cerrar un diálogo no despacha una operación. El rol obtenido del servicio guía el acceso; seleccionar un rol visualmente no concede permisos.
+
+![Diagrama de navegación por canal y rol](assets/chapter-6/navigation.svg)
+
+**Fuente:** [navigation.mmd](docs/ux/chapter-6/navigation.mmd).
+
+El recorrido del conductor llega desde Buscar a detalle, resumen, pago y resultado. Las ramas de propietario separan oferta, agenda e ingresos. Copilot converge en la misma revisión autorizada en lugar de crear un atajo que evite el consentimiento. La rama web termina en detalles de monitoreo; las flechas de retorno representan recuperación de contexto, no repetición de comandos. No se introduce navegación interna de backend como destino de interfaz.
+
+## 6.3. Landing Page UI Design
+
+La Landing traduce Style Guidelines e Information Architecture en una página de adquisición informativa y transparente. Presenta el problema, la solución y los beneficios por audiencia antes de ofrecer el siguiente paso. Sus secciones derivan de US-LP01–US-LP04; la marca y los CTA permiten reconocer ParkLink, sin insertar interfaces de reserva completas dentro de la página promocional.
+
+### 6.3.1. Landing Page Wireframe
+
+**Objetivo.** Permitir que una persona comprenda qué problema aborda ParkLink, identifique su segmento y encuentre cómo comenzar. El conductor necesita saber cómo buscar y reservar; el propietario, qué requiere publicar y cómo mantener control de su oferta.
+
+**Jerarquía conceptual y secciones:**
+
+| Orden | Sección | Contenido y prioridad | Trazabilidad |
+|---|---|---|---|
+| 1 | Cabecera | Nombre de marca, navegación por anclas y CTA por audiencia. | US-LP03. |
+| 2 | Inicio / propuesta de valor | Qué conecta ParkLink, beneficio principal y dos rutas de adopción distinguibles. | US-LP01/US-LP03. |
+| 3 | Problema y solución | Incertidumbre de estacionamiento y oferta subutilizada; evidencia contextual citada, no cifras inventadas. | Capítulos I–II; US-LP01. |
+| 4 | Cómo funciona | Busca, reserva y estaciona; para propietarios, publicar y gestionar oferta. | US-LP01. |
+| 5 | Características y comparación | Mapa/filtros, reservas, pagos, notificaciones y asistencia; distinguir capacidades objetivo de las ya entregadas. | US-LP02. |
+| 6 | Beneficios por rol | Rapidez y claridad para conductor; visibilidad/control para propietario. | US-LP03. |
+| 7 | Equipo | Integrantes de ParkTeam con información de autoría existente. | US-LP04. |
+| 8 | FAQ y condiciones | Dudas frecuentes sobre pagos, cancelación, publicación y privacidad. | US-LP04. |
+| 9 | Adopción y pie de página | Reiterar CTA, requisitos y enlaces reales; referencias legales y acceso al panel. | US-LP03/US-LP04. |
+
+**CTA principales.** «Buscar estacionamiento» conduce a la adopción/acceso de la app para conductor; «Publicar mi cochera» orienta a requisitos y registro de propietario. «Iniciar sesión en el panel» se reserva al monitoreo autorizado. Si no existe enlace real de distribución, el texto informa el estado de disponibilidad: no se simula una tienda, descarga o registro exitoso.
+
+**Desktop.** El wireframe manual podrá organizar grupos en varias columnas, mantener navegación visible y utilizar un ancho máximo de lectura. El mensaje y sus CTA aparecen antes de contenido secundario; comparación y beneficios deben poder comprenderse sin una imagen de interfaz todavía inexistente.
+
+**Mobile.** Se conserva el mismo orden semántico en una columna, CTA separados y menú compacto accesible. La comparación se adapta sin recortar texto; no se exige desplazamiento lateral de toda la página. La cabecera y cualquier CTA persistente no ocultarán contenido, controles de navegador o zonas seguras. El contenido se puede ampliar con zoom y recorrer mediante lector de pantalla.
+
+[DEJAR VACÍO – INSERTAR AQUÍ: Landing Page Wireframe Desktop]
+
+[DEJAR VACÍO – INSERTAR AQUÍ: Landing Page Wireframe Mobile]
+
+### 6.3.2. Landing Page Mock-up
+
+El mock-up manual aplicará fondo/superficies **#080808**, texto **#FFFFFF** y énfasis **#02EBD8**, con CTA turquesa de texto negro. Inter Bold jerarquizará títulos y acciones; los párrafos mantendrán Regular/Medium. La marca se mostrará sin reinterpretaciones arbitrarias, y los tokens de spacing/radio serán consistentes con las aplicaciones.
+
+La arquitectura de información determinará qué se destaca: beneficios, secuencia de uso y acciones por rol; el color no sustituye a las etiquetas. El contraste calculado se comprobará nuevamente sobre imágenes y overlays reales. Se evitarán capturas inventadas, testimonios inexistentes y sellos de seguridad sin respaldo. Si se añade una fotografía o visual del producto, se identificará su origen y estado, no se presentará una propuesta como pantalla ya desplegada.
+
+El diseño inclusivo exige estructura semántica, textos alternativos, foco visible, lectura con ampliación y acciones operables sin hover. No se incorporan animaciones indispensables para entender cómo reservar, ni audio automático. Los mock-ups son el siguiente artefacto manual: esta explicación no reemplaza ni acredita su elaboración.
+
+[DEJAR VACÍO – INSERTAR AQUÍ: Landing Page Mock-up Desktop]
+
+[DEJAR VACÍO – INSERTAR AQUÍ: Landing Page Mock-up Mobile]
+
+## 6.4. Applications UX/UI Design
+
+Las aplicaciones organizan la experiencia alrededor de las tareas reales de cada perfil. La app móvil facilita la operación de conductor/propietario; el panel web concentra monitoreo. La presentación distingue lectura eventual, comandos en proceso y hechos confirmados. Esto evita que una interfaz «optimista» asegure una plaza o devolución que los servicios todavía no han aceptado.
+
+**Metas originales de los User Personas y descomposición operacional:**
+
+| ID | User Persona | User Goal documentado en 2.3.1 | Flujos que lo soportan |
+|---|---|---|---|
+| H1 | Humberto García Calla | Encontrar estacionamiento de forma rápida para no llegar tarde al trabajo. | WF-03 búsqueda; WF-04 reserva/pago; WF-08 voz. |
+| H2 | Humberto García Calla | Tener certeza de la disponibilidad antes de salir hacia su destino. | WF-04 confirmación; WF-09 sugerencia y adaptación. |
+| H3 | Humberto García Calla | Visualizar tarifas claras para gestionar sus gastos diarios de movilidad. | WF-03 comparación; WF-05 devolución; WF-06 suplemento; WF-07 historial/comprobante. |
+| H4 | Humberto García Calla | Reducir el estrés y la fatiga causados por el tráfico limeño. | WF-06 alertas; WF-08 asistencia; WF-09 contingencias con consentimiento. |
+| J1 | Jarol Saquiray Vargas | Monetizar espacios de cochera vacíos o subutilizados. | WF-10 publicación; WF-11 oferta; WF-13 ingresos. |
+| J2 | Jarol Saquiray Vargas | Tener un control digital de quién entra y sale de su propiedad. | WF-12 agenda y validación de ingreso; consulta de fin previsto, sin inventar un nuevo comando de salida. |
+| J3 | Jarol Saquiray Vargas | Formalizar sus cobros y evitar la gestión desordenada por WhatsApp. | WF-12 agenda; WF-13 balance/reporte. |
+| J4 | Jarol Saquiray Vargas | Aumentar la visibilidad de su oferta para captar más conductores. | WF-10 publicación; WF-11 disponibilidad efectiva. |
+
+WF-01 y WF-02 habilitan adopción e identidad para ambos perfiles; no sustituyen sus metas de negocio. Los IDs H/J y WF se crean como **trazabilidad documental**, no como nuevas User Stories.
+
+### 6.4.1. Applications Wireframes
+
+Los wireframes manuales deben convertir historias y metas en vistas con un objetivo principal, contenido suficiente y estados de recuperación. Se diseñarán a partir de la siguiente matriz; no se agregan módulos por conveniencia visual.
+
+| Vistas necesarias | User Stories / Goal | Canal | Contenido y comportamiento esperado |
+|---|---|---|---|
+| Registro, validación de correo y acceso | US17–US19; habilitador de H1–H4/J1–J4 | Móvil; acceso al panel web | Campos por rol, credenciales, errores comprensibles y resultado de sesión; federación solo con métodos habilitados. |
+| Buscar, resultados mapa/lista y ficha | US01–US04; H1/H2/H3 | Móvil conductor | Destino, fecha/franja, filtros, tarifa/distancia, frescura, fotos y restricciones disponibles. |
+| Resumen, retención, pago y resultado | US05/US14; H2/H3 | Móvil conductor | Total, política, vencimiento del servidor, consentimiento y código solo al confirmar. |
+| Reservas activas y detalle | US06/US08/US20; H2/H3/H4 | Móvil conductor | Estado, tiempo, cancelación, extensión y seguimiento de la misma operación. |
+| Historial, pago, comprobante y devolución | US07/US15/US16; H3 | Móvil conductor | Periodo, gasto y estados independientes de reserva/pago/refund; documento solo si está emitido. |
+| Copilot y resumen de acción | US21–US23; H1/H2/H4 | Móvil conductor | Voz/texto según disponibilidad, aclaración, propuesta, consentimiento y fallback seguro. |
+| Mis espacios, alta y configuración | US09–US11; J1/J4 | Móvil propietario | Datos del predio, fotografías verificadas, horarios/tarifa, pausa y revisión de cambios. |
+| Agenda y detalle de reserva | US12; J2/J3 | Móvil y web propietario | Conductor/placa/horario; web consulta, móvil valida código y registra ingreso. |
+| Ingresos, detalle y reporte | US13; J1/J3 | Móvil y web propietario | Bruto/comisiones/neto, periodo y estado financiero; reporte de lectura. |
+| Notificaciones y perfil/preferencias | US20; necesidades compartidas de 2.3.2; 5.1/5.6 | Móvil por rol | Enlaces autorizados y preferencias previstas en Capítulo V; no nuevas campañas comerciales. |
+| Resumen y listados de monitoreo | US12/US13 y 4.3.3; J2/J3 | Web propietario | Espacios propios, cronograma e ingresos; no alta, edición, cancelación ni cobro desde web. |
+
+Todos los wireframes mantendrán tokens de Inter/paleta, etiquetas y espacio suficiente para datos críticos. Por cada vista se incluirán los estados inicial, cargando, vacío, error, en proceso y confirmado cuando correspondan. Un estado vacío no se dibuja con reservas o ingresos de ejemplo que después se presenten como evidencia real. Mapas tienen lista alternativa; formularios mantienen labels y errores asociados; las pantallas de pago no almacenan datos completos de tarjeta.
+
+**Dependencias de alcance.** Medidas, acceso y reseñas de US04/US09 son datos objetivo del contrato, aunque no estén completos en el backend de referencia. El saldo a favor de US15 se ofrece únicamente cuando Payment disponga del contrato financiero correspondiente; no se inventan recargas, transferencias entre usuarios ni una nueva aplicación de monedero. Los comprobantes fiscales de US16 requieren emisión válida antes de descarga. La adaptación ante retraso de US23 conserva consentimiento y no presupone una reasignación atómica ya implementada.
+
+[DEJAR VACÍO – INSERTAR AQUÍ: Web Application Wireframes]
+
+[DEJAR VACÍO – INSERTAR AQUÍ: Mobile Application Wireframes]
+
+### 6.4.2. Applications Wireflow Diagrams
+
+Se distinguen **Task Flow**, secuencia textual del recorrido exitoso, y **flujograma**, decisiones, errores y resultados posibles. Los trece flujos siguientes cubren las ocho metas originales y sus tareas relevantes, con trazabilidad a historias. Las imágenes renderizadas son diagramas Mermaid; el Wireflow visual que conecta wireframes de pantallas permanece pendiente de elaboración manual. Todas las acciones respetan rol, ownership y confirmación.
+
+#### WF-01 — Comprender ParkLink e iniciar adopción
+
+**User Persona:** Humberto García Calla o Jarol Saquiray Vargas, en su etapa de visitante.
+
+**User Goal:** Identificar cómo la solución facilita H1/H2 o J1/J4 y comenzar por el canal adecuado.
+
+**Descripción:** US-LP01–US-LP04. La persona reconoce beneficios, resuelve dudas y selecciona CTA por rol sin que la Landing simule una reserva o una descarga disponible.
+
+**Task Flow:** Inicio → propuesta de valor → funcionamiento/beneficios → FAQ si es necesaria → CTA del segmento → acceso disponible → confirmación del destino → fin.
+
+![WF-01 — Adopción](assets/chapter-6/wf-01-adoption.svg)
+
+**Fuente:** [wf-01-adoption.mmd](docs/ux/chapter-6/wf-01-adoption.mmd).
+
+El flujo incluye distribución aún no disponible y fallo al abrir el destino. Su confirmación significa llegada al acceso, no cuenta creada ni operación financiera. La persona puede volver a consultar información sin perder su selección de audiencia.
+
+[DEJAR VACÍO – INSERTAR AQUÍ: Wireflow visual con Wireframes]
+
+#### WF-02 — Crear cuenta e iniciar sesión en el canal permitido
+
+**User Persona:** Humberto García Calla y Jarol Saquiray Vargas.
+
+**User Goal:** Obtener acceso válido que habilite las metas H1–H4/J1–J4 sin confundir identidad con permisos.
+
+**Descripción:** US17–US19 y TS03. El registro solicita datos específicos del rol; el inicio de sesión y la autorización del canal se comprueban separadamente.
+
+**Task Flow:** Inicio → elegir registro o acceso → seleccionar rol cuando corresponda → completar datos → validar y registrar/verificar → autenticar → autorizar canal → restaurar tarea permitida → fin.
+
+![WF-02 — Cuenta y acceso](assets/chapter-6/wf-02-account.svg)
+
+**Fuente:** [wf-02-account.mmd](docs/ux/chapter-6/wf-02-account.mmd).
+
+Correo duplicado, placa que requiere validación, CCI inválido o credenciales incorrectas se explican con recuperación, sin revelar secretos. Se conservan datos no sensibles, no contraseñas. El conductor no accede al panel de propietario seleccionando otro rol en pantalla. La verificación de correo es requisito objetivo de US17, no prueba de un envío ya integrado.
+
+[DEJAR VACÍO – INSERTAR AQUÍ: Wireflow visual con Wireframes]
+
+#### WF-03 — Encontrar y comparar un estacionamiento
+
+**User Persona:** Humberto García Calla.
+
+**User Goal:** H1, encontrar estacionamiento con rapidez; H3, conocer tarifas antes de decidir.
+
+**Descripción:** US01–US04. La búsqueda compara destino, horario, distancia, tarifa y condiciones de acceso, sin confundir un resultado con una reserva.
+
+**Task Flow:** Inicio → destino manual o ubicación autorizada → fecha/franja/presupuesto → buscar → comparar mapa/lista → consultar ficha → elegir alternativa → fin de selección.
+
+![WF-03 — Búsqueda y comparación](assets/chapter-6/wf-03-search.svg)
+
+**Fuente:** [wf-03-search.mmd](docs/ux/chapter-6/wf-03-search.mmd).
+
+La negativa de permiso de ubicación no bloquea la tarea. El flujo contempla error de consulta, ampliación de radio y ausencia de coincidencias, conservando criterios. La confirmación de este objetivo es «opción elegida para reservar»; todavía no se afirma que la franja esté asegurada.
+
+[DEJAR VACÍO – INSERTAR AQUÍ: Wireflow visual con Wireframes]
+
+#### WF-04 — Reservar y pagar con confirmación verificable
+
+**User Persona:** Humberto García Calla.
+
+**User Goal:** H2, tener certeza de disponibilidad antes de salir; H3, aceptar un coste conocido.
+
+**Descripción:** US05/US14 y TS01/TS06. La retención, el pago y la confirmación definitiva se presentan como etapas distintas de la saga de 5.4–5.5.
+
+**Task Flow:** Inicio → revisar intervalo/total/política → autorizar retención → obtener hold vigente → elegir medio → confirmar pago → consultar resultado → recibir estado/código confirmados → fin.
+
+![WF-04 — Reserva y pago](assets/chapter-6/wf-04-booking.svg)
+
+**Fuente:** [wf-04-booking.mmd](docs/ux/chapter-6/wf-04-booking.mmd).
+
+Ante conflicto se vuelve a alternativas; ante resultado incierto se consulta la misma operación, sin crear otro cobro. El tiempo de retención procede del servidor: máximo inicial de 10 minutos; un rechazo permite la ventana limitada de reintento indicada en 5.4. El cliente no extiende ese vencimiento por actualizar pantalla. Si el pago llega después de expiración, se muestra la compensación correspondiente y no una reserva resucitada. Solo Reservation autoriza la etiqueta «Confirmada».
+
+[DEJAR VACÍO – INSERTAR AQUÍ: Wireflow visual con Wireframes]
+
+#### WF-05 — Cancelar y conocer el estado de la devolución
+
+**User Persona:** Humberto García Calla.
+
+**User Goal:** H3, controlar gastos y consecuencias económicas ante un cambio de plan.
+
+**Descripción:** US06/US15. Se revisa la política antes del consentimiento y se diferencia reserva cancelada de devolución financiera procesada.
+
+**Task Flow:** Inicio → detalle propio → cancelar → consultar política/monto → confirmar condiciones → cancelar mediante Reservation → consultar devolución si corresponde → conocer estado real → fin.
+
+![WF-05 — Cancelación y devolución](assets/chapter-6/wf-05-cancellation.svg)
+
+**Fuente:** [wf-05-cancellation.mmd](docs/ux/chapter-6/wf-05-cancellation.mmd).
+
+La ventana gratuita aplica conforme a la política de al menos una hora de antelación documentada en 5.4; no se inventa el porcentaje de penalidad tardía. US15 fija una solicitud de devolución al medio de origen y su plazo; se comunica si está pendiente o presenta incidencia. Si está habilitada la alternativa de saldo a favor prevista en US15, el usuario elige el medio antes de confirmar y el flujo conserva los mismos estados verificables. El fin puede ser cancelación confirmada con devolución todavía pendiente, no una falsa afirmación de abono.
+
+[DEJAR VACÍO – INSERTAR AQUÍ: Wireflow visual con Wireframes]
+
+#### WF-06 — Atender un aviso y extender tiempo
+
+**User Persona:** Humberto García Calla.
+
+**User Goal:** H4, reducir incertidumbre/estrés; H3, conocer el suplemento antes de ampliar la estadía.
+
+**Descripción:** US08/US20. Desde la reserva o su aviso preventivo, la persona solicita un nuevo fin y acepta el coste solo si existe disponibilidad.
+
+**Task Flow:** Inicio → abrir reserva actualizada → extender → elegir nuevo fin → consultar intervalo/suplemento → confirmar → pagar si corresponde → revalidación de Reservation → nuevo horario confirmado → fin.
+
+![WF-06 — Aviso y extensión](assets/chapter-6/wf-06-extension.svg)
+
+**Fuente:** [wf-06-extension.mmd](docs/ux/chapter-6/wf-06-extension.mmd).
+
+El aviso de US20 se emite a 15 minutos del vencimiento previsto y debe actualizarse tras cambios. Un intervalo ocupado o un pago rechazado conserva la reserva original. Si ocurre conflicto después de autorizar un suplemento, se informa su compensación de acuerdo con 5.4, sin anunciar una extensión aceptada. Si el usuario está conduciendo, no se le induce a utilizar la pantalla en movimiento.
+
+[DEJAR VACÍO – INSERTAR AQUÍ: Wireflow visual con Wireframes]
+
+#### WF-07 — Consultar gastos y obtener comprobante
+
+**User Persona:** Humberto García Calla.
+
+**User Goal:** H3, gestionar los gastos diarios de movilidad mediante información y respaldo.
+
+**Descripción:** US07/US16. Se consulta historial propio por periodo y un comprobante que debe haber sido emitido por la integración autorizada.
+
+**Task Flow:** Inicio → historial → periodo → listado/total → reserva → detalle de pago → comprobante disponible → datos fiscales requeridos → descarga → confirmación → fin.
+
+![WF-07 — Historial y comprobante](assets/chapter-6/wf-07-history.svg)
+
+**Fuente:** [wf-07-history.mmd](docs/ux/chapter-6/wf-07-history.mmd).
+
+El flujo contempla historial vacío, fallo de consulta y documento no emitido. Reintentar una descarga nunca repite el pago. La confirmación significa archivo obtenido, no validez tributaria inventada: un código de recibo del backend de referencia no se presenta como factura fiscal integrada. El correo de US16 complementa la descarga cuando Notification confirma su entrega.
+
+[DEJAR VACÍO – INSERTAR AQUÍ: Wireflow visual con Wireframes]
+
+#### WF-08 — Buscar y proponer una reserva mediante Copilot
+
+**User Persona:** Humberto García Calla.
+
+**User Goal:** H1/H4, facilitar la búsqueda y reducir manipulación sin perder control de acciones.
+
+**Descripción:** US21, TS07 y TS09. La conversación transforma intención en criterios y propuestas; el usuario autoriza la acción exacta y los servicios determinan el resultado.
+
+**Task Flow:** Inicio → activar canal permitido → expresar destino/franja/presupuesto → interpretar y aclarar → consultar opciones → escuchar/revisar resumen → confirmar acción vigente → despachar comando → completar pago explícito si aplica → conocer resultado real → fin.
+
+![WF-08 — Copilot con consentimiento](assets/chapter-6/wf-08-copilot.svg)
+
+**Fuente:** [wf-08-copilot.mmd](docs/ux/chapter-6/wf-08-copilot.mmd).
+
+Una intención ambigua o herramienta no permitida no produce efectos. La aprobación se vincula al actor, recurso, intervalo, importe y versión, con TTL máximo de 5 minutos según 5.7. Si cambian condiciones, se genera una propuesta nueva. Ante fallo/latencia de IA se ofrece el flujo visual dentro del objetivo de TS09, pero se indica consultarlo solo al detenerse de forma segura. El asistente no solicita tarjetas ni anuncia éxito por el solo envío al broker.
+
+[DEJAR VACÍO – INSERTAR AQUÍ: Wireflow visual con Wireframes]
+
+#### WF-09 — Evaluar sugerencias y adaptarse a retrasos
+
+**User Persona:** Humberto García Calla.
+
+**User Goal:** H2/H4, anticipar necesidad de parqueo y reducir incertidumbre ante tráfico.
+
+**Descripción:** US22/US23. La sugerencia basada en contexto o retraso se ofrece como propuesta consentida, no como una modificación autónoma opaca.
+
+**Task Flow:** Inicio → recibir sugerencia contextual → revisar razón/opción → aceptar continuar → consultar búsqueda o ajuste → revisar costes/consecuencias → confirmar acción → verificar resultados/compensaciones → comunicar reserva vigente → fin.
+
+![WF-09 — Sugerencia y adaptación](assets/chapter-6/wf-09-proactive.svg)
+
+**Fuente:** [wf-09-proactive.mmd](docs/ux/chapter-6/wf-09-proactive.mmd).
+
+Descartar una sugerencia de US22 silencia la franja correspondiente y no crea reservas. La tolerancia de 15 minutos sin recargo del escenario US23 solo se propone si la política/oferta realmente la admite; no se garantiza universalmente. Si debe cambiarse de espacio, se muestran qué reserva sigue vigente, cancelación/reembolso aplicables y resultado de la nueva operación. No se presupone un contrato de traslado atómico ya implementado; la interfaz no oculta fallas parciales ni cobra sin revisión.
+
+[DEJAR VACÍO – INSERTAR AQUÍ: Wireflow visual con Wireframes]
+
+#### WF-10 — Publicar una cochera y hacer visible la oferta
+
+**User Persona:** Jarol Saquiray Vargas.
+
+**User Goal:** J1/J4, monetizar espacios vacíos y aumentar su visibilidad.
+
+**Descripción:** US09 y TS05. La publicación reúne datos, ubicación y evidencia fotográfica verificable antes de anunciar un espacio disponible.
+
+**Task Flow:** Inicio → Mis espacios → publicar → completar dirección/medidas/acceso/tarifa/horarios → cargar al menos dos fotos → validar/geocodificar → revisar resumen → confirmar alta → conocer publicación y sincronización → fin.
+
+![WF-10 — Publicación de espacio](assets/chapter-6/wf-10-publication.svg)
+
+**Fuente:** [wf-10-publication.mmd](docs/ux/chapter-6/wf-10-publication.mmd).
+
+Un archivo no permitido o superior a 5 MB se rechaza conforme a TS05; una URL de subida preparada no prueba que la foto exista. La dirección debe reconocerse sin ubicar ficticiamente el predio. El resultado diferencia «alta aceptada» de «actualización del índice de búsqueda pendiente» por consistencia eventual. La publicación se realiza en móvil, no mediante el panel de monitoreo.
+
+[DEJAR VACÍO – INSERTAR AQUÍ: Wireflow visual con Wireframes]
+
+#### WF-11 — Controlar horarios, tarifa y disponibilidad
+
+**User Persona:** Jarol Saquiray Vargas.
+
+**User Goal:** J1/J4, mantener oferta útil y visible sin afectar compromisos existentes.
+
+**Descripción:** US10/US11. El propietario configura ventanas y precios, pausa o reactiva la oferta tras revisar efectos.
+
+**Task Flow:** Inicio → espacio propio → editar horario/tarifa o habilitación → validar → revisar impacto → confirmar → guardar revisión → verificar estado y reservas vigentes → fin.
+
+![WF-11 — Configuración de oferta](assets/chapter-6/wf-11-offer.svg)
+
+**Fuente:** [wf-11-offer.mmd](docs/ux/chapter-6/wf-11-offer.mmd).
+
+Se rechazan horarios solapados o precios inválidos con ayudas próximas al campo. Si otro cambio actualizó la versión, se recarga y revisa antes de sobrescribir. Pausar no cancela reservas pactadas, y una nueva tarifa no recalcula retroactivamente sus importes. La confirmación informa sincronización y versión efectiva; no se promete visibilidad instantánea en todas las réplicas.
+
+[DEJAR VACÍO – INSERTAR AQUÍ: Wireflow visual con Wireframes]
+
+#### WF-12 — Consultar agenda y validar ingreso
+
+**User Persona:** Jarol Saquiray Vargas.
+
+**User Goal:** J2/J3, conocer compromisos y controlar el acceso de manera ordenada.
+
+**Descripción:** US12. Web o móvil permiten consultar el cronograma de espacios propios; solo la app móvil registra ingreso tras validar el código presentado.
+
+**Task Flow:** Inicio → agenda → fecha/reserva → comprobar conductor/placa/horario → abrir validación en móvil → ingresar código → validar vigencia/ownership → confirmar ingreso → resultado actualizado → fin.
+
+![WF-12 — Agenda y acceso](assets/chapter-6/wf-12-access.svg)
+
+**Fuente:** [wf-12-access.mmd](docs/ux/chapter-6/wf-12-access.mmd).
+
+Un código inválido, reserva ajena o estado incompatible no produce ingreso. Ante corte de conexión se consulta la misma acción antes de repetir; «ya registrado» se comunica sin duplicar el efecto. La hora de fin es visible como dato programado; no se incorpora una nueva función de registrar salida o controlar una barrera física que no esté especificada. El panel refleja el estado resultante, sin un botón operativo de validación.
+
+[DEJAR VACÍO – INSERTAR AQUÍ: Wireflow visual con Wireframes]
+
+#### WF-13 — Revisar ingresos y exportar respaldo
+
+**User Persona:** Jarol Saquiray Vargas.
+
+**User Goal:** J1/J3, evaluar monetización y formalizar el control de cobros.
+
+**Descripción:** US13. El balance presenta datos del periodo y estados financieros existentes; exportar obtiene información, no ordena transferencias.
+
+**Task Flow:** Inicio → Ingresos → seleccionar periodo → consultar bruto/comisiones/neto → revisar detalle → solicitar reporte de lectura → descargar → confirmar obtención → fin.
+
+![WF-13 — Ingresos y reporte](assets/chapter-6/wf-13-income.svg)
+
+**Fuente:** [wf-13-income.mmd](docs/ux/chapter-6/wf-13-income.mmd).
+
+Una falla de consulta no se representa con saldo cero ni con ganancias inventadas. El caso «sin movimientos» indica el periodo consultado. Los reportes conservan filtros, distinguen importe devengado de transferencia realmente procesada y solo contienen datos del propietario. La consulta/exportación puede estar en web o móvil; no se añade botón de retiro, transferencia manual, edición de comisión o liquidación no definidos en el backlog.
+
+[DEJAR VACÍO – INSERTAR AQUÍ: Wireflow visual con Wireframes]
+
+Los flujos ofrecen rutas de recuperación sin afirmar que ya fueron evaluados con usuarios. Al elaborar wireframes manuales se deberá comprobar comprensión de estado, coste y siguiente acción; el criterio de éxito será completar el objetivo con información suficiente, no minimizar clics ignorando consentimiento o accesibilidad.
+
+### 6.4.3. Applications Mock-ups and Visual Evidence
+
+Los mock-ups manuales desarrollarán las vistas identificadas en 6.4.1 con Inter, Bold como énfasis principal y la paleta obligatoria. Deben conservar el contenido y los resultados definidos en los flujogramas: un resumen de pago no puede omitir importe/condiciones por priorizar estética, ni una tarjeta del panel web incorporar comandos que su arquitectura no permite. Las versiones compactas y amplias se comprobarán con texto aumentado y estados de error/vacío antes de producir capturas.
+
+Screenshots y capturas de prototipos deben provenir del artefacto real creado por el equipo, con datos de prueba identificados y sin secretos. No se atribuyen enlaces de Figma, pruebas de usabilidad, publicación en tiendas o interfaces terminadas a este trabajo textual. Los siguientes espacios corresponden exclusivamente a evidencia visual pendiente; todas sus explicaciones y recorridos ya se encuentran desarrollados.
+
+[DEJAR VACÍO – INSERTAR AQUÍ: Web Application Mock-ups]
+
+[DEJAR VACÍO – INSERTAR AQUÍ: Mobile Application Mock-ups]
+
+[DEJAR VACÍO – INSERTAR AQUÍ: Screenshots de interfaces Web Application]
+
+[DEJAR VACÍO – INSERTAR AQUÍ: Screenshots de interfaces Mobile Application]
+
+[DEJAR VACÍO – INSERTAR AQUÍ: Capturas de prototipos Web Application]
+
+[DEJAR VACÍO – INSERTAR AQUÍ: Capturas de prototipos Mobile Application]
+
+**Trazabilidad de diagramas.** Las fuentes Mermaid y configuración se conservan en `docs/ux/chapter-6/`, y sus imágenes de diagramas en `assets/chapter-6/`. Las [instrucciones de reproducción](docs/ux/chapter-6/RENDERING.md) permiten regenerar Sitemap, búsqueda, navegación y WF-01–WF-13 sin depender de screenshots de interfaces. Los diagramas no sustituyen los artefactos manuales indicados por los marcadores.
 
 ---
 

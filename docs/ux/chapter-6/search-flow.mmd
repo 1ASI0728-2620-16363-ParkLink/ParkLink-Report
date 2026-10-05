@@ -1,0 +1,22 @@
+flowchart TD
+    A(["Inicio: conductor busca un espacio"]) --> B["Ingresar destino o usar ubicación autorizada"]
+    B --> C["Elegir fecha, inicio, fin y tarifa máxima"]
+    C --> D{"¿Destino e intervalo válidos?"}
+    D -->|No| E["Explicar el campo incorrecto y conservar datos"]
+    E --> B
+    D -->|Sí| F["Consultar Discovery en radio de 1 km"]
+    F --> G{"¿Respuesta disponible?"}
+    G -->|No| H["Mostrar error de conexión; ofrecer reintento"]
+    H --> R{"¿Reintentar?"}
+    R -->|Sí| F
+    R -->|No| Z(["Fin sin resultados confirmados"])
+    G -->|Sí| I{"¿Hay coincidencias?"}
+    I -->|No| J["Ampliar a 2 km e informar el cambio"]
+    J --> K{"¿Hay alternativas?"}
+    K -->|No| L["Mostrar estado vacío; sugerir ajustar filtros"]
+    L --> C
+    K -->|Sí| M["Mostrar mapa y lista con precio, distancia y frescura"]
+    I -->|Sí| M
+    M --> N["Seleccionar resultado y consultar ficha"]
+    N --> O["Mostrar disponibilidad informativa; Reservation revalidará"]
+    O --> P(["Fin: alternativa identificada, todavía sin reserva"])

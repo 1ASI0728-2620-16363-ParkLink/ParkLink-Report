@@ -1,0 +1,27 @@
+flowchart TD
+    A(["Inicio: sugerencia por hábito o aviso de retraso"]) --> B["Consultar contexto mínimo autorizado y datos actuales"]
+    B --> C{"¿Datos suficientes y servicio disponible?"}
+    C -->|No| D["Informar limitación; conservar la reserva existente"]
+    D --> Z(["Fin sin modificación automática"])
+    C -->|Sí| E["Presentar sugerencia y razón comprensible"]
+    E --> F{"¿Usuario desea continuar?"}
+    F -->|No| G["Descartar sugerencia de esa franja sin crear reserva"]
+    G --> Z
+    F -->|Sí| H{"¿Es una búsqueda anticipada?"}
+    H -->|Sí| I["Consultar alternativas y seguir reserva con consentimiento"]
+    I --> S["Verificar resultado confirmado antes de anunciar éxito"]
+    H -->|No, existe retraso| J["Consultar tolerancia o extensión admisible"]
+    J --> K{"¿Oferta permite ajuste?"}
+    K -->|Sí| L["Proponer ajuste con nuevo horario y coste real"]
+    K -->|No| M["Buscar plaza alternativa y mostrar consecuencias de cambio"]
+    M --> L
+    L --> N{"¿Confirma acción exacta?"}
+    N -->|No| Z
+    N -->|Sí| O["Solicitar a Reservation; no prometer traslado atómico"]
+    O --> P{"¿Cambio y compensaciones resueltos?"}
+    P -->|Pendiente| Q["Comunicar estado de cada operación y mantener trazabilidad"]
+    Q --> P
+    P -->|Fallo o conflicto| R["Mostrar qué reserva sigue vigente; ofrecer revisión"]
+    R --> Z
+    P -->|Sí| S
+    S --> T(["Fin: sugerencia aceptada y resultado verificable"])

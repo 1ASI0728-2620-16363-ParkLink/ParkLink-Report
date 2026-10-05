@@ -1,0 +1,20 @@
+flowchart TD
+    A(["Inicio: Jarol abre Mis espacios"]) --> B["Seleccionar Publicar espacio"]
+    B --> C["Ingresar dirección, medidas, acceso, tarifa y horarios"]
+    C --> D["Adjuntar al menos dos fotos y verificar carga"]
+    D --> E{"¿Datos, ventanas y archivos válidos?"}
+    E -->|No| F["Señalar campos o archivo inválido; conservar datos no sensibles"]
+    F --> C
+    E -->|Sí| G["Geocodificar dirección y presentar resumen"]
+    G --> H{"¿Dirección reconocida?"}
+    H -->|No| I["Solicitar corregir dirección sin publicar ubicación falsa"]
+    I --> C
+    H -->|Sí| J{"¿Confirma publicación?"}
+    J -->|No| Z(["Fin sin publicar"])
+    J -->|Sí| K["Enviar alta y consultar revisión publicada"]
+    K --> L{"¿Supply aceptó la oferta?"}
+    L -->|Error| M["Mostrar causa y reintento controlado"]
+    M --> G
+    L -->|Pendiente| K
+    L -->|Sí| N["Confirmar alta y mostrar sincronización con búsqueda"]
+    N --> O(["Fin: oferta publicada con estado real"])

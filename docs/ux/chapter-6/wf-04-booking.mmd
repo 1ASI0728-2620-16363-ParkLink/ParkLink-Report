@@ -1,0 +1,22 @@
+flowchart TD
+    A(["Inicio: ficha seleccionada y sesión válida"]) --> B["Revisar intervalo, tarifa, total y condiciones"]
+    B --> C{"¿Autoriza solicitar la retención?"}
+    C -->|No| Z(["Fin sin reserva nueva"])
+    C -->|Sí| D["Enviar solicitud; mostrar En proceso y consultar resultado"]
+    D --> E{"¿Resultado de Reservation?"}
+    E -->|Conflicto| F["Informar intervalo ocupado; elegir alternativa"]
+    F --> Z
+    E -->|No determinado| G["Consultar misma operación; no crear otra"]
+    G --> E
+    E -->|Retención creada| H["Mostrar pendiente de pago y vencimiento del servidor"]
+    H --> I["Elegir medio y confirmar el pago del importe indicado"]
+    I --> J["Procesar con pasarela; mantener operación identificable"]
+    J --> K{"¿Resultado de pago y reserva?"}
+    K -->|Rechazado con retención vigente| L["Explicar rechazo y ventana restante; cambiar medio"]
+    L --> I
+    K -->|Retención expirada| M["Informar expiración; volver a buscar"]
+    M --> Z
+    K -->|Pendiente o red interrumpida| N["Consultar estado; no repetir cobro"]
+    N --> K
+    K -->|Reserva confirmada| O["Mostrar código, horario, dirección y estado confirmado"]
+    O --> P(["Fin: lugar confirmado por Reservation"])

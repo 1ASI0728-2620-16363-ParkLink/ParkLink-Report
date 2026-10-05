@@ -1,0 +1,18 @@
+flowchart TD
+    A(["Inicio: Jarol consulta agenda de sus espacios"]) --> B["Elegir fecha y abrir reserva"]
+    B --> C["Revisar conductor, placa, intervalo y estado"]
+    C --> D{"¿Desea registrar ingreso desde la app móvil?"}
+    D -->|No, solo monitoreo| Z(["Fin: cronograma consultado"])
+    D -->|Sí| E["Ingresar código presentado por el conductor"]
+    E --> F["Solicitar validación de código y ownership"]
+    F --> G{"¿Reserva vigente y código válido?"}
+    G -->|No| H["Explicar rechazo; no registrar ingreso"]
+    H --> E
+    G -->|Sí| I["Confirmar intención de registrar ingreso"]
+    I --> J["Enviar acción y consultar resultado"]
+    J --> K{"¿Resultado definitivo?"}
+    K -->|Error o conexión interrumpida| L["Consultar misma operación antes de repetir"]
+    L --> K
+    K -->|Rechazado por cambio de estado| H
+    K -->|Registrado o ya registrado| M["Confirmar ingreso y mostrar estado actualizado"]
+    M --> N(["Fin: ingreso registrado; panel web solo refleja el estado"])

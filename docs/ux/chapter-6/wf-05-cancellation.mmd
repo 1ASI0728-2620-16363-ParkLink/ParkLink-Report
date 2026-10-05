@@ -1,0 +1,26 @@
+flowchart TD
+    A(["Inicio: detalle de reserva propia"]) --> B["Seleccionar Cancelar reserva"]
+    B --> C["Consultar política y devolución aplicable"]
+    C --> D{"¿Cancelación permitida?"}
+    D -->|No| E["Explicar estado incompatible sin modificar reserva"]
+    E --> Z(["Fin sin cancelación"])
+    D -->|Sí| F["Mostrar devolución, penalidad si aplica y motivo"]
+    F --> G{"¿Usuario confirma condiciones?"}
+    G -->|No| Z
+    G -->|Sí| H["Enviar comando y consultar mismo resultado"]
+    H --> I{"¿Cancelación aceptada?"}
+    I -->|Error o estado cambiado| J["Actualizar condiciones; pedir revisión antes de reintentar"]
+    J --> C
+    I -->|Pendiente| H
+    I -->|Sí| K["Confirmar reserva cancelada y plaza liberada"]
+    K --> L{"¿Corresponde reembolso?"}
+    L -->|No| M["Mostrar importe y motivo de política"]
+    L -->|Sí| N["Mostrar solicitud y medio de devolución habilitado"]
+    N --> O{"¿Resultado financiero?"}
+    O -->|Pendiente| P["Mostrar plazo de US15 y estado consultable"]
+    O -->|Fallo| Q["Informar incidencia; no afirmar dinero devuelto"]
+    O -->|Procesado| R["Confirmar devolución y referencia"]
+    P --> S(["Fin: cancelación confirmada; devolución pendiente"])
+    Q --> T(["Fin: cancelación confirmada; incidencia financiera"])
+    R --> U(["Fin: cancelación y devolución procesadas"])
+    M --> V(["Fin: cancelación confirmada sin reembolso aplicable"])
