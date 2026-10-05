@@ -1,0 +1,79 @@
+classDiagram
+direction TB
+class Reservation {
+  <<AggregateRoot>>
+  -UUID id
+  -UUID userId
+  -UUID parkingSpaceId
+  -String reservationCode
+  -TimeInterval interval
+  -Money totalPrice
+  -ReservationStatus status
+  -Date holdExpiresAt
+  -int version
+  #Reservation()
+  +hold(snapshot, interval, now) Reservation$
+  +requestConfirmation() void
+  +applyPaymentAuthorized(paymentId, now) void
+  +cancel(now, reason) void
+  +extend(newEnd, snapshot) void
+  +expire(now) void
+  +checkIn(now) void
+}
+class TimeInterval {
+  <<ValueObject>>
+  -Date start
+  -Date end
+  +create(start, end) TimeInterval$
+  +overlaps(other) bool
+}
+class Money {
+  <<ValueObject>>
+  -Decimal amount
+  -String currency
+  +add(other) Money
+}
+class ParkingSpaceSnapshot {
+  <<ValueObject>>
+  -UUID spaceId
+  -Money pricePerHour
+  -int supplyVersion
+  -String schedule
+  +allows(interval) bool
+}
+class ReservationStatus {
+  <<enumeration>>
+  PENDING_PAYMENT
+  CONFIRMED
+  ACTIVE
+  COMPLETED
+  CANCELLED
+  EXPIRED
+}
+class AvailabilityPolicy {
+  <<DomainService>>
+  +assertCanHold(snapshot, interval, blocking) void
+  +assertCanExtend(reservation, interval, blocking) void
+}
+class CancellationPolicy {
+  <<DomainService>>
+  +refundAmount(reservation, now) Money
+}
+class ReservationRepository {
+  <<interface>>
+  +findById(id) Reservation
+  +findBlocking(spaceId, interval) Reservation[]
+  +save(reservation, expectedVersion) void
+}
+class UnitOfWork {
+  <<interface>>
+  +execute(operation) void
+}
+Reservation "1" *-- "1" TimeInterval : interval
+Reservation "1" *-- "1" Money : immutable quote
+Reservation "1" --> "1" ReservationStatus : state
+Reservation ..> ParkingSpaceSnapshot : validates current offer
+AvailabilityPolicy ..> ParkingSpaceSnapshot : offer rules
+AvailabilityPolicy ..> ReservationRepository : blocking intervals
+CancellationPolicy ..> Reservation : cancellation terms
+ReservationRepository ..> Reservation : persists

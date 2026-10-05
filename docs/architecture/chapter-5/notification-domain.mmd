@@ -1,0 +1,75 @@
+classDiagram
+direction TB
+class Notification {
+  <<AggregateRoot>>
+  -UUID id
+  -UUID userId
+  -UUID sourceEventId
+  -String title
+  -String message
+  -NotificationType type
+  -DeliveryChannel channel
+  -bool isRead
+  -String deliveryStatus
+  #Notification()
+  +create(event, preference) Notification$
+  +markAsRead(actorId) void
+  +recordAttempt(result) void
+}
+class NotificationPreference {
+  <<AggregateRoot>>
+  -UUID userId
+  -bool pushEnabled
+  -bool emailEnabled
+  +allows(channel) bool
+  +update(channels) void
+}
+class DeliveryAttempt {
+  <<Entity>>
+  -UUID id
+  -int attemptNumber
+  -Date attemptedAt
+  -String outcome
+  +succeeded() bool
+}
+class DeliveryChannel {
+  <<enumeration>>
+  IN_APP
+  PUSH
+  EMAIL
+}
+class NotificationType {
+  <<enumeration>>
+  RESERVATION_CONFIRMED
+  PAYMENT_APPROVED
+  RESERVATION_CANCELLED
+  RESERVATION_EXPIRING
+  REFUND_PROCESSED
+}
+class DeliveryPolicy {
+  <<DomainService>>
+  -int maxAttempts
+  +canRetry(notification, now) bool
+}
+class NotificationRepository {
+  <<interface>>
+  +findForUser(userId) Notification[]
+  +save(notification) void
+}
+class PreferenceRepository {
+  <<interface>>
+  +findByUserId(userId) NotificationPreference
+  +save(preference) void
+}
+class DeliveryGateway {
+  <<interface>>
+  +send(notification) String
+}
+Notification "1" *-- "0..*" DeliveryAttempt : attempts
+Notification "1" --> "1" DeliveryChannel : target channel
+Notification "1" --> "1" NotificationType : trigger
+NotificationPreference "1" --> "0..*" Notification : governs channel
+DeliveryPolicy ..> Notification : bounded retry
+NotificationRepository ..> Notification : persists
+PreferenceRepository ..> NotificationPreference : persists
+DeliveryGateway ..> Notification : delivers

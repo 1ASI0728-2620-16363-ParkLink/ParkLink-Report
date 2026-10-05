@@ -1,0 +1,66 @@
+classDiagram
+direction TB
+class User {
+  <<AggregateRoot>>
+  -UUID id
+  -String fullName
+  -EmailAddress email
+  -String passwordHash
+  -UserRole role
+  -String phone
+  -String plateNumber
+  -String bankAccountRef
+  #User()
+  +create(profile, hash) User$
+  +updateProfile(profile) void
+  +canManage(ownerId) bool
+}
+class EmailAddress {
+  <<ValueObject>>
+  -String value
+  +create(raw) EmailAddress$
+  +equals(other) bool
+}
+class Session {
+  <<Entity>>
+  -UUID id
+  -UUID userId
+  -String tokenHash
+  -Date expiresAt
+  -Date revokedAt
+  +isActive(now) bool
+  +revoke(now) void
+}
+class UserRole {
+  <<enumeration>>
+  DRIVER
+  OWNER
+  ADMIN
+}
+class UserRepository {
+  <<interface>>
+  +findById(id) User
+  +findByEmail(email) User
+  +save(user) void
+}
+class SessionRepository {
+  <<interface>>
+  +findActive(id) Session
+  +save(session) void
+}
+class PasswordHasher {
+  <<interface>>
+  +hash(password) String
+  +verify(password, hash) bool
+}
+class TokenIssuer {
+  <<interface>>
+  +issue(user, session) String
+}
+User "1" *-- "1" EmailAddress : email
+User "1" --> "1" UserRole : role
+User "1" --> "0..*" Session : identity reference
+UserRepository ..> User : persists
+SessionRepository ..> Session : persists
+TokenIssuer ..> User : accepts identity
+TokenIssuer ..> Session : scoped session

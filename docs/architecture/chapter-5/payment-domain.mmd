@@ -1,0 +1,67 @@
+classDiagram
+direction TB
+class Payment {
+  <<AggregateRoot>>
+  -UUID id
+  -UUID reservationId
+  -UUID payerId
+  -Money amount
+  -IdempotencyKey key
+  -PaymentStatus status
+  -String providerReference
+  -String receiptCode
+  #Payment()
+  +create(request, key) Payment$
+  +approve(reference) void
+  +reject(reason) void
+  +requestRefund(amount, key) Refund
+}
+class Money {
+  <<ValueObject>>
+  -Decimal amount
+  -String currency
+  +equals(other) bool
+  +subtract(other) Money
+}
+class IdempotencyKey {
+  <<ValueObject>>
+  -String value
+  -String payloadHash
+  +matches(payload) bool
+}
+class Refund {
+  <<Entity>>
+  -UUID id
+  -Money amount
+  -String operationKey
+  -String providerReference
+  -String status
+  +complete(reference) void
+}
+class PaymentStatus {
+  <<enumeration>>
+  PENDING
+  APPROVED
+  REJECTED
+  REFUNDED
+}
+class PaymentRepository {
+  <<interface>>
+  +findById(id) Payment
+  +findByKey(key) Payment
+  +save(payment) void
+}
+class PaymentGateway {
+  <<interface>>
+  +authorize(payment, token) String
+  +refund(payment, refund) String
+  +reconcile(reference) String
+}
+Payment "1" *-- "1" Money : original amount
+Payment "1" *-- "1" IdempotencyKey : operation identity
+Payment "1" *-- "0..*" Refund : refund attempts
+Payment "1" --> "1" PaymentStatus : state
+Refund "1" *-- "1" Money : refunded amount
+PaymentRepository ..> Payment : persists
+PaymentGateway ..> Payment : external operation
+PaymentGateway ..> Refund : external refund

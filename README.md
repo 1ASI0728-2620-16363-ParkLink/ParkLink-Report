@@ -118,48 +118,79 @@ Adicionalmente, el equipo mantiene el seguimiento de competencias complementaria
         - [4.3.3. Software Architecture Container Level Diagram](#433-software-architecture-container-level-diagram)
         - [4.3.4. Software Architecture Deployment Diagram](#434-software-architecture-deployment-diagram)
     - [4.4. Architecture-as-Code and Evidence Traceability](#44-architecture-as-code-and-evidence-traceability)
-- [Capítulo V: Product Implementation, Validation & Deployment](#capítulo-v-product-implementation-validation--deployment)
-    - [5.1. Testing Suites & General Patterns](#51-testing-suites--general-patterns)
-    - [5.1.1 Backend Application Core Testing Suite](#511-backend-application-core-testing-suite)
-    - [5.1.2 Pattern Based Backend Aplication(s)](#512-pattern-based-backend-aplications)
-    - [5.1.3 Pattern Based Custom Software Library](#513-pattern-based-custom-software-library)
-    - [5.1.4 Framework Pattern Driven Refactoring Report](#514-framework-pattern-driven-refactoring-report)
-    - [5.2 Software Configuration Management](#52-software-configuration-management)
-    - [5.2.1 Software Development Environment Configuration](#521-software-development-environment-configuration)
-    - [5.2.2 Source Code Management](#522-source-code-management)
-    - [5.2.3 Source Code Style Guide & Conventions](#523-source-code-style-guide--conventions)
-    - [5.2.4 Software Deployment Configuration](#524-software-deployment-configuration)
-    - [5.3 Microservices Deployment](#53-microservices-deployment)
-    - [5.3.1 Cloud Architecture Diagram](#531-cloud-architecture-diagram)
-    - [5.3.2 Cloud Architecture Deployment](#532-cloud-architecture-deployment)
-    - [5.4 Sprint Reviews](#54-sprint-reviews)
-    - [5.4.1 Sprint 1](#541-sprint-1)
-    - [5.4.1.1 Sprint Backlog 1](#5411-sprint-backlog-1)
-    - [5.4.1.2 Development Evidence for Sprint Review](#5412-development-evidence-for-sprint-review)
-    - [5.4.1.3 Testing Suite Evidence for Sprint Review](#5413-testing-suite-evidence-for-sprint-review)
-    - [5.4.1.4 Execution Evidence for Sprint Review](#5414-execution-evidence-for-sprint-review)
-    - [5.4.1.5 Microservices Documentation Evidence for Sprint Review](#5415-microservices-documentation-evidence-for-sprint-review)
-    - [5.4.1.6 Software Deployment Evidence for Sprint Review](#5416-software-deployment-evidence-for-sprint-review)
-    - [5.4.1.7 Team Collaboration Insights during Sprint](#5417-team-collaboration-insights-during-sprint)
-    - [5.4.1.8 Kanban Board](#5418-kanban-board)
-    - [5.4.2 Sprint 2](#542-sprint-2)
-    - [5.4.2.1 Sprint Backlog 2](#5421-sprint-backlog-2)
-    - [5.4.2.2 Development Evidence for Sprint Review](#5422-development-evidence-for-sprint-review)
-    - [5.4.2.3 Testing Suite Evidence for Sprint Review](#5423-testing-suite-evidence-for-sprint-review)
-    - [5.4.2.4 Execution Evidence for Sprint Review](#5424-execution-evidence-for-sprint-review)
-    - [5.4.2.5 Microservices Documentation Evidence for Sprint Review](#5425-microservices-documentation-evidence-for-sprint-review)
-    - [5.4.2.6 Software Deployment Evidence for Sprint Review](#5426-software-deployment-evidence-for-sprint-review)
-    - [5.4.2.7 Team Collaboration Insights during Sprint](#5427-team-collaboration-insights-during-sprint)
-    - [5.4.2.8 Kanban Board](#5428-kanban-board)
-    - [5.4.3 Sprint 3](#543-sprint-3)
-    - [5.4.3.1 Sprint Backlog 3](#5431-sprint-backlog-3)
-    - [5.4.3.2 Development Evidence for Sprint Review](#5432-development-evidence-for-sprint-review)
-    - [5.4.3.3 Testing Suite Evidence for Sprint Review](#5433-testing-suite-evidence-for-sprint-review)
-    - [5.4.3.4 Execution Evidence for Sprint Review](#5434-execution-evidence-for-sprint-review)
-    - [5.4.3.5 Microservices Documentation Evidence for Sprint Review](#5435-microservices-documentation-evidence-for-sprint-review)
-    - [5.4.3.6 Software Deployment Evidence for Sprint Review](#5436-software-deployment-evidence-for-sprint-review)
-    - [5.4.3.7 Team Collaboration Insights during Sprint](#5437-team-collaboration-insights-during-sprint)
-    - [5.4.3.8 Kanban Board](#5438-kanban-board)
+- [Capítulo V: Tactical-Level Software Design](#capítulo-v-tactical-level-software-design)
+    - [5.1. Bounded Context: User & Identity](#51-bounded-context-user--identity)
+        - [5.1.1. Domain Layer](#511-domain-layer)
+        - [5.1.2. Interface Layer](#512-interface-layer)
+        - [5.1.3. Application Layer](#513-application-layer)
+        - [5.1.4. Infrastructure Layer](#514-infrastructure-layer)
+        - [5.1.6. Component Level Diagram](#516-component-level-diagram)
+        - [5.1.7. Code Level Diagrams](#517-code-level-diagrams)
+            - [5.1.7.1. Domain Layer Class Diagram](#5171-domain-layer-class-diagram)
+            - [5.1.7.2. Database Design Diagram](#5172-database-design-diagram)
+    - [5.2. Bounded Context: Parking Supply](#52-bounded-context-parking-supply)
+        - [5.2.1. Domain Layer](#521-domain-layer)
+        - [5.2.2. Interface Layer](#522-interface-layer)
+        - [5.2.3. Application Layer](#523-application-layer)
+        - [5.2.4. Infrastructure Layer](#524-infrastructure-layer)
+        - [5.2.6. Component Level Diagram](#526-component-level-diagram)
+        - [5.2.7. Code Level Diagrams](#527-code-level-diagrams)
+            - [5.2.7.1. Domain Layer Class Diagram](#5271-domain-layer-class-diagram)
+            - [5.2.7.2. Database Design Diagram](#5272-database-design-diagram)
+    - [5.3. Bounded Context: Parking Discovery](#53-bounded-context-parking-discovery)
+        - [5.3.1. Domain Layer](#531-domain-layer)
+        - [5.3.2. Interface Layer](#532-interface-layer)
+        - [5.3.3. Application Layer](#533-application-layer)
+        - [5.3.4. Infrastructure Layer](#534-infrastructure-layer)
+        - [5.3.6. Component Level Diagram](#536-component-level-diagram)
+        - [5.3.7. Code Level Diagrams](#537-code-level-diagrams)
+            - [5.3.7.1. Domain Layer Class Diagram](#5371-domain-layer-class-diagram)
+            - [5.3.7.2. Database Design Diagram](#5372-database-design-diagram)
+    - [5.4. Bounded Context: Reservation Management](#54-bounded-context-reservation-management)
+        - [5.4.1. Domain Layer](#541-domain-layer)
+        - [5.4.2. Interface Layer](#542-interface-layer)
+        - [5.4.3. Application Layer](#543-application-layer)
+        - [5.4.4. Infrastructure Layer](#544-infrastructure-layer)
+        - [5.4.6. Component Level Diagram](#546-component-level-diagram)
+        - [5.4.7. Code Level Diagrams](#547-code-level-diagrams)
+            - [5.4.7.1. Domain Layer Class Diagram](#5471-domain-layer-class-diagram)
+            - [5.4.7.2. Database Design Diagram](#5472-database-design-diagram)
+    - [5.5. Bounded Context: Payment](#55-bounded-context-payment)
+        - [5.5.1. Domain Layer](#551-domain-layer)
+        - [5.5.2. Interface Layer](#552-interface-layer)
+        - [5.5.3. Application Layer](#553-application-layer)
+        - [5.5.4. Infrastructure Layer](#554-infrastructure-layer)
+        - [5.5.6. Component Level Diagram](#556-component-level-diagram)
+        - [5.5.7. Code Level Diagrams](#557-code-level-diagrams)
+            - [5.5.7.1. Domain Layer Class Diagram](#5571-domain-layer-class-diagram)
+            - [5.5.7.2. Database Design Diagram](#5572-database-design-diagram)
+    - [5.6. Bounded Context: Notification](#56-bounded-context-notification)
+        - [5.6.1. Domain Layer](#561-domain-layer)
+        - [5.6.2. Interface Layer](#562-interface-layer)
+        - [5.6.3. Application Layer](#563-application-layer)
+        - [5.6.4. Infrastructure Layer](#564-infrastructure-layer)
+        - [5.6.6. Component Level Diagram](#566-component-level-diagram)
+        - [5.6.7. Code Level Diagrams](#567-code-level-diagrams)
+            - [5.6.7.1. Domain Layer Class Diagram](#5671-domain-layer-class-diagram)
+            - [5.6.7.2. Database Design Diagram](#5672-database-design-diagram)
+    - [5.7. Bounded Context: Conversational Reservation Agent](#57-bounded-context-conversational-reservation-agent)
+        - [5.7.1. Domain Layer](#571-domain-layer)
+        - [5.7.2. Interface Layer](#572-interface-layer)
+        - [5.7.3. Application Layer](#573-application-layer)
+        - [5.7.4. Infrastructure Layer](#574-infrastructure-layer)
+        - [5.7.6. Component Level Diagram](#576-component-level-diagram)
+        - [5.7.7. Code Level Diagrams](#577-code-level-diagrams)
+            - [5.7.7.1. Domain Layer Class Diagram](#5771-domain-layer-class-diagram)
+            - [5.7.7.2. Database Design Diagram](#5772-database-design-diagram)
+    - [5.8. Bounded Context: Audit](#58-bounded-context-audit)
+        - [5.8.1. Domain Layer](#581-domain-layer)
+        - [5.8.2. Interface Layer](#582-interface-layer)
+        - [5.8.3. Application Layer](#583-application-layer)
+        - [5.8.4. Infrastructure Layer](#584-infrastructure-layer)
+        - [5.8.6. Component Level Diagram](#586-component-level-diagram)
+        - [5.8.7. Code Level Diagrams](#587-code-level-diagrams)
+            - [5.8.7.1. Domain Layer Class Diagram](#5871-domain-layer-class-diagram)
+            - [5.8.7.2. Database Design Diagram](#5872-database-design-diagram)
 - [Conclusiones y recomendaciones](#conclusiones-y-recomendaciones)
 - [Bibliografía](#bibliografía)
 
@@ -2074,6 +2105,855 @@ Los diagramas C4 se modelan en un workspace Structurizr único. Las vistas DDD s
 | System Landscape, Context, Container y Deployment | `docs/architecture/workspace.dsl` y `docs/architecture/structurizr-export/` | `assets/architecture-v2/` |
 
 Cada gráfico tiene una explicación asociada y responde a una pregunta arquitectónica específica. La fuente textual permite revisar decisiones y volver a generar la evidencia sin depender de capturas manuales.
+
+---
+
+# Capítulo V: Tactical-Level Software Design
+
+Este capítulo desarrolla el diseño táctico de los **ocho Bounded Contexts definidos en 4.2**, conservando sus responsabilidades y el lenguaje ubicuo. Cada contexto cuenta con un diccionario de clases, cuatro capas, una vista C4 de componentes y dos diagramas de código. Se conserva deliberadamente el salto de `5.X.4` a `5.X.6` de la estructura solicitada para TP1; no se agrega una sección `5.X.5`.
+
+**Base de referencia y alcance del diseño.** Se inspeccionó `../referenceCode/ParkLink-Backend`, revisión [`46c74eec73accf962b51729058b69f7eef6edf55`](https://github.com/1ASI0657-2610-17949-ParkLink/ParkLink-Backend/tree/46c74eec73accf962b51729058b69f7eef6edf55). Los enlaces de referencia de este capítulo utilizan esa revisión y el prefijo `apps/backend/src/modules/`; el esquema de datos de referencia es [`apps/backend/prisma/schema.prisma`](https://github.com/1ASI0657-2610-17949-ParkLink/ParkLink-Backend/blob/46c74eec73accf962b51729058b69f7eef6edf55/apps/backend/prisma/schema.prisma). Este backend pertenece a otro repositorio de la organización de referencia: se utiliza como insumo, no como evidencia de implementación de este informe.
+
+Aunque el README de referencia describe servicios separados, su `nest-cli.json` y `apps/backend/src/app.module.ts` registran una aplicación backend que importa los módulos de negocio. Las clases `UserRecord`, `ParkingSpaceRecord`, `ReservationRecord`, `PaymentRecord`, `NotificationRecord` y `AuditEventRecord` son **interfaces de datos**, no aggregates implementados. Por ello, las clases de dominio, repositorios, handlers, consumidores, esquemas separados y mecanismos de integración descritos a continuación constituyen el **diseño objetivo propuesto**, salvo donde se identifique explícitamente una clase existente. No se afirma que la saga, el agente, los webhooks reales o los despliegues independientes ya estén implementados.
+
+| Sección | Bounded Context de Capítulo IV | Unidad de despliegue objetivo | Insumo del código de referencia |
+|---|---|---|---|
+| 5.1 | User & Identity | Identity Service | Módulos `auth` y `users`; `User`, `UserRole`. |
+| 5.2 | Parking Supply | Parking Supply Service | Escrituras de `ParkingSpacesService`; `ParkingSpace`; adaptador de mapas y carga S3. |
+| 5.3 | Parking Discovery | Parking Discovery Service | `ParkingSpacesService.search`, `ParkingSpaceWithDistance`, `AvailabilityCacheService`. |
+| 5.4 | Reservation Management | Reservation Service | `ReservationsService`, `ReservationRecord`, validación temporal y cálculo de precio. |
+| 5.5 | Payment | Payment Service | `PaymentsService`, `PaymentRecord`, clave de idempotencia y comprobante. |
+| 5.6 | Notification | Notification Service | `NotificationsService`, `NotificationRecord`, `NotificationType`. |
+| 5.7 | Conversational Reservation Agent | Agente conversacional de reservas | No hay módulo equivalente; deriva de 4.2.4, ADR-108 y ADR-109. |
+| 5.8 | Audit | Audit Service | `AuditEventsService`, `AuditEventRecord`, constantes de acción y entidad. |
+
+**Reglas comunes de separación.** Cada microservicio tendrá su propio artefacto ejecutable, configuración, credenciales, migraciones, health checks y ciclo de despliegue. Las capas de un contexto son componentes internos de ese servicio, **no cuatro servicios adicionales**. Compartir un repositorio de código o una plataforma de ejecución no implica compartir entidades, tablas ni permisos de escritura. Los siete contextos con persistencia relacional utilizan PostgreSQL privado; Discovery conserva un índice Redis reconstruible, conforme a ADR-103 y ADR-105. Los identificadores de otros contextos son referencias externas sin Foreign Keys entre bases. API Gateway, mapas, almacenamiento de objetos y broker son habilitadores, no nuevos Bounded Contexts.
+
+La dependencia de código sigue `Interface → Application → Domain`; Infrastructure implementa los puertos definidos en Domain y se conecta mediante inyección de dependencias. El recorrido de ejecución puede llegar a una base de datos a través de un adaptador, pero Domain no importa Prisma, NestJS, Redis ni SDKs externos. La construcción validada mediante métodos estáticos cumple el papel de Factory sin añadir clases vacías. En TypeScript, los Repository Interfaces requieren tokens de inyección y mappers explícitos entre aggregates y registros Prisma.
+
+**Convenciones de los artefactos.** En UML, `-` indica privado, `+` público y `#` protegido; los constructores protegidos evitan creación inválida y las factories estáticas exponen la construcción permitida. Las multiplicidades expresan relaciones del modelo, no joins SQL. En datos, `PK`, `FK`, `UK`, `NOT NULL`, `CHECK` y notas representan restricciones propuestas; los diagramas no sustituyen migraciones ejecutables. `Money` usa precisión decimal y moneda explícita; no se conserva el `Float` financiero de referencia. Los timestamps se almacenan en UTC y las ventanas de atención se interpretan en `America/Lima`.
+
+**Integración confiable.** Los mensajes incluyen `messageId`, `schemaVersion`, `aggregateId`, `aggregateVersion`, `correlationId`, `causationId` y `occurredAt`. Cada productor relacional persiste cambios y Outbox en una transacción local; un relay publica después del commit. Cada consumidor aplica Inbox y efecto local atómicamente, confirma al broker después del commit y utiliza reintentos acotados y DLQ. No se promete entrega exactly-once: la idempotencia evita repetir efectos ante entrega at-least-once. Las tablas técnicas se explican por contexto aunque no todas se repiten visualmente en los diagramas compactos.
+
+Las ocho vistas C4 se generan con el **renderizador nativo de Structurizr**, no mediante conversión a Mermaid. Su [workspace DSL](docs/architecture/chapter-5/workspace.dsl), las fuentes UML/ER Mermaid y las [instrucciones de reproducción](docs/architecture/chapter-5/RENDERING.md) se versionan junto a los SVG. Cada vista delimita un servicio y muestra responsabilidad, tecnología e interacción; colores: azul para Interface, violeta para Application, verde para Domain y ocre para Infrastructure.
+
+## 5.1. Bounded Context: User & Identity
+
+User & Identity resuelve el registro e identificación confiable de conductores y propietarios. Contiene autenticación, perfiles, roles y sesiones, y provee identidad delegada a los demás servicios sin compartir datos sensibles. Sus clases centrales son `User`, `Session` y `EmailAddress`. Las clases existentes `AuthService` y `UsersService` aportan los casos de uso y los campos del perfil; el diseño los separa de la persistencia y de los adaptadores criptográficos.
+
+**Diccionario de clases de dominio propuesto:**
+
+| Clase | Propósito / tipo | Atributos principales | Métodos principales | Relaciones |
+|---|---|---|---|---|
+| `User` | Entity / Aggregate Root de cuenta y perfil. | `id`, `fullName`, `email`, `passwordHash`, `phone`, `role`, `plateNumber`, `bankAccountRef`. | `create`, `updateProfile`, `canManage`. | Compone un `EmailAddress`; referencia varias `Session`. |
+| `EmailAddress` | Value Object de correo normalizado. | `value`. | `create`, `equals`. | Pertenece a `User`; permite búsqueda consistente. |
+| `Session` | Entity de sesión revocable. | `id`, `userId`, `tokenHash`, `expiresAt`, `revokedAt`. | `isActive`, `revoke`. | Referencia una cuenta; persiste mediante `SessionRepository`. |
+| `UserRole` | Enumeración de permisos generales. | `DRIVER`, `OWNER`, `ADMIN`. | Sin comportamiento. | Clasifica `User`; no sustituye la validación de ownership. |
+| `UserRepository` | Repository Interface de usuarios. | Sin estado obligatorio. | `findById`, `findByEmail`, `save`. | Recibe y devuelve `User`. |
+| `SessionRepository` | Repository Interface de sesiones. | Sin estado obligatorio. | `findActive`, `save`. | Recupera y guarda `Session`. |
+| `PasswordHasher` / `TokenIssuer` | Puertos de verificación y emisión. | Sin secretos dentro de Domain. | `hash`, `verify` / `issue`. | Aplicación los utiliza con `User` y `Session`. |
+
+### 5.1.1. Domain Layer
+
+Esta capa protege la identidad sin conocer HTTP ni algoritmos criptográficos concretos. `User.create` valida el perfil y recibe un hash ya producido por un puerto; nunca conserva una contraseña en texto plano. `EmailAddress.create` normaliza y valida el correo. La unicidad global se comprueba con `UserRepository` y se garantiza mediante la restricción de base de datos ante registros concurrentes.
+
+| Elemento táctico | Responsabilidad |
+|---|---|
+| Aggregate `User` y factory `User.create` | Crear perfiles válidos y controlar cambios permitidos; el usuario no puede elevar su rol al actualizar su perfil. |
+| Value Object `EmailAddress` | Evitar identidades duplicadas por diferencias de formato y encapsular igualdad. |
+| Entity `Session` | Exigir expiración y revocación antes de considerar una sesión activa. |
+| Repository Interfaces y puertos criptográficos | Mantener las reglas independientes de PostgreSQL, bcrypt y JWT. |
+
+La autorización combina rol y propietario del recurso. El hashing de contraseñas es un mecanismo técnico, no cifrado reversible. La referencia implementa bcrypt con costo 12 y JWT; la revocación persistida, el correo verificado y la identidad delegada acotada son extensiones propuestas, no funcionalidades acreditadas por ese código.
+
+### 5.1.2. Interface Layer
+
+Los controllers existentes aportan los contratos iniciales. La interfaz objetivo valida DTOs, extrae el actor autenticado, traduce errores y despacha casos de uso; no consulta Prisma ni realiza hashing.
+
+| Clase | Tipo / atributos relevantes | Operación y colaboración |
+|---|---|---|
+| `AuthController` | Controller existente; dependencia de casos de uso. | `POST /auth/register-driver`, `/register-owner`, `/login`; `GET /auth/me` → handlers de identidad. |
+| `UsersController` | Controller existente; identidad del request. | `GET /users/me`, `PATCH /users/me` y consulta restringida por ID → perfil público. |
+| DTOs de registro, login y perfil | Contratos existentes; correo, contraseña, teléfono y campos por rol. | Validación estructural antes de construir commands; no aceptan cambios arbitrarios de rol. |
+
+`PublicUser` excluye `passwordHash`. En el diseño objetivo, la cuenta bancaria se representa mediante una referencia protegida y se omite de respuestas generales. Cada servicio verifica el token y los permisos del recurso; confiar solo en el Gateway permitiría eludir autorización mediante tráfico interno.
+
+### 5.1.3. Application Layer
+
+La aplicación separa la coordinación hoy concentrada en `AuthService` y `UsersService`. Cada handler recibe commands o queries tipados y utiliza puertos, sin contener SQL.
+
+| Clase propuesta | Datos / dependencias | Método y responsabilidad |
+|---|---|---|
+| `RegisterUserCommand` / `RegisterUserCommandHandler` | Perfil, rol solicitado; `UserRepository`, `PasswordHasher`. | `handle`: normalizar correo, comprobar unicidad, hash, factory y persistencia con `UserRegistered`. |
+| `LoginCommand` / `LoginCommandHandler` | Credenciales; repositorios, hasher y `TokenIssuer`. | `handle`: verificar contraseña, crear sesión y emitir token con expiración. |
+| `UpdateProfileCommandHandler` | Actor y campos permitidos; `UserRepository`. | `handle`: ejecutar `updateProfile` y publicar `ProfileUpdated`. |
+| `GetProfileQueryHandler` / `RevokeSessionCommandHandler` | Actor o sesión; repositorios propios. | `handle`: devolver perfil público o revocar una sesión autorizada. |
+
+Flujo de registro: `AuthController → RegisterUserCommandHandler → EmailAddress / User.create → UserRepository → PrismaUserRepository`. Los eventos se registran en Outbox con la cuenta; publicar al broker antes de confirmar la transacción podría anunciar una cuenta inexistente.
+
+### 5.1.4. Infrastructure Layer
+
+Infrastructure implementa los puertos de identidad y controla sus recursos privados.
+
+| Clase propuesta | Atributos / métodos | Responsabilidad técnica y relación |
+|---|---|---|
+| `PrismaUserRepository` / `PrismaSessionRepository` | Cliente privado; `findById`, `findByEmail`, `findActive`, `save`. | Implementar los Repository Interfaces y mapear registros a aggregates. |
+| `BcryptPasswordHasher` | Costo configurable; `hash`, `verify`. | Adaptar el mecanismo existente sin filtrar el algoritmo al dominio. |
+| `JwtTokenIssuer` | Referencia de clave y expiración; `issue`. | Emitir claims mínimos, audiencia y scopes; rotación de claves fuera del dominio. |
+| `IdentityOutboxRelay` | Outbox y conexión AMQP; `publishPending`. | Entregar eventos confirmados con reintentos, sin publicar hashes o tokens. |
+
+La base y sus credenciales pertenecen únicamente a Identity Service. Notification obtiene datos mínimos mediante contratos, no leyendo `users`. La revocación debe consultarse o propagarse según el contrato de sesión; un JWT válido por firma no acredita por sí solo que una sesión siga activa.
+
+### 5.1.6. Component Level Diagram
+
+La vista abre **Identity Service**, no todo el backend, para ubicar los puntos de entrada y las dependencias concretas.
+
+![C4 Component — User & Identity](assets/chapter-5/IdentityComponents.svg)
+
+**Fuente:** [Structurizr DSL, vista IdentityComponents](docs/architecture/chapter-5/workspace.dsl) · [Leyenda C4](assets/chapter-5/IdentityComponents-key.svg).
+
+Los controllers llaman a los casos de uso; estos consultan Domain y los puertos implementados por repositorios y adaptadores criptográficos. Solo los repositorios y el relay acceden a Identity Database. La salida al Event Bus transporta hechos de identidad; no convierte al broker en responsable de autenticación.
+
+### 5.1.7. Code Level Diagrams
+
+Las dos vistas siguientes separan el modelo que protege identidad del modelo que conserva cuentas y sesiones.
+
+#### 5.1.7.1. Domain Layer Class Diagram
+
+El UML identifica construcción validada, visibilidad, interfaces y cardinalidades.
+
+![UML Domain — User & Identity](assets/chapter-5/identity-domain.svg)
+
+**Fuente:** [identity-domain.mmd](docs/architecture/chapter-5/identity-domain.mmd).
+
+Una cuenta compone un correo y puede tener cero o muchas sesiones revocables. Los repositorios dependen del modelo de dominio; no se representa `PrismaService` como entidad de negocio. `PasswordHasher` y `TokenIssuer` son interfaces de salida, no relaciones de persistencia.
+
+#### 5.1.7.2. Database Design Diagram
+
+El esquema propuesto materializa identidad y sesiones exclusivamente en Identity Database.
+
+![Database — User & Identity](assets/chapter-5/identity-database.svg)
+
+**Fuente:** [identity-database.mmd](docs/architecture/chapter-5/identity-database.mmd).
+
+`users.id` es PK; `users.email` normalizado es `UNIQUE NOT NULL`; `role` admite solo los tres valores definidos. `sessions.user_id` es una FK **local** y establece `User 1 → Session 0..*`. `token_hash` es único y `expires_at > created_at` se exige mediante CHECK. El número de placa requiere el proceso de validación de propiedad de US17 antes de imponer exclusividad; no se inventa una restricción existente. La tabla técnica `outbox` conserva `event_id PK`, tipo, versión, payload mínimo y fecha de publicación, atómica con la cuenta.
+
+## 5.2. Bounded Context: Parking Supply
+
+Parking Supply administra la oferta que el propietario monetiza: publicación, dirección, ubicación, fotografías, horarios, tarifas y suspensión. Resuelve la administración formal de espacios privados sin decidir ocupación transaccional. Parte de las escrituras de [`ParkingSpacesService`](https://github.com/1ASI0657-2610-17949-ParkLink/ParkLink-Backend/blob/46c74eec73accf962b51729058b69f7eef6edf55/apps/backend/src/modules/parking/parking-spaces.service.ts); las búsquedas de esa clase se asignan a Discovery.
+
+**Diccionario de clases de dominio propuesto:**
+
+| Clase | Propósito / tipo | Atributos principales | Métodos principales | Relaciones |
+|---|---|---|---|---|
+| `ParkingSpace` | Entity / Aggregate Root de oferta. | `id`, `ownerId`, `name`, `address`, `location`, `pricePerHour`, `status`, `version`. | `create`, `changePrice`, `configureSchedule`, `disable`, `addPhoto`. | Compone ventanas, ubicación, tarifa y fotografías. |
+| `AvailabilityWindow` | Value Object de atención semanal. | `dayOfWeek`, `openingTime`, `closingTime`. | `contains`, `overlaps`. | Una o más ventanas por espacio publicado. |
+| `GeoLocation` | Value Object de ubicación válida. | `latitude`, `longitude`. | `create`. | Una ubicación por espacio. |
+| `Money` | Value Object de tarifa decimal. | `amount`, `currency`. | `multiply`. | Tarifa por hora; no modifica precios de reservas previas. |
+| `ParkingPhoto` | Entity de evidencia fotográfica. | `id`, `objectKey`, `verified`. | `confirmUpload`. | Pertenece a un espacio; binario fuera de PostgreSQL. |
+| `ParkingSpaceStatus` | Enumeración de publicación. | `AVAILABLE`, `DISABLED`. | Sin comportamiento. | No incluye estados de reserva u ocupación. |
+| `ParkingSpaceRepository` | Repository Interface de oferta. | Sin estado obligatorio. | `findById`, `save`. | Guarda `ParkingSpace` con versión esperada. |
+| `MapsProvider` / `PhotoStorage` | Puertos de proveedores. | Contratos de ubicación / archivo. | `geocode` / `prepareUpload`, `verifyObject`. | Adaptadores externos sin contaminar aggregates. |
+
+### 5.2.1. Domain Layer
+
+`ParkingSpace` controla la integridad de la publicación, no los locks de reservas. Su factory valida propietario, tarifa no negativa, ubicación y ventanas; la publicación final exige fotografías verificadas conforme a US09. `configureSchedule` rechaza ventanas solapadas del mismo día y horarios invertidos. Se admiten horarios intradía; las ventanas nocturnas deben dividirse por día para evitar interpretación ambigua.
+
+| Elemento táctico | Responsabilidad |
+|---|---|
+| Aggregate y factory `ParkingSpace.create` | Proteger los datos de oferta y producir revisiones válidas. |
+| Value Objects `GeoLocation`, `Money`, `AvailabilityWindow` | Validar coordenadas, precisión monetaria y límites temporales. |
+| Entity `ParkingPhoto` | Distinguir preparar una subida de disponer de evidencia ya verificada. |
+| Repository Interface y puertos de proveedores | Separar validación de oferta de almacenamiento y geocodificación. |
+
+La referencia permite `RESERVED` y `OCCUPIED` en `ParkingSpaceStatus`; el diseño objetivo los elimina de Supply porque la ocupación depende de un intervalo y es autoridad de Reservation. Deshabilitar un espacio bloquea oferta futura, pero no elimina compromisos vigentes. Los cambios de precio producen una nueva versión, sin recalcular reservas confirmadas.
+
+### 5.2.2. Interface Layer
+
+La interfaz conserva la intención de los endpoints existentes y exige autenticación de propietario.
+
+| Clase | Tipo / datos | Operación y colaboración |
+|---|---|---|
+| `ParkingSpacesController` | Controller existente; actor y DTOs de publicación. | `POST /parking-spaces`, `PATCH /:id`, `PATCH /:id/status` → commands de Supply. |
+| `CreateParkingSpaceDto` / `UpdateParkingSpaceDto` | Contratos existentes; dirección, tarifa y horarios. | Validan estructura; el aggregate valida reglas y ownership. |
+| Endpoint de fotografías | `AddParkingSpacePhotoDto`; nombre, tipo y tamaño. | `POST /parking-spaces/:id/photos` → preparación de carga, seguida de verificación propuesta. |
+
+La ruta DELETE de referencia no se adopta como eliminación física libre: el diseño prefiere despublicar y conservar identificadores de espacios referenciados. El controller no asigna ocupación, escribe SQL ni accede directamente al bucket. El panel web de Capítulo IV permanece de consulta; los comandos de gestión se originan desde la aplicación autorizada.
+
+### 5.2.3. Application Layer
+
+Los handlers coordinan la publicación y los adaptadores sin asumir responsabilidades de reserva.
+
+| Clase propuesta | Datos / dependencias | Método y responsabilidad |
+|---|---|---|
+| `PublishParkingSpaceCommandHandler` | Actor, dirección, tarifa, ventanas y fotos; repositorio y mapas. | `handle`: geocodificar, construir oferta, verificar requisitos y persistir revisión. |
+| `UpdateOfferCommandHandler` | ID, versión esperada y cambios. | `handle`: cargar aggregate, validar propietario, modificar tarifa/horarios y emitir eventos. |
+| `DisableParkingSpaceCommandHandler` | Espacio y actor. | `handle`: retirar oferta futura sin cancelar reservas existentes. |
+| `PreparePhotoUploadCommandHandler` | Espacio y metadatos; `PhotoStorage`. | `handle`: autorizar carga de imagen hasta 5 MB; verificar antes de contarla para publicar. |
+| `GetOwnerSpacesQueryHandler` | Propietario autenticado; repositorio. | `handle`: devolver exclusivamente sus espacios y revisiones. |
+
+Flujo: `ParkingSpacesController → PublishParkingSpaceCommandHandler → MapsProvider → ParkingSpace.create → ParkingSpaceRepository`. El cambio y `ParkingSpacePublished` se guardan juntos; Discovery y Reservation consumen la versión publicada. No se realiza una transacción SQL que alcance las bases de esos consumidores.
+
+### 5.2.4. Infrastructure Layer
+
+Los adaptadores aíslan la oferta de formatos del proveedor y detalles de Prisma.
+
+| Clase propuesta o reutilizable | Atributos / métodos | Responsabilidad y relación |
+|---|---|---|
+| `PrismaParkingSpaceRepository` | Cliente privado; `findById`, `save`. | Mapear el aggregate y persistir ventanas, fotos y Outbox de Supply. |
+| `GoogleMapsAdapter` | Adaptador existente; cliente HTTP, configuración; `geocode`. | Implementar `MapsProvider` y convertir respuestas externas a `GeoLocation`. |
+| `S3PhotoStorage` | Bucket y credenciales privadas; `prepareUpload`, `verifyObject`. | Extraer el código S3 existente, controlar MIME/tamaño y verificar el objeto. |
+| `SupplyOutboxRelay` | Outbox y publisher; `publishPending`. | Publicar `ParkingSpacePublished`, `ParkingSpaceUpdated`, `AvailabilityWindowChanged`. |
+
+La referencia guarda URLs de fotos antes de completar la subida; el diseño guarda `objectKey` y verificación, para no contar archivos inexistentes. Las URLs firmadas son temporales y no se almacenan como identidad permanente del archivo. Solo este servicio modifica Supply Database; una caída de mapas impide publicar una dirección nueva pero no cambia reservas ya aceptadas.
+
+### 5.2.6. Component Level Diagram
+
+La vista C4 detalla los componentes del servicio desplegable de oferta.
+
+![C4 Component — Parking Supply](assets/chapter-5/SupplyComponents.svg)
+
+**Fuente:** [Structurizr DSL, vista SupplyComponents](docs/architecture/chapter-5/workspace.dsl) · [Leyenda C4](assets/chapter-5/SupplyComponents-key.svg).
+
+El controller despacha handlers que aplican el modelo `ParkingSpace` y utilizan adaptadores de mapas y fotografías. El repositorio escribe la base privada y el relay distribuye revisiones confirmadas. No aparece acceso a Reservation Database: la colaboración entre contextos se realiza por contratos versionados.
+
+### 5.2.7. Code Level Diagrams
+
+Estas vistas separan la oferta como aggregate de su normalización relacional.
+
+#### 5.2.7.1. Domain Layer Class Diagram
+
+El UML explicita composición, Value Objects y puertos de salida.
+
+![UML Domain — Parking Supply](assets/chapter-5/supply-domain.svg)
+
+**Fuente:** [supply-domain.mmd](docs/architecture/chapter-5/supply-domain.mmd).
+
+Un espacio tiene una tarifa y ubicación, una o más ventanas de publicación y cero o más fotos durante preparación. La regla de publicación exige al menos dos fotos verificadas, aunque el ciclo de vida previo permita cero. `ownerId` es una referencia de identidad, no una composición del objeto `User` de otro contexto.
+
+#### 5.2.7.2. Database Design Diagram
+
+El modelo relacional propuesto divide oferta, horarios y fotografías dentro de Supply Database.
+
+![Database — Parking Supply](assets/chapter-5/supply-database.svg)
+
+**Fuente:** [supply-database.mmd](docs/architecture/chapter-5/supply-database.mmd).
+
+`parking_spaces.id` es PK; `availability_windows.parking_space_id` y `parking_photos.parking_space_id` son FKs locales con relaciones 1:N. `owner_id` no es FK hacia Identity. Se exigen coordenadas válidas, tarifa `NUMERIC(12,2) >= 0`, moneda y estado permitido. Los horarios requieren `opening_time < closing_time`; la ausencia de solapamiento se valida con lock del espacio y, cuando la migración lo permita, exclusión por día e intervalo. `object_key` es único. La exigencia de al menos una ventana y dos fotos verificadas se aplica al publicar, no mediante una simple FK. `outbox` se persiste con la revisión del aggregate.
+
+## 5.3. Bounded Context: Parking Discovery
+
+Parking Discovery resuelve encontrar y comparar estacionamientos cercanos con baja latencia. Contiene criterios de búsqueda, ranking, detalle y disponibilidad **visible**, sin reservar espacios. Se deriva de `ParkingSpacesService.search`, `ParkingSpaceWithDistance` y [`AvailabilityCacheService`](https://github.com/1ASI0657-2610-17949-ParkLink/ParkLink-Backend/blob/46c74eec73accf962b51729058b69f7eef6edf55/apps/backend/src/modules/availability-cache/availability-cache.service.ts). La referencia consulta la base y calcula distancia; el diseño separa esa lectura en un índice propio.
+
+**Diccionario de clases de dominio propuesto:**
+
+| Clase | Propósito / tipo | Atributos principales | Métodos principales | Relaciones |
+|---|---|---|---|---|
+| `SearchCriteria` | Value Object de filtros. | `destination`, `radiusKm`, `maxPrice`, `requestedInterval`, `limit`. | `create`, `matches`. | Compone ubicación y opcionalmente un intervalo. |
+| `ParkingSearchResult` | Read Model identificable, no aggregate transaccional. | `spaceId`, `name`, `location`, `pricePerHour`, `distanceKm`, `availability`, `projectedAt`. | `isFresh`. | Referencia la oferta y disponibilidad visible. |
+| `GeoLocation` / `TimeInterval` | Value Objects locales. | Coordenadas / inicio y fin. | `distanceTo` / `overlaps`. | Definen geometría y filtros; no son objetos compartidos con Supply. |
+| `VisibleAvailability` | Enumeración informativa. | `AVAILABLE`, `UNAVAILABLE`, `UNKNOWN`. | Sin comportamiento. | Clasifica un resultado, no autoriza confirmación. |
+| `RankingPolicy` | Domain Service de ordenamiento. | Política de orden. | `rank`. | Ordena resultados según criterios válidos. |
+| `ParkingSearchRepository` | Puerto de consulta. | Sin estado obligatorio. | `search`, `findById`. | Devuelve Read Models. |
+| `ProjectionRepository` | Puerto de actualización del índice. | Evento y revisión. | `apply`, `rebuild`. | Persiste proyecciones y deduplicación local. |
+
+### 5.3.1. Domain Layer
+
+Este contexto es orientado a lectura: no necesita inventar un aggregate de reservas. `SearchCriteria.create` valida radio, límites de precio, coordenadas e intervalo; `RankingPolicy` ordena coincidencias por distancia y precio con desempate estable por `spaceId`.
+
+| Elemento táctico | Responsabilidad |
+|---|---|
+| Value Objects de búsqueda y factory | Rechazar filtros incoherentes y definir comparación temporal/geográfica. |
+| Read Model `ParkingSearchResult` | Mostrar datos útiles junto con frescura y estado informativo. |
+| Domain Service `RankingPolicy` | Ordenar resultados sin mutar oferta ni reservas. |
+| Puertos de lectura/proyección | Permitir cambiar el índice sin trasladar reglas a un controller. |
+
+`UNKNOWN` se utiliza cuando el índice no permite afirmar disponibilidad visible. La búsqueda debe evaluar la franja solicitada frente a ventanas de atención y reservas proyectadas: un estado global de plaza no basta. Reservation siempre revalida la oferta y el intervalo, incluso si el resultado mostraba disponibilidad.
+
+### 5.3.2. Interface Layer
+
+Las consultas y los consumidores de eventos son dos entradas diferentes del servicio.
+
+| Clase propuesta | Tipo / datos | Operación y colaboración |
+|---|---|---|
+| `ParkingSearchController` | Controller; `SearchParkingSpacesDto` adaptado. | `GET /parking-spaces/search`, `GET /parking-spaces/:id` → queries; compatibilidad con rutas de referencia. |
+| `SupplyEventConsumer` | Consumer; evento, `spaceId`, versión. | Recibir cambios publicados de oferta → `UpdateProjectionEventHandler`. |
+| `ReservationEventConsumer` | Consumer; reserva, intervalo y versión. | Recibir hold, confirmación, cancelación, extensión y expiración → proyección de ocupación. |
+
+Los consumidores validan esquema y procedencia, pero no deciden quién puede reservar. Los endpoints responden con `projectedAt` y versiones de origen; no garantizan disponibilidad confirmable ni escriben en la base de Supply.
+
+### 5.3.3. Application Layer
+
+La aplicación coordina consultas y actualización idempotente de proyecciones.
+
+| Clase propuesta | Datos / dependencias | Método y responsabilidad |
+|---|---|---|
+| `SearchParkingQuery` / `SearchParkingQueryHandler` | Criterios; repositorio y `RankingPolicy`. | `handle`: buscar, filtrar, ordenar y paginar; ampliar de 1 km a 2 km si no hay coincidencias conforme a US01. |
+| `GetParkingDetailsQueryHandler` | `spaceId`; repositorio. | `handle`: devolver detalle con estado de frescura. |
+| `UpdateProjectionEventHandler` | Envelope; `ProjectionRepository`. | `handle`: aplicar revisiones por aggregate y detectar duplicados o huecos. |
+| `RebuildProjectionCommandHandler` | Snapshots versionados de Supply y Reservation. | `handle`: reconstruir un índice nuevo y cambiar la referencia al completar la carga. |
+
+Flujo de búsqueda: `ParkingSearchController → SearchParkingQueryHandler → SearchCriteria / RankingPolicy → ParkingSearchRepository`. Las versiones se comparan dentro de cada flujo de aggregate; **no** se compara una versión de Supply con una de Reservation. Una extensión reemplaza la ventana de su reserva; una cancelación conserva un marcador terminal para impedir que un evento antiguo restablezca ocupación.
+
+### 5.3.4. Infrastructure Layer
+
+Infrastructure implementa el índice privado y la integración cartográfica.
+
+| Clase propuesta o reutilizable | Atributos / métodos | Responsabilidad y relación |
+|---|---|---|
+| `RedisParkingSearchRepository` | Cliente Redis, documentos e índice; `search`, `findById`. | Implementar lectura geográfica y filtros sin consultar bases ajenas. |
+| `RedisProjectionRepository` | Claves de revisión e Inbox; `apply`, `rebuild`. | Actualizar proyección, cursor y deduplicación en operación atómica. |
+| `GoogleMapsAdapter` | `MapsProvider` existente; `calculateDistance`, `geocode`. | Aislar proveedor, timeouts y formatos; no hacer una llamada externa por candidato. |
+
+La caché de referencia admite memoria local con TTL 60 s; eso no es evidencia de un índice compartido ni de consistencia entre réplicas. El objetivo utiliza Redis y operaciones atómicas compatibles con su topología. Si se usa Redis Cluster, claves actualizadas juntas deben compartir hash slot o utilizar otro mecanismo explícito. El índice se reconstruye mediante snapshots y replay de eventos; no es fuente de verdad.
+
+### 5.3.6. Component Level Diagram
+
+La vista abre el servicio de lectura y muestra la entrada HTTP y las entradas asíncronas.
+
+![C4 Component — Parking Discovery](assets/chapter-5/DiscoveryComponents.svg)
+
+**Fuente:** [Structurizr DSL, vista DiscoveryComponents](docs/architecture/chapter-5/workspace.dsl) · [Leyenda C4](assets/chapter-5/DiscoveryComponents-key.svg).
+
+Los handlers convergen en el índice Redis privado. El modelo expresa criterios y disponibilidad visible; mapas aporta información auxiliar. No hay flecha de escritura hacia Reservation Database ni retorno de confirmación de reserva: escalar Discovery no aumenta la autoridad sobre intervalos.
+
+### 5.3.7. Code Level Diagrams
+
+El UML documenta los conceptos de lectura; el modelo de datos representa las estructuras lógicas de Redis, no una nueva base SQL.
+
+#### 5.3.7.1. Domain Layer Class Diagram
+
+La vista presenta criterios, resultados, ranking y contratos de acceso al índice.
+
+![UML Domain — Parking Discovery](assets/chapter-5/discovery-domain.svg)
+
+**Fuente:** [discovery-domain.mmd](docs/architecture/chapter-5/discovery-domain.mmd).
+
+Un criterio compone una ubicación y puede incluir un intervalo. Cada resultado tiene una ubicación y disponibilidad informativa. La relación del puerto con `ParkingSearchResult` expresa consulta/proyección, no propiedad del aggregate `ParkingSpace` de Supply.
+
+#### 5.3.7.2. Database Design Diagram
+
+El diagrama usa notación ER para mostrar campos y relaciones lógicas del almacén no relacional acordado en Capítulo IV.
+
+![Data Model — Parking Discovery Redis](assets/chapter-5/discovery-database.svg)
+
+**Fuente:** [discovery-database.mmd](docs/architecture/chapter-5/discovery-database.mmd).
+
+`SPACE_DOCUMENT`, `RESERVATION_WINDOWS`, `GEO_INDEX` y `PROCESSED_EVENTS` son estructuras equivalentes a documentos, hashes, miembros GEO y claves de deduplicación; **no son tablas SQL**. `PK` representa la clave lógica única y no existen FKs ni CHECKs declarativos en Redis. La aplicación/adaptador valida precio, coordenadas, orden temporal y revisión antes de escribir. `space_id` enlaza lógicamente múltiples ventanas de reserva y su entrada geográfica. La ubicación original se conserva aunque una coordenada esté fuera del rango del índice GEO; el adaptador decide su indexación. Cada flujo mantiene su versión y los marcadores de eventos se retienen según la ventana de replay, no un TTL arbitrario que permita resucitar eventos antiguos.
+
+## 5.4. Bounded Context: Reservation Management
+
+Reservation Management es el **Core Domain**: garantiza que una plaza y franja no se asignen dos veces. Contiene retención, confirmación, ingreso, cancelación, extensión y expiración. Parte de [`ReservationsService`](https://github.com/1ASI0657-2610-17949-ParkLink/ParkLink-Backend/blob/46c74eec73accf962b51729058b69f7eef6edf55/apps/backend/src/modules/reservation/reservations.service.ts), sus validaciones de horario en Lima, transacción serializable, advisory lock y búsqueda de solapamientos. El diseño conserva esas intenciones, pero separa reglas, coordinación y SQL.
+
+**Diccionario de clases de dominio propuesto:**
+
+| Clase | Propósito / tipo | Atributos principales | Métodos principales | Relaciones |
+|---|---|---|---|---|
+| `Reservation` | Entity / Aggregate Root del compromiso. | `id`, `userId`, `parkingSpaceId`, `reservationCode`, `interval`, `totalPrice`, `status`, `holdExpiresAt`, `version`. | `hold`, `requestConfirmation`, `applyPaymentAuthorized`, `cancel`, `extend`, `expire`, `checkIn`. | Compone intervalo y precio; referencia IDs externos. |
+| `TimeInterval` | Value Object temporal semiabierto. | `start`, `end`. | `create`, `overlaps`. | Un intervalo por reserva; permite reservas consecutivas sin choque. |
+| `Money` | Value Object de cotización aceptada. | `amount`, `currency`. | `add`. | Conserva monto y moneda, no la tarifa mutable de Supply. |
+| `ParkingSpaceSnapshot` | Value Object local de oferta. | `spaceId`, `pricePerHour`, `supplyVersion`, `schedule`. | `allows`. | Insumo de validación; no instancia del aggregate de Supply. |
+| `ReservationStatus` | Enumeración de ciclo de vida. | `PENDING_PAYMENT`, `CONFIRMED`, `ACTIVE`, `COMPLETED`, `CANCELLED`, `EXPIRED`. | Sin comportamiento. | `EXPIRED` amplía los estados de referencia. |
+| `AvailabilityPolicy` | Domain Service entre intervalos. | Reglas de solapamiento y oferta. | `assertCanHold`, `assertCanExtend`. | Usa snapshot y reservas bloqueantes. |
+| `CancellationPolicy` | Domain Service de compensación. | Política comercial vigente. | `refundAmount`. | Calcula devolución sin llamar a la pasarela. |
+| `ReservationRepository` / `UnitOfWork` | Interfaces de persistencia y atomicidad. | Sin cliente SQL en Domain. | `findById`, `findBlocking`, `save` / `execute`. | Persistencia y locks implementados por Infrastructure. |
+
+### 5.4.1. Domain Layer
+
+El aggregate es la única autoridad de transiciones. `hold` crea `PENDING_PAYMENT` con expiración; `requestConfirmation` registra la intención de iniciar pago, **no** confirma la plaza por sí sola. `applyPaymentAuthorized` solo confirma una retención vigente y el intento de pago correspondiente. `expire` es idempotente y no modifica una reserva ya confirmada.
+
+| Elemento táctico | Regla protegida |
+|---|---|
+| Aggregate y factory `Reservation.hold` | Propietario lógico del ciclo de vida, código, cotización y vencimiento. |
+| Value Object `TimeInterval` | `start < end`; solapamiento: `a.start < b.end AND a.end > b.start`. |
+| `AvailabilityPolicy` | Considerar oferta habilitada y reservas `PENDING_PAYMENT`, `CONFIRMED`, `ACTIVE` bloqueantes. |
+| `CancellationPolicy` | Devolución completa cuando quedan al menos 60 minutos; la penalidad tardía debe parametrizarse y comunicarse, no inventarse. |
+| Repository Interfaces y `UnitOfWork` | Ejecutar decisiones bajo una única transacción local sin dependencia del broker. |
+
+Una retención inicial dura como máximo 10 minutos conforme a TS01. El reintento tras rechazo de US14 tiene hasta 5 minutos, sin prolongar indefinidamente la retención: se usa el menor vencimiento entre esa ventana y el límite original. Una extensión exige `newEnd > currentEnd`, estado válido, horario y ausencia de conflicto; nunca reduce duración ni usa una tarifa nueva para recalcular retrospectivamente el tiempo ya contratado. El tiempo adicional se cotiza aparte y, si requiere pago, solo se hace efectivo tras autorización del suplemento.
+
+### 5.4.2. Interface Layer
+
+El servicio recibe consultas HTTP y comandos durables versionados, independientemente de que se originen en la interfaz visual o el agente.
+
+| Clase propuesta o existente | Tipo / datos | Operación y colaboración |
+|---|---|---|
+| `ReservationsController` | Controller existente adaptado; actor, DTO y clave idempotente. | `GET /reservations/my`, `GET /:id` y estado de acción; mutaciones se aceptan como comandos. |
+| `ReservationCommandConsumer` | Consumer propuesto; `commandId`, actor, `spaceId`, payload hash. | `HoldReservation`, `ConfirmReservation`, `CancelReservation`, `ExtendReservation` → handlers. |
+| `PaymentOutcomeConsumer` / `SupplyRevisionConsumer` | Consumers propuestos; evento, intento y versión. | Traducir resultados financieros y revisiones de oferta a casos de uso locales. |
+
+En el recorrido objetivo del Capítulo IV, el Gateway publica la mutación al Command Broker y retorna `202 Accepted` con `commandId`; eso **no** es una reserva confirmada. La consulta posterior devuelve el resultado persistido. Los controllers de referencia son síncronos: su comportamiento no se presenta como prueba del recorrido AMQP. Los conflictos de intervalo se exponen como resultado `409 Conflict`; el `BadRequestException` de referencia debe mapearse correctamente al separar servicios.
+
+### 5.4.3. Application Layer
+
+La aplicación ejecuta los casos de uso y coordina la saga con Payment sin reemplazar las reglas del aggregate.
+
+| Clase propuesta | Datos / dependencias | Método y responsabilidad |
+|---|---|---|
+| `HoldReservationCommandHandler` | Actor, espacio, intervalo, clave; repositorio y política. | `handle`: lock por espacio, validar snapshot y solapamientos, crear hold, guardar Inbox + aggregate + Outbox. |
+| `ConfirmReservationCommandHandler` | Reserva, aprobación humana cuando proceda, intento. | `handle`: solicitar autorización y emitir `ReservationConfirmationRequested`. |
+| `PaymentAuthorizedEventHandler` / `PaymentFailedEventHandler` | ID de intento, reserva, monto y moneda. | `handle`: validar correspondencia y transición; compensar aprobación tardía o incompatible mediante solicitud de devolución/void. |
+| `CancelReservationCommandHandler` / `ExtendReservationCommandHandler` | Actor, reserva, motivo o nuevo fin. | `handle`: aplicar políticas y emitir cancelación/reembolso o cotización suplementaria. |
+| `ExpireHoldCommandHandler` / `GetReservationQueryHandler` | Reserva y hora / actor. | `handle`: expirar bajo lock o devolver vista autorizada. |
+| `ApplySupplyRevisionEventHandler` | Oferta, `spaceId` y revisión. | `handle`: actualizar snapshot local bajo el mismo lock usado para aceptar nuevas reservas. |
+
+Flujo: `Command Broker → ReservationCommandConsumer → HoldReservationCommandHandler → AvailabilityPolicy / Reservation.hold → ReservationRepository`. Para confirmar: `ConfirmationRequested → Payment → PaymentAuthorized → Reservation.applyPaymentAuthorized → ReservationConfirmed`. Una autorización recibida después de `EXPIRED` o `CANCELLED` no resucita la reserva; inicia compensación financiera. El consumidor reconoce mensajes después de commit, y una clave repetida con payload distinto se rechaza.
+
+En una extensión pagada, el intento suplementario lleva su propio identificador, importe y versión de reserva; el comando validado y su estado pendiente se conservan en Command Inbox para recuperar la saga después de un reinicio. Autorizar el suplemento no garantiza todavía el nuevo intervalo: Reservation vuelve a comprobar estado, versión y solapamiento bajo lock antes de aplicar `extend`. Si otro conductor tomó ese intervalo durante el pago, se conserva la reserva original y se compensa únicamente el suplemento. Este orden evita mantener una transacción SQL abierta durante una llamada financiera y evita anunciar una extensión que todavía no fue aceptada.
+
+### 5.4.4. Infrastructure Layer
+
+Infrastructure aplica garantías de concurrencia compartidas por todas las réplicas del servicio.
+
+| Clase propuesta | Atributos / métodos | Responsabilidad y relación |
+|---|---|---|
+| `PrismaReservationRepository` | Cliente de Reservation Database; `findBlocking`, `save`. | Mapear registros y ejecutar exclusión temporal/locks solo en la base propia. |
+| `PostgresUnitOfWork` | Transacción local; `execute`. | Commit conjunto de aggregate, historial, Inbox y Outbox; retries acotados ante serialización. |
+| `HoldExpiryScheduler` | Reloj y selección de vencidos; `enqueueExpired`. | Disparar comandos de expiración; el dominio decide la transición. |
+| `ReservationOutboxRelay` | Outbox y AMQP; `publishPending`. | Publicar eventos y solicitudes de saga sin duplicar efectos de negocio. |
+
+Los cambios de oferta que invalidan disponibilidad requieren un protocolo de revisión efectiva: Supply propone la revisión, Reservation la aplica bajo lock y acusa recibo; nuevas retenciones usan la revisión aceptada. Si se requiere disponibilidad estrictamente vigente, el handler verifica la versión por contrato y falla de forma cerrada ante un hueco. No se garantiza frescura solo por recibir eventos eventualmente. La referencia lee `parkingSpace` directamente; ese acceso se reemplaza por snapshot local y contratos, no por acceso remoto a SQL de Supply.
+
+### 5.4.6. Component Level Diagram
+
+La vista C4 abre la única unidad desplegable autorizada para decidir estados de reserva.
+
+![C4 Component — Reservation Management](assets/chapter-5/ReservationComponents.svg)
+
+**Fuente:** [Structurizr DSL, vista ReservationComponents](docs/architecture/chapter-5/workspace.dsl) · [Leyenda C4](assets/chapter-5/ReservationComponents-key.svg).
+
+Command Broker y Event Bus entregan entradas al consumidor, sin ejecutar locks. Los handlers y la saga usan el dominio; el adaptador transaccional persiste en Reservation Database. El scheduler provoca expiración y el relay publica hechos ya confirmados. Payment no aparece como escritor de esta base: colabora mediante eventos.
+
+### 5.4.7. Code Level Diagrams
+
+El UML muestra reglas y contratos; el modelo relacional muestra dónde se hacen exigibles concurrencia e idempotencia.
+
+#### 5.4.7.1. Domain Layer Class Diagram
+
+La vista destaca el aggregate y sus políticas, no las tablas de otros servicios.
+
+![UML Domain — Reservation Management](assets/chapter-5/reservation-domain.svg)
+
+**Fuente:** [reservation-domain.mmd](docs/architecture/chapter-5/reservation-domain.mmd).
+
+Cada `Reservation` compone un `TimeInterval` y un `Money`, y usa un snapshot independiente de Supply. `AvailabilityPolicy` considera múltiples reservas mediante un puerto. Los IDs de conductor, plaza y pago establecen correlación entre contextos sin compartir clases `User`, `ParkingSpace` ni `Payment`.
+
+#### 5.4.7.2. Database Design Diagram
+
+El esquema propuesto pertenece completamente a Reservation Service.
+
+![Database — Reservation Management](assets/chapter-5/reservation-database.svg)
+
+**Fuente:** [reservation-database.mmd](docs/architecture/chapter-5/reservation-database.mmd).
+
+`reservations.id` es PK y `reservation_code` es único. `parking_space_id` referencia **SPACE_SNAPSHOTS local**, no la tabla de Supply; `user_id` y `accepted_payment_id` son referencias externas sin FK. `reservation_history.reservation_id` es FK local 1:N. Los CHECKs exigen intervalo válido, precio no negativo, estado permitido y vencimiento para holds; los montos usan `NUMERIC(12,2)`. `quoted_hourly_rate` y `supply_version` preservan condiciones aceptadas.
+
+Para impedir sobreventa se propone PostgreSQL `EXCLUDE USING gist (parking_space_id WITH =, tstzrange(start_time, end_time, '[)') WITH &&)` condicionado a estados bloqueantes, con `btree_gist` y tipos compatibles. Un índice B-tree por tiempo **no** sustituye esta exclusión. No se usa `now()` en su predicado: los holds vencidos se cambian a `EXPIRED` dentro de transacción antes de reutilizar un intervalo. Advisory locks por espacio y versión optimista complementan la restricción. Inbox de comandos tiene clave única acotada a actor/operación y payload hash; Inbox de eventos deduplica mensajes y Outbox se confirma con la reserva. Ninguna de estas tablas necesita una FK a otra base.
+
+## 5.5. Bounded Context: Payment
+
+Payment encapsula dinero, autorización, reembolso, comprobantes y conciliación. Resuelve la confiabilidad financiera sin asumir autoridad sobre reservas. Se deriva de [`PaymentsService`](https://github.com/1ASI0657-2610-17949-ParkLink/ParkLink-Backend/blob/46c74eec73accf962b51729058b69f7eef6edf55/apps/backend/src/modules/payment/payments.service.ts), que ya contiene clave de idempotencia y códigos de comprobante. Su resultado se simula con `mockPaymentResult`/`forceResult`; **no constituye una integración bancaria real**. El diseño sustituye esa simulación y la escritura directa de reservas por un puerto de pasarela y eventos.
+
+**Diccionario de clases de dominio propuesto:**
+
+| Clase | Propósito / tipo | Atributos principales | Métodos principales | Relaciones |
+|---|---|---|---|---|
+| `Payment` | Entity / Aggregate Root financiero. | `id`, `reservationId`, `payerId`, `amount`, `key`, `status`, `providerReference`, `receiptCode`. | `create`, `approve`, `reject`, `requestRefund`. | Compone monto, clave e intentos de devolución. |
+| `Money` | Value Object monetario local. | `amount`, `currency`. | `equals`, `subtract`. | Inmutable; comparación exacta sin tolerancia flotante. |
+| `IdempotencyKey` | Value Object de operación. | `value`, `payloadHash`. | `matches`. | Una clave identifica una operación y contenido. |
+| `Refund` | Entity de devolución. | `id`, `amount`, `operationKey`, `providerReference`, `status`. | `complete`. | Cero o más devoluciones por pago. |
+| `PaymentStatus` | Enumeración financiera. | `PENDING`, `APPROVED`, `REJECTED`, `REFUNDED`. | Sin comportamiento. | Estado del pago; no estado de reserva. |
+| `PaymentRepository` | Repository Interface financiero. | Sin estado obligatorio. | `findById`, `findByKey`, `save`. | Persiste aggregates y deduplicación. |
+| `PaymentGateway` | Puerto de pasarela / ACL. | Contratos de operaciones. | `authorize`, `refund`, `reconcile`. | Recibe `Payment`/`Refund`; no entidades del proveedor. |
+
+### 5.5.1. Domain Layer
+
+`Payment.create` fija monto, moneda, pagador y operación a partir de una solicitud confiable de Reservation. `IdempotencyKey` impide reinterpretar un reintento como un nuevo cobro. `requestRefund` solo admite pagos aprobados y una devolución acumulada que no exceda el importe pagado.
+
+| Elemento táctico | Regla protegida |
+|---|---|
+| Aggregate y factory `Payment.create` | Mantener identidad financiera, monto/moneda originales y transiciones válidas. |
+| Value Objects `Money`, `IdempotencyKey` | Igualdad monetaria exacta y rechazo de clave repetida con contenido distinto. |
+| Entity `Refund` | Registrar solicitud, resultado e identificador del proveedor sin sobrescribir intentos previos. |
+| Interfaces de repositorio y pasarela | Proteger independencia respecto a Prisma y APIs bancarias. |
+
+`APPROVED` representa el hito financiero acordado con la pasarela para confirmar la reserva. Si autorización y captura son operaciones distintas, la ACL debe publicar resultados diferenciados y conservar su estado, no equipararlos silenciosamente. `REFUNDED` se alcanza al devolver íntegramente el importe; una devolución parcial se representa mediante `Refund` sin fingir devolución total. La política comercial de cuánto corresponde devolver proviene de Reservation.
+
+### 5.5.2. Interface Layer
+
+Las entradas públicas, los mensajes de saga y los webhooks son canales con controles diferentes.
+
+| Clase propuesta o existente | Tipo / datos | Operación y colaboración |
+|---|---|---|
+| `PaymentsController` | Controller existente adaptado; actor y clave. | `POST /payments`, `GET /:id`, `GET /:id/receipt`; amount se verifica con cotización confiable, no se acepta del cliente como autoridad. |
+| `PaymentRequestConsumer` | Consumer propuesto; reserva, intento, pagador, monto y moneda. | `ReservationConfirmationRequested` / solicitud de devolución → handlers. |
+| `PaymentWebhookController` | Controller propuesto; cuerpo original y firma del proveedor. | Validar autenticidad antes de traducir a `ProcessWebhookCommand`. |
+
+La ruta de reembolso de referencia debe restringirse al proceso de cancelación o a soporte autorizado; un cliente no ordena libremente la devolución de cualquier pago. Webhooks no utilizan el JWT del conductor: validan firma, timestamp e identidad del proveedor. Nunca se transportan PAN, CVV ni secretos bancarios al agente.
+
+### 5.5.3. Application Layer
+
+Los handlers coordinan la operación externa y conservan su estado aunque haya fallas parciales.
+
+| Clase propuesta | Datos / dependencias | Método y responsabilidad |
+|---|---|---|
+| `AuthorizePaymentCommandHandler` | Solicitud de saga; repositorio y `PaymentGateway`. | `handle`: reclamar clave, crear `PENDING`, llamar al proveedor y persistir resultado con Outbox. |
+| `ProcessWebhookCommandHandler` | Evento autenticado del proveedor. | `handle`: deduplicar, verificar operación/monto/moneda y aplicar resultado permitido. |
+| `RefundPaymentCommandHandler` | Pago, monto aprobado por política y clave de devolución. | `handle`: solicitar refund y registrar resultado sin modificar Reservation. |
+| `ReconcilePaymentCommandHandler` | Operación pendiente y referencia externa. | `handle`: resolver timeout consultando estado real, sin generar otro cobro. |
+| `GetPaymentQueryHandler` / `GetReceiptQueryHandler` | ID y actor. | `handle`: autorizar pagador/soporte y devolver estado o comprobante público. |
+
+Flujo: `PaymentRequestConsumer → AuthorizePaymentCommandHandler → Payment.create → PaymentGateway → Payment.approve/reject → PaymentRepository`. Se reclama idempotencia en una transacción corta **antes** de la llamada externa. No se mantiene SQL abierto mientras responde la pasarela. Si la llamada tiene timeout, se conserva `PENDING` y se concilia con la misma clave del proveedor. El resultado genera `PaymentAuthorized` o `PaymentFailed`; solo Reservation decide confirmar o compensar.
+
+### 5.5.4. Infrastructure Layer
+
+Los adaptadores implementan persistencia financiera privada y traducción del proveedor.
+
+| Clase propuesta | Atributos / métodos | Responsabilidad y relación |
+|---|---|---|
+| `PrismaPaymentRepository` | Cliente propio; `findByKey`, `save`. | Garantizar unicidad, mapeo decimal, Inbox y Outbox local. |
+| `PaymentProviderAdapter` | Endpoint y credenciales privadas; `authorize`, `refund`, `reconcile`. | Implementar `PaymentGateway`, idempotencia externa y traducción de estados. |
+| `WebhookSignatureVerifier` | Clave del proveedor y tolerancia temporal; `verify`. | Validar bytes originales y bloquear mensajes falsificados/repetidos. |
+| `PaymentOutboxRelay` | Outbox y AMQP; `publishPending`. | Distribuir resultados financieros confirmados sin acceder a otra base. |
+
+La referencia actualiza `reservation.status` dentro de la transacción de pago; el diseño prohíbe ese acceso. Payment Database almacena pagador y referencia de reserva recibidos por contrato, no realiza joins a usuarios o reservas remotos. El comprobante de referencia es un registro/código: generar un documento fiscal/PDF conforme a US16 requiere un adaptador y validación tributaria posterior, no se declara implementado.
+
+### 5.5.6. Component Level Diagram
+
+La vista C4 delimita Payment Service y sus límites financieros.
+
+![C4 Component — Payment](assets/chapter-5/PaymentComponents.svg)
+
+**Fuente:** [Structurizr DSL, vista PaymentComponents](docs/architecture/chapter-5/workspace.dsl) · [Leyenda C4](assets/chapter-5/PaymentComponents-key.svg).
+
+El consumer/controller entrega operaciones a los handlers; el dominio controla montos y transiciones, y la ACL llama a la pasarela. El repositorio conserva la operación en su base privada y el relay publica resultados. La flecha de webhook entra por la interfaz, no directamente por el repositorio. No se muestra escritura en Reservation Database.
+
+### 5.5.7. Code Level Diagrams
+
+El UML identifica conceptos financieros; el ER explicita deduplicación, relaciones y restricciones locales.
+
+#### 5.5.7.1. Domain Layer Class Diagram
+
+La vista presenta el aggregate financiero, sus Value Objects y devoluciones.
+
+![UML Domain — Payment](assets/chapter-5/payment-domain.svg)
+
+**Fuente:** [payment-domain.mmd](docs/architecture/chapter-5/payment-domain.mmd).
+
+Un pago compone un monto, una clave y cero o muchas devoluciones. Cada `Refund` compone su propio `Money`. `PaymentGateway` expresa una dependencia de operación externa, no herencia de una entidad bancaria. La referencia a reserva permanece como ID.
+
+#### 5.5.7.2. Database Design Diagram
+
+El esquema propuesto separa pagos, devoluciones y mensajes técnicos en Payment Database.
+
+![Database — Payment](assets/chapter-5/payment-database.svg)
+
+**Fuente:** [payment-database.mmd](docs/architecture/chapter-5/payment-database.mmd).
+
+`payments.id` es PK; `idempotency_key`, `receipt_code` y cada intento `confirmation_request_id` son únicos. `reservation_id`/`payer_id` no son FKs entre servicios. `refunds.payment_id` sí es FK local 1:N; `operation_key` evita duplicar devoluciones. La suma de refunds se valida bajo lock del pago: un CHECK por fila no puede asegurar el total entre filas. `amount` usa `NUMERIC(12,2)`; monto/moneda se comparan exactamente con la solicitud confiable. `webhook_inbox` tiene PK compuesta `(provider, provider_event_id)`; `event_inbox` deduplica saga y `outbox` publica resultados posteriores al commit. Índices por reserva y pagador soportan consultas autorizadas.
+
+## 5.6. Bounded Context: Notification
+
+Notification entrega mensajes de reserva, pago y vencimiento según las preferencias del usuario. Resuelve la comunicación oportuna sin decidir estados operacionales. La referencia [`NotificationsService`](https://github.com/1ASI0657-2610-17949-ParkLink/ParkLink-Backend/blob/46c74eec73accf962b51729058b69f7eef6edf55/apps/backend/src/modules/notification/notifications.service.ts) implementa almacenamiento, consulta y marcado de lectura; no acredita envío push/email. El diseño agrega entregas, preferencias y reintentos independientes.
+
+**Diccionario de clases de dominio propuesto:**
+
+| Clase | Propósito / tipo | Atributos principales | Métodos principales | Relaciones |
+|---|---|---|---|---|
+| `Notification` | Entity / Aggregate Root del mensaje. | `id`, `userId`, `sourceEventId`, `title`, `message`, `type`, `channel`, `isRead`, `deliveryStatus`. | `create`, `markAsRead`, `recordAttempt`. | Compone intentos y referencia destinatario externo. |
+| `NotificationPreference` | Aggregate Root de preferencias. | `userId`, `pushEnabled`, `emailEnabled`. | `allows`, `update`. | Gobierna canales de múltiples notificaciones. |
+| `DeliveryAttempt` | Entity de intento trazable. | `id`, `attemptNumber`, `attemptedAt`, `outcome`. | `succeeded`. | Pertenece a una notificación. |
+| `DeliveryChannel` / `NotificationType` | Enumeraciones de canal y motivo. | `IN_APP`, `PUSH`, `EMAIL` / tipos de referencia. | Sin comportamiento. | Clasifican `Notification`. |
+| `DeliveryPolicy` | Domain Service de reintentos. | `maxAttempts`. | `canRetry`. | Evalúa resultado y siguiente intento permitido. |
+| `NotificationRepository` / `PreferenceRepository` | Repository Interfaces. | Sin estado obligatorio. | `findForUser`, `save` / `findByUserId`, `save`. | Persisten mensajes y preferencias propios. |
+| `DeliveryGateway` | Puerto de envío. | Contrato del mensaje. | `send`. | Recibe notificación, no aggregates de reserva/pago. |
+
+### 5.6.1. Domain Layer
+
+`Notification.create` genera contenido a partir de un hecho de negocio validado. `markAsRead` exige que el actor sea su destinatario. `DeliveryPolicy` distingue error reintentable de fallo permanente y acota intentos; `NotificationPreference` selecciona canales habilitados.
+
+| Elemento táctico | Regla protegida |
+|---|---|
+| Aggregates de mensaje y preferencias | Identidad del destinatario, estado de lectura y elección de canales. |
+| Entity `DeliveryAttempt` | Historia de envío sin sobrescribir resultados anteriores. |
+| Factory `Notification.create` y `DeliveryPolicy` | Mensaje coherente y retry acotado por canal. |
+| Interfaces de repositorio y envío | Independencia de base, push y correo. |
+
+Solo `ReservationConfirmed` autoriza texto de reserva confirmada. En referencia se utiliza ese tipo incluso al crear una reserva pendiente: el diseño no conserva esa confusión. El fallo de entrega termina en `FAILED` y soporte, pero nunca cancela ni revierte una reserva o pago. Los límites exactos de retry son configuración operativa, no un número atribuido a requisitos inexistentes.
+
+### 5.6.2. Interface Layer
+
+La interfaz separa consultas del usuario de creación interna basada en eventos.
+
+| Clase propuesta o existente | Tipo / datos | Operación y colaboración |
+|---|---|---|
+| `NotificationsController` | Controller existente adaptado; actor e ID. | `GET /notifications`, `PATCH /:id/read` → queries y command de lectura. |
+| `NotificationEventConsumer` | Consumer propuesto; evento, destinatario y correlación. | Consumir eventos confirmados y alerta de vencimiento → handler de creación. |
+| `PreferencesController` | Controller propuesto; actor y canales. | Actualizar exclusivamente preferencias propias → `UpdatePreferencesCommand`. |
+
+El `POST /notifications` de referencia no se expone como publicación arbitraria de mensajes a otro usuario; se restringe a integración interna autorizada. Los controllers no usan el SDK de push ni generan estados financieros.
+
+### 5.6.3. Application Layer
+
+Los handlers generan trabajo durable y ejecutan entregas fuera de transacciones largas.
+
+| Clase propuesta | Datos / dependencias | Método y responsabilidad |
+|---|---|---|
+| `CreateNotificationEventHandler` | Evento y preferencias; repositorios. | `handle`: deduplicar y crear un job por destinatario/canal seleccionado. |
+| `SendNotificationCommandHandler` | Job e intento; `DeliveryGateway`, `DeliveryPolicy`. | `handle`: reclamar trabajo, enviar, registrar resultado y programar retry permitido. |
+| `MarkNotificationReadCommandHandler` | Actor e ID; repositorio. | `handle`: validar pertenencia y marcar lectura de forma idempotente. |
+| `UpdatePreferencesCommandHandler` / `GetNotificationsQueryHandler` | Actor y canales / cursor. | `handle`: modificar preferencias propias o consultar mensajes paginados. |
+
+Flujo: `ReservationConfirmed → NotificationEventConsumer → CreateNotificationEventHandler → Notification.create → NotificationRepository`. El worker ejecuta el envío después. Para US20, Reservation publica el hito de vencimiento próximo con la versión de reserva; Notification programa a 15 minutos y descarta alertas obsoletas tras extensión/cancelación mediante revisiones consumidas. La autoridad temporal sigue en Reservation.
+
+### 5.6.4. Infrastructure Layer
+
+Los adaptadores implementan persistencia y proveedores, sin dependencia de SQL de otros servicios.
+
+| Clase propuesta | Atributos / métodos | Responsabilidad y relación |
+|---|---|---|
+| `PrismaNotificationRepository` / `PrismaPreferenceRepository` | Cliente propio; consultas y `save`. | Persistir mensajes, preferencias, intentos e Inbox con mappers. |
+| `PushDeliveryAdapter` / `EmailDeliveryAdapter` | Configuración del proveedor; `send`. | Implementar `DeliveryGateway` con timeout y clasificación de errores. |
+| `NotificationRetryWorker` | Jobs pendientes y próxima fecha; `runDue`. | Reclamar trabajo mediante lock/lease y reintentar sin duplicar workers activos. |
+| `NotificationOutboxRelay` | Outbox y publisher; `publishPending`. | Publicar `NotificationSent`/`NotificationFailed` para auditoría. |
+
+Se utiliza una clave estable de envío cuando el proveedor admite idempotencia. Si el proveedor entregó el mensaje pero falló el registro local, puede haber duplicación externa: se reconoce esa limitación en vez de prometer exactly-once. El historial in-app sí se deduplica por evento/destinatario/canal. La creación del mensaje ya no se realiza desde SQL de Reservation o Payment.
+
+### 5.6.6. Component Level Diagram
+
+La vista C4 muestra el servicio desplegable que puede fallar o escalar sin alterar reservas.
+
+![C4 Component — Notification](assets/chapter-5/NotificationComponents.svg)
+
+**Fuente:** [Structurizr DSL, vista NotificationComponents](docs/architecture/chapter-5/workspace.dsl) · [Leyenda C4](assets/chapter-5/NotificationComponents-key.svg).
+
+Eventos y solicitudes de usuario ingresan a la interfaz; los handlers aplican preferencias/políticas y almacenan jobs privados. Los adaptadores entregan a proveedores externos, y el relay comunica resultados. No existe llamada de retorno para revertir Reservation ante un fallo de correo.
+
+### 5.6.7. Code Level Diagrams
+
+Las vistas distinguen un mensaje y sus intentos de los registros técnicos que soportan entrega confiable.
+
+#### 5.6.7.1. Domain Layer Class Diagram
+
+El UML muestra destinatario, canales, tipos y retry.
+
+![UML Domain — Notification](assets/chapter-5/notification-domain.svg)
+
+**Fuente:** [notification-domain.mmd](docs/architecture/chapter-5/notification-domain.mmd).
+
+Una notificación compone cero o más intentos y tiene un tipo/canal. Las preferencias son un aggregate independiente porque cambian sin modificar cada mensaje histórico. `DeliveryGateway` es un contrato de efecto externo; `DeliveryPolicy` decide si corresponde otro intento.
+
+#### 5.6.7.2. Database Design Diagram
+
+El esquema propuesto conserva preferencias, jobs e intentos en Notification Database.
+
+![Database — Notification](assets/chapter-5/notification-database.svg)
+
+**Fuente:** [notification-database.mmd](docs/architecture/chapter-5/notification-database.mmd).
+
+`notification_preferences.user_id` es PK local e ID externo de Identity. `notifications.user_id` es FK a **esa proyección local de preferencias**, no a `users` remota; el registro se crea idempotentemente antes del mensaje si aún no llegó la proyección de identidad. `delivery_attempts.notification_id` es FK local 1:N. La combinación `(source_event_id, user_id, channel)` es única; `(notification_id, attempt_number)` también. CHECKs acotan tipo, canal, estado y número de intento. Índices por `(user_id, is_read, created_at)` y `(delivery_status, scheduled_at)` soportan inbox y worker; Inbox y Outbox se confirman con el efecto local.
+
+## 5.7. Bounded Context: Conversational Reservation Agent
+
+El agente convierte lenguaje natural en búsqueda y propuestas de acciones permitidas, con confirmación humana. Resuelve la fricción del conductor que necesita asistencia manos libres y permite fallback visual ante indisponibilidad de IA. **No existe módulo equivalente en el código de referencia inspeccionado**: este diseño deriva del canvas 4.2.4, QAS-R02/R03, ADR-108 y ADR-109. Sus clases centrales son `Conversation`, `Intent`, `ConfirmationToken`, `ConfirmationPolicy` y `ToolRegistry`.
+
+**Diccionario de clases de dominio propuesto:**
+
+| Clase | Propósito / tipo | Atributos principales | Métodos principales | Relaciones |
+|---|---|---|---|---|
+| `Conversation` | Entity / Aggregate Root del diálogo mínimo. | `id`, `actorId`, `status`, `expiresAt`, `lastPublicSummary`. | `start`, `propose`, `recordOutcome`, `expire`. | Compone aprobaciones y correlaciona acciones. |
+| `Intent` | Value Object estructurado. | `toolName`, `schemaVersion`, `validatedArguments`. | `matchesSchema`. | Insumo no confiable validado antes de uso. |
+| `ConfirmationToken` | Entity de aprobación única. | `id`, `tokenHash`, `actorId`, `action`, `resourceId`, `payloadHash`, `expiresAt`, `consumedAt`. | `isValid`, `consume`. | Pertenece a conversación y habilita una acción concreta. |
+| `ConfirmationPolicy` | Domain Service de autorización humana. | Reglas de binding y vigencia. | `assertApproved`. | Valida token contra acción y hora. |
+| `ToolRegistry` | Domain Service de allowlist. | `allowedTools`. | `validate`. | Controla herramienta, argumentos y scope del actor. |
+| `ConversationStatus` | Enumeración conversacional. | `ACTIVE`, `AWAITING_CONFIRMATION`, `ACTION_PENDING`, `EXPIRED`. | Sin comportamiento. | No expresa éxito financiero ni confirma reservas. |
+| `ConversationRepository` | Repository Interface. | Sin cliente de base. | `findById`, `save`, `consumeAndEnqueue`. | Atomicidad de aprobación y comando durable. |
+| `IntentProvider` / `ReservationCommandPort` | Puertos de interpretación/despacho. | Contratos versionados. | `interpret` / `enqueue`. | LLM aislado; broker recibe solo comandos aprobados. |
+
+### 5.7.1. Domain Layer
+
+El dominio del agente protege el consentimiento y el alcance, no disponibilidad ni cobros. `Conversation.start` crea el diálogo autenticado; `propose` genera un resumen verificable y una aprobación vinculada a operación, recurso, intervalo, precio, moneda y revisión de oferta.
+
+| Elemento táctico | Regla protegida |
+|---|---|
+| Aggregate y factory `Conversation.start` | Sesión conversacional con actor y expiración, sin autoridad operacional. |
+| Value Object `Intent` | Datos normalizados después de validación de esquema; nunca código ejecutable. |
+| Entity `ConfirmationToken` | Vigencia máxima de 5 minutos, single-use y binding al payload exacto. |
+| Domain Services `ConfirmationPolicy`, `ToolRegistry` | Confirmación explícita para efectos y rechazo de herramientas no permitidas. |
+| Interfaces de interpretación, repositorio y comandos | Impedir acceso del LLM a bases, pasarela o credenciales de servicios. |
+
+Si cambian precio, intervalo, recurso o versión aprobada, el token deja de servir y se solicita una nueva confirmación. Una sugerencia predictiva o retraso de tráfico puede producir una propuesta, no una modificación autónoma no consentida. Así se interpreta US23 dentro de la barrera de seguridad de Capítulo IV: toda extensión/reasignación con efecto mantiene aprobación vigente y vuelve a ser validada por Reservation.
+
+### 5.7.2. Interface Layer
+
+La interfaz autentica turnos y recibe resultados de acciones; la integración de voz no altera el contrato de autorización.
+
+| Clase propuesta | Tipo / datos | Operación y colaboración |
+|---|---|---|
+| `ChatController` | Controller REST/WebSocket; actor, conversación y mensaje. | `POST /chat/messages` / canal autenticado → `ProcessTurnCommand`. |
+| `ConfirmationController` | Controller; token, actor y resumen aceptado. | `POST /chat/confirmations/:id` → `ApproveActionCommand`; no reserva directamente. |
+| `ActionResultConsumer` | Consumer; `commandId`, correlación y resultado de Reservation. | Actualizar diálogo con hechos confirmados; no inferir éxito a partir de envío al broker. |
+
+El texto del usuario, descripciones de espacios y salida del LLM se tratan como datos no confiables. La voz requiere una integración de transcripción/síntesis y controles de privacidad a implementar; no se atribuye esa capacidad al backend de referencia. El controller transmite únicamente respuestas públicas y no razonamiento interno del modelo.
+
+### 5.7.3. Application Layer
+
+`ConversationOrchestrator` coordina cada turno mediante puertos y políticas determinísticas.
+
+| Clase propuesta | Datos / dependencias | Método y responsabilidad |
+|---|---|---|
+| `ProcessTurnCommandHandler` / `ConversationOrchestrator` | Actor, mensaje; `IntentProvider`, `ToolRegistry`, clientes permitidos. | `handle`: interpretar, validar, consultar alternativas y producir resumen/propuesta. |
+| `ApproveActionCommandHandler` | Token y payload; `ConfirmationPolicy`, repositorio. | `handle`: consumir aprobación y guardar acción + Command Outbox en una transacción. |
+| `ReservationResultEventHandler` | Evento correlacionado; repositorio. | `handle`: deduplicar y actualizar resultado público de la acción. |
+| `ExpireConversationCommandHandler` | Conversación y hora. | `handle`: expirar estado y aprobaciones pendientes sin tocar reservas. |
+
+Flujo: `ChatController → ConversationOrchestrator → IntentProvider → ToolRegistry → DiscoveryClient → Conversation.propose`. Tras consentimiento: `ConfirmationController → ApproveActionCommandHandler → consumeAndEnqueue → Command Outbox → Broker → Reservation`. Solo un resultado de Reservation confirma éxito. Consumir el token y publicar directamente sin Outbox perdería la acción si el proceso cae entre ambos pasos; el diseño los hace atómicos localmente.
+
+### 5.7.4. Infrastructure Layer
+
+Los adaptadores aíslan la incertidumbre de IA y limitan las capacidades externas.
+
+| Clase propuesta | Atributos / métodos | Responsabilidad y relación |
+|---|---|---|
+| `IntentInterpreter` | Cliente LLM, esquema y timeout; `interpret`. | Implementar `IntentProvider`, validar salida y traducir a intención permitida. |
+| `PrismaConversationRepository` | Cliente propio; `save`, `consumeAndEnqueue`. | Bloquear/consumir token y persistir comando de forma atómica. |
+| `DiscoveryClient` / `IdentityClient` | Endpoint y credencial delegada; `search`, `validateScope`. | Consultar APIs permitidas con mTLS, timeout y privilegios mínimos. |
+| `AgentCommandRelay` / `AgentEventRelay` | Outboxes y AMQP; `publishPending`. | Despachar comandos aprobados y eventos auditables minimizados. |
+
+El LLM no recibe claves de bases, secretos de pasarela, JWT completo ni herramientas arbitrarias. Se aplica circuit breaker; una falla o respuesta demasiado lenta deriva a la experiencia visual dentro del objetivo menor a 5 segundos de TS09. El worker de publicación y los consumidores requieren un runtime con ejecución asíncrona durable: separar endpoints serverless no demuestra por sí solo que exista ese procesamiento.
+
+### 5.7.6. Component Level Diagram
+
+La vista C4 delimita el agente como servicio separado y evidencia sus barreras de acceso.
+
+![C4 Component — Conversational Reservation Agent](assets/chapter-5/AgentComponents.svg)
+
+**Fuente:** [Structurizr DSL, vista AgentComponents](docs/architecture/chapter-5/workspace.dsl) · [Leyenda C4](assets/chapter-5/AgentComponents-key.svg).
+
+El orquestador interpreta por una ACL, valida políticas y consulta únicamente clientes allowlisted. El repositorio posee Conversation Store; el relay entrega comandos al broker. El proveedor LLM no se conecta a ningún almacén ni a Payment Provider. La confirmación está modelada como política de Domain, no como decisión probabilística del modelo.
+
+### 5.7.7. Code Level Diagrams
+
+El UML describe consentimiento y diálogo; el ER describe aprobación single-use y despacho recuperable.
+
+#### 5.7.7.1. Domain Layer Class Diagram
+
+La vista presenta el aggregate conversacional, token y puertos de acción.
+
+![UML Domain — Conversational Reservation Agent](assets/chapter-5/agent-domain.svg)
+
+**Fuente:** [agent-domain.mmd](docs/architecture/chapter-5/agent-domain.mmd).
+
+Una conversación puede contener varias aprobaciones históricas, pero cada token habilita solo una acción. `ConfirmationPolicy` y `ToolRegistry` colaboran con las entidades mediante validaciones determinísticas. No existen clases de tarjeta ni una relación de composición con `Reservation`; se intercambian IDs y contratos.
+
+#### 5.7.7.2. Database Design Diagram
+
+El esquema propuesto pertenece exclusivamente al agente.
+
+![Database — Conversational Reservation Agent](assets/chapter-5/agent-database.svg)
+
+**Fuente:** [agent-database.mmd](docs/architecture/chapter-5/agent-database.mmd).
+
+`conversations.id` es PK; tokens y acciones tienen FKs locales a la conversación. `token_hash` es único y el token bruto no se persiste. CHECKs exigen estados/acciones permitidos, `expires_at` válido y TTL de confirmación no mayor a 5 minutos desde su emisión. `agent_actions.confirmation_token_id` es FK única: un token no genera dos acciones. `command_outbox.command_id` es PK/FK local a la acción y permite retransmisión con el mismo ID. El consumo del token, acción y comando se confirman juntos; `event_inbox` deduplica resultados y `outbox` distribuye auditoría. `actor_id` y `resource_id` son referencias externas sin FK. La limpieza por TTL elimina estado conversacional según política, no evidencia de auditoría ni comandos pendientes sin resolver.
+
+## 5.8. Bounded Context: Audit
+
+Audit conserva evidencia minimizada e inmutable de operaciones críticas, correlacionable por actor, entidad y flujo. Resuelve investigación de incidentes y conciliación sin convertirse en fuente operacional de reservas. Parte de [`AuditEventsService`](https://github.com/1ASI0657-2610-17949-ParkLink/ParkLink-Backend/blob/46c74eec73accf962b51729058b69f7eef6edf55/apps/backend/src/modules/audit/audit-events.service.ts), que inserta registros y permite filtros, pero captura errores con `Audit event skipped`. El diseño reemplaza ese comportamiento best-effort por publicación durable y un servicio propio.
+
+**Diccionario de clases de dominio propuesto:**
+
+| Clase | Propósito / tipo | Atributos principales | Métodos principales | Relaciones |
+|---|---|---|---|---|
+| `AuditEvent` | Entity inmutable, unidad de persistencia. | `id`, `sourceEventId`, `actor`, `action`, `entityType`, `entityId`, `correlationId`, `minimizedMetadata`, `occurredAt`, `recordedAt`. | `fromEnvelope`, `belongsTo`; sin setters/delete. | Compone actor y correlación; referencia entidad externa. |
+| `AuditActor` | Value Object de snapshot del actor. | `actorId`, `actorRole`. | `isSystemActor`. | Puede representar un proceso sin usuario. |
+| `CorrelationId` | Value Object de trazabilidad. | `value`. | `create`. | Une eventos de distintos servicios sin compartir tablas. |
+| `AuditMetadataPolicy` | Domain Service de minimización. | `allowedFields`. | `minimize`, `rejectSecrets`. | Gobierna construcción de `AuditEvent`. |
+| `AuditRepository` | Repository Interface append-only. | Sin cliente SQL en Domain. | `append`, `findByCorrelation`, `findByActor`. | Inserta y consulta, no modifica evidencia. |
+
+### 5.8.1. Domain Layer
+
+`AuditEvent.fromEnvelope` funciona como Factory: exige productor, identidad de evento, acción y correlación antes de crear evidencia. No se necesita un aggregate mutable que coordine reglas de otros contextos; el registro inmutable es la unidad de consistencia local.
+
+| Elemento táctico | Responsabilidad |
+|---|---|
+| Entity inmutable y factory `AuditEvent.fromEnvelope` | Construir evidencia completa sin habilitar modificación posterior. |
+| Value Objects `AuditActor`, `CorrelationId` | Conservar identidad histórica y correlación válida. |
+| Domain Service `AuditMetadataPolicy` | Permitir solo campos necesarios y bloquear secretos, tarjetas y razonamiento interno del LLM. |
+| Repository Interface `AuditRepository` | Ofrecer append y consulta restringida, sin operaciones de actualización/borrado. |
+
+Audit conserva el hecho publicado, no recalcula si la reserva era válida. `occurredAt` registra hora del productor y `recordedAt` hora de ingestión: pueden diferir por colas o reintentos. La ordenación entre servicios no se deduce únicamente del timestamp; la causalidad utiliza IDs de mensajes y correlación.
+
+### 5.8.2. Interface Layer
+
+La interfaz separa ingestión interna de consulta restringida a soporte autorizado.
+
+| Clase propuesta o existente | Tipo / datos | Operación y colaboración |
+|---|---|---|
+| `AuditEventsController` | Controller existente adaptado; actor de soporte y filtros. | `GET /audit/events` → query con autorización y paginación; sin POST público arbitrario. |
+| `AuditEventConsumer` | Consumer propuesto; envelope versionado del Event Bus. | Validar productor/esquema y despachar `RecordAuditEventCommand`. |
+| `QueryAuditEventsDto` | Contrato de referencia ampliado; actor, acción, entidad, correlación y límite. | Validar filtros y limitar alcance sin exponer metadatos no autorizados. |
+
+El consumer no acepta eventos de cualquier origen sin autenticación del canal. El controller aplica rol/scope y registra consultas sensibles. No expone endpoints de edición o eliminación de evidencia.
+
+### 5.8.3. Application Layer
+
+Los handlers coordinan construcción minimizada, deduplicación y consulta.
+
+| Clase propuesta | Datos / dependencias | Método y responsabilidad |
+|---|---|---|
+| `RecordAuditEventCommand` / `RecordAuditEventCommandHandler` | Envelope; política y repositorio. | `handle`: validar, minimizar, construir registro y append idempotente. |
+| `FindAuditByCorrelationQueryHandler` | Correlación, actor y cursor. | `handle`: devolver secuencia trazable dentro del alcance autorizado. |
+| `FindAuditByActorQueryHandler` | Actor objetivo, ventana temporal y límite. | `handle`: consultar evidencia sin convertirla en estado operacional. |
+
+Flujo: `Event Bus → AuditEventConsumer → RecordAuditEventCommandHandler → AuditMetadataPolicy / AuditEvent.fromEnvelope → AuditRepository.append`. Una reentrega del mismo `sourceEventId` no inserta otra fila. La persistencia se confirma antes del ACK. Si falla, el mensaje se reintenta y eventualmente va a DLQ con alerta; no se descarta silenciosamente como en la referencia.
+
+### 5.8.4. Infrastructure Layer
+
+Infrastructure hace exigible append-only mediante permisos, no solo mediante una interfaz sin setters.
+
+| Clase propuesta | Atributos / métodos | Responsabilidad y relación |
+|---|---|---|
+| `AppendOnlyAuditRepository` | Cliente de escritura restringida; `append`, consultas. | Implementar `AuditRepository` con INSERT y SELECT autorizado, sin UPDATE/DELETE. |
+| `AuditMessageAdapter` | Conexión AMQP y configuración DLQ; `consume`, `ack`. | Gestionar recepción durable, retries y ACK posterior al commit. |
+| `AuditQueryAdapter` | Credencial de lectura e índices; consultas paginadas. | Separar privilegios de consulta de la credencial de ingestión. |
+
+La aplicación no puede reescribir eventos; permisos/controles de PostgreSQL bloquean modificación ordinaria. Append-only no equivale a protección criptográfica frente a un administrador de base: almacenamiento WORM, firmas o encadenamiento son medidas adicionales si se requieren. Retención/archivo se ejecutan con un rol operativo separado y política aprobada, no con `delete` de negocio. Los productores conservan Outbox para no perder evidencia durante una caída de Audit.
+
+### 5.8.6. Component Level Diagram
+
+La vista C4 muestra el servicio de evidencia como consumidor independiente.
+
+![C4 Component — Audit](assets/chapter-5/AuditComponents.svg)
+
+**Fuente:** [Structurizr DSL, vista AuditComponents](docs/architecture/chapter-5/workspace.dsl) · [Leyenda C4](assets/chapter-5/AuditComponents-key.svg).
+
+Eventos críticos ingresan al consumer y consultas autorizadas al controller. Los handlers aplican minimización y usan el repositorio append-only. Solo Audit accede a Audit Log Store; no hay salida que ordene cambios en reservas/pagos. Escalar o restaurar este servicio no cambia el dueño de las reglas de negocio.
+
+### 5.8.7. Code Level Diagrams
+
+El UML muestra evidencia y puertos; el ER muestra campos, unicidad e índices de correlación sin relaciones entre bases.
+
+#### 5.8.7.1. Domain Layer Class Diagram
+
+La vista presenta el registro inmutable y su construcción validada.
+
+![UML Domain — Audit](assets/chapter-5/audit-domain.svg)
+
+**Fuente:** [audit-domain.mmd](docs/architecture/chapter-5/audit-domain.mmd).
+
+Cada registro compone un snapshot de actor y un `CorrelationId`. `AuditRepository` solo define append y consultas. No se agregan asociaciones a `User` o `Reservation` de otros servicios: consultar evidencia no requiere cargar sus aggregates ni establecer herencia artificial.
+
+#### 5.8.7.2. Database Design Diagram
+
+El esquema propuesto utiliza una tabla operacional de evidencia en Audit Log Store.
+
+![Database — Audit](assets/chapter-5/audit-database.svg)
+
+**Fuente:** [audit-database.mmd](docs/architecture/chapter-5/audit-database.mmd).
+
+`audit_events.id` es PK y `source_event_id` es único para deduplicar. Productor, acción, tipo de entidad, correlación y versión de esquema son obligatorios; actor y entidad pueden ser nulos para eventos de sistema. `actor_id` y `entity_id` son referencias externas **sin FK**: la evidencia debe persistir incluso si la entidad original se archiva. Índices `(correlation_id, occurred_at)`, `(actor_id, recorded_at)` y `(action, entity_type, recorded_at)` permiten trazas paginadas. La tabla no requiere relaciones inventadas para satisfacer un ER: su independencia es una decisión explícita. La unicidad del evento y el append son una sola transacción, por lo que no necesita un Inbox separado para ese mismo efecto.
+
+El resultado del capítulo es un diseño táctico verificable para ocho servicios desplegables de forma independiente. Los componentes y clases mantienen la autoridad de Reservation, la separación entre oferta y búsqueda, la soberanía financiera de Payment y la barrera de confirmación del agente. Los diagramas describen el objetivo de implementación y sus restricciones; no sustituyen pruebas de concurrencia, seguridad, contratos o despliegue que deberán ejecutarse al implementar el backend.
 
 ---
 

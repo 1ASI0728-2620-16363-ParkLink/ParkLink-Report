@@ -1,0 +1,61 @@
+erDiagram
+    SPACE_SNAPSHOTS ||--o{ RESERVATIONS : local_offer_reference
+    RESERVATIONS ||--o{ RESERVATION_HISTORY : records
+    RESERVATIONS {
+        uuid id PK
+        uuid user_id "external Identity reference; NOT FK"
+        uuid parking_space_id FK "local SPACE_SNAPSHOTS only"
+        varchar reservation_code UK "NOT NULL"
+        timestamptz start_time "NOT NULL"
+        timestamptz end_time "CHECK after start_time"
+        numeric total_price "CHECK greater or equal 0"
+        char currency "PEN; NOT NULL"
+        numeric quoted_hourly_rate "snapshot; NOT NULL"
+        bigint supply_version "accepted quote version"
+        varchar status "CHECK legal states"
+        timestamptz hold_expires_at "required for pending hold"
+        uuid confirmation_request_id "current payment attempt"
+        uuid accepted_payment_id "external Payment reference"
+        bigint version "optimistic concurrency"
+        timestamptz created_at "NOT NULL"
+        timestamptz updated_at "NOT NULL"
+    }
+    SPACE_SNAPSHOTS {
+        uuid space_id PK "external Supply identity"
+        bigint supply_version "ordered revision"
+        numeric price_per_hour "CHECK greater or equal 0"
+        char currency "PEN"
+        jsonb schedule "validated windows"
+        varchar publication_status "AVAILABLE DISABLED"
+        timestamptz refreshed_at "UTC"
+    }
+    RESERVATION_HISTORY {
+        uuid id PK
+        uuid reservation_id FK
+        varchar previous_status "nullable for creation"
+        varchar next_status "NOT NULL"
+        uuid correlation_id "NOT NULL"
+        timestamptz occurred_at "UTC"
+    }
+    COMMAND_INBOX {
+        uuid command_id PK
+        varchar idempotency_key UK "actor-scoped operation key"
+        varchar payload_hash "reject changed payload"
+        jsonb payload "validated command and expected version"
+        varchar status "PENDING COMPLETED FAILED"
+        jsonb result "persisted outcome"
+        timestamptz processed_at "UTC"
+    }
+    EVENT_INBOX {
+        uuid event_id PK
+        varchar source "NOT NULL"
+        timestamptz processed_at "UTC"
+    }
+    OUTBOX {
+        uuid event_id PK
+        uuid aggregate_id "local logical reference"
+        bigint aggregate_version "NOT NULL"
+        varchar event_type "versioned contract"
+        jsonb payload "NOT NULL"
+        timestamptz published_at "nullable until acknowledged"
+    }

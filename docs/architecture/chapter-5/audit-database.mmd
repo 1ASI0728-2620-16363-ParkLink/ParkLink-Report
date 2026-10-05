@@ -1,0 +1,16 @@
+erDiagram
+    AUDIT_EVENTS {
+        uuid id PK
+        uuid source_event_id UK "deduplicates producer event"
+        varchar producer "NOT NULL"
+        uuid actor_id "external Identity reference; nullable; NOT FK"
+        varchar actor_role "snapshot; nullable"
+        varchar action "NOT NULL"
+        varchar entity_type "NOT NULL"
+        uuid entity_id "external reference; nullable; NOT FK"
+        uuid correlation_id "NOT NULL; indexed"
+        varchar schema_version "NOT NULL"
+        jsonb metadata "allowlisted; no secrets"
+        timestamptz occurred_at "producer UTC timestamp"
+        timestamptz recorded_at "ingestion UTC timestamp"
+    }

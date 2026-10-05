@@ -1,0 +1,49 @@
+erDiagram
+    CONVERSATIONS ||--o{ CONFIRMATION_TOKENS : contains
+    CONVERSATIONS ||--o{ AGENT_ACTIONS : tracks
+    AGENT_ACTIONS ||--|| COMMAND_OUTBOX : durable_dispatch
+    CONVERSATIONS {
+        uuid id PK
+        uuid actor_id "external Identity reference; NOT FK"
+        varchar status "CHECK known ConversationStatus"
+        text last_public_summary "minimized; no hidden reasoning"
+        timestamptz expires_at "NOT NULL"
+        timestamptz created_at "UTC"
+    }
+    CONFIRMATION_TOKENS {
+        uuid id PK
+        uuid conversation_id FK
+        uuid actor_id "bound principal"
+        varchar token_hash UK "never store raw token"
+        varchar action "allowlisted operation"
+        uuid resource_id "external reservation or space identity"
+        varchar payload_hash "includes price currency interval version"
+        timestamptz issued_at "NOT NULL; UTC"
+        timestamptz expires_at "TTL at most 5 minutes"
+        timestamptz consumed_at "single use"
+    }
+    AGENT_ACTIONS {
+        uuid command_id PK
+        uuid conversation_id FK
+        uuid confirmation_token_id FK,UK "one action per approval"
+        uuid correlation_id "NOT NULL"
+        varchar action "NOT NULL"
+        varchar result_status "PENDING SUCCEEDED FAILED"
+    }
+    COMMAND_OUTBOX {
+        uuid command_id PK,FK "references local AGENT_ACTIONS"
+        varchar schema_version "NOT NULL"
+        jsonb payload "validated and minimized"
+        timestamptz published_at "nullable until broker acknowledgement"
+    }
+    EVENT_INBOX {
+        uuid event_id PK
+        timestamptz processed_at "UTC"
+    }
+    OUTBOX {
+        uuid event_id PK
+        uuid aggregate_id "conversation logical reference"
+        varchar event_type "agent audit event"
+        jsonb payload "no secrets or hidden reasoning"
+        timestamptz published_at "nullable"
+    }

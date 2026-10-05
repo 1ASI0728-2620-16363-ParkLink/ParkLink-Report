@@ -1,0 +1,63 @@
+classDiagram
+direction TB
+class SearchCriteria {
+  <<ValueObject>>
+  -GeoLocation destination
+  -Decimal radiusKm
+  -Decimal maxPrice
+  -TimeInterval requestedInterval
+  -int limit
+  +create(filters) SearchCriteria$
+  +matches(result) bool
+}
+class ParkingSearchResult {
+  <<ReadModel>>
+  -UUID spaceId
+  -String name
+  -GeoLocation location
+  -Decimal pricePerHour
+  -Decimal distanceKm
+  -VisibleAvailability availability
+  -Date projectedAt
+  +isFresh(now, maxAge) bool
+}
+class GeoLocation {
+  <<ValueObject>>
+  -Decimal latitude
+  -Decimal longitude
+  +distanceTo(other) Decimal
+}
+class TimeInterval {
+  <<ValueObject>>
+  -Date start
+  -Date end
+  +overlaps(other) bool
+}
+class VisibleAvailability {
+  <<enumeration>>
+  AVAILABLE
+  UNAVAILABLE
+  UNKNOWN
+}
+class ParkingSearchRepository {
+  <<interface>>
+  +search(criteria) ParkingSearchResult[]
+  +findById(spaceId) ParkingSearchResult
+}
+class ProjectionRepository {
+  <<interface>>
+  +apply(eventId, revision, projection) void
+  +rebuild(snapshot) void
+}
+class RankingPolicy {
+  <<DomainService>>
+  +rank(results, criteria) ParkingSearchResult[]
+}
+SearchCriteria "1" *-- "1" GeoLocation : destination
+SearchCriteria "1" *-- "0..1" TimeInterval : requested window
+ParkingSearchResult "1" *-- "1" GeoLocation : location
+ParkingSearchResult "1" --> "1" VisibleAvailability : advisory status
+ParkingSearchRepository ..> SearchCriteria : accepts
+ParkingSearchRepository ..> ParkingSearchResult : returns
+RankingPolicy ..> ParkingSearchResult : orders
+ProjectionRepository ..> ParkingSearchResult : projects

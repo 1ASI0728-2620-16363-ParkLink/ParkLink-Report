@@ -1,0 +1,36 @@
+erDiagram
+    SPACE_DOCUMENT ||--o{ RESERVATION_WINDOWS : logical_reference
+    SPACE_DOCUMENT ||--o{ GEO_INDEX : logical_membership
+    SPACE_DOCUMENT {
+        uuid space_id PK "Redis document key; NOT SQL PK"
+        string name "required"
+        decimal latitude "-90 to 90"
+        decimal longitude "-180 to 180"
+        decimal price_per_hour "non-negative"
+        string currency "PEN"
+        json schedule "validated windows"
+        string publication_status "AVAILABLE DISABLED"
+        bigint supply_version "monotonic per space"
+        datetime projected_at "UTC"
+    }
+    RESERVATION_WINDOWS {
+        uuid reservation_id PK "Redis key"
+        uuid space_id "logical reference; NOT FK"
+        datetime start_time "half-open interval"
+        datetime end_time "after start_time"
+        string status "blocking or terminal"
+        bigint reservation_version "per reservation"
+        datetime expires_at "optional hold expiry"
+    }
+    GEO_INDEX {
+        uuid space_id PK "Redis GEO member"
+        decimal longitude "validated GEO range"
+        decimal latitude "validated GEO range"
+    }
+    PROCESSED_EVENTS {
+        uuid event_id PK "deduplication key"
+        string source "producer context"
+        uuid aggregate_id "per-stream identity"
+        bigint aggregate_version "ordering cursor"
+        datetime processed_at "replay-aware retention"
+    }

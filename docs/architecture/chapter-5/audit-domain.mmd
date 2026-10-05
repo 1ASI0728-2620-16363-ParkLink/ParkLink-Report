@@ -1,0 +1,45 @@
+classDiagram
+direction TB
+class AuditEvent {
+  <<ImmutableEntity>>
+  -UUID id
+  -UUID sourceEventId
+  -AuditActor actor
+  -String action
+  -String entityType
+  -UUID entityId
+  -CorrelationId correlationId
+  -String minimizedMetadata
+  -Date occurredAt
+  -Date recordedAt
+  #AuditEvent()
+  +fromEnvelope(envelope, policy) AuditEvent$
+  +belongsTo(correlationId) bool
+}
+class AuditActor {
+  <<ValueObject>>
+  -UUID actorId
+  -String actorRole
+  +isSystemActor() bool
+}
+class CorrelationId {
+  <<ValueObject>>
+  -UUID value
+  +create(raw) CorrelationId$
+}
+class AuditMetadataPolicy {
+  <<DomainService>>
+  -String[] allowedFields
+  +minimize(metadata) String
+  +rejectSecrets(metadata) void
+}
+class AuditRepository {
+  <<interface>>
+  +append(event) void
+  +findByCorrelation(id, cursor) AuditEvent[]
+  +findByActor(actorId, limit) AuditEvent[]
+}
+AuditEvent "1" *-- "1" AuditActor : principal snapshot
+AuditEvent "1" *-- "1" CorrelationId : trace identity
+AuditEvent ..> AuditMetadataPolicy : validated construction
+AuditRepository ..> AuditEvent : append and query only

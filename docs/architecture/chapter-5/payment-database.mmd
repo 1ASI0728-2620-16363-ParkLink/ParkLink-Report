@@ -1,0 +1,44 @@
+erDiagram
+    PAYMENTS ||--o{ REFUNDS : refunds
+    PAYMENTS {
+        uuid id PK
+        uuid reservation_id "external reference; NOT FK"
+        uuid payer_id "external Identity reference"
+        uuid confirmation_request_id UK "one saga payment attempt"
+        numeric amount "CHECK greater or equal 0"
+        char currency "NOT NULL"
+        varchar status "CHECK PENDING APPROVED REJECTED REFUNDED"
+        varchar payment_method "tokenized method; no PAN or CVV"
+        varchar idempotency_key UK "NOT NULL; actor-scoped"
+        varchar payload_hash "NOT NULL"
+        varchar provider_reference UK "nullable before authorization"
+        varchar receipt_code UK "NOT NULL"
+        timestamptz created_at "UTC"
+        timestamptz updated_at "UTC"
+    }
+    REFUNDS {
+        uuid id PK
+        uuid payment_id FK "NOT NULL"
+        numeric amount "CHECK greater than 0"
+        varchar operation_key UK "NOT NULL"
+        varchar status "PENDING COMPLETED FAILED"
+        varchar provider_reference "nullable"
+        timestamptz created_at "UTC"
+    }
+    WEBHOOK_INBOX {
+        varchar provider_event_id PK "part of composite PK"
+        varchar provider PK "part of composite PK"
+        varchar payload_hash "NOT NULL"
+        timestamptz processed_at "UTC"
+    }
+    EVENT_INBOX {
+        uuid event_id PK
+        timestamptz processed_at "UTC"
+    }
+    OUTBOX {
+        uuid event_id PK
+        uuid aggregate_id "payment logical reference"
+        varchar event_type "versioned contract"
+        jsonb payload "NOT NULL"
+        timestamptz published_at "nullable"
+    }

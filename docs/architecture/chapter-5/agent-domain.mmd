@@ -1,0 +1,73 @@
+classDiagram
+direction TB
+class Conversation {
+  <<AggregateRoot>>
+  -UUID id
+  -UUID actorId
+  -ConversationStatus status
+  -Date expiresAt
+  -String lastPublicSummary
+  #Conversation()
+  +start(actorId) Conversation$
+  +propose(intent, summary) ConfirmationToken
+  +recordOutcome(commandId, result) void
+  +expire(now) void
+}
+class Intent {
+  <<ValueObject>>
+  -String toolName
+  -String schemaVersion
+  -String validatedArguments
+  +matchesSchema(schema) bool
+}
+class ConfirmationToken {
+  <<Entity>>
+  -UUID id
+  -String tokenHash
+  -UUID actorId
+  -String action
+  -UUID resourceId
+  -String payloadHash
+  -Date expiresAt
+  -Date consumedAt
+  +isValid(actor, payload, now) bool
+  +consume(now) void
+}
+class ConfirmationPolicy {
+  <<DomainService>>
+  +assertApproved(token, action, now) void
+}
+class ToolRegistry {
+  <<DomainService>>
+  -String[] allowedTools
+  +validate(intent, actorScope) void
+}
+class ConversationStatus {
+  <<enumeration>>
+  ACTIVE
+  AWAITING_CONFIRMATION
+  ACTION_PENDING
+  EXPIRED
+}
+class ConversationRepository {
+  <<interface>>
+  +findById(id) Conversation
+  +save(conversation) void
+  +consumeAndEnqueue(token, command) void
+}
+class IntentProvider {
+  <<interface>>
+  +interpret(message, context) Intent
+}
+class ReservationCommandPort {
+  <<interface>>
+  +enqueue(approvedCommand) UUID
+}
+Conversation "1" *-- "0..*" ConfirmationToken : approvals
+Conversation "1" --> "1" ConversationStatus : state
+Conversation ..> Intent : proposal
+ConfirmationPolicy ..> ConfirmationToken : validates
+ToolRegistry ..> Intent : allowlists
+ConversationRepository ..> Conversation : persists
+IntentProvider ..> Intent : returns untrusted suggestion
+ReservationCommandPort ..> ConfirmationToken : requires approval

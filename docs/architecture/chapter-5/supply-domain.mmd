@@ -1,0 +1,73 @@
+classDiagram
+direction TB
+class ParkingSpace {
+  <<AggregateRoot>>
+  -UUID id
+  -UUID ownerId
+  -String name
+  -String address
+  -GeoLocation location
+  -Money pricePerHour
+  -ParkingSpaceStatus status
+  -int version
+  #ParkingSpace()
+  +create(owner, details) ParkingSpace$
+  +changePrice(price) void
+  +configureSchedule(windows) void
+  +disable() void
+  +addPhoto(photo) void
+}
+class AvailabilityWindow {
+  <<ValueObject>>
+  -int dayOfWeek
+  -String openingTime
+  -String closingTime
+  +contains(interval) bool
+  +overlaps(other) bool
+}
+class GeoLocation {
+  <<ValueObject>>
+  -Decimal latitude
+  -Decimal longitude
+  +create(lat, lng) GeoLocation$
+}
+class Money {
+  <<ValueObject>>
+  -Decimal amount
+  -String currency
+  +multiply(hours) Money
+}
+class ParkingPhoto {
+  <<Entity>>
+  -UUID id
+  -String objectKey
+  -bool verified
+  +confirmUpload() void
+}
+class ParkingSpaceStatus {
+  <<enumeration>>
+  AVAILABLE
+  DISABLED
+}
+class ParkingSpaceRepository {
+  <<interface>>
+  +findById(id) ParkingSpace
+  +save(space, expectedVersion) void
+}
+class MapsProvider {
+  <<interface>>
+  +geocode(address) GeoLocation
+}
+class PhotoStorage {
+  <<interface>>
+  +prepareUpload(spaceId, metadata) String
+  +verifyObject(objectKey) bool
+}
+ParkingSpace "1" *-- "1..*" AvailabilityWindow : schedule
+ParkingSpace "1" *-- "1" GeoLocation : position
+ParkingSpace "1" *-- "1" Money : tariff
+ParkingSpace "1" *-- "0..*" ParkingPhoto : photos
+ParkingSpace "1" --> "1" ParkingSpaceStatus : publication
+ParkingSpaceRepository ..> ParkingSpace : persists
+MapsProvider ..> GeoLocation : returns
+PhotoStorage ..> ParkingPhoto : stores object

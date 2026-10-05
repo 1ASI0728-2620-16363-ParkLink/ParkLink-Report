@@ -1,0 +1,23 @@
+erDiagram
+    USERS ||--o{ SESSIONS : owns
+    USERS {
+        uuid id PK
+        varchar full_name "NOT NULL"
+        varchar email UK "normalized; NOT NULL"
+        varchar password_hash "NOT NULL; never returned"
+        varchar phone "NOT NULL"
+        varchar role "CHECK DRIVER OWNER ADMIN"
+        varchar plate_number "nullable"
+        varchar owner_type "nullable"
+        varchar bank_account_ref "encrypted reference"
+        timestamptz created_at "NOT NULL"
+        timestamptz updated_at "NOT NULL"
+    }
+    SESSIONS {
+        uuid id PK
+        uuid user_id FK "NOT NULL"
+        varchar token_hash UK "NOT NULL"
+        timestamptz expires_at "NOT NULL"
+        timestamptz revoked_at "nullable"
+        timestamptz created_at "NOT NULL"
+    }

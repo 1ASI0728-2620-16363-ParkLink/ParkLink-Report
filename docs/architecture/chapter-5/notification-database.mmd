@@ -1,0 +1,43 @@
+erDiagram
+    NOTIFICATION_PREFERENCES ||--o{ NOTIFICATIONS : local_recipient
+    NOTIFICATIONS ||--o{ DELIVERY_ATTEMPTS : attempts
+    NOTIFICATION_PREFERENCES {
+        uuid user_id PK "external Identity reference; local PK"
+        boolean push_enabled "DEFAULT true"
+        boolean email_enabled "DEFAULT true"
+        varchar push_token_ref "encrypted nullable reference"
+        varchar email_ref "minimized nullable reference"
+        timestamptz updated_at "UTC"
+    }
+    NOTIFICATIONS {
+        uuid id PK
+        uuid user_id FK "local preferences record only"
+        uuid source_event_id "UNIQUE with user_id and channel"
+        varchar title "NOT NULL"
+        text message "NOT NULL; minimized"
+        varchar type "CHECK known NotificationType"
+        varchar channel "CHECK IN_APP PUSH EMAIL"
+        boolean is_read "DEFAULT false"
+        varchar delivery_status "PENDING SENT FAILED"
+        timestamptz scheduled_at "UTC"
+        timestamptz created_at "UTC"
+    }
+    DELIVERY_ATTEMPTS {
+        uuid id PK
+        uuid notification_id FK
+        integer attempt_number "CHECK greater than 0"
+        varchar outcome "SUCCESS RETRYABLE PERMANENT_FAILURE"
+        varchar provider_reference "nullable"
+        timestamptz attempted_at "UTC"
+    }
+    EVENT_INBOX {
+        uuid event_id PK
+        timestamptz processed_at "UTC"
+    }
+    OUTBOX {
+        uuid event_id PK
+        uuid aggregate_id "notification logical reference"
+        varchar event_type "NotificationSent or NotificationFailed"
+        jsonb payload "NOT NULL"
+        timestamptz published_at "nullable"
+    }
