@@ -239,7 +239,7 @@ Ser la plataforma líder en reserva de estacionamientos en Latinoamérica, contr
 | Fabian Alejandro Oliva Lopez     | Soy estudiante de Ingeniería de Software con un gran interés de desarrollo backend y frontend. Me considero una persona activa en los proyectos, impulsando al equipo a realizar buenos trabajos. Mi objetivo es brindar apoyo y dar lo mejor de mí para fomentar un ambiente colaborativo y de respeto.                                                                                                                                 | <img src="assets/cap-1/Fabian.png" alt="Fabian Oliva" width="180" /> |
 |  Amir Gabriel Castro Sanchez   | Soy estudiante de Ingeniería de Software con interés en el desarrollo backend y la creación de aplicaciones móviles. Tengo conocimientos en el diseño e implementación de servicios y APIs, integración con bases de datos y desarrollo de funcionalidades para aplicaciones móviles. Me caracterizo por ser una persona responsable, colaborativa y con disposición para aprender nuevas tecnologías que permitan desarrollar soluciones eficientes y escalables.      | <img src="assets/cap-1/Amir.jpg" alt="Amir" width="180" /> |
 | Pietro Osores Marchese           | Soy Pietro Osores Marchese, estudiante de Ingeniería de Sistemas con interés en el desarrollo de software y la innovación tecnológica. Mi perfil combina habilidades en programación frontend, diseño de interfaces y gestión de proyectos ágiles, con un enfoque en la creación de soluciones digitales funcionales y escalables. Me caracterizo por el trabajo en equipo, la adaptabilidad y la búsqueda constante de nuevas herramientas para optimizar procesos y experiencias de usuario. | <img src="assets/cap-1/Pietro.jpg" alt="Pietro Osores" width="180" /> |
-| Daniel Elias Ruiz Huisa    | Soy un estudiante de Ingeniería de Software. Me intereso por el desarrollo web y la evolucion de tecnologias como los nuevos agentes AI. Tengo conocimientos en Frameworks orientados a node.js como Astro, Vue y Angular. Domino lenguajes como python, C++ y typescript. Soy una persona responsable que busca siempre generar un ambiente sano y agradable para todos.     | ![Daniel Ruiz](assets/cap-1/Daniel.jpeg ) |
+| Daniel Elias Ruiz Huisa    | Soy un estudiante de Ingeniería de Software. Me intereso por el desarrollo web y la evolucion de tecnologias como los nuevos agentes AI. Tengo conocimientos en Frameworks orientados a node.js como Astro, Vue y Angular. Domino lenguajes como python, C++ y typescript. Soy una persona responsable que busca siempre generar un ambiente sano y agradable para todos.     | ![Daniel Ruiz](assets/cap-1/Daniel.jpeg) |
 
 ## 1.2. Solution Profile
 
@@ -2980,7 +2980,7 @@ La propuesta UX/UI de ParkLink traduce las necesidades de los **User Personas**,
 
 Los perfiles de referencia son **Humberto García Calla**, conductor urbano, y **Jarol Saquiray Vargas**, propietario/microempresario. Sus metas originales se mantienen; los objetivos operacionales de este capítulo descomponen esas metas en tareas, no incorporan nuevos perfiles ni funcionalidades sin respaldo. El diseño abarca tres canales: Landing Page pública, aplicación móvil Flutter para ambos roles y panel web React/TypeScript **exclusivo de monitoreo para propietarios**. Publicar, modificar oferta o registrar ingreso se realiza en la aplicación móvil; el panel web consulta espacios, reservas e ingresos, sin ejecutar esos comandos.
 
-Este capítulo constituye una **propuesta de diseño**, no evidencia de interfaces implementadas o evaluaciones de usabilidad realizadas. Se desarrollan el texto, las tablas y los diagramas de organización/navegación/proceso. Los wireframes gráficos, mock-ups, screenshots y prototipos visuales serán elaborados manualmente por el equipo y se identifican mediante el marcador solicitado. Los flujogramas renderizados son modelos de interacción, **no imágenes de pantallas ni wireframes**.
+Este capítulo constituye una **propuesta de diseño**, no evidencia de interfaces implementadas o evaluaciones de usabilidad realizadas. Se desarrollan el texto, las tablas y los diagramas de organización/navegación/proceso, y se incorporan los recursos de marca y **mock-ups existentes en el proyecto Figma de ParkLink** aportado por el equipo. Los wireframes de baja fidelidad, los artefactos de Landing no aportados y la evidencia de ejecución/prototipos interactivos no verificada conservan el marcador solicitado. Los flujogramas renderizados son modelos de interacción, **no imágenes de pantallas ni wireframes**; las exportaciones de Figma se identifican separadamente como diseños estáticos.
 
 | Insumo existente | Decisión UX que deriva de él | Trazabilidad |
 |---|---|---|
@@ -3000,7 +3000,20 @@ Las Style Guidelines definen un lenguaje visual común entre Landing Page y apli
 
 #### Branding
 
-**ParkLink** representa el vínculo entre conductores que requieren estacionamiento y propietarios con espacios disponibles. **ParkTeam** identifica al equipo responsable, no un servicio separado. La marca se utilizará de manera uniforme en cabeceras, acceso y comunicaciones; la denominación **ParkLink Copilot** se reservará al asistente especificado en EP07. No se inventa un logotipo, isotipo, slogan registrado ni certificación de seguridad.
+**ParkLink** representa el vínculo entre conductores que requieren estacionamiento y propietarios con espacios disponibles. **ParkTeam** identifica al equipo responsable, no un servicio separado. La marca se utilizará de manera uniforme en cabeceras, acceso y comunicaciones; la denominación **ParkLink Copilot** se reservará al asistente especificado en EP07. Los siguientes recursos se exportaron directamente del [proyecto Parklink en Figma](https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink), sin crear logotipos sustitutos ni atribuir un slogan registrado o certificación de seguridad.
+
+**Logotipo completo aportado por el equipo:**
+
+![Logotipo completo de ParkLink exportado desde Figma](assets/chapter-6/figma/brand-logo-full.png)
+
+**Fuente:** [Figma, nodo 1:48 — logo completo](https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=1-48). La composición combina el símbolo de la marca y el nombre ParkLink; es un recurso de diseño, no un sello de certificación.
+
+| Símbolo sobre fondo oscuro | Variante sobre fondo turquesa |
+|---|---|
+| <img src="assets/chapter-6/figma/brand-symbol-primary.png" alt="Símbolo de ParkLink en turquesa sobre fondo oscuro" width="220" /> | <img src="assets/chapter-6/figma/brand-symbol-variant.png" alt="Variante negra del símbolo de ParkLink sobre fondo turquesa" width="220" /> |
+| [Figma, nodo 1:3 — Logo](https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=1-3) | [Figma, nodo 1:4 — Logo 2](https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=1-4) |
+
+Estas variantes documentan recursos realmente presentes en Figma. No equivalen a un tablero visual completo de tokens, tipografía y componentes; ese artefacto conserva su espacio pendiente al final de 6.1.1.
 
 El estilo será **moderno, tecnológico, minimalista, consistente, de alto contraste y profesional**. Se priorizan superficies simples, lectura inmediata, alineación y espacio en blanco/negativo sobre ornamentos. Las tarjetas agrupan contenido real; no se agregan paneles vacíos para completar composiciones. Fotografías de espacios, cuando se incorporen a la aplicación, deben provenir del propietario y mostrar las condiciones reales de acceso; una ilustración promocional no se presenta como fotografía de un estacionamiento publicado.
 
@@ -3075,7 +3088,20 @@ La microcopia se redactará en español profesional, con verbos concretos y mens
 7. **Seguridad contextual:** favorecer planificación antes del viaje. La voz puede reducir manipulación, pero no elimina distracción; un fallback visual durante la conducción se consulta solo tras detenerse en un lugar seguro.
 8. **Consistencia entre canales:** mismas etiquetas y estados, respetando que el panel web no ejecuta operaciones de la app móvil.
 
-[DEJAR VACÍO – INSERTAR AQUÍ: Design System Visual]
+**Specimen visual del sistema de diseño.** Compuesto a partir de los nodos Figma `1:48` y `1:3` y de los tokens definidos en 6.1.1.
+
+![Specimen visual del sistema de diseño de ParkLink](assets/chapter-6/design-system-visual.png)
+
+*Fuente: composición editorial sobre los nodos Figma `1:48` (logo) y `1:3` (símbolo). Tipografía Inter bajo SIL Open Font License.*
+
+![Logo completo de ParkLink](assets/chapter-6/figma/brand-logo-full.png)
+
+*[Nodo Figma `1:48` — logo completo. Exportación sin modificar.](https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=1-48)*
+
+![Símbolo de ParkLink](assets/chapter-6/figma/brand-symbol-primary.png)
+
+*[Nodo Figma `1:3` — símbolo primario. Exportación sin modificar.](https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=1-3)*
+
 
 ### 6.1.2. Web, Mobile & Devices Style Guidelines
 
@@ -3303,13 +3329,21 @@ La Landing traduce Style Guidelines e Information Architecture en una página de
 
 **CTA principales.** «Buscar estacionamiento» conduce a la adopción/acceso de la app para conductor; «Publicar mi cochera» orienta a requisitos y registro de propietario. «Iniciar sesión en el panel» se reserva al monitoreo autorizado. Si no existe enlace real de distribución, el texto informa el estado de disponibilidad: no se simula una tienda, descarga o registro exitoso.
 
-**Desktop.** El wireframe manual podrá organizar grupos en varias columnas, mantener navegación visible y utilizar un ancho máximo de lectura. El mensaje y sus CTA aparecen antes de contenido secundario; comparación y beneficios deben poder comprenderse sin una imagen de interfaz todavía inexistente.
+**Desktop.** El wireframe organiza grupos en varias columnas, mantener navegación visible y utilizar un ancho máximo de lectura. El mensaje y sus CTA aparecen antes de contenido secundario; comparación y beneficios deben poder comprenderse sin una imagen de interfaz todavía inexistente.
 
 **Mobile.** Se conserva el mismo orden semántico en una columna, CTA separados y menú compacto accesible. La comparación se adapta sin recortar texto; no se exige desplazamiento lateral de toda la página. La cabecera y cualquier CTA persistente no ocultarán contenido, controles de navegador o zonas seguras. El contenido se puede ampliar con zoom y recorrer mediante lector de pantalla.
 
-[DEJAR VACÍO – INSERTAR AQUÍ: Landing Page Wireframe Desktop]
+> **Origen y trazabilidad.** Estos wireframes se generaron renderizando la estructura real del sitio desplegado en [https://parklink-tp1-landing.vercel.app](https://parklink-tp1-landing.vercel.app) y sustituyendo el contenido por bloques de baja fidelidad. **No son nodos creados en Figma**: el conector MCP de Figma disponible en este entorno solo expone herramientas de lectura y exportación (`get_metadata`, `get_design_context`, `get_screenshot`, `get_variable_defs`, `get_motion_context`), por lo que no fue posible escribir frames nuevos en el archivo. Se declara explícitamente para no atribuir a Figma un artefacto que no existe allí. Los mock-ups de Figma originales del producto se conservan intactos en 6.4.1 y 6.4.3.
 
-[DEJAR VACÍO – INSERTAR AQUÍ: Landing Page Wireframe Mobile]
+![Wireframe de la Landing Page en escritorio, 1440 px de ancho](assets/chapter-6/landing/landing-wireframe-desktop.png)
+
+*Wireframe de baja fidelidad derivado del layout desplegado. Ancho de captura 1440 px. Contenido reducido a barras grises; los recuadros punteados marcan la posición de las imágenes originales.*
+
+
+![Wireframe de la Landing Page en móvil, 390 px de ancho](assets/chapter-6/landing/landing-wireframe-mobile.png)
+
+*Wireframe de baja fidelidad derivado del layout desplegado. Ancho de captura 390 px. Se mantiene el orden semántico en una columna, los CTA separados y el menú compacto.*
+
 
 ### 6.3.2. Landing Page Mock-up
 
@@ -3317,11 +3351,51 @@ El mock-up manual aplicará fondo/superficies **#080808**, texto **#FFFFFF** y �
 
 La arquitectura de información determinará qué se destaca: beneficios, secuencia de uso y acciones por rol; el color no sustituye a las etiquetas. El contraste calculado se comprobará nuevamente sobre imágenes y overlays reales. Se evitarán capturas inventadas, testimonios inexistentes y sellos de seguridad sin respaldo. Si se añade una fotografía o visual del producto, se identificará su origen y estado, no se presentará una propuesta como pantalla ya desplegada.
 
-El diseño inclusivo exige estructura semántica, textos alternativos, foco visible, lectura con ampliación y acciones operables sin hover. No se incorporan animaciones indispensables para entender cómo reservar, ni audio automático. Los mock-ups son el siguiente artefacto manual: esta explicación no reemplaza ni acredita su elaboración.
+El diseño inclusivo exige estructura semántica, textos alternativos, foco visible, lectura con ampliación y acciones operables sin hover. No se incorporan animaciones indispensables para entender cómo reservar, ni audio automático. El mock-up no es un ejercicio teórico: la Landing Page descrita está construida y desplegada en [https://parklink-tp1-landing.vercel.app](https://parklink-tp1-landing.vercel.app), con sus capturas de escritorio y móvil verificables.
 
-[DEJAR VACÍO – INSERTAR AQUÍ: Landing Page Mock-up Desktop]
+> **Mock-up y evidencia de ejecución reales.** El sitio está desplegado y verificado en [https://parklink-tp1-landing.vercel.app](https://parklink-tp1-landing.vercel.app) (proyecto Vercel `parklink-tp1-landing`, equipo `maximoff19s-projects`). Las capturas provienen de esa URL en producción, no de una maqueta estática. La web es informativa: no registra cuentas, no reserva plazas, no procesa pagos y no ofrece enlaces de tiendas de aplicaciones.
 
-[DEJAR VACÍO – INSERTAR AQUÍ: Landing Page Mock-up Mobile]
+![Mock-up de la Landing Page en escritorio, sección hero](assets/chapter-6/landing/landing-desktop-hero.png)
+
+*Cabecera y hero en escritorio. Dispositivo objetivo de 1440 px de ancho.*
+
+![Mock-up de la cabecera de la Landing Page](assets/chapter-6/landing/landing-desktop-header.png)
+
+*Cabecera con navegación, marca y acceso a los diseños originales.*
+
+![Sección Copilot de la Landing Page](assets/chapter-6/landing/landing-desktop-copilot.png)
+
+*Sección ParkLink Copilot. El pie de imagen advierte que los controles de apertura automática, lector de placas y NFC son propuestas de Figma fuera del alcance vigente.*
+
+![Vista completa de la Landing Page en escritorio](assets/chapter-6/landing/landing-desktop-completo.png)
+
+*Captura completa de la Landing en escritorio (1440 × 7286 px).*
+
+
+![Mock-up de la Landing Page en móvil, sección hero](assets/chapter-6/landing/landing-mobile-hero.png)
+
+*Hero en móvil (390 px). Menú compacto accesible, CTA en columna y mock-up de la app rotado.*
+
+![Vista completa de la Landing Page en móvil](assets/chapter-6/landing/landing-mobile-completo.png)
+
+*Captura completa de la Landing en móvil (390 × 9455 px).*
+
+**Verificaciones realizadas sobre el despliegue.**
+
+| Comprobación | Resultado |
+|---|---|
+| Acceso anónimo sin sesión | HTTP 200 |
+| Cabeceras de seguridad | CSP, `X-Frame-Options: DENY`, `Permissions-Policy` sin cámara/micrófono/ubicación, `Referrer-Policy`, `X-Content-Type-Options` |
+| Filtración de credenciales | `/.env.local`, `/.vercel/project.json` y `/README.md` devuelven 404 |
+| Contraste de texto (WCAG AA) | 9 de 9 muestras cumplen; mínimo 11.72:1, acento 13.23:1 |
+| Tamaño de objetivo táctil | 0 elementos interactivos por debajo de 24 px en 390 px y 1440 px |
+| Desbordamiento horizontal | Ninguno a 390 px ni 1440 px |
+| Jerarquía de encabezados | Un único `h1`, sin saltos de nivel |
+| Teclado | Enlace de salto, acordeón FAQ y diálogo modal; `Escape` cierra y restituye el foco |
+| Errores de consola | 0 |
+
+El código fuente de la Landing se mantiene deliberadamente **fuera de este repositorio**, en un directorio local independiente. A este informe solo se incorporan las capturas y la URL verificable.
+
 
 ## 6.4. Applications UX/UI Design
 
@@ -3364,13 +3438,33 @@ Todos los wireframes mantendrán tokens de Inter/paleta, etiquetas y espacio suf
 
 **Dependencias de alcance.** Medidas, acceso y reseñas de US04/US09 son datos objetivo del contrato, aunque no estén completos en el backend de referencia. El saldo a favor de US15 se ofrece únicamente cuando Payment disponga del contrato financiero correspondiente; no se inventan recargas, transferencias entre usuarios ni una nueva aplicación de monedero. Los comprobantes fiscales de US16 requieren emisión válida antes de descarga. La adaptación ante retraso de US23 conserva consentimiento y no presupone una reasignación atómica ya implementada.
 
-[DEJAR VACÍO – INSERTAR AQUÍ: Web Application Wireframes]
+Wireframes de baja fidelidad exportados de los nodos Figma originales, sin modificar.
 
-[DEJAR VACÍO – INSERTAR AQUÍ: Mobile Application Wireframes]
+![Wireframe web del propietario](assets/chapter-6/figma/wireframe-web-propietario.png)
+
+*Nodo Figma `8:3129`. Panel web del propietario.*
+
+![Wireframe móvil del propietario](assets/chapter-6/figma/wireframe-movil-propietario.png)
+
+*Nodo Figma `8:2854`. Vista móvil del propietario.*
+
+
+![Wireframe móvil de explorar y mapa de estacionamientos](assets/chapter-6/figma/wireframe-explorar-mapa-movil.png)
+
+*Nodo Figma `8:2178`. Vista de exploración y mapa para el conductor.*
+
+![Wireframe de detalle de estacionamiento](assets/chapter-6/figma/wireframe-detalle-estacionamiento.png)
+
+*Nodo Figma `8:2642`. Detalle del estacionamiento.*
+
+![Wireframe de ticket y confirmación de reserva](assets/chapter-6/figma/wireframe-ticket-reserva.png)
+
+*Nodo Figma `8:2454`. Ticket y confirmación de reserva.*
+
 
 ### 6.4.2. Applications Wireflow Diagrams
 
-Se distinguen **Task Flow**, secuencia textual del recorrido exitoso, y **flujograma**, decisiones, errores y resultados posibles. Los trece flujos siguientes cubren las ocho metas originales y sus tareas relevantes, con trazabilidad a historias. Las imágenes renderizadas son diagramas Mermaid; el Wireflow visual que conecta wireframes de pantallas permanece pendiente de elaboración manual. Todas las acciones respetan rol, ownership y confirmación.
+Se distinguen **Task Flow**, secuencia textual del recorrido exitoso, y **flujograma**, decisiones, errores y resultados posibles. Los trece flujos siguientes cubren las ocho metas originales y sus tareas relevantes, con trazabilidad a historias. Las imágenes renderizadas son diagramas Mermaid; el Wireflow visual que conecta capturas reales de pantallas con flechas y callouts se incluye debajo de cada flujograma. Todas las acciones respetan rol, ownership y confirmación.
 
 #### WF-01 — Comprender ParkLink e iniciar adopción
 
@@ -3384,11 +3478,17 @@ Se distinguen **Task Flow**, secuencia textual del recorrido exitoso, y **flujog
 
 ![WF-01 — Adopción](assets/chapter-6/wf-01-adoption.svg)
 
-**Fuente:** [wf-01-adoption.mmd](docs/ux/chapter-6/wf-01-adoption.mmd).
+**Fuente (Task Flow):** [wf-01-adoption.mmd](docs/ux/chapter-6/wf-01-adoption.mmd).
 
 El flujo incluye distribución aún no disponible y fallo al abrir el destino. Su confirmación significa llegada al acceso, no cuenta creada ni operación financiera. La persona puede volver a consultar información sin perder su selección de audiencia.
 
-[DEJAR VACÍO – INSERTAR AQUÍ: Wireflow visual con Wireframes]
+**Wireflow visual — WF-01.** Capturas de los nodos Figma `4:964, 4:2, 4:1018`.
+
+![Wireflow WF-01 — Comprender ParkLink e iniciar adopción](assets/chapter-6/wireflows/wf-01.png)
+
+*Composición de comprender parklink e iniciar adopción. Cada panel es una exportación sin modificar de un nodo Figma; las flechas rotulan la transición y los callouts resumen la condición de cambio de estado.*
+
+
 
 #### WF-02 — Crear cuenta e iniciar sesión en el canal permitido
 
@@ -3402,11 +3502,17 @@ El flujo incluye distribución aún no disponible y fallo al abrir el destino. S
 
 ![WF-02 — Cuenta y acceso](assets/chapter-6/wf-02-account.svg)
 
-**Fuente:** [wf-02-account.mmd](docs/ux/chapter-6/wf-02-account.mmd).
+**Fuente (Task Flow):** [wf-02-account.mmd](docs/ux/chapter-6/wf-02-account.mmd).
 
 Correo duplicado, placa que requiere validación, CCI inválido o credenciales incorrectas se explican con recuperación, sin revelar secretos. Se conservan datos no sensibles, no contraseñas. El conductor no accede al panel de propietario seleccionando otro rol en pantalla. La verificación de correo es requisito objetivo de US17, no prueba de un envío ya integrado.
 
-[DEJAR VACÍO – INSERTAR AQUÍ: Wireflow visual con Wireframes]
+**Wireflow visual — WF-02.** Capturas de los nodos Figma `4:1018, 4:1050, 4:964`.
+
+![Wireflow WF-02 — Crear cuenta e iniciar sesión en el canal permitido](assets/chapter-6/wireflows/wf-02.png)
+
+*Composición de crear cuenta e iniciar sesión en el canal permitido. Cada panel es una exportación sin modificar de un nodo Figma; las flechas rotulan la transición y los callouts resumen la condición de cambio de estado.*
+
+
 
 #### WF-03 — Encontrar y comparar un estacionamiento
 
@@ -3420,11 +3526,17 @@ Correo duplicado, placa que requiere validación, CCI inválido o credenciales i
 
 ![WF-03 — Búsqueda y comparación](assets/chapter-6/wf-03-search.svg)
 
-**Fuente:** [wf-03-search.mmd](docs/ux/chapter-6/wf-03-search.mmd).
+**Fuente (Task Flow):** [wf-03-search.mmd](docs/ux/chapter-6/wf-03-search.mmd).
 
 La negativa de permiso de ubicación no bloquea la tarea. El flujo contempla error de consulta, ampliación de radio y ausencia de coincidencias, conservando criterios. La confirmación de este objetivo es «opción elegida para reservar»; todavía no se afirma que la franja esté asegurada.
 
-[DEJAR VACÍO – INSERTAR AQUÍ: Wireflow visual con Wireframes]
+**Wireflow visual — WF-03.** Capturas de los nodos Figma `4:2, 4:292, 4:562`.
+
+![Wireflow WF-03 — Encontrar y comparar un estacionamiento](assets/chapter-6/wireflows/wf-03.png)
+
+*Composición de encontrar y comparar un estacionamiento. Cada panel es una exportación sin modificar de un nodo Figma; las flechas rotulan la transición y los callouts resumen la condición de cambio de estado.*
+
+
 
 #### WF-04 — Reservar y pagar con confirmación verificable
 
@@ -3438,11 +3550,17 @@ La negativa de permiso de ubicación no bloquea la tarea. El flujo contempla err
 
 ![WF-04 — Reserva y pago](assets/chapter-6/wf-04-booking.svg)
 
-**Fuente:** [wf-04-booking.mmd](docs/ux/chapter-6/wf-04-booking.mmd).
+**Fuente (Task Flow):** [wf-04-booking.mmd](docs/ux/chapter-6/wf-04-booking.mmd).
 
 Ante conflicto se vuelve a alternativas; ante resultado incierto se consulta la misma operación, sin crear otro cobro. El tiempo de retención procede del servidor: máximo inicial de 10 minutos; un rechazo permite la ventana limitada de reintento indicada en 5.4. El cliente no extiende ese vencimiento por actualizar pantalla. Si el pago llega después de expiración, se muestra la compensación correspondiente y no una reserva resucitada. Solo Reservation autoriza la etiqueta «Confirmada».
 
-[DEJAR VACÍO – INSERTAR AQUÍ: Wireflow visual con Wireframes]
+**Wireflow visual — WF-04.** Capturas de los nodos Figma `4:292, 4:562, 4:758`.
+
+![Wireflow WF-04 — Reservar y pagar con confirmación verificable](assets/chapter-6/wireflows/wf-04.png)
+
+*Composición de reservar y pagar con confirmación verificable. Cada panel es una exportación sin modificar de un nodo Figma; las flechas rotulan la transición y los callouts resumen la condición de cambio de estado.*
+
+
 
 #### WF-05 — Cancelar y conocer el estado de la devolución
 
@@ -3456,11 +3574,17 @@ Ante conflicto se vuelve a alternativas; ante resultado incierto se consulta la 
 
 ![WF-05 — Cancelación y devolución](assets/chapter-6/wf-05-cancellation.svg)
 
-**Fuente:** [wf-05-cancellation.mmd](docs/ux/chapter-6/wf-05-cancellation.mmd).
+**Fuente (Task Flow):** [wf-05-cancellation.mmd](docs/ux/chapter-6/wf-05-cancellation.mmd).
 
 La ventana gratuita aplica conforme a la política de al menos una hora de antelación documentada en 5.4; no se inventa el porcentaje de penalidad tardía. US15 fija una solicitud de devolución al medio de origen y su plazo; se comunica si está pendiente o presenta incidencia. Si está habilitada la alternativa de saldo a favor prevista en US15, el usuario elige el medio antes de confirmar y el flujo conserva los mismos estados verificables. El fin puede ser cancelación confirmada con devolución todavía pendiente, no una falsa afirmación de abono.
 
-[DEJAR VACÍO – INSERTAR AQUÍ: Wireflow visual con Wireframes]
+**Wireflow visual — WF-05.** Capturas de los nodos Figma `4:562, 4:2, 4:964`.
+
+![Wireflow WF-05 — Cancelar y conocer el estado de la devolución](assets/chapter-6/wireflows/wf-05.png)
+
+*Composición de cancelar y conocer el estado de la devolución. Cada panel es una exportación sin modificar de un nodo Figma; las flechas rotulan la transición y los callouts resumen la condición de cambio de estado.*
+
+
 
 #### WF-06 — Atender un aviso y extender tiempo
 
@@ -3474,11 +3598,17 @@ La ventana gratuita aplica conforme a la política de al menos una hora de antel
 
 ![WF-06 — Aviso y extensión](assets/chapter-6/wf-06-extension.svg)
 
-**Fuente:** [wf-06-extension.mmd](docs/ux/chapter-6/wf-06-extension.mmd).
+**Fuente (Task Flow):** [wf-06-extension.mmd](docs/ux/chapter-6/wf-06-extension.mmd).
 
 El aviso de US20 se emite a 15 minutos del vencimiento previsto y debe actualizarse tras cambios. Un intervalo ocupado o un pago rechazado conserva la reserva original. Si ocurre conflicto después de autorizar un suplemento, se informa su compensación de acuerdo con 5.4, sin anunciar una extensión aceptada. Si el usuario está conduciendo, no se le induce a utilizar la pantalla en movimiento.
 
-[DEJAR VACÍO – INSERTAR AQUÍ: Wireflow visual con Wireframes]
+**Wireflow visual — WF-06.** Capturas de los nodos Figma `4:758, 4:562, 4:292`.
+
+![Wireflow WF-06 — Atender un aviso y extender tiempo](assets/chapter-6/wireflows/wf-06.png)
+
+*Composición de atender un aviso y extender tiempo. Cada panel es una exportación sin modificar de un nodo Figma; las flechas rotulan la transición y los callouts resumen la condición de cambio de estado.*
+
+
 
 #### WF-07 — Consultar gastos y obtener comprobante
 
@@ -3492,11 +3622,17 @@ El aviso de US20 se emite a 15 minutos del vencimiento previsto y debe actualiza
 
 ![WF-07 — Historial y comprobante](assets/chapter-6/wf-07-history.svg)
 
-**Fuente:** [wf-07-history.mmd](docs/ux/chapter-6/wf-07-history.mmd).
+**Fuente (Task Flow):** [wf-07-history.mmd](docs/ux/chapter-6/wf-07-history.mmd).
 
 El flujo contempla historial vacío, fallo de consulta y documento no emitido. Reintentar una descarga nunca repite el pago. La confirmación significa archivo obtenido, no validez tributaria inventada: un código de recibo del backend de referencia no se presenta como factura fiscal integrada. El correo de US16 complementa la descarga cuando Notification confirma su entrega.
 
-[DEJAR VACÍO – INSERTAR AQUÍ: Wireflow visual con Wireframes]
+**Wireflow visual — WF-07.** Capturas de los nodos Figma `4:964, 4:2, 4:562`.
+
+![Wireflow WF-07 — Consultar gastos y obtener comprobante](assets/chapter-6/wireflows/wf-07.png)
+
+*Composición de consultar gastos y obtener comprobante. Cada panel es una exportación sin modificar de un nodo Figma; las flechas rotulan la transición y los callouts resumen la condición de cambio de estado.*
+
+
 
 #### WF-08 — Buscar y proponer una reserva mediante Copilot
 
@@ -3510,11 +3646,17 @@ El flujo contempla historial vacío, fallo de consulta y documento no emitido. R
 
 ![WF-08 — Copilot con consentimiento](assets/chapter-6/wf-08-copilot.svg)
 
-**Fuente:** [wf-08-copilot.mmd](docs/ux/chapter-6/wf-08-copilot.mmd).
+**Fuente (Task Flow):** [wf-08-copilot.mmd](docs/ux/chapter-6/wf-08-copilot.mmd).
 
 Una intención ambigua o herramienta no permitida no produce efectos. La aprobación se vincula al actor, recurso, intervalo, importe y versión, con TTL máximo de 5 minutos según 5.7. Si cambian condiciones, se genera una propuesta nueva. Ante fallo/latencia de IA se ofrece el flujo visual dentro del objetivo de TS09, pero se indica consultarlo solo al detenerse de forma segura. El asistente no solicita tarjetas ni anuncia éxito por el solo envío al broker.
 
-[DEJAR VACÍO – INSERTAR AQUÍ: Wireflow visual con Wireframes]
+**Wireflow visual — WF-08.** Capturas de los nodos Figma `4:1978, 4:292, 4:562`.
+
+![Wireflow WF-08 — Buscar y proponer una reserva mediante Copilot](assets/chapter-6/wireflows/wf-08.png)
+
+*Composición de buscar y proponer una reserva mediante copilot. Cada panel es una exportación sin modificar de un nodo Figma; las flechas rotulan la transición y los callouts resumen la condición de cambio de estado.*
+
+
 
 #### WF-09 — Evaluar sugerencias y adaptarse a retrasos
 
@@ -3528,11 +3670,17 @@ Una intención ambigua o herramienta no permitida no produce efectos. La aprobac
 
 ![WF-09 — Sugerencia y adaptación](assets/chapter-6/wf-09-proactive.svg)
 
-**Fuente:** [wf-09-proactive.mmd](docs/ux/chapter-6/wf-09-proactive.mmd).
+**Fuente (Task Flow):** [wf-09-proactive.mmd](docs/ux/chapter-6/wf-09-proactive.mmd).
 
 Descartar una sugerencia de US22 silencia la franja correspondiente y no crea reservas. La tolerancia de 15 minutos sin recargo del escenario US23 solo se propone si la política/oferta realmente la admite; no se garantiza universalmente. Si debe cambiarse de espacio, se muestran qué reserva sigue vigente, cancelación/reembolso aplicables y resultado de la nueva operación. No se presupone un contrato de traslado atómico ya implementado; la interfaz no oculta fallas parciales ni cobra sin revisión.
 
-[DEJAR VACÍO – INSERTAR AQUÍ: Wireflow visual con Wireframes]
+**Wireflow visual — WF-09.** Capturas de los nodos Figma `4:1978, 4:2, 4:758`.
+
+![Wireflow WF-09 — Evaluar sugerencias y adaptarse a retrasos](assets/chapter-6/wireflows/wf-09.png)
+
+*Composición de evaluar sugerencias y adaptarse a retrasos. Cada panel es una exportación sin modificar de un nodo Figma; las flechas rotulan la transición y los callouts resumen la condición de cambio de estado.*
+
+
 
 #### WF-10 — Publicar una cochera y hacer visible la oferta
 
@@ -3546,11 +3694,17 @@ Descartar una sugerencia de US22 silencia la franja correspondiente y no crea re
 
 ![WF-10 — Publicación de espacio](assets/chapter-6/wf-10-publication.svg)
 
-**Fuente:** [wf-10-publication.mmd](docs/ux/chapter-6/wf-10-publication.mmd).
+**Fuente (Task Flow):** [wf-10-publication.mmd](docs/ux/chapter-6/wf-10-publication.mmd).
 
 Un archivo no permitido o superior a 5 MB se rechaza conforme a TS05; una URL de subida preparada no prueba que la foto exista. La dirección debe reconocerse sin ubicar ficticiamente el predio. El resultado diferencia «alta aceptada» de «actualización del índice de búsqueda pendiente» por consistencia eventual. La publicación se realiza en móvil, no mediante el panel de monitoreo.
 
-[DEJAR VACÍO – INSERTAR AQUÍ: Wireflow visual con Wireframes]
+**Wireflow visual — WF-10.** Capturas de los nodos Figma `4:1018, 4:1094, 4:1424`.
+
+![Wireflow WF-10 — Publicar una cochera y hacer visible la oferta](assets/chapter-6/wireflows/wf-10.png)
+
+*Composición de publicar una cochera y hacer visible la oferta. Cada panel es una exportación sin modificar de un nodo Figma; las flechas rotulan la transición y los callouts resumen la condición de cambio de estado.*
+
+
 
 #### WF-11 — Controlar horarios, tarifa y disponibilidad
 
@@ -3564,11 +3718,17 @@ Un archivo no permitido o superior a 5 MB se rechaza conforme a TS05; una URL de
 
 ![WF-11 — Configuración de oferta](assets/chapter-6/wf-11-offer.svg)
 
-**Fuente:** [wf-11-offer.mmd](docs/ux/chapter-6/wf-11-offer.mmd).
+**Fuente (Task Flow):** [wf-11-offer.mmd](docs/ux/chapter-6/wf-11-offer.mmd).
 
 Se rechazan horarios solapados o precios inválidos con ayudas próximas al campo. Si otro cambio actualizó la versión, se recarga y revisa antes de sobrescribir. Pausar no cancela reservas pactadas, y una nueva tarifa no recalcula retroactivamente sus importes. La confirmación informa sincronización y versión efectiva; no se promete visibilidad instantánea en todas las réplicas.
 
-[DEJAR VACÍO – INSERTAR AQUÍ: Wireflow visual con Wireframes]
+**Wireflow visual — WF-11.** Capturas de los nodos Figma `4:1094, 4:1763, 4:1424`.
+
+![Wireflow WF-11 — Controlar horarios, tarifa y disponibilidad](assets/chapter-6/wireflows/wf-11.png)
+
+*Composición de controlar horarios, tarifa y disponibilidad. Cada panel es una exportación sin modificar de un nodo Figma; las flechas rotulan la transición y los callouts resumen la condición de cambio de estado.*
+
+
 
 #### WF-12 — Consultar agenda y validar ingreso
 
@@ -3582,11 +3742,17 @@ Se rechazan horarios solapados o precios inválidos con ayudas próximas al camp
 
 ![WF-12 — Agenda y acceso](assets/chapter-6/wf-12-access.svg)
 
-**Fuente:** [wf-12-access.mmd](docs/ux/chapter-6/wf-12-access.mmd).
+**Fuente (Task Flow):** [wf-12-access.mmd](docs/ux/chapter-6/wf-12-access.mmd).
 
 Un código inválido, reserva ajena o estado incompatible no produce ingreso. Ante corte de conexión se consulta la misma acción antes de repetir; «ya registrado» se comunica sin duplicar el efecto. La hora de fin es visible como dato programado; no se incorpora una nueva función de registrar salida o controlar una barrera física que no esté especificada. El panel refleja el estado resultante, sin un botón operativo de validación.
 
-[DEJAR VACÍO – INSERTAR AQUÍ: Wireflow visual con Wireframes]
+**Wireflow visual — WF-12.** Capturas de los nodos Figma `4:1518, 4:1424, 4:1094`.
+
+![Wireflow WF-12 — Consultar agenda y validar ingreso](assets/chapter-6/wireflows/wf-12.png)
+
+*Composición de consultar agenda y validar ingreso. Cada panel es una exportación sin modificar de un nodo Figma; las flechas rotulan la transición y los callouts resumen la condición de cambio de estado.*
+
+
 
 #### WF-13 — Revisar ingresos y exportar respaldo
 
@@ -3600,33 +3766,240 @@ Un código inválido, reserva ajena o estado incompatible no produce ingreso. An
 
 ![WF-13 — Ingresos y reporte](assets/chapter-6/wf-13-income.svg)
 
-**Fuente:** [wf-13-income.mmd](docs/ux/chapter-6/wf-13-income.mmd).
+**Fuente (Task Flow):** [wf-13-income.mmd](docs/ux/chapter-6/wf-13-income.mmd).
 
 Una falla de consulta no se representa con saldo cero ni con ganancias inventadas. El caso «sin movimientos» indica el periodo consultado. Los reportes conservan filtros, distinguen importe devengado de transferencia realmente procesada y solo contienen datos del propietario. La consulta/exportación puede estar en web o móvil; no se añade botón de retiro, transferencia manual, edición de comisión o liquidación no definidos en el backlog.
 
-[DEJAR VACÍO – INSERTAR AQUÍ: Wireflow visual con Wireframes]
+**Wireflow visual — WF-13.** Capturas de los nodos Figma `4:1450, 4:1424, 4:1763`.
+
+![Wireflow WF-13 — Revisar ingresos y exportar respaldo](assets/chapter-6/wireflows/wf-13.png)
+
+*Composición de revisar ingresos y exportar respaldo. Cada panel es una exportación sin modificar de un nodo Figma; las flechas rotulan la transición y los callouts resumen la condición de cambio de estado.*
+
+
 
 Los flujos ofrecen rutas de recuperación sin afirmar que ya fueron evaluados con usuarios. Al elaborar wireframes manuales se deberá comprobar comprensión de estado, coste y siguiente acción; el criterio de éxito será completar el objetivo con información suficiente, no minimizar clics ignorando consentimiento o accesibilidad.
 
 ### 6.4.3. Applications Mock-ups and Visual Evidence
 
-Los mock-ups manuales desarrollarán las vistas identificadas en 6.4.1 con Inter, Bold como énfasis principal y la paleta obligatoria. Deben conservar el contenido y los resultados definidos en los flujogramas: un resumen de pago no puede omitir importe/condiciones por priorizar estética, ni una tarjeta del panel web incorporar comandos que su arquitectura no permite. Las versiones compactas y amplias se comprobarán con texto aumentado y estados de error/vacío antes de producir capturas.
+Se incorporan **diez vistas completas existentes en Figma**: una web del arrendador/propietario, una móvil del propietario, tres vistas móviles comunes de acceso/selección de rol y cinco vistas del conductor/arrendatario. Además, se incluyen tres detalles del mismo panel web para mejorar la lectura. Las imágenes son exportaciones estáticas de los nodos originales; no se redibujaron pantallas, no se modificó el proyecto Figma y no se presentan como capturas de una aplicación ya implementada.
 
-Screenshots y capturas de prototipos deben provenir del artefacto real creado por el equipo, con datos de prueba identificados y sin secretos. No se atribuyen enlaces de Figma, pruebas de usabilidad, publicación en tiendas o interfaces terminadas a este trabajo textual. Los siguientes espacios corresponden exclusivamente a evidencia visual pendiente; todas sus explicaciones y recorridos ya se encuentran desarrollados.
+Las Style Guidelines de 6.1 y los recorridos de 6.4.2 siguen siendo criterios de diseño y alcance. La existencia de estos mock-ups no demuestra por sí sola su cumplimiento, la implementación del backend o la ejecución de los flujos. Los nombres, ubicaciones, importes, placas, porcentajes y resultados financieros que aparecen en las imágenes se conservan como **contenido de ejemplo del diseño**, no como métricas o transacciones verificadas de ParkLink.
 
-[DEJAR VACÍO – INSERTAR AQUÍ: Web Application Mock-ups]
+#### Web Application Mock-ups — arrendador / propietario
 
-[DEJAR VACÍO – INSERTAR AQUÍ: Mobile Application Mock-ups]
+**Panel completo.** La vista organiza resumen de indicadores, mapa, actividad de reservas y listado de espacios en una composición de escritorio.
 
-[DEJAR VACÍO – INSERTAR AQUÍ: Screenshots de interfaces Web Application]
+![Mock-up completo del panel web del propietario exportado de Figma](assets/chapter-6/figma/owner-web-dashboard.png)
 
-[DEJAR VACÍO – INSERTAR AQUÍ: Screenshots de interfaces Mobile Application]
+**Fuente:** [Figma, nodo 4:1424 — VIST web aerrendador](https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=4-1424). La figura acredita el diseño del panel, no el funcionamiento de sus controles ni los ingresos mostrados. Los comandos visibles en la propuesta gráfica requieren alineación con el carácter de monitoreo del panel definido en 4.3.3.
 
-[DEJAR VACÍO – INSERTAR AQUÍ: Capturas de prototipos Web Application]
+**Detalle de indicadores.** Exportación del bloque original para leer con mayor claridad los valores y etiquetas de la propuesta.
 
-[DEJAR VACÍO – INSERTAR AQUÍ: Capturas de prototipos Mobile Application]
+![Detalle de indicadores del mock-up web del propietario](assets/chapter-6/figma/owner-web-kpi-detail.png)
 
-**Trazabilidad de diagramas.** Las fuentes Mermaid y configuración se conservan en `docs/ux/chapter-6/`, y sus imágenes de diagramas en `assets/chapter-6/`. Las [instrucciones de reproducción](docs/ux/chapter-6/RENDERING.md) permiten regenerar Sitemap, búsqueda, navegación y WF-01–WF-13 sin depender de screenshots de interfaces. Los diagramas no sustituyen los artefactos manuales indicados por los marcadores.
+**Fuente:** [Figma, nodo 4:1450 — Top KPI Grid](https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=4-1450), contenido dentro de 4:1424. Las cifras son ejemplos visuales y no evidencia de ocupación, reservas, sensores o ganancias reales.
+
+**Detalle de mapa y actividad.** El bloque reúne una representación espacial y tarjetas de actividad; se conserva el contenido original para revisión del equipo.
+
+![Detalle de mapa y actividad del mock-up web del propietario](assets/chapter-6/figma/owner-web-operations-detail.png)
+
+**Fuente:** [Figma, nodo 4:1518 — Main Operational Grid](https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=4-1518), contenido dentro de 4:1424. La representación de cámaras, sensores y portones es una propuesta gráfica, no una integración operativa acreditada.
+
+**Detalle de espacios.** El listado permite observar la organización de tarjetas y metadatos de la oferta del propietario.
+
+![Detalle del listado de espacios del mock-up web del propietario](assets/chapter-6/figma/owner-web-spaces-detail.png)
+
+**Fuente:** [Figma, nodo 4:1763 — Bottom Management Section](https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=4-1763), contenido dentro de 4:1424. Los controles de publicación, tarifa y disponibilidad visibles no cambian la decisión de realizar operaciones desde la app móvil.
+
+#### Mobile Application Mock-ups — acceso común
+
+**Inicio de sesión.** Composición de acceso con identidad de marca, campos de credenciales y entrada al registro.
+
+<img src="assets/chapter-6/figma/mobile-sign-in.png" alt="Mock-up móvil de inicio de sesión de ParkLink" width="320" />
+
+**Fuente:** [Figma, nodo 4:964 — Loguin](https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=4-964). Referencia visual para US19/WF-02; no prueba autenticación ejecutada ni estados de error implementados.
+
+**Creación de cuenta.** La vista aportada muestra campos de usuario, correo y contraseña con confirmación.
+
+<img src="assets/chapter-6/figma/mobile-registration.png" alt="Mock-up móvil de creación de cuenta de ParkLink" width="320" />
+
+**Fuente:** [Figma, nodo 4:1018 — crear user](https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=4-1018). Referencia para WF-02. Los datos específicos de conductor/propietario de US17/US18 y las ayudas/validaciones deberán comprobarse en los diseños correspondientes; esta imagen no acredita un formulario completo para ambos roles.
+
+**Selección de objetivo / rol.** La pantalla diferencia publicar el estacionamiento propio de conseguir un estacionamiento.
+
+<img src="assets/chapter-6/figma/mobile-role-selection.png" alt="Mock-up móvil de selección entre publicar y conseguir estacionamiento" width="320" />
+
+**Fuente:** [Figma, nodo 4:1050 — crear user, selección de objetivo](https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=4-1050). La clasificación se basa en el contenido visible, ya que el nombre del frame coincide con el del registro. Seleccionar una opción no concede permisos sin validación de Identity.
+
+#### Mobile Application Mock-ups — arrendador / propietario
+
+**Resumen y espacios del anfitrión.** El diseño combina indicadores, tarjetas de espacios y reservas próximas.
+
+<img src="assets/chapter-6/figma/owner-mobile-dashboard.png" alt="Mock-up móvil del propietario con resumen, espacios y reservas próximas" width="320" />
+
+**Fuente:** [Figma, nodo 4:1094 — VITA MOBILE ARRENDAOR](https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=4-1094). Referencia parcial para US09–US13/WF-10–WF-13: presenta accesos a esas tareas, pero no documenta por sí sola los formularios de publicación, validación de código o reportes completos. La apertura de portón IoT visible es un elemento adicional pendiente de definición de alcance.
+
+#### Mobile Application Mock-ups — conductor / arrendatario
+
+**Exploración y mapa.** La vista muestra búsqueda de destino, opciones cercanas, precio, distancia y acceso al detalle/reserva.
+
+<img src="assets/chapter-6/figma/driver-explore.png" alt="Mock-up móvil del conductor para explorar estacionamientos en mapa" width="320" />
+
+**Fuente:** [Figma, nodo 4:2 — Explorar y Mapa de Estacionamientos](https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=4-2). Referencia para US01–US04/WF-03. El mapa de San Francisco, los importes con símbolo dólar y los filtros adicionales se mantienen como contenido del mock-up, no como cambio de cobertura o moneda del producto.
+
+**Detalle del estacionamiento.** El diseño presenta fotografía, información del espacio, selección de duración y desglose de coste antes de la acción principal.
+
+<img src="assets/chapter-6/figma/driver-parking-details.png" alt="Mock-up móvil de detalle de estacionamiento con duración y coste" width="320" />
+
+**Fuente:** [Figma, nodo 4:292 — Detalle de Estacionamiento](https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=4-292). Referencia para US04/US05 y WF-03/WF-04. La duración y el total son datos de ejemplo; condiciones de cancelación, carga EV y demás prestaciones visibles requieren alineación con los contratos y políticas del informe.
+
+**Ticket y confirmación.** La composición muestra el resultado visual de una reserva, su horario, código, ubicación y detalle de pago.
+
+<img src="assets/chapter-6/figma/driver-reservation-ticket.png" alt="Mock-up móvil de ticket y confirmación de reserva de ParkLink" width="320" />
+
+**Fuente:** [Figma, nodo 4:562 — Ticket y Confirmación de Reserva](https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=4-562). Referencia de resultado para US05/US14/WF-04. El estado «Reserva confirmada», el QR, el código y el pago mostrado son parte del diseño; no acreditan una reserva real, un QR operativo, una integración de tótem o Apple Wallet.
+
+**Navegación hacia el espacio.** La vista organiza ruta, estimación de llegada, información de plaza y accesos auxiliares.
+
+<img src="assets/chapter-6/figma/driver-navigation.png" alt="Mock-up móvil de navegación del conductor hacia la plaza reservada" width="320" />
+
+**Fuente:** [Figma, nodo 4:758 — Navegación Activa a la Plaza](https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=4-758). Referencia visual de llegada y contexto de retraso de US20/US23. La ubicación, tolerancia, cámaras y apertura automática no se presentan como servicios implementados ni como garantías de acceso.
+
+**Conversación con el agente.** El mock-up presenta solicitud, recomendación, confirmación del usuario y respuesta del asistente.
+
+<img src="assets/chapter-6/figma/driver-agent-chat.png" alt="Mock-up móvil de conversación y propuesta de reserva con el agente ParkLink" width="320" />
+
+**Fuente:** [Figma, nodo 4:1978 — chat agente parklink](https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=4-1978). Referencia para US21/WF-08. Las respuestas, el bloqueo, la reserva, los datos de batería y la apertura de barrera son contenido estático; no prueban ejecución de herramientas, pago o telemetría. El consentimiento y la autoridad de Reservation descritos en 5.7 siguen siendo obligatorios.
+
+#### Alineación pendiente entre diseños y alcance documentado
+
+Las imágenes se preservan como fueron aportadas. Incorporarlas al informe **no amplía automáticamente los requisitos** ni modifica los diagramas de navegación, la arquitectura o los permisos. Antes de presentar estos mock-ups como versión alineada y validada se deben revisar los siguientes puntos:
+
+| Aspecto observado en Figma | Criterio vigente del informe / revisión pendiente |
+|---|---|
+| «Carlos Silva», nombres de espacios, matrículas, porcentajes e ingresos de ejemplo | Los User Personas siguen siendo Humberto y Jarol; los datos visuales no son investigación ni evidencia operacional. |
+| San Francisco, ubicaciones de Chile/España, importes con símbolo dólar y penalidades ilustradas | La propuesta se contextualiza en Lima, moneda PEN y políticas de US06/US15; no se adopta una regla visual distinta sin aprobación. |
+| Publicación, edición de tarifa/disponibilidad y apertura de portón desde la web | 4.3.3 define monitoreo web. Retirar/reubicar esos comandos o aprobar y documentar una revisión de alcance antes de implementarlos. |
+| EV, batería del vehículo, IoT/LPR/ANPR, CCTV, NFC/Bluetooth, realidad aumentada y apertura automática | Son elementos visibles en los mock-ups; no se agregan como capacidades implementadas ni User Stories nuevas por esta exportación. |
+| Favoritos, sección de vehículos, compartir pase y Apple Wallet | No quedan acreditados por los requisitos actuales como recorridos completos; requieren definición y trazabilidad si se mantienen. |
+| Copia, formularios, estilo y estados | Revisar labels persistentes, datos por rol, paleta, Inter, contraste y estados de espera/error; una captura no sustituye esa validación. |
+
+Los trece flujogramas de 6.4.2 conservan sus explicaciones e incorporan ahora un Wireflow visual cada uno. Los Wireflows usan capturas reales de los nodos Figma originales, conectadas con flechas rotuladas y callouts de transición. Las vistas aportadas cubren **partes** de los recorridos: un Wireflow reused captures cuando varios flujos comparten pantalla, y **no constituye una prueba de navegación interactiva**. La Landing Page tampoco se sustituye por un dashboard del propietario. La Landing Page tampoco se sustituye por un dashboard del propietario.
+
+**Estado de la evidencia de ejecución.** No se han aportado ni verificado capturas de las aplicaciones ejecutándose ni de navegación interactiva, porque no están desplegadas. La única evidencia de ejecución real de este capítulo es la Landing Page de 6.3, verificada en producción. Las aplicaciones se mantienen como diseños de Figma, sin presentarlos como implementación:
+
+> **Lo que sigue no es evidencia de ejecución.** Las aplicaciones web y móvil de ParkLink **no están desplegadas ni en ejecución**. No existe backend conectado, ni registro, ni reservas reales. Lo único desplegado y verificado es la Landing Page informativa de 6.3. Las imágenes de esta subsección son **exportaciones de diseño de Figma**, presentadas como artefactos de diseño y no como pantallas en producción. Esta distinción se mantiene explícita para no presentar una maqueta como un sistema funcionando.
+
+![Diseño del panel web del propietario](assets/chapter-6/figma/owner-web-dashboard.png)
+
+*Nodo Figma `4:1424`. Diseño, no ejecución.*
+
+![Detalle de indicadores del panel web](assets/chapter-6/figma/owner-web-kpi-detail.png)
+
+*Nodo Figma `4:1450`. Bloque de indicadores.*
+
+![Detalle operativo del panel web](assets/chapter-6/figma/owner-web-operations-detail.png)
+
+*Nodo Figma `4:1518`. Bloque operativo con mapa y feed en vivo.*
+
+![Detalle de gestión de espacios del panel web](assets/chapter-6/figma/owner-web-spaces-detail.png)
+
+*Nodo Figma `4:1763`. Gestión de cocheras registradas y controles rápidos.*
+
+
+![Diseño de la pantalla de inicio de sesión](assets/chapter-6/figma/mobile-sign-in.png)
+
+*Nodo Figma `4:964`. Diseño, no ejecución.*
+
+![Diseño del registro de usuario](assets/chapter-6/figma/mobile-registration.png)
+
+*Nodo Figma `4:1018`. Registro.*
+
+![Diseño de la selección de rol](assets/chapter-6/figma/mobile-role-selection.png)
+
+*Nodo Figma `4:1050`. Selección de rol.*
+
+![Diseño de explorar y mapa de estacionamientos](assets/chapter-6/figma/driver-explore.png)
+
+*Nodo Figma `4:2`. Explorar y mapa.*
+
+![Diseño del detalle de estacionamiento](assets/chapter-6/figma/driver-parking-details.png)
+
+*Nodo Figma `4:292`. Detalle de estacionamiento.*
+
+![Diseño del ticket de reserva](assets/chapter-6/figma/driver-reservation-ticket.png)
+
+*Nodo Figma `4:562`. Ticket y confirmación de reserva.*
+
+![Diseño de la navegación activa](assets/chapter-6/figma/driver-navigation.png)
+
+*Nodo Figma `4:758`. Navegación activa hacia la plaza.*
+
+![Diseño de la conversación con el asistente](assets/chapter-6/figma/driver-agent-chat.png)
+
+*Nodo Figma `4:1978`. Conversación con ParkLink Copilot. Muestra controles IoT, LPR y NFC fuera del alcance vigente.*
+
+![Diseño del panel móvil del propietario](assets/chapter-6/figma/owner-mobile-dashboard.png)
+
+*Nodo Figma `4:1094`. Panel móvil del propietario. Las cifras son ilustrativas.*
+
+
+**Recorridos del propietario.** No existe prototipo interactivo navegable en Figma para el panel web; el conector disponible solo permite lectura y exportación. Como evidencia de recorrido se emplean los Wireflows compuestos a partir de capturas reales de las vistas web.
+
+![Wireflow WF-11 — Controlar horarios, tarifa y disponibilidad](assets/chapter-6/wireflows/wf-11.png)
+
+*Recorrido del propietario sobre las vistas web `4:1094`, `4:1763` y `4:1424`.*
+
+![Wireflow WF-12 — Consultar agenda y validar ingreso](assets/chapter-6/wireflows/wf-12.png)
+
+*Recorrido sobre las vistas web `4:1518`, `4:1424` y `4:1094`.*
+
+![Wireflow WF-13 — Revisar ingresos y exportar respaldo](assets/chapter-6/wireflows/wf-13.png)
+
+*Recorrido sobre las vistas web `4:1450`, `4:1424` y `4:1763`.*
+
+![Wireframe web del propietario](assets/chapter-6/figma/wireframe-web-propietario.png)
+
+*Nodo Figma `8:3129`. Wireframe web del propietario.*
+
+
+**Recorridos del conductor.** Mismo criterio: sin prototipo interactivo verificable, se documentan los recorridos con los Wireflows basados en capturas reales y los wireframes de Figma.
+
+![Wireflow WF-03 — Encontrar y comparar un estacionamiento](assets/chapter-6/wireflows/wf-03.png)
+
+*Recorrido del conductor sobre las vistas móviles `4:2`, `4:292` y `4:562`.*
+
+![Wireflow WF-04 — Reservar y pagar con confirmación verificable](assets/chapter-6/wireflows/wf-04.png)
+
+*Recorrido sobre las vistas móviles `4:292`, `4:562` y `4:758`.*
+
+![Wireflow WF-08 — Buscar y proponer una reserva mediante Copilot](assets/chapter-6/wireflows/wf-08.png)
+
+*Recorrido sobre las vistas móviles `4:1978`, `4:292` y `4:562`.*
+
+![Wireflow WF-10 — Publicar una cochera y hacer visible la oferta](assets/chapter-6/wireflows/wf-10.png)
+
+*Recorrido de alta del propietario sobre las vistas `4:1018`, `4:1094` y `4:1424`.*
+
+![Wireframe móvil de explorar y mapa](assets/chapter-6/figma/wireframe-explorar-mapa-movil.png)
+
+*Nodo Figma `8:2178`. Wireframe móvil de exploración y mapa.*
+
+![Wireframe de detalle de estacionamiento](assets/chapter-6/figma/wireframe-detalle-estacionamiento.png)
+
+*Nodo Figma `8:2642`. Wireframe de detalle del estacionamiento.*
+
+![Wireframe de ticket y confirmación](assets/chapter-6/figma/wireframe-ticket-reserva.png)
+
+*Nodo Figma `8:2454`. Wireframe de ticket y confirmación de reserva.*
+
+![Wireframe móvil del propietario](assets/chapter-6/figma/wireframe-movil-propietario.png)
+
+*Nodo Figma `8:2854`. Wireframe móvil del propietario.*
+
+
+**Trazabilidad de diagramas y diseños.** Las fuentes Mermaid y configuración se conservan en `docs/ux/chapter-6/`, y sus imágenes de diagramas en `assets/chapter-6/`. Las [instrucciones de reproducción](docs/ux/chapter-6/RENDERING.md) permiten regenerar Sitemap, búsqueda, navegación y WF-01–WF-13. Las exportaciones originales de Figma se conservan en `assets/chapter-6/figma/`, con [registro de nodos, dimensiones y hashes](docs/ux/chapter-6/figma-assets.json). Cada figura enlaza a su nodo de origen. Las exportaciones de Figma se conservan en `assets/chapter-6/figma/`, los Wireflows compuestos en `assets/chapter-6/wireflows/` y la evidencia de la Landing en `assets/chapter-6/landing/`.
 
 ---
 

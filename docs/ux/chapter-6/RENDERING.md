@@ -1,8 +1,18 @@
 # Reproducción de diagramas del Capítulo VI
 
-Estos artefactos son **diagramas de organización, navegación y proceso**, no
-wireframes, mock-ups, screenshots ni prototipos visuales de interfaces. Los
-artefactos gráficos manuales se mantienen como marcadores en el informe.
+Este documento cubre dos familias distintas de artefactos:
+
+1. **Diagramas Mermaid** (`assets/chapter-6/*.svg`): organización, navegación y
+   proceso lógico. Son grafos de decisiones, no pantallas.
+2. **Wireflows visuales** (`assets/chapter-6/wireflows/wf-01.png` … `wf-13.png`):
+   composiciones que conectan **capturas reales de pantallas** con flechas
+   rotuladas y callouts de transición. No son diagramas Mermaid ni sustituyen a
+   estos.
+
+Las exportaciones de los mock-ups y wireframes originales de Figma se documentan
+por separado en `figma-assets.json`, que ahora incluye 43 registros: 21
+exportaciones directas de Figma, 13 composiciones de Wireflow, 1 specimen del
+sistema de diseño y 8 capturas de la Landing Page desplegada.
 
 ## Fuentes y salidas
 
@@ -52,14 +62,16 @@ Las fuentes Mermaid siguen disponibles para revisión/cambios sin editar el SVG.
 
 - Comprobar los apartados 6.1–6.4 y sus subsecciones en el índice y cuerpo.
 - Comprobar que cada WF tenga Persona, Goal, descripción, Task Flow, flujograma,
-  explicación y el marcador del Wireflow visual manual.
+  explicación y el Wireflow visual que lo acompaña.
 - Revisar presencia de inicio, decisiones, recuperación de errores, confirmación
   y final en cada flujo; los estados pendientes no se presentan como éxito.
 - Mantener el panel web como monitoreo: las operaciones pertenecen a la app móvil.
 - No agregar funcionalidades fuera de US-LP01–US-LP04, US01–US23 y las capacidades
   ya previstas en Capítulos IV/V.
-- Mantener todos los marcadores manuales literalmente como
-  `[DEJAR VACÍO – INSERTAR AQUÍ: nombre del artefacto]`.
+- Mantener los marcadores manuales literalmente como
+  `[DEJAR VACÍO – INSERTAR AQUÍ: nombre del artefacto]` **solo mientras el
+  artefacto no exista**. Los 24 marcadores de la entrega anterior quedaron
+  resueltos; no reintroducirlos.
 - Confirmar que los 19 SVG contienen texto y no errores de sintaxis; verificar
   rutas relativas, flechas, labels y legibilidad al abrirlos.
 - Revisar que Capítulos I–V y conclusiones/bibliografía no cambien por esta entrega.
@@ -78,3 +90,62 @@ Las fuentes Mermaid siguen disponibles para revisión/cambios sin editar el SVG.
   `keywords` se incluye por rúbrica, no influye en ranking de Google.
 - [App Store Connect: información de versión](https://developer.apple.com/help/app-store-connect/reference/app-information/platform-version-information):
   la ficha textual es una propuesta, no evidencia de publicación en tiendas.
+
+## Exportaciones de Figma aportadas por el equipo
+
+Se incorporaron los trece nodos suministrados del archivo
+`V1g8K28w9cpOi5NTJuu468`: tres recursos de marca y diez vistas completas de
+interfaz. Se exportaron también tres bloques internos del panel web para mejorar
+la lectura de sus indicadores, mapa/actividad y listado de espacios. No son tres
+pantallas adicionales ni composiciones creadas fuera del archivo.
+
+Se exportaron **cinco wireframes de baja fidelidad** adicionales del mismo
+archivo (`8:2178` explorar y mapa móvil, `8:3129` web del propietario, `8:2454`
+ticket y confirmación, `8:2854` móvil del propietario, `8:2642` detalle del
+estacionamiento). Los veintiún PNG de Figma se conservaron sin rediseño en
+`assets/chapter-6/figma/`. `figma-assets.json` registra nodo, nombre original,
+categoría, URL de origen, dimensiones del PNG exportado, tamaño en bytes y
+SHA-256. Las dimensiones corresponden a la captura devuelta por Figma, no
+necesariamente al tamaño lógico del frame: el exportador reduce algunas vistas
+largas hasta 1024 píxeles de altura y puede incluir efectos visibles en sus
+límites. Los enlaces a nodos permiten revisar el diseño original con mayor
+detalle.
+
+Estas imágenes acreditan **diseño estático**, no ejecución del software,
+integraciones financieras/IoT ni navegación de un prototipo interactivo. Los
+Wireflows de `assets/chapter-6/wireflows/` son composiciones editoriales deParkTeam
+que reutilizan esas capturas; esa autoría se declara en el pie de cada figura.
+
+## Limitación de escritura en Figma
+
+El conector Figma Desktop MCP disponible en este entorno expone únicamente
+herramientas de lectura y exportación: `get_metadata`, `get_design_context`,
+`get_screenshot`, `get_variable_defs`, `get_motion_context` y `get_figjam`. No
+existe herramienta de escritura (`use_figma`), por lo que **no fue posible crear
+frames nuevos dentro del archivo de Figma**. Los wireframes de la Landing Page
+en 6.3.1 se generaron renderizando la estructura del sitio desplegado y están
+rotulados como tales; no se atribuyen a Figma. Para producir esos frames en
+Figma hace falta habilitar un conector con permisos de escritura sobre el
+archivo `V1g8K28w9cpOi5NTJuu468`.
+
+Para actualizar una imagen, exportar nuevamente el mismo nodo mediante el
+servidor Figma Desktop MCP, mantener el nombre del archivo, revisar el contenido
+y actualizar dimensiones/hash en el registro. No guardar sesiones MCP,
+credenciales o enlaces temporales de descarga en el repositorio.
+
+## Evidencia de la Landing Page
+
+La Landing Page es el único artefacto de este capítulo **desplegado y verificado
+en ejecución**: <https://parklink-tp1-landing.vercel.app> (proyecto Vercel
+`parklink-tp1-landing`, equipo `maximoff19s-projects`).
+
+- Las capturas de `assets/chapter-6/landing/` se tomaron de esa URL en producción.
+- Los wireframes de la misma carpeta son de baja fidelidad y **derivados del
+  layout desplegado**, no nodos de Figma.
+- El código fuente se mantiene deliberadamente fuera de este repositorio. No
+  versionar `.vercel/`, `.env.local` ni el token OIDC que genera `vercel link`.
+
+Regla de captura: las imágenes de la Landing usan `loading="lazy"`, por lo que una
+captura de página completa puede registrar imágenes en blanco. Forzar
+`img.loading = 'eager'`, esperar `img.decode()` y `document.fonts.ready` antes de
+capturar.
