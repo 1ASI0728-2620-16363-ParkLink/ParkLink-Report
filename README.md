@@ -3333,11 +3333,40 @@ La Landing traduce Style Guidelines e Information Architecture en una página de
 
 **Mobile.** Se conserva el mismo orden semántico en una columna, CTA separados y menú compacto accesible. La comparación se adapta sin recortar texto; no se exige desplazamiento lateral de toda la página. La cabecera y cualquier CTA persistente no ocultarán contenido, controles de navegador o zonas seguras. El contenido se puede ampliar con zoom y recorrer mediante lector de pantalla.
 
-> **Origen y trazabilidad.** Estos wireframes se generaron renderizando la estructura real del sitio desplegado en [https://parklink-tp1-landing.vercel.app](https://parklink-tp1-landing.vercel.app) y sustituyendo el contenido por bloques de baja fidelidad. **No son nodos creados en Figma**: el conector MCP de Figma disponible en este entorno solo expone herramientas de lectura y exportación (`get_metadata`, `get_design_context`, `get_screenshot`, `get_variable_defs`, `get_motion_context`), por lo que no fue posible escribir frames nuevos en el archivo. Se declara explícitamente para no atribuir a Figma un artefacto que no existe allí. Los mock-ups de Figma originales del producto se conservan intactos en 6.4.1 y 6.4.3.
+> **Origen y trazabilidad.** El wireframe autoritativo de esta sección es el nodo de Figma `18:3683` («landing wirefrmae»), elaborado por el equipo en el archivo original y organizado en nueve secciones más el pie de página. Se exporta a continuación por secciones porque el servidor MCP reduce a 1024 px de alto cualquier frame mayor, lo que volvería ilegible el frame completo de 7175 px.
 
-![Wireframe de la Landing Page en escritorio, 1440 px de ancho](assets/chapter-6/landing/landing-wireframe-desktop.png)
+**Escritorio — wireframe de Figma, nodo `18:3683` (1280 × 7175,5 px lógicos).**
 
-*Wireframe de baja fidelidad derivado del layout desplegado. Ancho de captura 1440 px. Contenido reducido a barras grises; los recuadros punteados marcan la posición de las imágenes originales.*
+![Wireframe de la Landing Page en escritorio según Figma, dividido en secciones](assets/chapter-6/landing/landing-wireframe-figma-secciones.png)
+
+*Composición de las diez exportaciones sin modificar del nodo `18:3683`. Cada bloque indica su nodo de origen y su función. Estructura, jerarquía y etiquetas corresponden al diseño del archivo; el color, la tipografía y el espaciado definitivos están definidos en 6.3.2.*
+
+Frame completo y exportaciones por sección, sin modificar:
+
+| Sección | Nodo | Exportación |
+|---|---|---|
+| Hero | `18:3686` | ![Sección 1 hero del wireframe](assets/chapter-6/figma/landing-wireframe-figma-01-hero.png) |
+| Recorrido en 3 pasos | `18:3762` | ![Sección 2 recorrido del wireframe](assets/chapter-6/figma/landing-wireframe-figma-02-pasos.png) |
+| Propuesta de valor | `18:3816` | ![Sección 3 propuesta de valor del wireframe](assets/chapter-6/figma/landing-wireframe-figma-03-valor.png) |
+| Copilot | `18:3962` | ![Sección 4 Copilot del wireframe](assets/chapter-6/figma/landing-wireframe-figma-04-copilot.png) |
+| Tabla comparativa | `18:4049` | ![Sección 5 tabla comparativa del wireframe](assets/chapter-6/figma/landing-wireframe-figma-05-tabla.png) |
+| User Personas | `18:4097` | ![Sección 6 user personas del wireframe](assets/chapter-6/figma/landing-wireframe-figma-06-personas.png) |
+| Equipo ParkTeam | `18:4131` | ![Sección 7 equipo del wireframe](assets/chapter-6/figma/landing-wireframe-figma-07-equipo.png) |
+| Preguntas frecuentes | `18:4192` | ![Sección 8 preguntas frecuentes del wireframe](assets/chapter-6/figma/landing-wireframe-figma-08-preguntas.png) |
+| Banner de CTA | `18:4237` | ![Sección 9 CTA del wireframe](assets/chapter-6/figma/landing-wireframe-figma-09-cta.png) |
+| Pie de página | `18:4253` | ![Pie de página del wireframe](assets/chapter-6/figma/landing-wireframe-figma-10-footer.png) |
+
+![Vista completa del wireframe en Figma, sin modificar](assets/chapter-6/figma/landing-wireframe-figma-completo.png)
+
+*Frame `18:3683` completo. El servidor MCP lo entrega en 185 × 1024 px por su altura; se conserva por trazabilidad, no por legibilidad. Use las exportaciones por sección para revisar el detalle.*
+
+> **Alcance del viewport.** El archivo no contiene un frame móvil equivalente a `18:3683`: la búsqueda de frames con nombre de wireframe de landing en todo el documento devuelve únicamente el nodo de escritorio. La adaptación móvil descrita arriba se verificó sobre el layout desplegado, por lo que su evidencia es una representación del sitio en producción y no una exportación de Figma. Se declara la diferencia en lugar de atribuir a Figma un frame móvil que no existe.
+
+**Móvil — verificación del layout desplegado en 390 px.**
+
+![Wireframe móvil de la Landing Page derivado del layout desplegado](assets/chapter-6/landing/landing-wireframe-mobile.png)
+
+*Representación de baja fidelidad del layout en móvil, obtenida del sitio desplegado en [https://parklink-tp1-landing.vercel.app](https://parklink-tp1-landing.vercel.app). No es un nodo de Figma. Sirve para evidenciar el orden semántico en una columna, los CTA separados y el menú compacto.*
 
 
 ![Wireframe de la Landing Page en móvil, 390 px de ancho](assets/chapter-6/landing/landing-wireframe-mobile.png)

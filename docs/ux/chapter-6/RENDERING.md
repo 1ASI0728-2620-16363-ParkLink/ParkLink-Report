@@ -116,17 +116,42 @@ integraciones financieras/IoT ni navegación de un prototipo interactivo. Los
 Wireflows de `assets/chapter-6/wireflows/` son composiciones editoriales deParkTeam
 que reutilizan esas capturas; esa autoría se declara en el pie de cada figura.
 
+## Wireframe de la Landing Page en Figma
+
+El wireframe autoritativo de 6.3.1 es el nodo `18:3683` («landing wirefrmae»),
+elaborado por el equipo en el archivo original. Tamaño lógico 1280 × 7175,5 px,
+**solo escritorio**: no existe un frame móvil equivalente en el documento.
+
+```sh
+# Frame completo, para trazabilidad (el MCP lo entrega en 185x1024 por su altura)
+# Nodos por sección, legible:
+18:3686 hero            18:3762 pasos           18:3816 propuesta de valor
+18:3962 copilot         18:4049 tabla           18:4097 personas
+18:4131 equipo          18:4192 preguntas       18:4237 CTA        18:4253 pie
+```
+
+Todas las exportaciones están en `assets/chapter-6/figma/` con prefijo
+`landing-wireframe-figma-`. La composición por secciones que usa el informe es
+`assets/chapter-6/landing/landing-wireframe-figma-secciones.png`.
+
+**Regla de exportación.** `get_screenshot` no acepta parámetros de escala y reduce
+los frames de más de 1024 px de alto. Un frame de 7175 px llega en 185 × 1024:
+inservible. Para legibilidad, exportar **cada sección por separado**; el frame
+completo se conserva solo como registro de trazabilidad.
+
+La evidencia móvil de 6.3.1 no proviene de Figma: es una representación de baja
+fidelidad del layout desplegado, rotulada como tal en el informe.
+
 ## Limitación de escritura en Figma
 
 El conector Figma Desktop MCP disponible en este entorno expone únicamente
 herramientas de lectura y exportación: `get_metadata`, `get_design_context`,
 `get_screenshot`, `get_variable_defs`, `get_motion_context` y `get_figjam`. No
-existe herramienta de escritura (`use_figma`), por lo que **no fue posible crear
-frames nuevos dentro del archivo de Figma**. Los wireframes de la Landing Page
-en 6.3.1 se generaron renderizando la estructura del sitio desplegado y están
-rotulados como tales; no se atribuyen a Figma. Para producir esos frames en
-Figma hace falta habilitar un conector con permisos de escritura sobre el
-archivo `V1g8K28w9cpOi5NTJuu468`.
+existe herramienta de escritura (`use_figma`), por lo que **no se pueden crear
+frames nuevos ni modificar el archivo**. Esto no afecta a los artefactos
+entregados: todo lo incorporado ya existía en el archivo o se compuso de
+exportaciones. Para añadir un frame móvil del wireframe hace falta habilitar un
+conector con permisos de escritura sobre `V1g8K28w9cpOi5NTJuu468`.
 
 Para actualizar una imagen, exportar nuevamente el mismo nodo mediante el
 servidor Figma Desktop MCP, mantener el nombre del archivo, revisar el contenido

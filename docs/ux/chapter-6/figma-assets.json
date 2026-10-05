@@ -465,18 +465,6 @@
     },
     {
       "node_id": "deployed-landing",
-      "figma_name": "Landing Page wireframe · landing-wireframe-desktop",
-      "category": "landing-wireframe",
-      "path": "assets/chapter-6/landing/landing-wireframe-desktop.png",
-      "source_url": "https://parklink-tp1-landing.vercel.app",
-      "width_px": 1440,
-      "height_px": 4612,
-      "sha256": "1dcd41275f45ace51b0f6251137df0728f43d8ffc519dbc331e4b79d1c1ce6ad",
-      "bytes": 74605,
-      "method": "Low-fidelity wireframe rendered from the deployed layout; NOT a Figma node (MCP connector is read-only)."
-    },
-    {
-      "node_id": "deployed-landing",
       "figma_name": "Landing Page wireframe · landing-wireframe-mobile",
       "category": "landing-wireframe",
       "path": "assets/chapter-6/landing/landing-wireframe-mobile.png",
@@ -486,9 +474,141 @@
       "sha256": "8645511b1db291a3e5a44e081ba94d1a927fa4b3c46e9232ee432b3d67119375",
       "bytes": 50856,
       "method": "Low-fidelity wireframe rendered from the deployed layout; NOT a Figma node (MCP connector is read-only)."
+    },
+    {
+      "node_id": "18:3683",
+      "figma_name": "landing wirefrmae",
+      "category": "landing-wireframe",
+      "path": "assets/chapter-6/figma/landing-wireframe-figma-completo.png",
+      "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=18-3683&m=dev",
+      "width_px": 185,
+      "height_px": 1024,
+      "sha256": "61af9638c41b2cfac1959149b5152e6156e3166c31b8ae0a1895c8af42d76abb",
+      "bytes": 44485,
+      "method": "Figma Desktop MCP get_screenshot; unchanged design render."
+    },
+    {
+      "node_id": "18:3686",
+      "figma_name": "Section - SECCIÓN 1: HERO",
+      "category": "landing-wireframe",
+      "path": "assets/chapter-6/figma/landing-wireframe-figma-01-hero.png",
+      "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=18-3686&m=dev",
+      "width_px": 1024,
+      "height_px": 509,
+      "sha256": "f041b97794386e21cc39888b105d18fd68dde3002c6929611ab9f230592b4c6b",
+      "bytes": 57491,
+      "method": "Figma Desktop MCP get_screenshot; unchanged design render."
+    },
+    {
+      "node_id": "18:3762",
+      "figma_name": "Section - SECCIÓN 2: 3-STEP FLOW",
+      "category": "landing-wireframe",
+      "path": "assets/chapter-6/figma/landing-wireframe-figma-02-pasos.png",
+      "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=18-3762&m=dev",
+      "width_px": 1024,
+      "height_px": 551,
+      "sha256": "ab2073704569a390104f41a88260caf84a39e4aa9a013dd0cd71bd1cbffc79f9",
+      "bytes": 39126,
+      "method": "Figma Desktop MCP get_screenshot; unchanged design render."
+    },
+    {
+      "node_id": "18:3816",
+      "figma_name": "Section - SECCIÓN 3: VALUE PROPOSITION",
+      "category": "landing-wireframe",
+      "path": "assets/chapter-6/figma/landing-wireframe-figma-03-valor.png",
+      "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=18-3816&m=dev",
+      "width_px": 1024,
+      "height_px": 1023,
+      "sha256": "00a463534da84797490697dccc64fdb8d874426f34598d00ccacb45e9f01bf44",
+      "bytes": 98054,
+      "method": "Figma Desktop MCP get_screenshot; unchanged design render."
+    },
+    {
+      "node_id": "18:3962",
+      "figma_name": "Section - SECCIÓN 4: COPILOT",
+      "category": "landing-wireframe",
+      "path": "assets/chapter-6/figma/landing-wireframe-figma-04-copilot.png",
+      "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=18-3962&m=dev",
+      "width_px": 1024,
+      "height_px": 766,
+      "sha256": "b447e9f1237dd5102d9a1ce1379bd0ee905b308733964a1bedd505eea02e43c2",
+      "bytes": 85167,
+      "method": "Figma Desktop MCP get_screenshot; unchanged design render."
+    },
+    {
+      "node_id": "18:4049",
+      "figma_name": "Section - SECCIÓN 5: TABLA COMPARATIVA",
+      "category": "landing-wireframe",
+      "path": "assets/chapter-6/figma/landing-wireframe-figma-05-tabla.png",
+      "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=18-4049&m=dev",
+      "width_px": 1024,
+      "height_px": 508,
+      "sha256": "2c7001e4015c320c1505c00d951f6817ef4c22fba05405a18ee6f1a0cef124f2",
+      "bytes": 36381,
+      "method": "Figma Desktop MCP get_screenshot; unchanged design render."
+    },
+    {
+      "node_id": "18:4097",
+      "figma_name": "Section - SECCIÓN 6: USER PERSONAS",
+      "category": "landing-wireframe",
+      "path": "assets/chapter-6/figma/landing-wireframe-figma-06-personas.png",
+      "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=18-4097&m=dev",
+      "width_px": 1024,
+      "height_px": 477,
+      "sha256": "c9c64f7b88827717e99acf0cc91fa267bba9f23ffe05fcddc4e88aebc92a49f8",
+      "bytes": 37748,
+      "method": "Figma Desktop MCP get_screenshot; unchanged design render."
+    },
+    {
+      "node_id": "18:4131",
+      "figma_name": "Section - SECCIÓN 7: EQUIPO PARKTEAM",
+      "category": "landing-wireframe",
+      "path": "assets/chapter-6/figma/landing-wireframe-figma-07-equipo.png",
+      "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=18-4131&m=dev",
+      "width_px": 1024,
+      "height_px": 543,
+      "sha256": "a8f2365710cf5a05724d332eecbb8dfcd767bc5030f40469ed08fea81cd690aa",
+      "bytes": 35720,
+      "method": "Figma Desktop MCP get_screenshot; unchanged design render."
+    },
+    {
+      "node_id": "18:4192",
+      "figma_name": "Section - SECCIÓN 8: PREGUNTAS FRECUENTES",
+      "category": "landing-wireframe",
+      "path": "assets/chapter-6/figma/landing-wireframe-figma-08-preguntas.png",
+      "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=18-4192&m=dev",
+      "width_px": 1024,
+      "height_px": 669,
+      "sha256": "abc21304686d941f09499796d57891c5e0c1948e4bcfe1c4efd206f6f8e1aa3a",
+      "bytes": 32886,
+      "method": "Figma Desktop MCP get_screenshot; unchanged design render."
+    },
+    {
+      "node_id": "18:4237",
+      "figma_name": "Section - SECCIÓN 9: CALL TO ACTION BANNER",
+      "category": "landing-wireframe",
+      "path": "assets/chapter-6/figma/landing-wireframe-figma-09-cta.png",
+      "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=18-4237&m=dev",
+      "width_px": 1024,
+      "height_px": 333,
+      "sha256": "1bd1ba69f49ea4615ea205e703c5d86caf3c5c7818f9f92c3de9f6d37a22dca6",
+      "bytes": 25557,
+      "method": "Figma Desktop MCP get_screenshot; unchanged design render."
+    },
+    {
+      "node_id": "18:4253",
+      "figma_name": "Footer",
+      "category": "landing-wireframe",
+      "path": "assets/chapter-6/figma/landing-wireframe-figma-10-footer.png",
+      "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=18-4253&m=dev",
+      "width_px": 1024,
+      "height_px": 282,
+      "sha256": "31cc44972152f89944b40e064ac0c9c6753b0f3f10d2c7d88de75643160659f2",
+      "bytes": 16916,
+      "method": "Figma Desktop MCP get_screenshot; unchanged design render."
     }
   ],
-  "exported_at_utc": "2026-10-05T19:24:32.240351+00:00",
+  "exported_at_utc": "2026-10-05T20:15:37.656194+00:00",
   "deployment": {
     "url": "https://parklink-tp1-landing.vercel.app",
     "provider": "Vercel",
@@ -498,5 +618,13 @@
     "verified": "anonymous HTTP 200, security headers applied, no credential exposure, 0 console errors",
     "note": "Informational static site. No accounts, no reservations, no payments, no app-store links. Source kept outside this repository."
   },
-  "figma_write_access": "The available Figma Desktop MCP connector exposes read/export tools only (get_metadata, get_design_context, get_screenshot, get_variable_defs, get_motion_context, get_figjam). No write tool was available, so the Landing wireframes were rendered from the deployed layout and are explicitly NOT attributed to Figma."
+  "figma_write_access": "The available Figma Desktop MCP connector exposes read/export tools only (get_metadata, get_design_context, get_screenshot, get_variable_defs, get_motion_context, get_figjam). No write tool was available, so the Landing wireframes were rendered from the deployed layout and are explicitly NOT attributed to Figma.",
+  "landing_wireframe_source": {
+    "node_id": "18:3683",
+    "figma_name": "landing wirefrmae",
+    "logical_size_px": "1280 x 7175.5",
+    "viewports": "desktop only",
+    "sections": 10,
+    "note": "Authoritative Landing Page wireframe, authored in Figma by the team. Supersedes the low-fidelity wireframes rendered from the deployed layout. The Figma frame covers desktop only; no mobile wireframe frame exists in the file. get_screenshot downscales frames taller than 1024px, so each section was exported separately to stay legible."
+  }
 }
