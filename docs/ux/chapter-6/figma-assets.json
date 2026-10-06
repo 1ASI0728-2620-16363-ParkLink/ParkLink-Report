@@ -420,8 +420,8 @@
       "source_url": "https://parklink-tp1-landing.vercel.app",
       "width_px": 1440,
       "height_px": 6951,
-      "sha256": "42bf58ab54a821e5d12720989d1c3a0e503267ca76844e75a194cc81b874d1fd",
-      "bytes": 1033438,
+      "sha256": "a13b2c38bac0299c773a66b1bf3de1945116618428595d874b685dc27e268488",
+      "bytes": 1033714,
       "method": "Screenshot captured from the live production deployment."
     },
     {
@@ -432,8 +432,8 @@
       "source_url": "https://parklink-tp1-landing.vercel.app",
       "width_px": 1180,
       "height_px": 764,
-      "sha256": "fe1931e241f0284740ff5e884d10999ab3db135bf77e3cba12747db3c0361b4f",
-      "bytes": 59412,
+      "sha256": "d8435854145f425b723bc10d785d35f1db0a72346b81c1cab3b7d6c409ec1380",
+      "bytes": 111990,
       "method": "Screenshot captured from the live production deployment."
     },
     {
@@ -456,8 +456,8 @@
       "source_url": "https://parklink-tp1-landing.vercel.app",
       "width_px": 1440,
       "height_px": 900,
-      "sha256": "9d9900711fb4e485c5cadd5405c783c47d96900c7f6c230071404d4b2f987c53",
-      "bytes": 189651,
+      "sha256": "97a6ec69b26ad1c222878759ccdbb4192a2fb1e79fbce393329b0939176cd6df",
+      "bytes": 191530,
       "method": "Screenshot captured from the live production deployment."
     },
     {
@@ -468,8 +468,8 @@
       "source_url": "https://parklink-tp1-landing.vercel.app",
       "width_px": 390,
       "height_px": 9173,
-      "sha256": "ef9608efa13665992bb5676f06ab3751dd26c732c96c7d61a17111c4edfae6fe",
-      "bytes": 745429,
+      "sha256": "d9f82928870863378b706cb18aee69e20a7d30de654becf4c862dfd80e6c577f",
+      "bytes": 750991,
       "method": "Screenshot captured from the live production deployment."
     },
     {
@@ -480,8 +480,8 @@
       "source_url": "https://parklink-tp1-landing.vercel.app",
       "width_px": 390,
       "height_px": 844,
-      "sha256": "1ae3c8f1ff2a245fee5ab4c5a05b5019f465bcb596425497a299370d97c77fcc",
-      "bytes": 94201,
+      "sha256": "f3f09281e52846db89517e45c9cc7825a5457dcb47983ece27f80f89ae3bf293",
+      "bytes": 94740,
       "method": "Screenshot captured from the live production deployment."
     },
     {
@@ -639,7 +639,7 @@
     "verified": "anonymous HTTP 200, security headers applied, no credential exposure, 0 console errors (2 benign Chrome preload hints for the self-hosted font)",
     "note": "Informational site. No accounts, no reservations, no payments, no app-store links. Source kept outside this repository.",
     "stack": "React 19 + TypeScript + Vite (migrated from hand-written HTML/CSS/JS; visual output preserved)",
-    "rebuilt_utc": "2026-10-06T04:16:23.630Z"
+    "rebuilt_utc": "2026-10-06T04:23:46.808Z"
   },
   "figma_write_access": "The available Figma Desktop MCP connector exposes read/export tools only (get_metadata, get_design_context, get_screenshot, get_variable_defs, get_motion_context, get_figjam). No write tool was available, so the Landing wireframes were rendered from the deployed layout and are explicitly NOT attributed to Figma.",
   "landing_wireframe_source": {
@@ -654,7 +654,7 @@
   },
   "landing_note": {
     "figma_cta_removed": true,
-    "phone_frame": "iPhone geometry authored as plain SVG (viewBox 433x882, screen 21.25/19.25, 389.5x843.5, radius 55.75), rendered by the React PhoneFrame component, dark variant, dynamic island punched via mask",
+    "phone_frame": "iPhone mockup frame from the Magic UI registry:ui component `iphone` (https://magicui.design/r/iphone.json), vendored as src/components/Iphone.tsx. Geometry verbatim (viewBox 433x882, screen 21.25/19.25, 389.5x843.5, radius 55.75), dark palette, dynamic island punched via mask. Three adaptations were forced by project constraints: Tailwind utility classes replaced by semantic CSS classes, the component inline styles moved to global.css because the site CSP is style-src self, and a real alt prop added because upstream hardcodes alt=\"\". The mask id is scoped per instance so four frames on one page do not emit a duplicate id.",
     "reason": "Public landing must not expose links to internal design tooling. Scope disclaimers remain in the figure captions.",
     "scope_disclosures": "Scope disclaimers live in the steps scope note, the research scope note and the FAQ. Only the hero figure carries a caption: the shipped page never rendered captions under the audience or Copilot mockups, so none are claimed.",
     "evidence_recapture": "All six landing screenshots were re-captured from the live deployment after the React migration. The previous files contained Figma presentation chrome (comment bar and presenter controls) despite being labelled as production captures; they were replaced with clean production captures."
