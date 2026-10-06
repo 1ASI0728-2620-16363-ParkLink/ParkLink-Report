@@ -2,3 +2,6 @@
 .playwright-mcp/
 .atl/
 .DS_Store
+
+# Generated report PDF. Rebuild instead of committing a binary.
+ParkLink-Informe-TP1.pdf
