@@ -3400,24 +3400,24 @@ El diseño inclusivo exige estructura semántica, textos alternativos, foco visi
 
 ![Mock-up de la cabecera de la Landing Page](assets/chapter-6/landing/landing-desktop-header.png)
 
-*Cabecera con navegación, marca y acceso a los diseños originales.*
+*Cabecera con marca y navegación. No incluye accesos a herramientas de diseño: la Landing pública no expone Figma.*
 
 ![Sección Copilot de la Landing Page](assets/chapter-6/landing/landing-desktop-copilot.png)
 
-*Sección ParkLink Copilot. El pie de imagen advierte que los controles de apertura automática, lector de placas y NFC son propuestas de Figma fuera del alcance vigente.*
+*Sección ParkLink Copilot. Los controles de apertura automática, lector de placas y NFC visibles en el diseño original son propuestas de Figma fuera del alcance vigente; esa advertencia se expone en el FAQ y en la nota de alcance, no en un pie de imagen.*
 
 ![Vista completa de la Landing Page en escritorio](assets/chapter-6/landing/landing-desktop-completo.png)
 
-*Captura completa de la Landing en escritorio (1440 × 7286 px).*
+*Captura completa de la Landing en escritorio (1440 × 6951 px).*
 
 
 ![Mock-up de la Landing Page en móvil, sección hero](assets/chapter-6/landing/landing-mobile-hero.png)
 
-*Hero en móvil (390 px). Menú compacto accesible, CTA en columna y mock-up de la app rotado.*
+*Hero en móvil (390 px). Menú compacto accesible, CTA en columna y vista de la app dentro del marco de teléfono.*
 
 ![Vista completa de la Landing Page en móvil](assets/chapter-6/landing/landing-mobile-completo.png)
 
-*Captura completa de la Landing en móvil (390 × 9455 px).*
+*Captura completa de la Landing en móvil (390 × 9173 px).*
 
 **Verificaciones realizadas sobre el despliegue.**
 

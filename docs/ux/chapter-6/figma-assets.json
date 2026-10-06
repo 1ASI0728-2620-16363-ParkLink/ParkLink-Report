@@ -420,8 +420,8 @@
       "source_url": "https://parklink-tp1-landing.vercel.app",
       "width_px": 1440,
       "height_px": 6951,
-      "sha256": "6907d48e151d1f99e2b3bf644ec607e571a3e52006611c1c03c3b8e99d434da0",
-      "bytes": 1023667,
+      "sha256": "42bf58ab54a821e5d12720989d1c3a0e503267ca76844e75a194cc81b874d1fd",
+      "bytes": 1033438,
       "method": "Screenshot captured from the live production deployment."
     },
     {
@@ -432,8 +432,8 @@
       "source_url": "https://parklink-tp1-landing.vercel.app",
       "width_px": 1180,
       "height_px": 764,
-      "sha256": "9b12890106c9ea6d7100b622e82eaf4b402dbe97738977e8c4f1a4689fe72640",
-      "bytes": 109987,
+      "sha256": "fe1931e241f0284740ff5e884d10999ab3db135bf77e3cba12747db3c0361b4f",
+      "bytes": 59412,
       "method": "Screenshot captured from the live production deployment."
     },
     {
@@ -444,8 +444,8 @@
       "source_url": "https://parklink-tp1-landing.vercel.app",
       "width_px": 1440,
       "height_px": 77,
-      "sha256": "5efebd5c08781d812994538ae381d04fc2ec384788dd39ecb01f4eae911f4a6a",
-      "bytes": 8618,
+      "sha256": "c81524e10cdffe3403ba195eb398710a7800d7fb84cd0569dff2fa3985cc528a",
+      "bytes": 8690,
       "method": "Screenshot captured from the live production deployment."
     },
     {
@@ -454,10 +454,10 @@
       "category": "landing-mock-up",
       "path": "assets/chapter-6/landing/landing-desktop-hero.png",
       "source_url": "https://parklink-tp1-landing.vercel.app",
-      "width_px": 1180,
-      "height_px": 680,
-      "sha256": "7d9594c4634d968ab53d1e46f07b38e3f2bcd664257e851e55ffae93ee60acaa",
-      "bytes": 170269,
+      "width_px": 1440,
+      "height_px": 900,
+      "sha256": "9d9900711fb4e485c5cadd5405c783c47d96900c7f6c230071404d4b2f987c53",
+      "bytes": 189651,
       "method": "Screenshot captured from the live production deployment."
     },
     {
@@ -468,8 +468,8 @@
       "source_url": "https://parklink-tp1-landing.vercel.app",
       "width_px": 390,
       "height_px": 9173,
-      "sha256": "7b52bf467351ba32c2643327638ef51fa4efb8efb83b443b24bccfad921ce863",
-      "bytes": 745611,
+      "sha256": "ef9608efa13665992bb5676f06ab3751dd26c732c96c7d61a17111c4edfae6fe",
+      "bytes": 745429,
       "method": "Screenshot captured from the live production deployment."
     },
     {
@@ -478,10 +478,10 @@
       "category": "landing-mock-up",
       "path": "assets/chapter-6/landing/landing-mobile-hero.png",
       "source_url": "https://parklink-tp1-landing.vercel.app",
-      "width_px": 350,
-      "height_px": 1008,
-      "sha256": "7d868526b03e6cbaac757cc8ecb709c8816f7081416d37679a72230a0ce1b213",
-      "bytes": 112264,
+      "width_px": 390,
+      "height_px": 844,
+      "sha256": "1ae3c8f1ff2a245fee5ab4c5a05b5019f465bcb596425497a299370d97c77fcc",
+      "bytes": 94201,
       "method": "Screenshot captured from the live production deployment."
     },
     {
@@ -636,8 +636,10 @@
     "project": "parklink-tp1-landing",
     "team": "maximoff19s-projects",
     "project_id": "prj_m9VLSvHDl8AgPr9Ut6LZo8n44t8N",
-    "verified": "anonymous HTTP 200, security headers applied, no credential exposure, 0 console errors",
-    "note": "Informational static site. No accounts, no reservations, no payments, no app-store links. Source kept outside this repository."
+    "verified": "anonymous HTTP 200, security headers applied, no credential exposure, 0 console errors (2 benign Chrome preload hints for the self-hosted font)",
+    "note": "Informational site. No accounts, no reservations, no payments, no app-store links. Source kept outside this repository.",
+    "stack": "React 19 + TypeScript + Vite (migrated from hand-written HTML/CSS/JS; visual output preserved)",
+    "rebuilt_utc": "2026-10-06T04:16:23.630Z"
   },
   "figma_write_access": "The available Figma Desktop MCP connector exposes read/export tools only (get_metadata, get_design_context, get_screenshot, get_variable_defs, get_motion_context, get_figjam). No write tool was available, so the Landing wireframes were rendered from the deployed layout and are explicitly NOT attributed to Figma.",
   "landing_wireframe_source": {
@@ -652,7 +654,9 @@
   },
   "landing_note": {
     "figma_cta_removed": true,
-    "phone_frame": "magicui/iphone geometry ported to vanilla SVG (viewBox 433x882, screen 21.25/19.25, 389.5x843.5, radius 55.75), dark variant, dynamic island punched via mask",
-    "reason": "Public landing must not expose links to internal design tooling. Scope disclaimers remain in the figure captions."
+    "phone_frame": "iPhone geometry authored as plain SVG (viewBox 433x882, screen 21.25/19.25, 389.5x843.5, radius 55.75), rendered by the React PhoneFrame component, dark variant, dynamic island punched via mask",
+    "reason": "Public landing must not expose links to internal design tooling. Scope disclaimers remain in the figure captions.",
+    "scope_disclosures": "Scope disclaimers live in the steps scope note, the research scope note and the FAQ. Only the hero figure carries a caption: the shipped page never rendered captions under the audience or Copilot mockups, so none are claimed.",
+    "evidence_recapture": "All six landing screenshots were re-captured from the live deployment after the React migration. The previous files contained Figma presentation chrome (comment bar and presenter controls) despite being labelled as production captures; they were replaced with clean production captures."
   }
 }

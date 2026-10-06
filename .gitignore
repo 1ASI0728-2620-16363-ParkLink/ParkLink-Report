@@ -1,0 +1,4 @@
+# Local tool artifacts. Never part of the academic report.
+.playwright-mcp/
+.atl/
+.DS_Store
