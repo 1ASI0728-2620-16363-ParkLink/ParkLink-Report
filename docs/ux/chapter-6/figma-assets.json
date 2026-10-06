@@ -18,7 +18,8 @@
       "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=1-48",
       "width_px": 716,
       "height_px": 345,
-      "sha256": "8352d72dfc83c4d0f60538eb3154fa4e922bf837d1afba6d29c46c843ef87dbc"
+      "sha256": "8352d72dfc83c4d0f60538eb3154fa4e922bf837d1afba6d29c46c843ef87dbc",
+      "bytes": 8272
     },
     {
       "node_id": "1:4",
@@ -28,7 +29,8 @@
       "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=1-4",
       "width_px": 342,
       "height_px": 345,
-      "sha256": "a9d8b6e3eb9926d442fe2d76b302a7d0a6c7b632dbe4c6c230e6f967330fe1f2"
+      "sha256": "a9d8b6e3eb9926d442fe2d76b302a7d0a6c7b632dbe4c6c230e6f967330fe1f2",
+      "bytes": 5066
     },
     {
       "node_id": "1:3",
@@ -38,7 +40,8 @@
       "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=1-3",
       "width_px": 342,
       "height_px": 345,
-      "sha256": "6ac3b4204ff1888832cee77fb3b6b38464a37bf5de4c45821675b47454627b21"
+      "sha256": "6ac3b4204ff1888832cee77fb3b6b38464a37bf5de4c45821675b47454627b21",
+      "bytes": 8315
     },
     {
       "node_id": "4:964",
@@ -48,7 +51,8 @@
       "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=4-964",
       "width_px": 390,
       "height_px": 869,
-      "sha256": "31337f76d80fa09042b56508902ef8d63d64a90d4a9285e7897e53b498975974"
+      "sha256": "31337f76d80fa09042b56508902ef8d63d64a90d4a9285e7897e53b498975974",
+      "bytes": 196585
     },
     {
       "node_id": "4:1018",
@@ -58,7 +62,8 @@
       "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=4-1018",
       "width_px": 390,
       "height_px": 869,
-      "sha256": "9d9ad4547e4aab0b0afc215d12686ced9431a5adcad7855fd86984d503717a45"
+      "sha256": "9d9ad4547e4aab0b0afc215d12686ced9431a5adcad7855fd86984d503717a45",
+      "bytes": 129238
     },
     {
       "node_id": "4:1050",
@@ -68,7 +73,8 @@
       "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=4-1050",
       "width_px": 390,
       "height_px": 869,
-      "sha256": "83cc4e5207d5b02bbc0f1f606bd9900473213aea4af0e73319d76d212d96e965"
+      "sha256": "83cc4e5207d5b02bbc0f1f606bd9900473213aea4af0e73319d76d212d96e965",
+      "bytes": 18330
     },
     {
       "node_id": "4:2",
@@ -78,7 +84,8 @@
       "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=4-2",
       "width_px": 353,
       "height_px": 1024,
-      "sha256": "e8ea7b6a9fd2769deffedb1806d62854ef45ff37723287d8ed34e478f05c2d08"
+      "sha256": "e8ea7b6a9fd2769deffedb1806d62854ef45ff37723287d8ed34e478f05c2d08",
+      "bytes": 274582
     },
     {
       "node_id": "4:292",
@@ -88,7 +95,8 @@
       "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=4-292",
       "width_px": 270,
       "height_px": 1024,
-      "sha256": "e7290a56cc84957ff594fd54e5812e14fa353e4a2e43ed3f3ffdfda9e21f5a7d"
+      "sha256": "e7290a56cc84957ff594fd54e5812e14fa353e4a2e43ed3f3ffdfda9e21f5a7d",
+      "bytes": 146902
     },
     {
       "node_id": "4:562",
@@ -98,7 +106,8 @@
       "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=4-562",
       "width_px": 302,
       "height_px": 1024,
-      "sha256": "ece8e080be90e671281dbdd8fb1576963f6f483511d9fe3c18d2c3169c4f5903"
+      "sha256": "ece8e080be90e671281dbdd8fb1576963f6f483511d9fe3c18d2c3169c4f5903",
+      "bytes": 129865
     },
     {
       "node_id": "4:758",
@@ -108,7 +117,8 @@
       "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=4-758",
       "width_px": 404,
       "height_px": 1024,
-      "sha256": "86ac74004bfced48fe0529c3a67821a14c847313a836da92b9fc04669993d741"
+      "sha256": "86ac74004bfced48fe0529c3a67821a14c847313a836da92b9fc04669993d741",
+      "bytes": 140913
     },
     {
       "node_id": "4:1094",
@@ -118,7 +128,8 @@
       "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=4-1094",
       "width_px": 264,
       "height_px": 1024,
-      "sha256": "55b320947219e4c6481913a0e0a92c5fa0a72beac3bb14c2fbcb98b2bc16548a"
+      "sha256": "55b320947219e4c6481913a0e0a92c5fa0a72beac3bb14c2fbcb98b2bc16548a",
+      "bytes": 168759
     },
     {
       "node_id": "4:1424",
@@ -128,7 +139,8 @@
       "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=4-1424",
       "width_px": 670,
       "height_px": 1024,
-      "sha256": "641242bec4fa83eac2750d6fb1d8caf8c23aff4ebcc3d33da0f48ba1afbc10ae"
+      "sha256": "641242bec4fa83eac2750d6fb1d8caf8c23aff4ebcc3d33da0f48ba1afbc10ae",
+      "bytes": 243610
     },
     {
       "node_id": "4:1978",
@@ -138,7 +150,8 @@
       "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=4-1978",
       "width_px": 255,
       "height_px": 1024,
-      "sha256": "501154fdccb690778dece8f3a00b787387f479d7ee85e16cd0d5b9a39e395d11"
+      "sha256": "501154fdccb690778dece8f3a00b787387f479d7ee85e16cd0d5b9a39e395d11",
+      "bytes": 67287
     },
     {
       "node_id": "4:1450",
@@ -149,7 +162,8 @@
       "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=4-1450",
       "width_px": 984,
       "height_px": 270,
-      "sha256": "70d2a4d098253a21fcc08402f84ce29f173bdce6b5577dc43414b4136a95233e"
+      "sha256": "70d2a4d098253a21fcc08402f84ce29f173bdce6b5577dc43414b4136a95233e",
+      "bytes": 59705
     },
     {
       "node_id": "4:1518",
@@ -160,7 +174,8 @@
       "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=4-1518",
       "width_px": 984,
       "height_px": 868,
-      "sha256": "a51f265a257495f8dcfc243df038753b9892076825886b96ac4731bcf17524db"
+      "sha256": "a51f265a257495f8dcfc243df038753b9892076825886b96ac4731bcf17524db",
+      "bytes": 241938
     },
     {
       "node_id": "4:1763",
@@ -171,7 +186,8 @@
       "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=4-1763",
       "width_px": 984,
       "height_px": 634,
-      "sha256": "7e8e3b84abe29e61f32e00ec3eaf9177a744359635d61c79d358960bd0c6a6ef"
+      "sha256": "7e8e3b84abe29e61f32e00ec3eaf9177a744359635d61c79d358960bd0c6a6ef",
+      "bytes": 263288
     },
     {
       "node_id": "8:2178",
@@ -181,7 +197,8 @@
       "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=8-2178",
       "width_px": 290,
       "height_px": 1024,
-      "sha256": "a98a1a495fafdb2349e1de1b314031bf8e1944a929083c52c95e8644a362d5da"
+      "sha256": "a98a1a495fafdb2349e1de1b314031bf8e1944a929083c52c95e8644a362d5da",
+      "bytes": 88501
     },
     {
       "node_id": "8:3129",
@@ -191,7 +208,8 @@
       "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=8-3129",
       "width_px": 681,
       "height_px": 1024,
-      "sha256": "5303efbdcbaeac1a995a05887b237e5d76a0a54278ac7c6dd8c1ed9de282fcce"
+      "sha256": "5303efbdcbaeac1a995a05887b237e5d76a0a54278ac7c6dd8c1ed9de282fcce",
+      "bytes": 142159
     },
     {
       "node_id": "8:2454",
@@ -201,7 +219,8 @@
       "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=8-2454",
       "width_px": 279,
       "height_px": 1024,
-      "sha256": "44ca9a1b79b1d4a79217c8e95dbda0f8a0e41ae09580fe938b022000c8777340"
+      "sha256": "44ca9a1b79b1d4a79217c8e95dbda0f8a0e41ae09580fe938b022000c8777340",
+      "bytes": 63254
     },
     {
       "node_id": "8:2854",
@@ -211,7 +230,8 @@
       "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=8-2854",
       "width_px": 278,
       "height_px": 1024,
-      "sha256": "5cbaf2d576c6f6b510449c177cf571245549674206b756ea965a86b5c5acca95"
+      "sha256": "5cbaf2d576c6f6b510449c177cf571245549674206b756ea965a86b5c5acca95",
+      "bytes": 63191
     },
     {
       "node_id": "8:2642",
@@ -221,7 +241,8 @@
       "source_url": "https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=8-2642",
       "width_px": 255,
       "height_px": 1024,
-      "sha256": "56e03b530493273347b874851902af33763ed0ee4149d81e6e598000229ad078"
+      "sha256": "56e03b530493273347b874851902af33763ed0ee4149d81e6e598000229ad078",
+      "bytes": 59795
     },
     {
       "node_id": "composed",
@@ -398,9 +419,9 @@
       "path": "assets/chapter-6/landing/landing-desktop-completo.png",
       "source_url": "https://parklink-tp1-landing.vercel.app",
       "width_px": 1440,
-      "height_px": 7286,
-      "sha256": "c33c9804c86d9ebbf09ae81f7af3ba34446008706fe596592d31d02f25abe92c",
-      "bytes": 1094194,
+      "height_px": 6951,
+      "sha256": "6907d48e151d1f99e2b3bf644ec607e571a3e52006611c1c03c3b8e99d434da0",
+      "bytes": 1023667,
       "method": "Screenshot captured from the live production deployment."
     },
     {
@@ -410,9 +431,9 @@
       "path": "assets/chapter-6/landing/landing-desktop-copilot.png",
       "source_url": "https://parklink-tp1-landing.vercel.app",
       "width_px": 1180,
-      "height_px": 823,
-      "sha256": "c4001df2a6e7511ccc593a84ebf31d1dd3fa489f4de929b833ed6933595b5d95",
-      "bytes": 118094,
+      "height_px": 764,
+      "sha256": "9b12890106c9ea6d7100b622e82eaf4b402dbe97738977e8c4f1a4689fe72640",
+      "bytes": 109987,
       "method": "Screenshot captured from the live production deployment."
     },
     {
@@ -421,10 +442,10 @@
       "category": "landing-mock-up",
       "path": "assets/chapter-6/landing/landing-desktop-header.png",
       "source_url": "https://parklink-tp1-landing.vercel.app",
-      "width_px": 1200,
+      "width_px": 1440,
       "height_px": 77,
-      "sha256": "00c2eb2fb09dcfe83829d0ca374b357de66d6496a4825af5d93c29f947658f8c",
-      "bytes": 10183,
+      "sha256": "5efebd5c08781d812994538ae381d04fc2ec384788dd39ecb01f4eae911f4a6a",
+      "bytes": 8618,
       "method": "Screenshot captured from the live production deployment."
     },
     {
@@ -435,8 +456,8 @@
       "source_url": "https://parklink-tp1-landing.vercel.app",
       "width_px": 1180,
       "height_px": 680,
-      "sha256": "a65ff0e9aabdb3c204119ec576ba8521a9fd271b57f239839ad0f8e8acbefe45",
-      "bytes": 182875,
+      "sha256": "7d9594c4634d968ab53d1e46f07b38e3f2bcd664257e851e55ffae93ee60acaa",
+      "bytes": 170269,
       "method": "Screenshot captured from the live production deployment."
     },
     {
@@ -446,9 +467,9 @@
       "path": "assets/chapter-6/landing/landing-mobile-completo.png",
       "source_url": "https://parklink-tp1-landing.vercel.app",
       "width_px": 390,
-      "height_px": 9455,
-      "sha256": "1666ad761efd81d983b85522ce250afd8a6adc97adc959a19983afc278f36d11",
-      "bytes": 797977,
+      "height_px": 9173,
+      "sha256": "7b52bf467351ba32c2643327638ef51fa4efb8efb83b443b24bccfad921ce863",
+      "bytes": 745611,
       "method": "Screenshot captured from the live production deployment."
     },
     {
@@ -458,9 +479,9 @@
       "path": "assets/chapter-6/landing/landing-mobile-hero.png",
       "source_url": "https://parklink-tp1-landing.vercel.app",
       "width_px": 350,
-      "height_px": 964,
-      "sha256": "ac5949ce2c85ac78853e1ddcbf62415edf7af686896d0d6f8dd7b439593f9b79",
-      "bytes": 125120,
+      "height_px": 1008,
+      "sha256": "7d868526b03e6cbaac757cc8ecb709c8816f7081416d37679a72230a0ce1b213",
+      "bytes": 112264,
       "method": "Screenshot captured from the live production deployment."
     },
     {
@@ -628,5 +649,10 @@
     "note": "Authoritative Landing Page wireframe, authored in Figma by the team. Supersedes the low-fidelity wireframes rendered from the deployed layout. The Figma frame covers desktop only; no mobile wireframe frame exists in the file. get_screenshot downscales frames taller than 1024px, so each section was exported separately to stay legible.",
     "mobile_evidence": "assets/chapter-6/landing/landing-wireframe-figma-movil.png",
     "no_mobile_frame_verification": "Scanned all 2594 frames in the document: the 417 nodes in the 18:* range are descendants of 18:3683 itself, and every 390px-wide frame belongs to the application views (4:* and 8:*). No mobile landing frame exists."
+  },
+  "landing_note": {
+    "figma_cta_removed": true,
+    "phone_frame": "magicui/iphone geometry ported to vanilla SVG (viewBox 433x882, screen 21.25/19.25, 389.5x843.5, radius 55.75), dark variant, dynamic island punched via mask",
+    "reason": "Public landing must not expose links to internal design tooling. Scope disclaimers remain in the figure captions."
   }
 }
