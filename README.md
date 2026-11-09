@@ -4756,17 +4756,17 @@ Los problemas identificados durante las sesiones fueron puntuados tomando en cue
 
 ## 7.4. Video About-the-Product
 
-> ⚠️ **[NOTA GUÍA — BORRAR ESTA CAJA AL ENTREGAR]:** El texto de abajo ya queda fijo. Solo reemplaza los `[PENDIENTE: ...]` con los links de Microsoft Stream y YouTube, la duración y 1 captura del video.
+> ⚠️ **[NOTA GUÍA — BORRAR ESTA CAJA AL ENTREGAR]:** El texto de abajo ya queda fijo y flexible. Solo reemplaza los `[PENDIENTE: ...]` con los links de Microsoft Stream y YouTube, la duración y 1 captura del video.
 
-En esta sección se presenta el **Video About-the-Product** de ParkLink (de 1 a 3 minutos, según el Anexo C de la guía). El video tiene orientación promocional: resume la problemática y el modelo de negocio, destaca las características y beneficios principales de la solución, muestra escenas de interacción con el producto / prototipo (incluyendo la Landing Page, las vistas de Conductor/Propietario y los **2 Agentes Conversacionales Copilot**) e incorpora al menos una opinión/testimonio por cada segmento objetivo.
+En esta sección se presenta el **Video About-the-Product** de ParkLink (duración de 1 a 3 minutos, según el Anexo C de la guía). El video tiene un enfoque promocional y comercial: resume el problema del estacionamiento urbano, presenta la propuesta de valor y modelo de negocio de ParkLink, muestra una navegación ágil por la experiencia digital (Landing Page y prototipo de la aplicación en Figma / PoC) e incluye breves opiniones o citas de validación de los usuarios objetivo (extraídas de las entrevistas de validación realizadas).
 
 - **URL de la versión publicada en Microsoft Stream:** `[PENDIENTE: URL_MICROSOFT_STREAM_ABOUT_THE_PRODUCT]`
 - **URL de la versión publicada en YouTube (para incrustar en la Landing Page):** `[PENDIENTE: URL_YOUTUBE_ABOUT_THE_PRODUCT]`
 - **Duración Total (Timing):** `[PENDIENTE: MM:SS]` *(Entre 1 y 3 minutos)*
-- **Resumen del contenido presentado en el video:**
-  1. **Propuesta de valor y modelo de negocio:** Presentación del problema de estacionamiento urbano y cómo ParkLink conecta a conductores y propietarios.
-  2. **Demostración de interacción (Prototipo / PoC):** Recorrido visual por las pantallas principales de búsqueda, reserva, gestión de cocheras y asistencia mediante los Agentes Copilot.
-  3. **Opiniones de los segmentos objetivo:** Comentarios de validación de un conductor y un propietario sobre la experiencia.
+- **Resumen del contenido del video:**
+  1. **Pitch y Propuesta de Valor (0:00 - 0:40):** Presentación del problema de estacionamiento y cómo ParkLink conecta a conductores con espacios disponibles.
+  2. **Demostración del Producto (0:40 - 2:00):** Recorrido visual ágil por la Landing Page y el prototipo interactivo (búsqueda de cocheras, reserva y publicación de espacios).
+  3. **Opinión / Validación de Usuarios (2:00 - 2:30):** Testimonios breves o citas destacadas de un conductor y un propietario sobre la solución (recortados de las entrevistas de validación).
 
 > **[PENDIENTE — Insertar captura representativa (screenshot) de un cuadro del `Video About-the-Product`]:**  
 > `![Captura del Video About-the-Product](assets/chapter-7/video-about-the-product.png)`
