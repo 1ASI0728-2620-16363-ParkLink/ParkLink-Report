@@ -27,7 +27,7 @@
 | Amir Gabriel Castro Sanchez           | U202310680   |
 | Daniel Elias Ruiz Huisa               | U202210764   |
 
-**Abril 2026**
+**Noviembre 2026**
 
 ## Registro de Versiones del Informe
 
@@ -36,6 +36,7 @@
 | 1ra     | 15/04/2026 | Fabian Alejandro Oliva Lopez, Pietro Osores Marchese, Amir Gabriel Castro Sanchez, Daniel Elias Ruiz Huisa   | Avance1: En esta primera entrega se avanzó con los capítulos 1, 2 y 3 de forma organizada para iniciar el proyecto ParkLink, estableciendo la idea, el estudio del contexto y las funcionalidades. |
 | 2da     | 16/04/2026 | Fabian Alejandro Oliva Lopez, Pietro Osores Marchese, Amir Gabriel Castro Sanchez, Daniel Elias Ruiz Huisa   | Entrega TB1: Consolidación final de Capítulos I a IV, incorporación de Project Report Collaboration Insights, avance de Conclusiones y recomendaciones, Video About-the-Team, Bibliografía APA y Anexos A-E. |
 | 3ra | 5/10/2026 | Fabian Alejandro Oliva Lopez, Pietro Osores Marchese, Amir Gabriel Castro Sanchez, Daniel Elias Ruiz Huisa | Entrega TP1: Desarrollo del Capítulo V, Tactical-Level Software Design, mediante la definición de las capas de cada Bounded Context y sus diagramas de componentes, clases y bases de datos. Incorporación del Capítulo VI, Solution UX Design, con lineamientos de estilo, arquitectura de información y especificación de la Landing Page y los recorridos de las aplicaciones. Actualización del Student Outcome y de las contribuciones por integrante. |
+| 4ta | 09/11/2026 | Fabian Alejandro Oliva Lopez, Pietro Osores Marchese, Amir Gabriel Castro Sanchez, Daniel Elias Ruiz Huisa | Entrega TB2: Completitud del Capítulo VI (`6.4.4. Applications User Flow Diagrams` y `6.4.5. Applications Prototyping`) e incorporación integral del Capítulo VII (`Product Implementation, Validation & Deployment`), abarcando `7.1. Software Configuration Management`, `7.2. Products Implementation` (Sprint 1 para la Landing Page, aplicaciones web/móvil, los 8 Bounded Contexts y los 2 Agentes Conversacionales Copilot para Conductor y Propietario), `7.3. Validation Interviews` (con evaluación heurística según Anexo D) y `7.4. Video About-the-Product`. Actualización del Student Outcome, Conclusiones, `Video About-the-Team` y Anexos. |
 
 ## Project Report Collaboration Insights
 
@@ -43,9 +44,16 @@ El equipo gestiona el desarrollo y versionado del informe a través de la organi
 - **Organización / Repositorio oficial:** [1ASI0728-2620-16363-ParkLink/ParkLink-Report](https://github.com/1ASI0728-2620-16363-ParkLink/ParkLink-Report)
 
 Para asegurar la calidad técnica, consistencia y trazabilidad de los artefactos del informe, el equipo adoptó las siguientes prácticas de ingeniería colaborativa:
-1. **Flujo de ramificación estructurado (GitFlow adaptado):** La rama `main` almacena las versiones de producción aprobadas para cada hito de entrega. La rama `develop` actúa como integrador continuo. Cada capítulo o grupo de artefactos se trabaja en ramas dedicadas de características (`feature/chapter-1`, `feature/chapter-2`, `feature/chapter-3`, `feature/chapter-4`, `feature/conclusiones-bibliografia-anexos`) antes de someterse a Pull Request con revisión cruzada entre integrantes.
+1. **Flujo de ramificación estructurado (GitFlow adaptado):** La rama `main` almacena las versiones de producción aprobadas para cada hito de entrega. La rama `develop` actúa como integrador continuo. Cada capítulo o grupo de artefactos se trabaja en ramas dedicadas de características (`feature/chapter-1`, `feature/chapter-2`, `feature/chapter-3`, `feature/chapter-4`, `feature/chapter-5`, `feature/chapter-6`, `feature/chapter-7`, `feature/conclusiones-bibliografia-anexos`) antes de someterse a Pull Request con revisión cruzada entre integrantes.
 2. **Estándar de confirmaciones atómicas (Conventional Commits v1.0.0):** Se aplican mensajes con tipos y alcances rigurosos (`docs(report):`, `feat(architecture):`, `chore(assets):`) en tiempo presente imperativo, garantizando la trazabilidad histórica de cada aporte individual.
 3. **Distribución equitativa y auditoría de aportes:** Todos los integrantes han contribuido activamente en la redacción, modelado y revisión de los artefactos del informe. Las métricas de colaboración y gráficos de red reflejan una participación balanceada y sincronizada a lo largo de las sesiones de trabajo.
+
+### Evidencia de Colaboración en el Repositorio del Informe (Hito TB2)
+
+Durante la etapa TB2, los miembros del equipo colaboraron mediante ramas dedicadas sobre `develop` para completar los flujos y prototipos del Capítulo VI, estructurar e integrar las evidencias técnicas y de validación del Capítulo VII y actualizar las secciones transversales del documento.
+
+> **[PENDIENTE — Insertar captura actualizada de `Insights > Contributors` y `Insights > Commits` del repositorio `ParkLink-Report` para TB2]:**  
+> `![Project Report Collaboration Insights - TB2](assets/chapter-7/report-collaboration-tb2.png)`
 
 ## Student Outcome
 
@@ -58,45 +66,50 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
 
 | Criterio específico | Acciones realizadas por entregable e integrante | Conclusiones |
 |---|---|---|
-| **Comunica oralmente sus ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerárquicos, en el marco del desarrollo de un proyecto en ingeniería.** | **TB1**<br><br>- **Fabian Alejandro Oliva López:** Lideró y expuso la fundamentación del ADN de la startup, la problemática urbana de parqueo y la propuesta de valor de ParkLink durante la grabación de la sustentación oral y sesiones de alineamiento del equipo.<br><br>- **Pietro Osores Marchese:** Comunicó de forma clara la estructura del Lean UX Canvas, la priorización ágil del Product Backlog y los criterios de estimación en Fibonacci ante los miembros del equipo y stakeholders durante las reuniones de refinamiento.<br><br>- **Amir Gabriel Castro Sanchez:** Condujo técnicamente las entrevistas semiestructuradas a conductores urbanos y propietarios de espacios de estacionamiento, adaptando el registro y lenguaje según el perfil del entrevistado y exponiendo los hallazgos en la sustentación del TB1.<br><br>- **Daniel Elias Ruiz Huisa:** Presentó los resultados de la matriz comparativa de competidores, arquetipos User Persona y la arquitectura estratégica (ADD y C4) en la exposición grabada del equipo, argumentando con rigor las decisiones de diseño.<br><br>**TP1**<br><br>- **Fabian Alejandro Oliva López:** Explicó las responsabilidades de Domain Layer e Interface Layer dentro de los Bounded Contexts de ParkLink, relacionando las entidades, reglas de negocio y contratos de entrada con las necesidades de conductores y propietarios.<br><br>- **Pietro Osores Marchese:** Explicó la organización de Application Layer e Infrastructure Layer, describiendo la coordinación de los casos de uso y la función de los repositorios y adaptadores en el diseño propuesto.<br><br>- **Amir Gabriel Castro Sanchez:** Presentó los diagramas de componentes, clases de dominio y diseño de bases de datos, explicando las relaciones entre sus elementos y su correspondencia con las responsabilidades de cada contexto.<br><br>- **Daniel Elias Ruiz Huisa:** Explicó los lineamientos de estilo, la arquitectura de información y los recorridos de interacción de la Landing Page y las aplicaciones, utilizando ejemplos de tareas de los usuarios para facilitar su comprensión. | **TB1:** El equipo demostró la capacidad de comunicar oralmente conceptos complejos de arquitectura de software, investigación de campo y gestión ágil con objetividad, claridad y lenguaje profesional adaptado a audiencias académicas, técnicas y de negocio.<br><br>**TP1:** El equipo comunicó las decisiones de diseño táctico y experiencia de usuario mediante explicaciones y representaciones visuales. Relacionó los elementos técnicos con las necesidades del negocio y las tareas de los usuarios, adaptando el nivel de detalle a la audiencia. |
-| **Comunica en forma escrita ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerárquicos, en el marco del desarrollo de un proyecto en ingeniería.** | **TB1**<br><br>- **Fabian Alejandro Oliva López:** Redactó formalmente el perfil de la organización, antecedentes, técnica 5W2H, objetivos SMART y restricciones del proyecto en el Capítulo I, asegurando coherencia conceptual y ortotipográfica.<br><br>- **Pietro Osores Marchese:** Documentó con precisión técnica las hipótesis Lean UX, el Impact Mapping, la totalidad de Épicas, User Stories y Technical Stories con criterios de aceptación Gherkin en los Capítulos I y III.<br><br>- **Amir Gabriel Castro Sanchez:** Elaboró los resúmenes y análisis estadísticos porcentuales de las entrevistas de Needfinding en el Capítulo II, así como la definición formal de los Architectural Drivers y Bounded Contexts en el Capítulo IV.<br><br>- **Daniel Elias Ruiz Huisa:** Redactó el Competitive Analysis Landscape, el Lenguaje Ubicuo en inglés/español, los Quality Attribute Scenarios (QAS) refinados y la especificación de diagramas C4 en el Capítulo IV bajo estándares internacionales.<br><br>**TP1**<br><br>- **Fabian Alejandro Oliva López:** Documentó Domain Layer e Interface Layer de los Bounded Contexts, describiendo las clases de dominio, reglas de negocio y responsabilidades de los contratos de entrada. Colaboró en la definición de los General Style Guidelines.<br><br>- **Pietro Osores Marchese:** Documentó Application Layer e Infrastructure Layer, detallando los servicios de aplicación, handlers, repositorios y adaptadores. Colaboró en los lineamientos de estilo para web, móvil y otros dispositivos.<br><br>- **Amir Gabriel Castro Sanchez:** Elaboró la documentación de los Component Level Diagrams y Code Level Diagrams, incluyendo los diagramas de clases de dominio y diseño de bases de datos, manteniendo coherencia con los límites de los Bounded Contexts.<br><br>- **Daniel Elias Ruiz Huisa:** Documentó los sistemas de etiquetado, búsqueda y navegación, además de los SEO Tags y Meta Tags. Especificó la estructura de la Landing Page, las vistas necesarias de las aplicaciones y los flujos que orientan la elaboración de wireframes y mockups. | **TB1:** El equipo sustentó por escrito con rigor metodológico los artefactos de análisis de requerimientos, diseño estratégico ADD y DDD en formato Markdown profesional, facilitando la comprensión y reproducibilidad por parte de evaluadores y desarrolladores.<br><br>**TP1:** El equipo documentó el diseño táctico y la propuesta UX de ParkLink de manera organizada y trazable. Las descripciones y diagramas permiten comprender las responsabilidades del software y los recorridos de los usuarios, diferenciando el diseño propuesto de las funcionalidades implementadas y de la evidencia visual pendiente. |
+| **Comunica oralmente sus ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerárquicos, en el marco del desarrollo de un proyecto en ingeniería.** | **TB1**<br><br>- **Fabian Alejandro Oliva López:** Lideró y expuso la fundamentación del ADN de la startup, la problemática urbana de parqueo y la propuesta de valor de ParkLink durante la grabación de la sustentación oral y sesiones de alineamiento del equipo.<br><br>- **Pietro Osores Marchese:** Comunicó de forma clara la estructura del Lean UX Canvas, la priorización ágil del Product Backlog y los criterios de estimación en Fibonacci ante los miembros del equipo y stakeholders durante las reuniones de refinamiento.<br><br>- **Amir Gabriel Castro Sanchez:** Condujo técnicamente las entrevistas semiestructuradas a conductores urbanos y propietarios de espacios de estacionamiento, adaptando el registro y lenguaje según el perfil del entrevistado y exponiendo los hallazgos en la sustentación del TB1.<br><br>- **Daniel Elias Ruiz Huisa:** Presentó los resultados de la matriz comparativa de competidores, arquetipos User Persona y la arquitectura estratégica (ADD y C4) en la exposición grabada del equipo, argumentando con rigor las decisiones de diseño.<br><br>**TP1**<br><br>- **Fabian Alejandro Oliva López:** Explicó las responsabilidades de Domain Layer e Interface Layer dentro de los Bounded Contexts de ParkLink, relacionando las entidades, reglas de negocio y contratos de entrada con las necesidades de conductores y propietarios.<br><br>- **Pietro Osores Marchese:** Explicó la organización de Application Layer e Infrastructure Layer, describiendo la coordinación de los casos de uso y la función de los repositorios y adaptadores en el diseño propuesto.<br><br>- **Amir Gabriel Castro Sanchez:** Presentó los diagramas de componentes, clases de dominio y diseño de bases de datos, explicando las relaciones entre sus elementos y su correspondencia con las responsabilidades de cada contexto.<br><br>- **Daniel Elias Ruiz Huisa:** Explicó los lineamientos de estilo, la arquitectura de información y los recorridos de interacción de la Landing Page y las aplicaciones, utilizando ejemplos de tareas de los usuarios para facilitar su comprensión.<br><br>**TB2**<br><br>- **Fabian Alejandro Oliva López:** Comunicó oralmente los avances de implementación, validación con usuarios y resultados del Sprint 1 durante las sesiones del equipo, los videos del entregable y la exposición del proyecto.<br><br>- **Pietro Osores Marchese:** Expuso el funcionamiento e integración de los productos digitales desplegados de ParkLink y su correspondencia con la arquitectura propuesta durante la demostración y sustentación del hito.<br><br>- **Amir Gabriel Castro Sanchez:** Sustentó oralmente las decisiones de configuración, planificación ágil, pruebas y validación del incremento desarrollado en el Sprint 1 ante la audiencia técnica y de negocio.<br><br>- **Daniel Elias Ruiz Huisa:** Presentó los recorridos interactivos de la solución, la experiencia de usuario y los resultados alcanzados por el equipo en las piezas audiovisuales y la exposición del entregable. | **TB1:** El equipo demostró la capacidad de comunicar oralmente conceptos complejos de arquitectura de software, investigación de campo y gestión ágil con objetividad, claridad y lenguaje profesional adaptado a audiencias académicas, técnicas y de negocio.<br><br>**TP1:** El equipo comunicó las decisiones de diseño táctico y experiencia de usuario mediante explicaciones y representaciones visuales. Relacionó los elementos técnicos con las necesidades del negocio y las tareas de los usuarios, adaptando el nivel de detalle a la audiencia.<br><br>**TB2:** El equipo comunicó oralmente los resultados de implementación, despliegue y validación del Sprint 1 tanto a audiencias técnicas como a usuarios finales, apoyándose en demostraciones funcionales y recursos audiovisuales. |
+| **Comunica en forma escrita ideas y/o resultados con objetividad a público de diferentes especialidades y niveles jerárquicos, en el marco del desarrollo de un proyecto en ingeniería.** | **TB1**<br><br>- **Fabian Alejandro Oliva López:** Redactó formalmente el perfil de la organización, antecedentes, técnica 5W2H, objetivos SMART y restricciones del proyecto en el Capítulo I, asegurando coherencia conceptual y ortotipográfica.<br><br>- **Pietro Osores Marchese:** Documentó con precisión técnica las hipótesis Lean UX, el Impact Mapping, la totalidad de Épicas, User Stories y Technical Stories con criterios de aceptación Gherkin en los Capítulos I y III.<br><br>- **Amir Gabriel Castro Sanchez:** Elaboró los resúmenes y análisis estadísticos porcentuales de las entrevistas de Needfinding en el Capítulo II, así como la definición formal de los Architectural Drivers y Bounded Contexts en el Capítulo IV.<br><br>- **Daniel Elias Ruiz Huisa:** Redactó el Competitive Analysis Landscape, el Lenguaje Ubicuo en inglés/español, los Quality Attribute Scenarios (QAS) refinados y la especificación de diagramas C4 en el Capítulo IV bajo estándares internacionales.<br><br>**TP1**<br><br>- **Fabian Alejandro Oliva López:** Documentó Domain Layer e Interface Layer de los Bounded Contexts, describiendo las clases de dominio, reglas de negocio y responsabilidades de los contratos de entrada. Colaboró en la definición de los General Style Guidelines.<br><br>- **Pietro Osores Marchese:** Documentó Application Layer e Infrastructure Layer, detallando los servicios de aplicación, handlers, repositorios y adaptadores. Colaboró en los lineamientos de estilo para web, móvil y otros dispositivos.<br><br>- **Amir Gabriel Castro Sanchez:** Elaboró la documentación de los Component Level Diagrams y Code Level Diagrams, incluyendo los diagramas de clases de dominio y diseño de bases de datos, manteniendo coherencia con los límites de los Bounded Contexts.<br><br>- **Daniel Elias Ruiz Huisa:** Documentó los sistemas de etiquetado, búsqueda y navegación, además de los SEO Tags y Meta Tags. Especificó la estructura de la Landing Page, las vistas necesarias de las aplicaciones y los flujos que orientan la elaboración de wireframes y mockups.<br><br>**TB2**<br><br>- **Fabian Alejandro Oliva López:** Colaboró en la redacción y revisión de la documentación correspondiente al cierre de diseño UX, las evidencias del Sprint 1, la validación con usuarios y las conclusiones del informe.<br><br>- **Pietro Osores Marchese:** Documentó aspectos técnicos de la implementación, configuración y despliegue de los productos digitales de la solución en el repositorio del informe.<br><br>- **Amir Gabriel Castro Sanchez:** Redactó y estructuró la documentación de gestión de configuración, seguimiento del Sprint 1 y evidencias técnicas de verificación dentro del informe.<br><br>- **Daniel Elias Ruiz Huisa:** Documentó las especificaciones de interacción, validación de experiencia de usuario y síntesis de contenidos audiovisuales del entregable. | **TB1:** El equipo sustentó por escrito con rigor metodológico los artefactos de análisis de requerimientos, diseño estratégico ADD y DDD en formato Markdown profesional, facilitando la comprensión y reproducibilidad por parte de evaluadores y desarrolladores.<br><br>**TP1:** El equipo documentó el diseño táctico y la propuesta UX de ParkLink de manera organizada y trazable. Las descripciones y diagramas permiten comprender las responsabilidades del software y los recorridos de los usuarios, diferenciando el diseño propuesto de las funcionalidades implementadas y de la evidencia visual pendiente.<br><br>**TB2:** El equipo consolidó por escrito la documentación de configuración, implementación del Sprint 1, despliegue y validación con usuarios, manteniendo claridad y trazabilidad a lo largo del informe. |
 
 Adicionalmente, el equipo mantiene el seguimiento de competencias complementarias de formación profesional:
 
 | Criterio específico complementario | Acciones realizadas por entregable e integrante | Conclusión general |
 |---|---|---|
-| **CO1:** Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y, en especial, para su proyecto en soluciones de software. | **TB1**<br><br>- **Fabian Alejandro Oliva López:** Definió el ADN de la startup, estableciendo visión, misión, valores y segmentos objetivo.<br><br>- **Pietro Osores Marchese:** Elaboró el Lean UX Canvas, User Stories, Impact Map y Product Backlog.<br><br>- **Amir Gabriel Castro Sanchez:** Participó en el diseño, registro y análisis de entrevistas a usuarios y colaboró en el diseño estratégico del software.<br><br>- **Daniel Elias Ruiz Huisa:** Desarrolló el análisis de competidores, Needfinding y escenarios de atributos de calidad para el diseño de la solución.<br><br>**TP1**<br><br>- **Fabian Alejandro Oliva López:** Profundizó en DDD táctico para definir entidades, aggregates, Value Objects y reglas de negocio, así como en la separación de responsabilidades entre Domain Layer e Interface Layer.<br><br>- **Pietro Osores Marchese:** Aplicó conocimientos de arquitectura por capas, inyección de dependencias y patrones de repositorio para documentar Application Layer e Infrastructure Layer.<br><br>- **Amir Gabriel Castro Sanchez:** Fortaleció sus conocimientos de modelado C4, diagramas UML de clases y diseño de bases de datos para representar la estructura interna de los Bounded Contexts.<br><br>- **Daniel Elias Ruiz Huisa:** Aplicó conceptos de arquitectura de información, diseño de interacción, accesibilidad y consistencia visual para especificar la experiencia de usuario de ParkLink. | **TB1:** Los integrantes aplicaron conocimientos de estrategia de producto, investigación de usuarios, Lean UX, gestión de requerimientos y diseño estratégico de software para definir ParkLink y orientar el desarrollo de la solución.<br><br>**TP1:** Los integrantes ampliaron y aplicaron conocimientos de diseño táctico, modelado de software y UX/UI para desarrollar los capítulos V y VI, manteniendo coherencia entre las reglas del negocio, la arquitectura y las tareas de los usuarios. |
-| **CO2:** Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software. | **TB1**<br><br>- **Fabian Alejandro Oliva López:** Reconoció la importancia de actualizar conocimientos en estrategia de producto y liderazgo de proyectos.<br><br>- **Pietro Osores Marchese:** Entendió la importancia del aprendizaje continuo en gestión de requerimientos y priorización ágil.<br><br>- **Amir Gabriel Castro Sanchez:** Reconoció la necesidad de fortalecer continuamente sus conocimientos en técnicas de entrevistas y diseño estratégico.<br><br>- **Daniel Elias Ruiz Huisa:** Comprendió la importancia de actualizar sus conocimientos en análisis competitivo, Needfinding y atributos de calidad.<br><br>**TP1**<br><br>- **Fabian Alejandro Oliva López:** Reconoció la necesidad de continuar fortaleciendo sus conocimientos de DDD táctico y validación de reglas de negocio para mejorar la definición de los modelos de dominio.<br><br>- **Pietro Osores Marchese:** Identificó la importancia de actualizar sus conocimientos sobre integración, persistencia y separación de dependencias para diseñar componentes mantenibles.<br><br>- **Amir Gabriel Castro Sanchez:** Reconoció la necesidad de perfeccionar sus habilidades de modelado y documentación para mantener los diagramas alineados con la evolución de la arquitectura.<br><br>- **Daniel Elias Ruiz Huisa:** Identificó la importancia de continuar aprendiendo sobre accesibilidad, prototipado y evaluación de usabilidad para convertir la propuesta UX en interfaces que puedan validarse con usuarios. | **TB1:** El equipo reconoció que el aprendizaje permanente es necesario para mejorar la investigación de usuarios, la definición de requisitos, la estrategia del producto y las decisiones de diseño durante el desarrollo de software.<br><br>**TP1:** El equipo reconoció que el aprendizaje continuo permite revisar y mejorar tanto las decisiones técnicas como la experiencia de usuario. Asimismo, identificó la necesidad de validar progresivamente los modelos y las interfaces durante las siguientes etapas del proyecto. |
+| **CO1:** Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y, en especial, para su proyecto en soluciones de software. | **TB1**<br><br>- **Fabian Alejandro Oliva López:** Definió el ADN de la startup, estableciendo visión, misión, valores y segmentos objetivo.<br><br>- **Pietro Osores Marchese:** Elaboró el Lean UX Canvas, User Stories, Impact Map y Product Backlog.<br><br>- **Amir Gabriel Castro Sanchez:** Participó en el diseño, registro y análisis de entrevistas a usuarios y colaboró en el diseño estratégico del software.<br><br>- **Daniel Elias Ruiz Huisa:** Desarrolló el análisis de competidores, Needfinding y escenarios de atributos de calidad para el diseño de la solución.<br><br>**TP1**<br><br>- **Fabian Alejandro Oliva López:** Profundizó en DDD táctico para definir entidades, aggregates, Value Objects y reglas de negocio, así como en la separación de responsabilidades entre Domain Layer e Interface Layer.<br><br>- **Pietro Osores Marchese:** Aplicó conocimientos de arquitectura por capas, inyección de dependencias y patrones de repositorio para documentar Application Layer e Infrastructure Layer.<br><br>- **Amir Gabriel Castro Sanchez:** Fortaleció sus conocimientos de modelado C4, diagramas UML de clases y diseño de bases de datos para representar la estructura interna de los Bounded Contexts.<br><br>- **Daniel Elias Ruiz Huisa:** Aplicó conceptos de arquitectura de información, diseño de interacción, accesibilidad y consistencia visual para especificar la experiencia de usuario de ParkLink.<br><br>**TB2**<br><br>- **Fabian Alejandro Oliva López:** Aplicó conocimientos de validación con usuarios, evaluación heurística de usabilidad y aseguramiento de calidad funcional.<br><br>- **Pietro Osores Marchese:** Aplicó conocimientos de desarrollo full-stack, integración de servicios y despliegue en entornos cloud.<br><br>- **Amir Gabriel Castro Sanchez:** Aplicó estándares de gestión de configuración, flujo colaborativo en Git, pruebas automatizadas y documentación de APIs.<br><br>- **Daniel Elias Ruiz Huisa:** Aplicó conocimientos de prototipado interactivo, diseño de interacción y comunicación de productos digitales. | **TB1:** Los integrantes aplicaron conocimientos de estrategia de producto, investigación de usuarios, Lean UX, gestión de requerimientos y diseño estratégico de software para definir ParkLink y orientar el desarrollo de la solución.<br><br>**TP1:** Los integrantes ampliaron y aplicaron conocimientos de diseño táctico, modelado de software y UX/UI para desarrollar los capítulos V y VI, manteniendo coherencia entre las reglas del negocio, la arquitectura y las tareas de los usuarios.<br><br>**TB2:** Los integrantes integraron conocimientos prácticos de implementación, despliegue cloud, pruebas y validación de experiencia de usuario para consolidar la primera versión funcional de ParkLink. |
+| **CO2:** Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software. | **TB1**<br><br>- **Fabian Alejandro Oliva López:** Reconoció la importancia de actualizar conocimientos en estrategia de producto y liderazgo de proyectos.<br><br>- **Pietro Osores Marchese:** Entendió la importancia del aprendizaje continuo en gestión de requerimientos y priorización ágil.<br><br>- **Amir Gabriel Castro Sanchez:** Reconoció la necesidad de fortalecer continuamente sus conocimientos en técnicas de entrevistas y diseño estratégico.<br><br>- **Daniel Elias Ruiz Huisa:** Comprendió la importancia de actualizar sus conocimientos en análisis competitivo, Needfinding y atributos de calidad.<br><br>**TP1**<br><br>- **Fabian Alejandro Oliva López:** Reconoció la necesidad de continuar fortaleciendo sus conocimientos de DDD táctico y validación de reglas de negocio para mejorar la definición de los modelos de dominio.<br><br>- **Pietro Osores Marchese:** Identificó la importancia de actualizar sus conocimientos sobre integración, persistencia y separación de dependencias para diseñar componentes mantenibles.<br><br>- **Amir Gabriel Castro Sanchez:** Reconoció la necesidad de perfeccionar sus habilidades de modelado y documentación para mantener los diagramas alineados con la evolución de la arquitectura.<br><br>- **Daniel Elias Ruiz Huisa:** Identificó la importancia de continuar aprendiendo sobre accesibilidad, prototipado y evaluación de usabilidad para convertir la propuesta UX en interfaces que puedan validarse con usuarios.<br><br>**TB2**<br><br>- **Fabian Alejandro Oliva López:** Reconoció la importancia del aprendizaje continuo en pruebas de usabilidad y análisis de feedback real para evolucionar el producto.<br><br>- **Pietro Osores Marchese:** Identificó la necesidad de mantenerse actualizado en prácticas de despliegue continuo, integración y operación en la nube.<br><br>- **Amir Gabriel Castro Sanchez:** Reconoció la importancia de profundizar continuamente en automatización de pruebas y gestión de configuración de software.<br><br>- **Daniel Elias Ruiz Huisa:** Comprendió la necesidad de seguir perfeccionando técnicas de diseño centrado en el usuario e integración de asistentes inteligentes. | **TB1:** El equipo reconoció que el aprendizaje permanente es necesario para mejorar la investigación de usuarios, la definición de requisitos, la estrategia del producto y las decisiones de diseño durante el desarrollo de software.<br><br>**TP1:** El equipo reconoció que el aprendizaje continuo permite revisar y mejorar tanto las decisiones técnicas como la experiencia de usuario. Asimismo, identificó la necesidad de validar progresivamente los modelos y las interfaces durante las siguientes etapas del proyecto.<br><br>**TB2:** El equipo reafirmó que la transición del diseño a la implementación desplegada exige aprendizaje continuo en herramientas de ingeniería colaborativa, pruebas, despliegue cloud y validación con usuarios. |
 
 ## Contenido
 
 - [Capítulo I: Introducción](#capítulo-i-introducción)
     - [1.1. Startup Profile](#11-startup-profile)
-    - [1.1.1. Descripción de la Startup](#111-descripción-de-la-startup)
-    - [1.1.2. Perfiles de integrantes del equipo](#112-perfiles-de-integrantes-del-equipo)
+        - [1.1.1. Descripción del Startup](#111-descripción-del-startup)
+        - [1.1.2. Perfiles de integrantes del equipo](#112-perfiles-de-integrantes-del-equipo)
     - [1.2. Solution Profile](#12-solution-profile)
-    - [1.2.1. Nombre del Producto](#121-nombre-del-producto)
-    - [1.2.2. Antecedentes y problemática](#122-antecedentes-y-problemática)
-    - [1.2.3. Lean UX Process](#123-lean-ux-process)
-    - [1.2.3.1. Lean UX Problem Statements](#1221-lean-ux-problem-statements)
-    - [1.2.3.2. Lean UX Assumptions](#1222-lean-ux-assumptions)
-    - [1.2.3.3. Lean UX Hypothesis Statements](#1223-lean-ux-hypothesis-statements)
-    - [1.2.3.4. Lean UX Canvas](#1224-lean-ux-canvas)
+        - [1.2.1. Antecedentes y problemática](#121-antecedentes-y-problemática)
+        - [1.2.2. Lean UX Process](#122-lean-ux-process)
+            - [1.2.2.1. Lean UX Problem Statements](#1221-lean-ux-problem-statements)
+            - [1.2.2.2. Lean UX Assumptions](#1222-lean-ux-assumptions)
+            - [1.2.2.3. Lean UX Hypothesis Statements](#1223-lean-ux-hypothesis-statements)
+            - [1.2.2.4. Lean UX Canvas](#1224-lean-ux-canvas)
     - [1.3. Segmentos objetivo](#13-segmentos-objetivo)
 - [Capítulo II: Requirements Elicitation & Analysis](#capítulo-ii-requirements-elicitation--analysis)
     - [2.1. Competidores](#21-competidores)
+        - [2.1.1. Competitive Analysis Landscape](#211-competitive-analysis-landscape)
+        - [2.1.2. Estrategias y tácticas frente a competidores](#212-estrategias-y-tácticas-frente-a-competidores)
     - [2.2. Entrevistas](#22-entrevistas)
+        - [2.2.1. Diseño de entrevistas](#221-diseño-de-entrevistas)
+        - [2.2.2. Registro de entrevistas](#222-registro-de-entrevistas)
+        - [2.2.3. Análisis de entrevistas](#223-análisis-de-entrevistas)
     - [2.3. Needfinding](#23-needfinding)
-    - [2.3.1. User Personas](#231-user-personas)
-    - [2.3.2. User Task Matrix](#232-user-task-matrix)
-    - [2.3.3. Empathy Mapping](#233-empathy-mapping)
-    - [2.3.4. As-is Scenario Mapping](#234-as-is-scenario-mapping)
- - [Capítulo III: Requirements Specification](#capítulo-iii-requirements-specification)
-   - [3.1. To-Be Scenario Mapping](#31-to-be-scenario-mapping)
-   - [3.2. User Stories](#32-user-stories)
-   - [3.2.1. Technical Stories](#321-technical-stories)
-   - [3.3. Impact Mapping](#33-impact-mapping)
-   - [3.4. Product Backlog](#34-product-backlog)
+        - [2.3.1. User Personas](#231-user-personas)
+        - [2.3.2. User Task Matrix](#232-user-task-matrix)
+        - [2.3.3. Empathy Mapping](#233-empathy-mapping)
+        - [2.3.4. As-is Scenario Mapping](#234-as-is-scenario-mapping)
+    - [2.4. Ubiquitous Language (Lenguaje Ubicuo)](#24-ubiquitous-language-lenguaje-ubicuo)
+- [Capítulo III: Requirements Specification](#capítulo-iii-requirements-specification)
+    - [3.1. To-Be Scenario Mapping](#31-to-be-scenario-mapping)
+    - [3.2. User Stories](#32-user-stories)
+        - [Cuadro Unificado de Épicas, User Stories y Technical Stories](#cuadro-unificado-de-épicas-user-stories-y-technical-stories)
+    - [3.3. Impact Mapping](#33-impact-mapping)
+    - [3.4. Product Backlog](#34-product-backlog)
 - [Capítulo IV: Strategic-Level Software Design](#capítulo-iv-strategic-level-software-design)
     - [4.1. Strategic-Level Attribute-Driven Design](#41-strategic-level-attribute-driven-design)
         - [4.1.1. Design Purpose](#411-design-purpose)
@@ -209,8 +222,35 @@ Adicionalmente, el equipo mantiene el seguimiento de competencias complementaria
         - [6.4.1. Applications Wireframes](#641-applications-wireframes)
         - [6.4.2. Applications Wireflow Diagrams](#642-applications-wireflow-diagrams)
         - [6.4.3. Applications Mock-ups and Visual Evidence](#643-applications-mock-ups-and-visual-evidence)
-- [Conclusiones y recomendaciones](#conclusiones-y-recomendaciones)
+        - [6.4.4. Applications User Flow Diagrams](#644-applications-user-flow-diagrams)
+        - [6.4.5. Applications Prototyping](#645-applications-prototyping)
+- [Capítulo VII: Product Implementation, Validation & Deployment](#capítulo-vii-product-implementation-validation--deployment)
+    - [7.1. Software Configuration Management](#71-software-configuration-management)
+        - [7.1.1. Software Development Environment Configuration](#711-software-development-environment-configuration)
+        - [7.1.2. Source Code Management](#712-source-code-management)
+        - [7.1.3. Source Code Style Guide & Conventions](#713-source-code-style-guide--conventions)
+        - [7.1.4. Software Deployment Configuration](#714-software-deployment-configuration)
+    - [7.2. Products Implementation](#72-products-implementation)
+        - [7.2.1. Sprint 1](#721-sprint-1)
+            - [7.2.1.1. Sprint Planning 1](#7211-sprint-planning-1)
+            - [7.2.1.2. Sprint Backlog 1](#7212-sprint-backlog-1)
+            - [7.2.1.3. Development Evidence for Sprint Review](#7213-development-evidence-for-sprint-review)
+            - [7.2.1.4. Testing Suite Evidence for Sprint Review](#7214-testing-suite-evidence-for-sprint-review)
+            - [7.2.1.5. Execution Evidence for Sprint Review](#7215-execution-evidence-for-sprint-review)
+            - [7.2.1.6. Services Documentation Evidence for Sprint Review](#7216-services-documentation-evidence-for-sprint-review)
+            - [7.2.1.7. Software Deployment Evidence for Sprint Review](#7217-software-deployment-evidence-for-sprint-review)
+            - [7.2.1.8. Team Collaboration Insights during Sprint](#7218-team-collaboration-insights-during-sprint)
+    - [7.3. Validation Interviews](#73-validation-interviews)
+        - [7.3.1. Diseño de Entrevistas](#731-diseño-de-entrevistas)
+        - [7.3.2. Registro de Entrevistas](#732-registro-de-entrevistas)
+        - [7.3.3. Evaluaciones según heurísticas](#733-evaluaciones-según-heurísticas)
+    - [7.4. Video About-the-Product](#74-video-about-the-product)
+- [Conclusiones](#conclusiones)
+    - [Conclusiones y recomendaciones](#conclusiones-y-recomendaciones)
+    - [Video About-the-Team](#video-about-the-team)
 - [Bibliografía](#bibliografía)
+- [Anexos](#anexos)
+    - [Anexo A: Videos de Exposiciones por Entregable](#anexo-a-videos-de-exposiciones-por-entregable)
 
 
 # Capítulo I: Introducción
@@ -554,7 +594,7 @@ Para los propietarios se esperan los siguientes resultados:
 - Incrementar el aprovechamiento de espacios que permanecían sin utilizar.
 - Obtener una nueva alternativa para generar ingresos.
 
-### 1.2.3.3 Lean UX Hypothesis Statements
+#### 1.2.2.3. Lean UX Hypothesis Statements
 
 #### Hypothesis Statement 1
 
@@ -582,7 +622,7 @@ Sabremos que si los conductores
 tienen acceso a información clara sobre precios, ubicación y disponibilidad,
 cuando implementemos una interfaz que muestre datos en tiempo real de forma sencilla y confiable.
 
-### 1.2.3.4	Lean UX Canvas
+#### 1.2.2.4. Lean UX Canvas
 
 <img width="833" height="590" alt="image" src="https://github.com/user-attachments/assets/e96d2f47-9ed4-4dc8-b8cb-faf8d08ec793" />
 
@@ -1004,7 +1044,7 @@ A partir del análisis competitivo realizado, se evaluaron las fortalezas, debil
   </tr>
 </table>
 
-## 2.2.Entrevistas.
+## 2.2. Entrevistas
 Esta parte del informe presentará la parte objetiva de las entrevistas junto con el análisis
 relevante de cada una de ellas
 
@@ -1327,7 +1367,7 @@ Empathy mapping de conductor que busca estacionamiento
 Empathy mapping de emprendedor que busca utilizar su espacio de parqueo
 <img width="837" height="1600" alt="image" src="assets/cap-2/empathy-map-empresario.png" />
 
-### 2.3.3 As-Is Scenario Mapping
+### 2.3.4. As-is Scenario Mapping
 Se realizaron los siguientes cuadros en la herramienta Canva Whiteboard, el link original puede ser observado aquí:
 [Ver As-Is Scenario Mapping Conductor ](https://canva.link/jby3bjf8zc229cu)
 <img alt="image" src="assets/cap-2/AS-IS Escenario Mapping - Conductor.png">
@@ -1558,34 +1598,34 @@ El Product Backlog se gestiona dinámicamente en Trello. El tablero incluye la l
 | 7 | **US09** | Publicación y alta de espacio de estacionamiento | User Story | Como propietario, deseo dar de alta mi cochera ingresando fotos, dirección y tarifa, para empezar a recibir reservas y generar ingresos. | 5 | **Sprint 1** |
 | 8 | **TS02** | Proyección y caché de inventario geoespacial | Tech Enabler | Como Developer, deseo indexar geoespacialmente las plazas activas en memoria caché, para que el mapa responda en menos de 200 ms. | 5 | **Sprint 1** |
 | 9 | **TS05** | Almacenamiento seguro de imágenes en Object Storage | Tech Enabler | Como Developer, deseo almacenar las fotos de cocheras en buckets compatibles con S3 mediante URLs presignadas, para aligerar la base de datos. | 3 | **Sprint 1** |
-| 10 | **US05** | Reservar un espacio de estacionamiento | User Story | Como conductor, deseo reservar un espacio con anticipación, para asegurar mi plaza antes de iniciar el trayecto a mi destino laboral. | 8 | **Sprint 2** |
-| 11 | **US14** | Pago electrónico seguro de reserva | User Story | Como conductor, deseo pagar mi reserva mediante tarjeta o billetera digital, para no usar efectivo y contar con confirmación inmediata. | 8 | **Sprint 2** |
-| 12 | **TS01** | Control de concurrencia y bloqueo transaccional | Tech Enabler | Como Developer, deseo implementar bloqueos transaccionales y de concurrencia en reservas, para evitar dobles asignaciones en idéntica franja. | 5 | **Sprint 2** |
-| 13 | **TS06** | Manejo idempotente de cobros y webhooks | Tech Enabler | Como Developer, deseo aplicar claves de idempotencia en pagos y webhooks, para prevenir cobros duplicados por reintentos de red. | 5 | **Sprint 2** |
-| 14 | **US10** | Configuración de horarios y tarifas de cochera | User Story | Como propietario, deseo parametrizar los horarios disponibles y el costo por hora, para gobernar cuándo y cuánto cobro por mi cochera. | 5 | **Sprint 2** |
-| 15 | **US12** | Visualización de reservas agendadas en cochera | User Story | Como propietario, deseo revisar las reservas programadas para mis espacios, para saber qué vehículos y conductores ingresarán a mi propiedad. | 5 | **Sprint 2** |
-| 16 | **US21** | Búsqueda y reserva por comandos de voz (Agente IA) | User Story | Como conductor en ruta (Humberto), deseo buscar y reservar plazas por voz mediante el Agente IA, para no distraerme en el tráfico de Lima. | 8 | **Sprint 2** |
-| 17 | **TS07** | Aislamiento y barrera de seguridad de IA | Tech Enabler | Como Developer, deseo aislar el LLM mediante un Tool Registry seguro, para evitar ejecuciones o cobros no autorizados. | 5 | **Sprint 2** |
+| 10 | **US05** | Reservar un espacio de estacionamiento | User Story | Como conductor, deseo reservar un espacio con anticipación, para asegurar mi plaza antes de iniciar el trayecto a mi destino laboral. | 8 | **Sprint 1** |
+| 11 | **US14** | Pago electrónico seguro de reserva | User Story | Como conductor, deseo pagar mi reserva mediante tarjeta o billetera digital, para no usar efectivo y contar con confirmación inmediata. | 8 | **Sprint 1** |
+| 12 | **TS01** | Control de concurrencia y bloqueo transaccional | Tech Enabler | Como Developer, deseo implementar bloqueos transaccionales y de concurrencia en reservas, para evitar dobles asignaciones en idéntica franja. | 5 | **Sprint 1** |
+| 13 | **TS06** | Manejo idempotente de cobros y webhooks | Tech Enabler | Como Developer, deseo aplicar claves de idempotencia en pagos y webhooks, para prevenir cobros duplicados por reintentos de red. | 5 | **Sprint 1** |
+| 14 | **US10** | Configuración de horarios y tarifas de cochera | User Story | Como propietario, deseo parametrizar los horarios disponibles y el costo por hora, para gobernar cuándo y cuánto cobro por mi cochera. | 5 | **Sprint 1** |
+| 15 | **US12** | Visualización de reservas agendadas en cochera | User Story | Como propietario, deseo revisar las reservas programadas para mis espacios, para saber qué vehículos y conductores ingresarán a mi propiedad. | 5 | **Sprint 1** |
+| 16 | **US21** | Búsqueda y reserva por comandos de voz (Agente IA) | User Story | Como conductor en ruta (Humberto), deseo buscar y reservar plazas por voz mediante el Agente IA, para no distraerme en el tráfico de Lima. | 8 | **Sprint 1** |
+| 17 | **TS07** | Aislamiento y barrera de seguridad de IA | Tech Enabler | Como Developer, deseo aislar el LLM mediante un Tool Registry seguro, para evitar ejecuciones o cobros no autorizados. | 5 | **Sprint 1** |
 | 18 | **TS10** | Broker sin autoridad de dominio | Tech Enabler | Como Equipo de Arquitectura, necesitamos que el broker transporte eventos sin lógica de dominio, para preservar la autoridad de reservas. | 5 | **Sprint 2** |
-| 19 | **US03** | Filtrado avanzado por precio y horario | User Story | Como conductor, deseo filtrar los estacionamientos por tarifa máxima y horario, para encontrar la opción óptima para mi presupuesto. | 3 | **Sprint 3** |
-| 20 | **US04** | Ficha técnica y detalles del estacionamiento | User Story | Como conductor, deseo ver fotos, gálibo y valoraciones de un espacio, para cerciorarme de que mi vehículo cabe y que el lugar es seguro. | 3 | **Sprint 3** |
-| 21 | **US08** | Extensión de tiempo en reserva activa | User Story | Como conductor, deseo solicitar tiempo extra en mi reserva en curso, para evitar cargos imprevistos si mi reunión de trabajo se prolonga. | 5 | **Sprint 3** |
-| 22 | **US11** | Habilitación y deshabilitación temporal de plazas | User Story | Como propietario, deseo pausar la disponibilidad de mi cochera temporalmente, para no recibir reservas en fechas que requiera usarla. | 3 | **Sprint 3** |
-| 23 | **US22** | Sugerencia predictiva proactiva de estacionamiento | User Story | Como conductor habitual, deseo que el agente anticipe mis traslados según mis horarios diarios, para reservar plaza antes de la hora punta. | 5 | **Sprint 3** |
-| 24 | **TS08** | Versionado estricto de contratos | Tech Enabler | Como Developer, deseo versionar los contratos de API y esquemas de eventos, para evolucionar servicios sin romper clientes ni consumidores. | 3 | **Sprint 3** |
-| 25 | **TS09** | Mecanismo de fallback visual | Tech Enabler | Como Developer, deseo implementar fallback visual automático ante lentitud o caída de la IA, para que el usuario pueda reservar manualmente. | 5 | **Sprint 3** |
-| 26 | **US06** | Cancelación anticipada de reserva activa | User Story | Como conductor, deseo cancelar una reserva realizada con antelación, para liberar el espacio si cambian mis planes de viaje. | 5 | **Sprint 4** |
-| 27 | **US15** | Procesamiento automático de reembolsos | User Story | Como conductor, deseo recibir la restitución automática de mi pago al cancelar a tiempo, para no perder dinero ante contingencias. | 5 | **Sprint 4** |
-| 28 | **US16** | Descarga de comprobante electrónico de pago | User Story | Como conductor, deseo descargar la boleta o factura de mi reserva en PDF, para respaldar mis gastos de movilidad corporativa. | 2 | **Sprint 4** |
-| 29 | **US20** | Notificaciones en tiempo real y alertas de expiración | User Story | Como conductor, deseo recibir alertas preventivas antes de que expire mi tiempo de reserva, para gestionar mi retiro o extensión a tiempo. | 3 | **Sprint 4** |
-| 30 | **US23** | Reasignación autónoma de reserva ante congestión | User Story | Como conductor demorado en el tráfico, deseo que el agente extienda o reasigne mi reserva, para no perder mi cochera por retrasos de ruta. | 5 | **Sprint 4** |
-| 31 | **US13** | Reportes de ingresos y rentabilidad para propietario | User Story | Como propietario, deseo revisar un balance financiero de ganancias y deducciones, para llevar el control contable de mi emprendimiento. | 3 | **Sprint 4** |
-| 32 | **US07** | Consulta de historial de reservas realizadas | User Story | Como conductor, deseo consultar el registro histórico de todas mis reservas, para tener trazabilidad de mis gastos de parqueo. | 2 | **Sprint 4** |
-| 33 | **TS04** | Registro inmutable de pistas de auditoría | Tech Enabler | Como Developer, deseo registrar eventos inmutables para cobros y cancelaciones, para sustentar revisiones contables y auditorías forenses. | 3 | **Sprint 4** |
-| 34 | **US17** | Registro de cuenta para conductor urbano | User Story | Como conductor nuevo, deseo registrarme con correo y placa vehicular, para poder buscar y reservar plazas en ParkLink. | 3 | **Sprint 4** |
-| 35 | **US18** | Registro y validación de perfil de propietario | User Story | Como microempresario, deseo registrar mi cuenta acreditando identidad y CCI bancario, para publicar espacios y cobrar mis ganancias. | 3 | **Sprint 4** |
-| 36 | **US19** | Autenticación e inicio de sesión seguro | User Story | Como usuario registrado, deseo iniciar sesión con mis credenciales seguras, para acceder a las funcionalidades de mi cuenta. | 2 | **Sprint 4** |
-| 37 | **TS03** | Autenticación y control de acceso basado en roles | Tech Enabler | Como Developer, deseo proteger los endpoints mediante JWT y validación RBAC, para restringir los recursos según los permisos del usuario. | 3 | **Sprint 4** |
+| 19 | **US03** | Filtrado avanzado por precio y horario | User Story | Como conductor, deseo filtrar los estacionamientos por tarifa máxima y horario, para encontrar la opción óptima para mi presupuesto. | 3 | **Sprint 2** |
+| 20 | **US04** | Ficha técnica y detalles del estacionamiento | User Story | Como conductor, deseo ver fotos, gálibo y valoraciones de un espacio, para cerciorarme de que mi vehículo cabe y que el lugar es seguro. | 3 | **Sprint 2** |
+| 21 | **US08** | Extensión de tiempo en reserva activa | User Story | Como conductor, deseo solicitar tiempo extra en mi reserva en curso, para evitar cargos imprevistos si mi reunión de trabajo se prolonga. | 5 | **Sprint 2** |
+| 22 | **US11** | Habilitación y deshabilitación temporal de plazas | User Story | Como propietario, deseo pausar la disponibilidad de mi cochera temporalmente, para no recibir reservas en fechas que requiera usarla. | 3 | **Sprint 2** |
+| 23 | **US22** | Sugerencia predictiva proactiva de estacionamiento | User Story | Como conductor habitual, deseo que el agente anticipe mis traslados según mis horarios diarios, para reservar plaza antes de la hora punta. | 5 | **Sprint 2** |
+| 24 | **TS08** | Versionado estricto de contratos | Tech Enabler | Como Developer, deseo versionar los contratos de API y esquemas de eventos, para evolucionar servicios sin romper clientes ni consumidores. | 3 | **Sprint 2** |
+| 25 | **TS09** | Mecanismo de fallback visual | Tech Enabler | Como Developer, deseo implementar fallback visual automático ante lentitud o caída de la IA, para que el usuario pueda reservar manualmente. | 5 | **Sprint 2** |
+| 26 | **US06** | Cancelación anticipada de reserva activa | User Story | Como conductor, deseo cancelar una reserva realizada con antelación, para liberar el espacio si cambian mis planes de viaje. | 5 | **Sprint 2** |
+| 27 | **US15** | Procesamiento automático de reembolsos | User Story | Como conductor, deseo recibir la restitución automática de mi pago al cancelar a tiempo, para no perder dinero ante contingencias. | 5 | **Sprint 2** |
+| 28 | **US16** | Descarga de comprobante electrónico de pago | User Story | Como conductor, deseo descargar la boleta o factura de mi reserva en PDF, para respaldar mis gastos de movilidad corporativa. | 2 | **Sprint 2** |
+| 29 | **US20** | Notificaciones en tiempo real y alertas de expiración | User Story | Como conductor, deseo recibir alertas preventivas antes de que expire mi tiempo de reserva, para gestionar mi retiro o extensión a tiempo. | 3 | **Sprint 1** |
+| 30 | **US23** | Reasignación autónoma de reserva ante congestión | User Story | Como conductor demorado en el tráfico, deseo que el agente extienda o reasigne mi reserva, para no perder mi cochera por retrasos de ruta. | 5 | **Sprint 2** |
+| 31 | **US13** | Reportes de ingresos y rentabilidad para propietario | User Story | Como propietario, deseo revisar un balance financiero de ganancias y deducciones, para llevar el control contable de mi emprendimiento. | 3 | **Sprint 2** |
+| 32 | **US07** | Consulta de historial de reservas realizadas | User Story | Como conductor, deseo consultar el registro histórico de todas mis reservas, para tener trazabilidad de mis gastos de parqueo. | 2 | **Sprint 2** |
+| 33 | **TS04** | Registro inmutable de pistas de auditoría | Tech Enabler | Como Developer, deseo registrar eventos inmutables para cobros y cancelaciones, para sustentar revisiones contables y auditorías forenses. | 3 | **Sprint 1** |
+| 34 | **US17** | Registro de cuenta para conductor urbano | User Story | Como conductor nuevo, deseo registrarme con correo y placa vehicular, para poder buscar y reservar plazas en ParkLink. | 3 | **Sprint 1** |
+| 35 | **US18** | Registro y validación de perfil de propietario | User Story | Como microempresario, deseo registrar mi cuenta acreditando identidad y CCI bancario, para publicar espacios y cobrar mis ganancias. | 3 | **Sprint 1** |
+| 36 | **US19** | Autenticación e inicio de sesión seguro | User Story | Como usuario registrado, deseo iniciar sesión con mis credenciales seguras, para acceder a las funcionalidades de mi cuenta. | 2 | **Sprint 1** |
+| 37 | **TS03** | Autenticación y control de acceso basado en roles | Tech Enabler | Como Developer, deseo proteger los endpoints mediante JWT y validación RBAC, para restringir los recursos según los permisos del usuario. | 3 | **Sprint 1** |
 
 ---
 
@@ -3984,6 +4024,28 @@ Los trece flujogramas de 6.4.2 conservan sus explicaciones e incorporan ahora un
 *Nodo Figma `4:1094`. Panel móvil del propietario. Las cifras son ilustrativas.*
 
 
+### 6.4.4. Applications User Flow Diagrams
+
+En esta sección se presentan los **User Flow Diagrams** de las aplicaciones web y móvil de ParkLink para cada meta de usuario (**User Goal**) de los arquetipos **Jarol Saquiray Vargas** (Propietario / Microempresario) y **Humberto García Calla** (Conductor Urbano). Los diagramas de flujo de usuario mantienen consistencia directa con los Wireflows especificados en `6.4.2` (`WF-01` a `WF-13`), integrando las vistas de alta fidelidad (Mock-ups) junto con las rutas principales (*happy paths*) y las rutas alternativas o de excepción (*unhappy paths*).
+
+En la siguiente matriz se detalla para cada User Flow su **User Persona**, su **User Goal**, el flujo esperado (**Happy Path**) y las condiciones o rutas alternativas (**Unhappy Paths**):
+
+| ID Flujo | User Persona / Canal | User Goal (Meta del Usuario) | Ruta Esperada (*Happy Path*) | Rutas Alternativas y Excepciones (*Unhappy Paths*) |
+| :---: | :--- | :--- | :--- | :--- |
+| **UF-01 (`WF-01`)** | Visitante (Humberto / Jarol) — Landing Page | Comprender la propuesta de valor de ParkLink e iniciar la adopción según su segmento. | Explora hero (`0:3`), flujo de 3 pasos, sección Copilot y selecciona el CTA de su rol (`Buscar estacionamiento` o `Publicar mi cochera`). | Duda operativa o de tarifas → consulta matriz comparativa y acordeón FAQ accesible antes de convertir. |
+| **UF-02 (`WF-02`)** | Conductor (Humberto) / Propietario (Jarol) — Mobile & Web | Crear una cuenta verificada por rol e iniciar sesión en el canal correspondiente (`US17`, `US18`, `US19`, `TS03`). | Selecciona rol (`4:1050`), completa registro (`4:1018`) o credenciales (`4:964`), recibe JWT y accede a la vista principal de su rol. | Placa duplicada (`US17`), CCI inválido (`US18`) o credenciales erróneas (`401 Unauthorized`) → muestra validación contextual sin exponer datos sensibles. |
+| **UF-03 (`WF-03`)** | Conductor Urbano (Humberto) — Mobile App | Encontrar y comparar un estacionamiento disponible cercano a su destino (`US01`, `US02`, `US03`, `US04`, `TS02`). | Ingresa destino y horario en mapa/lista (`4:2`), filtra por tarifa y abre la ficha técnica (`4:292`) con fotos, dimensiones y reglas de acceso. | Sin plazas en radio de 1 km → amplía búsqueda automáticamente a 2 km (`US01`); plaza ocupada concurrentemente → refresca estado y sugiere alternativa contigua (`US02`). |
+| **UF-04 (`WF-04`)** | Conductor Urbano (Humberto) — Mobile App | Reservar un espacio y pagar digitalmente con confirmación verificable (`US05`, `US14`, `TS01`, `TS06`). | Desde la ficha (`4:292`), solicita retención temporal por 10 min (`PENDING_PAYMENT`), autoriza el pago idempotente y obtiene su ticket con código y QR (`4:562`) y navegación (`4:758`). | Conflicto concurrente de horario (`409 Conflict`, `TS01`), rechazo bancario de tarjeta (mantiene hold por 5 min para cambiar medio de pago, `US14`) o expiración del hold a los 10 min. |
+| **UF-05 (`WF-05`)** | Conductor Urbano (Humberto) — Mobile App | Cancelar una reserva activa y conocer con transparencia el estado de su devolución (`US06`, `US15`). | Selecciona reserva en `Mis reservas` con más de 60 min de anticipación, confirma anulación, libera la plaza y recibe orden de reembolso íntegro o crédito inmediato. | Cancelación con menos de 60 min de antelación → advierte y aplica el cargo por cancelación tardía según política antes de confirmar. |
+| **UF-06 (`WF-06`)** | Conductor Urbano (Humberto) — Mobile App | Atender una alerta preventiva de vencimiento y extender su tiempo de estadía (`US08`, `US20`). | Recibe notificación push 15 min antes del vencimiento, solicita +1 hora, el sistema verifica ausencia de conflicto, cobra el suplemento y actualiza la hora de salida. | Existe otra reserva inmediatamente posterior en la misma plaza → informa imposibilidad de extensión y sugiere plaza libre cercana. |
+| **UF-07 (`WF-07`)** | Conductor Urbano (Humberto) — Mobile App | Consultar su historial de gastos de parqueo y descargar comprobantes electrónicos (`US07`, `US16`). | Filtra sus reservas completadas por rango mensual, visualiza el monto acumulado y descarga la boleta/factura en PDF (además de recibirla por correo). | Comprobante aún en procesamiento o datos fiscales de RUC incompletos → solicita completar datos de facturación antes de emitir el PDF. |
+| **UF-08 (`WF-08`)** | Conductor Urbano (Humberto) — Mobile App (**Copilot Conductor**) | Buscar y proponer una reserva mediante comandos de voz/texto sin distraerse al volante (`US21`, `TS07`, `TS09`). | Envía consulta en lenguaje natural (`4:1978`), el **Agente Copilot de Conductor** consulta `Discovery`, presenta propuesta con tarifa/horario y `ConfirmationToken` (TTL 5 min), y Humberto confirma explícitamente para generar la reserva (`4:562`). | Comando ambiguo/ruidoso (solicita aclaración), token expirado tras 5 min, o latencia/caída de IA > 5 s → activa *circuit breaker* y conmuta al mapa manual (`TS09`). |
+| **UF-09 (`WF-09`)** | Conductor Urbano (Humberto) — Mobile App (**Copilot Conductor**) | Evaluar sugerencias proactivas y adaptar su reserva ante congestión vehicular (`US22`, `US23`). | Recibe recomendación preventiva en hora punta o alerta de retraso en ruta, revisa la propuesta de tolerancia o reubicación presentada por el **Agente Copilot de Conductor** y aprueba el cambio. | El conductor descarta la sugerencia (silencia alertas del tramo) o ninguna plaza adyacente cumple tarifa → ofrece cancelación asistida sin penalidad. |
+| **UF-10 (`WF-10`)** | Propietario (Jarol) — Mobile App & Web Monitoring | Publicar una nueva cochera residencial y hacer visible su oferta en el catálogo (`US09`, `TS05`). | Completa dirección, dimensiones, tarifa en soles y sube mínimo 2 fotos mediante URL presignada S3; el sistema geocodifica el predio y publica el espacio (`4:1094`, `4:1424`). | Faltan fotografías obligatorias o archivo supera 5 MB / formato inválido (`400 Bad Request`) → bloquea publicación y resalta los campos pendientes. |
+| **UF-11 (`WF-11`)** | Propietario (Jarol) — Mobile App & Web Monitoring | Configurar horarios de atención, actualizar tarifas y pausar/reactivar disponibilidad (`US10`, `US11`). | Define ventanas horarias semanales (`4:1763`), actualiza tarifa para reservas futuras o suspende temporalmente la plaza sin afectar reservas ya confirmadas. | Intento de ingresar rangos horarios solapados o tarifa inválida → rechaza cambios manteniendo la versión vigente (`expectedVersion`). |
+| **UF-12 (`WF-12`)** | Propietario (Jarol) — Mobile App & Web Monitoring (**Copilot Propietario**) | Consultar el cronograma diario de reservas y validar el ingreso vehicular en puerta (`US12`). | Revisa la agenda de vehículos del día (`4:1518`) —o consulta al **Agente Copilot de Propietario**— e introduce/escanea el código de reserva del conductor al llegar para marcar el `check-in` (`ACTIVE`). | Código de reserva inválido, expirado o perteneciente a otro horario/predio → alerta discrepancia en pantalla e impide registrar el acceso. |
+| **UF-13 (`WF-13`)** | Propietario (Jarol) — Mobile App & Web Monitoring (**Copilot Propietario**) | Revisar el consolidado de ingresos netos, comisiones y exportar respaldo contable (`US13`, `TS04`). | Consulta el balance mensual de ingresos brutos, comisiones y abonos netos (`4:1450`) —también disponible vía consulta al **Agente Copilot de Propietario**— y exporta el reporte transaccional conciliado con `Audit`. | Período seleccionado sin liquidaciones completadas → informa balance cero y muestra reservas futuras programadas. |
+
 **Recorridos del propietario.** No existe prototipo interactivo navegable en Figma para el panel web; el conector disponible solo permite lectura y exportación. Como evidencia de recorrido se emplean los Wireflows compuestos a partir de capturas reales de las vistas web.
 
 ![Wireflow WF-11 — Controlar horarios, tarifa y disponibilidad](assets/chapter-6/wireflows/wf-11.png)
@@ -4040,6 +4102,675 @@ Los trece flujogramas de 6.4.2 conservan sus explicaciones e incorporan ahora un
 
 **Trazabilidad de diagramas y diseños.** Las fuentes Mermaid y configuración se conservan en `docs/ux/chapter-6/`, y sus imágenes de diagramas en `assets/chapter-6/`. Las [instrucciones de reproducción](docs/ux/chapter-6/RENDERING.md) permiten regenerar Sitemap, búsqueda, navegación y WF-01–WF-13. Las exportaciones originales de Figma se conservan en `assets/chapter-6/figma/`, con [registro de nodos, dimensiones y hashes](docs/ux/chapter-6/figma-assets.json). Cada figura enlaza a su nodo de origen. Las exportaciones de Figma se conservan en `assets/chapter-6/figma/`, los Wireflows compuestos en `assets/chapter-6/wireflows/` y la evidencia de la Landing en `assets/chapter-6/landing/`.
 
+
+### 6.4.5. Applications Prototyping
+
+> ⚠️ **[NOTA GUÍA — BORRAR ESTA CAJA AL ENTREGAR]:** El texto de abajo ya queda fijo. Solo reemplaza los campos `[PENDIENTE: ...]` con el link del video en Microsoft Stream, la duración y la captura del video (según lo que abarque el prototipo).
+
+En esta sección se presentan los prototipos interactivos de interfaz de usuario (UI) para las aplicaciones que conforman la experiencia digital de ParkLink, incorporando simulación de navegación e interacción alineada con las decisiones de **Information Architecture** (`6.2`) y los recorridos de usuario principales de la solución.
+
+- **Archivo de Diseño y Prototipo en Figma:** <https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink>
+- **Landing Page Desplegada:** <https://parklink-tp1-landing.vercel.app>
+- **Video de Demostración de Navegación de Prototipos (Microsoft Stream):** `[PENDIENTE: URL_MICROSOFT_STREAM_PROTOTYPES_NAVIGATION]`
+- **Duración (Timing):** `[PENDIENTE: MM:SS]`
+- **Resumen de flujos demostrados en el video:** `[PENDIENTE: Resumir en 2-3 líneas las pantallas o flujos que se muestran en el video del prototipo]`.
+
+> **[PENDIENTE — Reemplazar por la captura del video `Prototypes Navigation` subido a Microsoft Stream]:**  
+> `![Captura del Video de Navegación de Prototipos](assets/chapter-6/prototype-navigation-video.png)`
+
+---
+
+# Capítulo VII: Product Implementation, Validation & Deployment
+
+En este capítulo se documenta y evidencia el proceso de ingeniería aplicado para implementar, probar, documentar, desplegar y validar con usuarios reales la primera versión funcional de la solución **ParkLink**, integrando la **Landing Page**, la **Web Application**, la **Mobile Application**, los **8 Bounded Contexts** del backend (`User & Identity`, `Parking Supply`, `Parking Discovery`, `Reservation Management`, `Payment`, `Notification`, `Conversational Reservation Agent` y `Audit`) y los **2 Agentes Conversacionales Copilot** especializados por segmento (**Agente Copilot de Conductor** para Humberto y **Agente Copilot de Propietario** para Jarol).
+
+---
+
+## 7.1. Software Configuration Management
+
+> ⚠️ **[NOTA GUÍA — BORRAR ESTA CAJA AL ENTREGAR]:** Todo el texto de `7.1.1`, `7.1.2`, `7.1.3` y `7.1.4` ya queda fijo como redacción final. Solo debes reemplazar los corchetes `[PENDIENTE: ...]` con los links reales de los repositorios y las URLs de despliegue.
+
+Con el propósito de garantizar la reproducibilidad, consistencia técnica, trazabilidad de cambios y calidad del código a lo largo del ciclo de vida de desarrollo de ParkLink, el equipo estableció las siguientes políticas y herramientas de **Software Configuration Management (SCM)**.
+
+### 7.1.1. Software Development Environment Configuration
+
+En la siguiente tabla se especifican los productos de software, su categoría dentro del ciclo de vida de ingeniería, su propósito en el proyecto ParkLink y su ruta oficial de referencia (SaaS) o descarga local:
+
+| Categoría de Actividad | Producto de Software | Propósito de Uso en el Proyecto | Ruta de Referencia (SaaS) / Ruta de Descarga |
+| :--- | :--- | :--- | :--- |
+| **Project Management** | **Trello** | Gestión ágil del Product Backlog, Sprint Backlogs y tableros Kanban para el seguimiento de User Stories, Technical Stories y Work-Items. | <https://trello.com/> / [Tablero Oficial ParkLink](https://trello.com/b/69df03bb/product-backlog) |
+| **Project Management & Communication** | **Discord / Google Meet** | Coordinación diaria del equipo (Daily Standups), sesiones de Sprint Planning, Sprint Review, Sprint Retrospective y entrevistas remotas. | <https://discord.com/download> / <https://meet.google.com/> |
+| **Requirements & UX Research** | **UXPressia** | Elaboración colaborativa de fichas de User Personas (Humberto y Jarol), Empathy Maps e Impact Mapping. | <https://uxpressia.com/> |
+| **Requirements & Collaborative Modeling** | **Miro / Canva Whiteboard** | Modelado colaborativo de As-Is Scenario Mapping, To-Be Scenario Mapping y sesiones de EventStorming. | <https://miro.com/> / <https://www.canva.com/> |
+| **Product Design (UX/UI)** | **Figma** | Diseño del Design System (tokens, tipografía Inter, paleta `#080808` / `#02EBD8`), Wireframes, Mock-ups y Prototipos interactivos de Landing Page, Web y Mobile. | <https://www.figma.com/downloads/> / [Proyecto Figma ParkLink](https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink) |
+| **Software Architecture & Modeling** | **Structurizr DSL & Mermaid** | Modelado Architecture-as-Code de las vistas C4 (System Landscape, Context, Container, Component y Deployment), diagramas UML de dominio y esquemas ER/datos. | <https://structurizr.com/> / <https://mermaid.js.org/> |
+| **Software Development (IDE)** | **Visual Studio Code / WebStorm / Android Studio** | Entornos de desarrollo integrados para la codificación en TypeScript (NestJS / React) y Dart (Flutter), con soporte de depuración y análisis estático. | <https://code.visualstudio.com/download> / <https://developer.android.com/studio> |
+| **Software Development (Backend & Agentes IA)** | **Node.js (v20 LTS), TypeScript & NestJS** | Desarrollo del API Gateway, los microservicios de los 8 Bounded Contexts y la orquestación segura de los **2 Agentes Conversacionales Copilot** (Conductor y Propietario). | <https://nodejs.org/en/download> / <https://nestjs.com/> |
+| **Software Development (Persistencia & Mensajería)** | **PostgreSQL 16, Prisma ORM, Redis 7 & RabbitMQ** | Almacenamiento relacional privado por servicio (con control de concurrencia e idempotencia), caché e índice geoespacial en Redis y mensajería asíncrona de comandos/eventos. | <https://www.postgresql.org/download/> / <https://www.prisma.io/> / <https://redis.io/> / <https://www.rabbitmq.com/> |
+| **Software Development (Web & Landing Page)** | **React, TypeScript, Vite & Tailwind CSS** | Construcción de la Landing Page responsiva e inclusiva (`i18n` / `a11y`) y de la Web Application para monitoreo de propietarios y experiencia web. | <https://react.dev/> / <https://vitejs.dev/> / <https://tailwindcss.com/> |
+| **Software Development (Mobile Application)** | **Flutter SDK & Dart** | Desarrollo cross-platform de la aplicación móvil para Conductores y Propietarios, integrando mapas, reservas, códigos QR y los 2 Agentes Copilot. | <https://docs.flutter.dev/get-started/install> |
+| **Software Testing** | **Jest, Supertest, Cucumber.js (Gherkin) & Vitest** | Ejecución de pruebas unitarias de dominio, pruebas de integración de APIs y pruebas de aceptación automatizadas basadas en especificaciones BDD (`.feature`). | <https://jestjs.io/> / <https://cucumber.io/docs/installation/> / <https://vitest.dev/> |
+| **Software Documentation** | **Swagger / OpenAPI 3.0 & Markdown** | Documentación interactiva de contratos RESTful APIs y elaboración colaborativa del informe técnico en GitHub. | <https://swagger.io/tools/swagger-ui/> / <https://www.markdownguide.org/> |
+| **Software Deployment & Source Control** | **Git, GitHub, Docker, Vercel & Render / Railway** | Control de versiones distribuido bajo GitFlow, contenerización de servicios y despliegue continuo en la nube para los productos digitales. | <https://git-scm.com/downloads> / <https://github.com/> / <https://vercel.com/> |
+
+---
+
+### 7.1.2. Source Code Management
+
+El control de versiones y el seguimiento de modificaciones de todos los productos digitales de ParkLink se centralizan en la organización pública oficial del equipo en GitHub:
+
+- **Organización Oficial en GitHub:** <https://github.com/1ASI0728-2620-16363-ParkLink>
+
+#### Repositorios de los Productos Digitales de la Solución
+
+| Producto Digital | Repositorio en GitHub | Alcance y Contenido Principal |
+| :--- | :--- | :--- |
+| **Project Report (Informe)** | <https://github.com/1ASI0728-2620-16363-ParkLink/ParkLink-Report> | Documento principal `README.md`, código fuente de diagramas C4/Mermaid (`docs/`) y recursos visuales (`assets/`). |
+| **Landing Page** | `[PENDIENTE: https://github.com/1ASI0728-2620-16363-ParkLink/ParkLink-Landing]` | Sitio web de adquisición segmentado para Conductores y Propietarios, desplegado en <https://parklink-tp1-landing.vercel.app>. |
+| **Backend & Web Services** | `[PENDIENTE: https://github.com/1ASI0728-2620-16363-ParkLink/ParkLink-Backend]` | Implementación de los 8 Bounded Contexts, los 2 Agentes Conversacionales Copilot, documentación OpenAPI/Swagger y suite de pruebas (`.feature` y tests). |
+| **Frontend Web Application** | `[PENDIENTE: https://github.com/1ASI0728-2620-16363-ParkLink/ParkLink-Frontend]` | Aplicación web para interacción de usuarios, panel del propietario y experiencia conversacional con los Agentes Copilot. |
+| **Mobile Application** | `[PENDIENTE: https://github.com/1ASI0728-2620-16363-ParkLink/ParkLink-Mobile]` | Aplicación móvil multiplataforma en Flutter para Conductores (Humberto) y Propietarios (Jarol). |
+
+#### Implementación de GitFlow Workflow
+
+El equipo adopta el flujo de ramificación **GitFlow** propuesto por Vincent Driessen (*A successful Git branching model*):
+
+1. **Ramas Principales de Larga Duración:**
+   - `main`: Contiene exclusivamente versiones estables, probadas y listas para producción asociadas a cada entregable oficial (`v1.0.0`, `v1.1.0`, `v2.0.0`).
+   - `develop`: Rama central de integración continua donde convergen las funcionalidades completadas durante cada Sprint antes de preparar un lanzamiento.
+2. **Ramas de Soporte y Convenciones de Nomenclatura:**
+   - **Feature Branches (`feature/<context-or-scope>-<short-description>`):** Se ramifican desde `develop` y se fusionan de vuelta en `develop` mediante Pull Request tras superar la revisión de código y pruebas. Ejemplos: `feature/identity-jwt-auth`, `feature/supply-space-publication`, `feature/discovery-geo-search`, `feature/reservation-concurrency-lock`, `feature/agent-driver-copilot`, `feature/agent-owner-copilot`.
+   - **Release Branches (`release/v<MAJOR>.<MINOR>.<PATCH>`):** Se ramifican desde `develop` cuando el alcance del Sprint está completo para realizar pruebas finales de integración, ajustes de metadatos y congelamiento de versión antes de fusionarse hacia `main` y `develop`.
+   - **Hotfix Branches (`hotfix/v<MAJOR>.<MINOR>.<PATCH>-<issue>`):** Se ramifican directamente desde `main` para corregir defectos críticos en producción y se integran simultáneamente en `main` y `develop`.
+
+#### Versionado Semántico (Semantic Versioning 2.0.0)
+
+Para etiquetar los lanzamientos (Releases) en GitHub se aplica estrictamente **Semantic Versioning 2.0.0 (`vMAJOR.MINOR.PATCH`)**:
+- **MAJOR (`X.0.0`):** Incrementa cuando se realizan cambios incompatibles en los contratos de API o arquitectónicos.
+- **MINOR (`0.X.0`):** Incrementa cuando se añade nueva funcionalidad compatible hacia atrás al cierre de un Sprint (ej. `v0.1.0` para el cierre del Sprint 1 en TB2).
+- **PATCH (`0.0.X`):** Incrementa cuando se aplican correcciones de errores (bugfixes/hotfixes) compatibles hacia atrás.
+
+#### Estándar de Mensajes de Confirmación (Conventional Commits v1.0.0)
+
+Todos los commits siguen la especificación **Conventional Commits v1.0.0** con la estructura:
+`<type>(<scope>): <imperative description>`
+
+- **Tipos permitidos (`<type>`):** `feat` (nueva funcionalidad), `fix` (corrección de defecto), `docs` (documentación o OpenAPI), `test` (pruebas unitarias, de integración o archivos `.feature` Gherkin), `refactor` (mejora interna sin cambio de comportamiento), `style` (formato y linting), `chore` (configuración, dependencias o scripts de construcción).
+- **Alcances recomendados (`<scope>`):** `identity`, `supply`, `discovery`, `reservation`, `payment`, `notification`, `agent`, `audit`, `landing`, `web`, `mobile`, `report`.
+
+---
+
+### 7.1.3. Source Code Style Guide & Conventions
+
+Para preservar la legibilidad, mantenibilidad y consistencia entre todos los repositorios, el equipo establece que **toda la nomenclatura de código fuente (clases, métodos, variables, tablas, endpoints y esquemas) se escribe en idioma inglés**, aplicando las siguientes guías de estilo oficiales:
+
+1. **TypeScript / NestJS (Backend) y React (Web & Landing Page) — *Google TypeScript Style Guide*:**
+   - **Clases, Interfaces, Tipos, Enumeraciones y Componentes React:** `PascalCase` (ej. `ReservationController`, `HoldReservationCommandHandler`, `ParkingSpaceSnapshot`, `DriverCopilotPanel`).
+   - **Variables, Propiedades, Funciones e Instancias:** `camelCase` (ej. `parkingSpaceId`, `holdExpiresAt`, `calculateTotalPrice`).
+   - **Constantes Globales y Valores de Enumeración:** `CONSTANT_CASE` (ej. `MAX_HOLD_DURATION_MINUTES`, `PENDING_PAYMENT`, `CONFIRMED`).
+   - **Nombres de Archivos y Directorios:** `kebab-case` con sufijos arquitectónicos explícitos en NestJS (`*.controller.ts`, `*.service.ts`, `*.handler.ts`, `*.entity.ts`, `*.repository.ts`, `*.dto.ts`, `*.spec.ts`).
+   - **Herramientas de Verificación Automática:** `ESLint` y `Prettier` configurados en la raíz de cada repositorio (indentación de 2 espacios, comillas simples, punto y coma obligatorio y tipado estricto en `tsconfig.json`).
+
+2. **Dart / Flutter (Mobile Application) — *Effective Dart Style Guide*:**
+   - **Clases, Widgets, Extensiones y Enums:** `UpperCamelCase` (ej. `DriverExploreScreen`, `ReservationTicketCard`, `CopilotChatSheet`).
+   - **Variables, Métodos y Parámetros Nombrados:** `lowerCamelCase` (ej. `selectedTimeSlot`, `onConfirmReservation`).
+   - **Archivos, Paquetes y Directorios:** `lowercase_with_underscores` (`snake_case`, ej. `driver_explore_screen.dart`, `parking_supply_repository.dart`).
+   - **Herramientas de Verificación Automática:** `flutter_lints` y formateo estándar mediante `dart format`.
+
+3. **Especificaciones BDD en Gherkin (`.feature`) — *Gherkin Conventions for Readable Specifications*:**
+   - Uso declarativo de palabras clave estándar (`Feature`, `Background`, `Scenario`, `Scenario Outline`, `Examples`, `Given`, `When`, `Then`, `And`, `But`).
+   - Redacción en tercera persona y tiempo presente enfocada en las reglas de negocio del dominio, evitando acoplar los pasos a selectores internos de interfaz.
+
+4. **Internacionalización (`i18n`) y Accesibilidad (`a11y`):**
+   - Soporte estructurado para inglés (`en_US`, idioma base por defecto para contratos, mensajes de API y documentación técnica) y español latinoamericano (`es_419`).
+   - Inclusión de atributos semánticos HTML5, etiquetas `aria-*`, navegación por teclado y relaciones de contraste verificadas bajo **WCAG 2.1 Nivel AA** (`11.72:1` a `13.23:1` sobre la paleta `#080808` / `#02EBD8` / `#FFFFFF`).
+
+---
+
+### 7.1.4. Software Deployment Configuration
+
+El flujo de despliegue de ParkLink automatiza la publicación de los productos digitales desde los repositorios de GitHub hacia entornos cloud administrados, siguiendo la topología definida en el **C4 Deployment Diagram**:
+
+![ParkLink Deployment Diagram](assets/architecture-v2/deployment.svg)
+
+#### Pasos y Configuración de Despliegue por Producto Digital
+
+1. **Landing Page (`ParkLink-Landing` → Vercel Edge Network):**
+   - **Repositorio / Rama de Producción:** `main` / `develop`.
+   - **Proceso de Construcción:** Integración continua nativa con Vercel; ejecuta `npm ci && npm run build` generando los artefactos estáticos optimizados y aplicando las cabeceras de seguridad (`Content-Security-Policy`, `X-Frame-Options: DENY`, `Permissions-Policy`, `Referrer-Policy`, `X-Content-Type-Options: nosniff`).
+   - **URL en Producción:** <https://parklink-tp1-landing.vercel.app>
+
+2. **Backend & Microservicios de los 8 Bounded Contexts + 2 Agentes Copilot (`ParkLink-Backend` → Cloud Runtime):**
+   - **Proceso de Construcción:** Ejecución de `npm ci`, generación del cliente Prisma (`npx prisma generate`), aplicación de migraciones de esquema (`npx prisma migrate deploy`), compilación TypeScript (`npm run build`) e inicialización del servidor con documentación OpenAPI expuesta en `/api/docs`.
+   - **Variables de Entorno Requeridas:** `DATABASE_URL` (PostgreSQL), `REDIS_URL` (proyección geoespacial), `RABBITMQ_URL` (broker de comandos y eventos), `JWT_SECRET` (autenticación RBAC), `LLM_API_KEY` (proveedor de IA para los Agentes Copilot tras Anti-Corruption Layer) y `PORT`.
+   - **URL Base del Backend / API Gateway:** `[PENDIENTE: URL_BACKEND_DEPLOY]`
+   - **URL de Documentación Swagger UI:** `[PENDIENTE: URL_SWAGGER_DEPLOY]`
+
+3. **Frontend Web Application (`ParkLink-Frontend` → Vercel / Cloud Hosting):**
+   - **Proceso de Construcción:** Ejecución de `npm ci && npm run build` con Vite y configuración de `VITE_API_BASE_URL` apuntando al API Gateway desplegado.
+   - **URL en Producción:** `[PENDIENTE: URL_WEB_APP_DEPLOY]`
+
+4. **Mobile Application (`ParkLink-Mobile` → Android APK / Firebase App Distribution):**
+   - **Proceso de Construcción:** Ejecución de `flutter pub get`, análisis estático con `flutter analyze` y generación del artefacto instalable mediante `flutter build apk --release --dart-define=API_BASE_URL=[URL_BACKEND]`.
+   - **Enlace de Distribución / Descarga APK:** `[PENDIENTE: URL_MOBILE_APK_DEPLOY]`
+
+---
+
+## 7.2. Products Implementation
+
+> ⚠️ **[NOTA GUÍA — BORRAR ESTA CAJA AL ENTREGAR]:** El texto de `7.2.1.1` (Sprint Planning), `7.2.1.2` (Sprint Backlog con 2 tareas por historia) y `7.2.1.4` (Unit Tests y archivos `.feature` Gherkin) ya queda fijo. Solo rellena los `[PENDIENTE: ...]` y en `7.2.1.6` ajusta las rutas de endpoints si el Swagger real de Pietro varía en algún nombre.
+
+En esta sección se documenta la ejecución iterativa e incremental de la implementación, pruebas automatizadas, documentación de servicios y despliegue de los productos digitales de ParkLink.
+
+### 7.2.1. Sprint 1
+
+El **Sprint 1** tuvo como propósito materializar y desplegar la primera versión funcional de extremo a extremo de ParkLink, abarcando la **Landing Page**, el **Backend de los 8 Bounded Contexts** (`User & Identity`, `Parking Supply`, `Parking Discovery`, `Reservation Management`, `Payment`, `Notification`, `Conversational Reservation Agent` y `Audit`), la orquestación de los **2 Agentes Conversacionales Copilot** (**Copilot de Conductor** para Humberto y **Copilot de Propietario** para Jarol), la **Web Application** y la **Mobile Application**.
+
+#### 7.2.1.1. Sprint Planning 1
+
+En la sesión de **Sprint Planning 1**, el equipo revisó los artefactos consolidados de arquitectura y diseño UX/UI del hito previo (Sprint 0 / TP1) y seleccionó las User Stories y Technical Stories prioritarias del Product Backlog (`3.4`) para conformar el incremento funcional del Sprint 1:
+
+| Sprint # | Sprint 1 |
+| :--- | :--- |
+| **Sprint Planning Background** | |
+| **Date** | `2026-10-12` |
+| **Time** | `08:00 PM` |
+| **Location** | Reunión virtual sincrónica (Discord / Google Meet) |
+| **Prepared By** | `[PENDIENTE: Integrante que prepara el acta]` |
+| **Attendees (to planning meeting)** | Oliva Lopez, Fabian Alejandro / Osores Marchese, Pietro / Castro Sanchez, Amir Gabriel / Ruiz Huisa, Daniel Elias |
+| **Sprint 0 Review Summary** | Se completó el diseño táctico DDD de los 8 Bounded Contexts (diagramas de componentes C4, diagramas UML de dominio y esquemas de bases de datos), los lineamientos de estilo UX/UI, la arquitectura de información, el despliegue inicial de la Landing Page y los 13 Wireflows/User Flows en Figma. |
+| **Sprint 0 Retrospective Summary** | El equipo identificó como acierto la trazabilidad entre reglas de dominio y flujos UX; como oportunidad de mejora acordó estandarizar las ramas bajo GitFlow, automatizar las pruebas BDD Gherkin desde el inicio del Sprint y dividir claramente las tareas de integración de los 2 Agentes Copilot. |
+| **Sprint Goal & User Stories** | |
+| **Sprint 1 Goal** | Implementar, probar, documentar con OpenAPI/Swagger y desplegar la primera versión funcional integrada de ParkLink: Landing Page con CTAs activos, Backend con los 8 Bounded Contexts operativos, los 2 Agentes Conversacionales Copilot (Conductor Humberto y Propietario Jarol) con barrera de confirmación explícita, Web Application y Mobile Application. **Métrica de cumplimiento:** 100% de las historias comprometidas en estado *Done* y productos desplegados accesibles públicamente. |
+| **Sprint 1 Velocity** | `81` Story Points |
+| **Sum of Story Points** | `81` Story Points (`US-LP01`: 3, `US-LP02`: 3, `US-LP03`: 3, `US-LP04`: 2, `US01`: 8, `US02`: 8, `US05`: 8, `US09`: 5, `US12`: 5, `US14`: 8, `US19`: 2, `US21`: 8, `TS01`: 5, `TS02`: 5, `TS03`: 3, `TS05`: 3, `TS07`: 5 — *Nota: ajustar suma según alcance final del tablero*) |
+
+---
+
+#### 7.2.1.2. Sprint Backlog 1
+
+El **Sprint Backlog 1** descompone cada User Story y Technical Story seleccionada en **múltiples tareas de ingeniería (*Work-Items / Tasks*)** con estimación en horas y responsable asignado, cubriendo diseño de interfaz, lógica de negocio/API y verificación:
+
+- **URL Pública del Tablero del Sprint 1 (Trello):** <https://trello.com/b/69df03bb/product-backlog>
+
+> **[PENDIENTE — Insertar captura actualizada del tablero Trello con la columna de `Sprint 1` / `Done`]:**  
+> `![Sprint 1 Backlog Board](assets/chapter-7/sprint-1-board.png)`
+
+| Sprint # | User Story ID | User Story Title | Work-Item / Task ID | Task Title | Description | Estimation (Hours) | Assigned To | Status (To-do / In-Process / To-Review / Done) |
+| :---: | :---: | :--- | :---: | :--- | :--- | :---: | :--- | :---: |
+| 1 | **US-LP01** | Presentación de propuesta de valor y flujo operativo | TK-101.1 | Maquetar sección Hero y problemática urbana | Implementar layout responsivo del Hero con estética `#080808` / `#02EBD8` y textos internacionalizados (`en_US` / `es_419`). | 2 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US-LP01** | Presentación de propuesta de valor y flujo operativo | TK-101.2 | Desarrollar sección interactiva de flujo en 3 pasos | Implementar tarjetas paso a paso explicando búsqueda, reserva y estacionamiento verificado. | 2 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US-LP02** | Catálogo de características y matriz comparativa | TK-102.1 | Implementar grid de características y showcase de ParkLink Copilot | Construir componentes visuales de funcionalidades clave y demostración de los 2 Agentes Copilot en la Landing Page. | 2 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US-LP02** | Catálogo de características y matriz comparativa | TK-102.2 | Desarrollar tabla comparativa frente a alternativas tradicionales | Maquetar matriz comparativa accesible con indicadores visuales de ventajas competitivas. | 2 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US-LP03** | Segmentación de beneficios y llamados a la acción por rol | TK-103.1 | Construir paneles diferenciados para Conductor y Propietario | Desarrollar tarjetas de propuesta de valor por segmento objetivo (Humberto y Jarol). | 2 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US-LP03** | Segmentación de beneficios y llamados a la acción por rol | TK-103.2 | Configurar enrutamiento de CTAs hacia aplicaciones desplegadas | Vincular los botones «Buscar estacionamiento» y «Publicar mi cochera» a las rutas de acceso correspondientes. | 2 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US-LP04** | Credenciales de autoría (ParkTeam) y soporte / FAQ | TK-104.1 | Implementar sección ParkTeam y acordeón FAQ accesible | Construir tarjetas de perfiles del equipo y preguntas frecuentes con navegación por teclado y atributos ARIA. | 2 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US-LP04** | Credenciales de autoría (ParkTeam) y soporte / FAQ | TK-104.2 | Integrar contenedores de video y cabeceras de seguridad en Vercel | Incrustar reproductores de video y configurar headers CSP / HSTS en el despliegue de la Landing Page. | 2 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US19 / TS03** | Autenticación, JWT y control de acceso basado en roles (RBAC) | TK-105.1 | Implementar modelo de dominio, repositorios y endpoints de `Identity` | Desarrollar registro e inicio de sesión con validación de placa (`DRIVER`) y CCI (`OWNER`), emitiendo tokens JWT. | 3 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US19 / TS03** | Autenticación, JWT y control de acceso basado en roles (RBAC) | TK-105.2 | Implementar guardas RBAC en API Gateway y pantallas de login/registro | Configurar autorización por rol en el Gateway e integrar formularios de autenticación en Web y Mobile. | 3 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US09 / TS05** | Publicación y alta de espacio de estacionamiento | TK-106.1 | Desarrollar agregado `ParkingSpace` y endpoints REST en `Supply` | Implementar creación de cochera, validación de horarios/tarifas en soles y carga de mínimo dos fotografías. | 4 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US09 / TS05** | Publicación y alta de espacio de estacionamiento | TK-106.2 | Construir vistas de publicación y edición de espacios del propietario | Implementar formularios de alta de cochera y gestión de horarios/disponibilidad en la aplicación del propietario. | 4 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US01 / US02 / TS02** | Búsqueda por geolocalización y disponibilidad en tiempo real | TK-107.1 | Implementar servicio de búsqueda geoespacial y proyección en `Discovery` | Desarrollar consulta por coordenadas y radio de 1 km (con ampliación automática a 2 km) y filtros de precio/horario. | 4 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US01 / US02 / TS02** | Búsqueda por geolocalización y disponibilidad en tiempo real | TK-107.2 | Construir pantalla de mapa interactivo, listado y ficha técnica de cochera | Implementar vista de exploración del conductor con marcadores de tarifas, filtros y detalle del estacionamiento. | 4 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US05 / TS01** | Creación y confirmación de reserva con control de concurrencia | TK-108.1 | Implementar agregado `Reservation` y bloqueo transaccional anti-solapamiento | Desarrollar comando de retención temporal (`PENDING_PAYMENT` por 10 min) y rechazo de doble reserva (`409 Conflict`). | 5 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US05 / TS01** | Creación y confirmación de reserva con control de concurrencia | TK-108.2 | Implementar flujo UI de reserva y vista de ticket con código / QR | Construir pantalla de resumen de reserva, temporizador de retención y ticket de confirmación verificable. | 5 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US14** | Pago electrónico seguro de reserva | TK-109.1 | Implementar procesamiento idempotente en `Payment`, `Notification` y `Audit` | Desarrollar autorización de cobro con `Idempotency-Key`, emisión de comprobante, alertas y registro en `Audit`. | 4 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US14** | Pago electrónico seguro de reserva | TK-109.2 | Integrar pasarela de pago y descarga de comprobante en cliente | Construir interfaz de selección de medio de pago, confirmación de cobro e historial de comprobantes. | 4 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US12** | Monitoreo de reservas activas y programación de accesos | TK-110.1 | Desarrollar endpoints de agenda del propietario, métricas y check-in | Implementar consulta de reservas programadas por cochera, validación de código de ingreso y balance de ingresos. | 4 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US12** | Monitoreo de reservas activas y programación de accesos | TK-110.2 | Implementar dashboard web de monitoreo y validador móvil de acceso | Construir panel web de KPIs/ocupación del propietario y vista móvil de validación de código en puerta. | 4 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US21 / TS07** | Búsqueda y reserva conversacional (**Agente Copilot Conductor**) | TK-111.1 | Implementar orquestador y herramientas del **Agente Copilot de Conductor** | Desarrollar integración de `search_parking_spaces` y `prepare_reservation_draft` con emisión de `ConfirmationToken` (TTL 5 min). | 4 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US21 / TS07** | Búsqueda y reserva conversacional (**Agente Copilot Conductor**) | TK-111.2 | Construir interfaz de chat/voz y tarjeta de confirmación para el conductor | Implementar panel conversacional móvil/web para Humberto con botón de aprobación explícita de reserva. | 4 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US21 / US12 / TS07** | Asistencia conversacional de gestión (**Agente Copilot Propietario**) | TK-112.1 | Implementar orquestador y herramientas del **Agente Copilot de Propietario** | Desarrollar herramientas restringidas al rol `OWNER` para consultar ocupación diaria, agenda de llegadas e ingresos netos. | 4 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US21 / US12 / TS07** | Asistencia conversacional de gestión (**Agente Copilot Propietario**) | TK-112.2 | Construir interfaz conversacional del **Agente Copilot de Propietario** | Integrar asistente en el panel del propietario (Jarol) para consultas rápidas y propuestas de gestión con confirmación. | 4 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **TS01–TS07** | Suite de pruebas BDD/Unitarias y documentación OpenAPI | TK-113.1 | Implementar pruebas unitarias de dominio y escenarios BDD Gherkin (`.feature`) | Codificar pruebas automatizadas de reglas de negocio, concurrencia de reservas y seguridad de los 2 Agentes Copilot. | 3 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **TS01–TS07** | Suite de pruebas BDD/Unitarias y documentación OpenAPI | TK-113.2 | Configurar decoradores OpenAPI 3.0 / Swagger UI y despliegue cloud | Documentar los endpoints RESTful en Swagger UI y verificar el despliegue continuo de los servicios en la nube. | 3 | `[PENDIENTE: Integrante]` | Done |
+
+---
+
+#### 7.2.1.3. Development Evidence for Sprint Review
+
+Durante el **Sprint 1**, el equipo completó la implementación de la primera versión funcional de los productos digitales de ParkLink, manteniendo la separación de responsabilidades de los **8 Bounded Contexts** (`Identity`, `Supply`, `Discovery`, `Reservation`, `Payment`, `Notification`, `Conversational Reservation Agent` y `Audit`) y habilitando los **2 Agentes Conversacionales Copilot** (uno especializado para el segmento de **Conductores — Humberto** y otro para el segmento de **Propietarios — Jarol**).
+
+En la siguiente tabla se registran los commits reales de implementación extraídos de los repositorios del proyecto:
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| :--- | :--- | :---: | :--- | :--- | :---: |
+| `[PENDIENTE: Repo Landing]` | `[PENDIENTE: Branch]` | `[PENDIENTE: Hash real]` | `[PENDIENTE: Copiar mensaje de commit real del repo de Pietro]` | `[PENDIENTE: Descripción / cuerpo del commit]` | `[DD/MM/2026]` |
+| `[PENDIENTE: Repo Backend]` | `[PENDIENTE: Branch]` | `[PENDIENTE: Hash real]` | `[PENDIENTE: Copiar mensaje de commit real del repo de Pietro]` | `[PENDIENTE: Descripción / cuerpo del commit]` | `[DD/MM/2026]` |
+| `[PENDIENTE: Repo Backend]` | `[PENDIENTE: Branch]` | `[PENDIENTE: Hash real]` | `[PENDIENTE: Copiar mensaje de commit real del repo de Pietro]` | `[PENDIENTE: Descripción / cuerpo del commit]` | `[DD/MM/2026]` |
+| `[PENDIENTE: Repo Frontend]` | `[PENDIENTE: Branch]` | `[PENDIENTE: Hash real]` | `[PENDIENTE: Copiar mensaje de commit real del repo de Pietro]` | `[PENDIENTE: Descripción / cuerpo del commit]` | `[DD/MM/2026]` |
+| `[PENDIENTE: Repo Mobile]` | `[PENDIENTE: Branch]` | `[PENDIENTE: Hash real]` | `[PENDIENTE: Copiar mensaje de commit real del repo de Pietro]` | `[PENDIENTE: Descripción / cuerpo del commit]` | `[DD/MM/2026]` |
+
+---
+
+#### 7.2.1.4. Testing Suite Evidence for Sprint Review
+
+Para verificar el cumplimiento de las reglas de negocio y los criterios de aceptación del Sprint 1, se diseñó e implementó una suite de pruebas automatizadas compuesta por **Unit Tests** sobre las clases de la capa de dominio y **Acceptance / Integration Tests** bajo el enfoque **Behavior-Driven Development (BDD)** utilizando **Gherkin (`.feature`)**.
+
+##### 1. Relación de Pruebas Unitarias (Unit Tests de Domain & Application Layer)
+
+| Bounded Context | Clase / Componente Evaluado | Archivo de Prueba | Comportamientos y Reglas de Dominio Verificadas |
+| :--- | :--- | :--- | :--- |
+| **User & Identity** | `User`, `LicensePlate`, `PayoutAccount` | `identity.domain.spec.ts` | Unicidad de correo, validación de formato de placa vehicular para conductores (`US17`), validación de CCI de 20 dígitos para propietarios (`US18`) y segregación de roles (`TS03`). |
+| **Parking Supply** | `ParkingSpace`, `AvailabilityWindow`, `HourlyRate` | `supply.domain.spec.ts` | Rechazo de tarifas negativas, detección de horarios solapados, exigencia de mínimo dos fotografías verificadas antes de publicar (`US09`, `TS05`) y validación de ownership (`US10`, `US11`). |
+| **Parking Discovery** | `SearchCriteria`, `RankingPolicy` | `discovery.domain.spec.ts` | Cálculo geoespacial de distancia, ordenamiento determinístico por cercanía y tarifa, y ampliación automática del radio de 1 km a 2 km cuando no hay resultados iniciales (`US01`, `TS02`). |
+| **Reservation Management** | `Reservation`, `TimeInterval`, `AvailabilityPolicy`, `CancellationPolicy` | `reservation.domain.spec.ts` | Semántica de intervalo semiabierto (`a.start < b.end AND a.end > b.start`), rechazo de doble reserva concurrente (`409 Conflict`, `TS01`), expiración de hold a los 10 minutos (`US05`) y cálculo de reembolso (`US06`). |
+| **Payment** | `PaymentTransaction`, `IdempotencyPolicy` | `payment.domain.spec.ts` | Garantía de cobro único ante reintentos con la misma `idempotencyKey` (`TS06`), rechazo de mutación de importe y generación de comprobante (`US14`, `US16`). |
+| **Conversational Reservation Agent** | `ConversationOrchestrator`, `ConfirmationPolicy`, `ToolRegistry` | `agent.domain.spec.ts` | Segregación de herramientas por rol (**Agente Copilot Conductor** vs. **Agente Copilot Propietario**), bloqueo de herramientas fuera de la *allowlist* (`TS07`) y obligatoriedad de `ConfirmationToken` de un solo uso con TTL de 5 minutos (`US21`). |
+| **Notification & Audit** | `NotificationPreference`, `AuditEvent`, `AuditMetadataPolicy` | `audit-notification.domain.spec.ts` | Minimización de metadatos sensibles (exclusión de credenciales y tarjetas) e inmutabilidad de eventos auditados (`TS04`). |
+
+##### 2. Especificaciones BDD en Lenguaje Gherkin (`.feature` Files)
+
+A continuación se presenta el código de los archivos `.feature` implementados para validar los escenarios críticos del Sprint 1:
+
+**Archivo 1: `test/features/reservation-concurrency.feature` (Relacionado con `US05`, `US14` y `TS01`)**
+```gherkin
+Feature: Prevención de sobreventa y ciclo de vida de reservas en ParkLink
+  Como conductor urbano (Humberto)
+  Quiero reservar un espacio de estacionamiento con bloqueo transaccional
+  Para tener certeza absoluta de que mi plaza no será asignada a otro conductor en el mismo horario
+
+  Background:
+    Given que el estacionamiento "Cochera San Isidro Centro" con ID "space-101" está publicado y disponible de "08:00" a "20:00" con tarifa de 8.00 PEN por hora
+
+  Scenario: Creación exitosa de retención temporal (Hold) de reserva
+    Given que el conductor autenticado "humberto@parklink.pe" selecciona el espacio "space-101" de "09:00" a "11:00"
+    When envía la solicitud de retención de reserva con clave de idempotencia "idem-hold-001"
+    Then el servicio de Reservation responde con código HTTP 201 y estado "PENDING_PAYMENT"
+    And asigna un tiempo de expiración de retención de 10 minutos y un importe total de 16.00 PEN
+
+  Scenario: Bloqueo de reserva duplicada por solapamiento horario concurrente
+    Given que existe una reserva activa o retenida para el espacio "space-101" en el intervalo de "09:00" a "11:00"
+    When un segundo conductor intenta reservar el espacio "space-101" en el intervalo solapado de "10:00" a "12:00"
+    Then el servicio de Reservation rechaza la petición con código HTTP 409 Conflict
+    And informa que el intervalo solicitado presenta conflicto de disponibilidad
+```
+
+**Archivo 2: `test/features/copilot-agents.feature` (Relacionado con `US21`, `US12` y `TS07` — Los 2 Agentes Copilot)**
+```gherkin
+Feature: Orquestación segura de los 2 Agentes Conversacionales Copilot (Conductor y Propietario)
+  Como usuario de ParkLink (Conductor Humberto o Propietario Jarol)
+  Quiero interactuar en lenguaje natural con el Agente Copilot correspondiente a mi rol
+  Para agilizar búsquedas, reservas y consultas operativas manteniendo confirmación explícita sobre cualquier acción
+
+  Scenario: Agente Copilot de Conductor propone reserva y exige confirmación explícita
+    Given que el conductor "humberto@parklink.pe" inicia sesión con rol "DRIVER"
+    When envía al Agente Copilot de Conductor el mensaje "Busca una cochera en San Isidro para hoy de 9 a 11 am por menos de 10 soles la hora"
+    Then el Agente Copilot invoca la herramienta permitida "search_parking_spaces" en el contexto Discovery
+    And devuelve una propuesta estructurada con resumen de tarifa, horario y un token de confirmación con TTL de 5 minutos
+    And la reserva no se ejecuta hasta que el conductor confirma explícitamente el token emitido
+
+  Scenario: Agente Copilot de Propietario consulta ocupación e ingresos y bloquea herramientas no autorizadas
+    Given que el propietario "jarol@parklink.pe" inicia sesión con rol "OWNER"
+    When envía al Agente Copilot de Propietario el mensaje "Muéstrame el resumen de reservas de hoy y mis ingresos acumulados de la semana"
+    Then el Agente Copilot invoca únicamente las herramientas de propietario "get_owner_schedule" y "get_owner_income_summary"
+    And responde con el cronograma de vehículos agendados y el balance neto de sus cocheras
+```
+
+##### 3. Evidencia de Commits y Ejecución de Pruebas en el Sprint 1
+
+- **Ruta del Repositorio de Pruebas:** `[PENDIENTE: URL_REPO_BACKEND_TESTS]`
+
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| :--- | :--- | :---: | :--- | :--- | :---: |
+| `[PENDIENTE: Repo Backend]` | `[PENDIENTE: Branch]` | `[PENDIENTE: Hash real]` | `[PENDIENTE: Copiar mensaje de commit de pruebas real del repo de Pietro]` | `[PENDIENTE: Descripción / cuerpo del commit]` | `[DD/MM/2026]` |
+| `[PENDIENTE: Repo Frontend / Mobile]` | `[PENDIENTE: Branch]` | `[PENDIENTE: Hash real]` | `[PENDIENTE: Copiar mensaje de commit de pruebas real del repo de Pietro]` | `[PENDIENTE: Descripción / cuerpo del commit]` | `[DD/MM/2026]` |
+
+> **[PENDIENTE — Insertar captura de la terminal o pipeline ejecutando `npm test` / `npm run test:e2e` con todos los tests en `PASS`]:**  
+> `![Testing Suite Execution Evidence](assets/chapter-7/sprint-1-tests.png)`
+
+---
+
+#### 7.2.1.5. Execution Evidence for Sprint Review
+
+En el **Sprint 1** se logró la ejecución integrada de los productos digitales de ParkLink:
+1. **Landing Page en Producción:** Presenta la propuesta de valor, matriz comparativa, sección interactiva de ParkLink Copilot, perfiles del equipo, preguntas frecuentes y llamados a la acción por segmento (<https://parklink-tp1-landing.vercel.app>).
+2. **Flujo del Conductor Urbano (Humberto):** Registro/autenticación, exploración de estacionamientos cercanos en mapa y lista, filtrado por precio/horario, visualización de ficha técnica, creación de reserva con pago digital, obtención de ticket con código QR e interacción conversacional con el **Agente Copilot de Conductor**.
+3. **Flujo del Propietario de Estacionamiento (Jarol):** Publicación de cochera con fotografías y tarifa horaria, configuración de ventanas de disponibilidad, validación de código de ingreso, panel web de monitoreo de ocupación/ingresos e interacción con el **Agente Copilot de Propietario**.
+
+- **URLs Desplegadas Activas:**
+  - **Landing Page:** <https://parklink-tp1-landing.vercel.app>
+  - **Web Application:** `[PENDIENTE: URL_WEB_DEPLOY]`
+  - **Backend API & Swagger:** `[PENDIENTE: URL_BACKEND_DEPLOY]`
+- **Video de Demostración de Ejecución y Navegación del Sprint 1 (Microsoft Stream):** `[PENDIENTE: URL_STREAM_EXECUTION_SPRINT_1]`
+
+##### Evidencia Visual de Ejecución de los Productos Digitales
+
+1. **Landing Page Desplegada (Desktop & Mobile):**
+
+![Ejecución real de la Landing Page en escritorio](assets/chapter-6/landing/landing-desktop-hero.png)
+
+![Sección ParkLink Copilot en la Landing Page desplegada](assets/chapter-6/landing/landing-desktop-copilot.png)
+
+2. **Web Application, Mobile Application y los 2 Agentes Conversacionales Copilot en Ejecución:**
+
+> **[PENDIENTE — Insertar capturas reales de las aplicaciones ejecutándose en el Sprint 1]:**  
+> - `![Ejecución Web App — Panel de Monitoreo del Propietario](assets/chapter-7/sprint-1-exec-web-owner.png)`  
+> - `![Ejecución Mobile App — Exploración y Reserva del Conductor](assets/chapter-7/sprint-1-exec-mobile-driver.png)`  
+> - `![Ejecución Agente Copilot Conductor (Humberto)](assets/chapter-7/sprint-1-exec-copilot-driver.png)`  
+> - `![Ejecución Agente Copilot Propietario (Jarol)](assets/chapter-7/sprint-1-exec-copilot-owner.png)`
+
+---
+
+#### 7.2.1.6. Services Documentation Evidence for Sprint Review
+
+Todos los servicios RESTful implementados en el Sprint 1 para los **8 Bounded Contexts** y los **2 Agentes Conversacionales Copilot** fueron documentados siguiendo el estándar **OpenAPI 3.0** mediante **Swagger UI**, especificando esquemas de entrada (DTOs con `class-validator`), parámetros de consulta, autenticación Bearer JWT y códigos de estado HTTP.
+
+- **URL del Repositorio de Web Services:** `[PENDIENTE: URL_REPO_BACKEND]`
+- **URL de la Documentación Desplegada (Swagger UI):** `[PENDIENTE: URL_SWAGGER_DEPLOY]`
+- **Commits asociados a Documentación OpenAPI:** `[PENDIENTE: Copiar hash y mensaje de commit real del repo de Pietro]`
+
+##### Catálogo de Endpoints Documentados en el Sprint 1
+
+> ⚠️ **[NOTA GUÍA — BORRAR ESTA CAJA AL ENTREGAR]:** Esta tabla fue armada usando los endpoints definidos en el Capítulo V (`5.1`–`5.8`). Cuando Pietro pase el link del Swagger real, verifica si las rutas coinciden o ajusta el nombre de la ruta/JSON que haya cambiado en su código.
+
+| Bounded Context | Verbo HTTP | Sintaxis de Llamada (Endpoint) | Parámetros / Payload de Entrada | Ejemplo y Explicación del Response |
+| :--- | :---: | :--- | :--- | :--- |
+| **1. User & Identity** | `POST` | `/api/v1/auth/register` | **Body JSON:** `{ "fullName": "Humberto Garcia", "email": "humberto@parklink.pe", "password": "***", "role": "DRIVER", "licensePlate": "ABC-123" }` | **`201 Created`:** `{ "userId": "usr_01", "email": "humberto@parklink.pe", "role": "DRIVER", "status": "ACTIVE" }`. Registra un conductor o propietario validando los requisitos específicos de su rol. |
+| **1. User & Identity** | `POST` | `/api/v1/auth/login` | **Body JSON:** `{ "email": "humberto@parklink.pe", "password": "***" }` | **`200 OK`:** `{ "accessToken": "eyJhbGciOi...", "expiresIn": 3600, "user": { "id": "usr_01", "role": "DRIVER" } }`. Autentica credenciales y emite un token JWT firmado con el rol del actor. |
+| **2. Parking Supply** | `POST` | `/api/v1/parking-spaces` | **Header:** `Authorization: Bearer <JWT_OWNER>`<br>**Body JSON:** `{ "title": "Cochera San Isidro", "address": "Av. Rivera Navarrete 501", "latitude": -12.096, "longitude": -77.028, "pricePerHour": 8.0, "currency": "PEN", "windows": [{"dayOfWeek": 1, "open": "08:00", "close": "20:00"}], "photos": ["s3://.../p1.jpg", "s3://.../p2.jpg"] }` | **`201 Created`:** `{ "spaceId": "spc_101", "status": "PUBLISHED", "version": 1 }`. Da de alta un nuevo espacio de estacionamiento del propietario y publica el evento `ParkingSpacePublished`. |
+| **2. Parking Supply** | `PATCH` | `/api/v1/parking-spaces/:id/availability` | **Path:** `id` (`spc_101`)<br>**Body JSON:** `{ "enabled": true, "pricePerHour": 8.5, "expectedVersion": 1 }` | **`200 OK`:** `{ "spaceId": "spc_101", "enabled": true, "pricePerHour": 8.5, "version": 2 }`. Actualiza horarios, tarifa o estado de habilitación sin afectar reservas ya confirmadas. |
+| **3. Parking Discovery** | `GET` | `/api/v1/parking-spaces/search` | **Query Params:** `?lat=-12.096&lng=-77.028&radiusKm=1&maxPrice=12&start=2026-11-10T09:00:00Z&end=2026-11-10T11:00:00Z` | **`200 OK`:** `{ "radiusUsedKm": 1, "results": [{ "spaceId": "spc_101", "title": "Cochera San Isidro", "distanceKm": 0.35, "pricePerHour": 8.0, "visibleAvailability": "AVAILABLE", "projectedAt": "2026-11-10T08:40:00Z" }] }`. Consulta la proyección geoespacial de baja latencia. |
+| **4. Reservation Management** | `POST` | `/api/v1/reservations/hold` | **Header:** `Idempotency-Key: idem-001`<br>**Body JSON:** `{ "parkingSpaceId": "spc_101", "startTime": "2026-11-10T09:00:00Z", "endTime": "2026-11-10T11:00:00Z" }` | **`201 Created` (o `409 Conflict` si hay solapamiento):** `{ "reservationId": "res_501", "reservationCode": "PKL-8842", "status": "PENDING_PAYMENT", "totalPrice": 16.0, "currency": "PEN", "holdExpiresAt": "2026-11-10T08:55:00Z" }`. Bloquea temporalmente el intervalo bajo control de concurrencia. |
+| **4. Reservation Management** | `POST` | `/api/v1/reservations/:id/check-in` | **Header:** `Authorization: Bearer <JWT_OWNER>`<br>**Body JSON:** `{ "reservationCode": "PKL-8842" }` | **`200 OK`:** `{ "reservationId": "res_501", "status": "ACTIVE", "checkedInAt": "2026-11-10T09:02:00Z" }`. Permite al propietario validar el código presentado por el conductor al ingresar a la cochera. |
+| **5. Payment** | `POST` | `/api/v1/payments/authorize` | **Header:** `Idempotency-Key: pay-idem-001`<br>**Body JSON:** `{ "reservationId": "res_501", "amount": 16.0, "currency": "PEN", "paymentMethod": "CARD_VISA" }` | **`200 OK`:** `{ "paymentId": "pay_901", "reservationId": "res_501", "status": "AUTHORIZED", "receiptNumber": "BOL-2026-000501" }`. Procesa el cobro de manera idempotente y dispara la confirmación definitiva de la reserva. |
+| **6. Notification** | `GET` | `/api/v1/notifications/my` | **Header:** `Authorization: Bearer <JWT>` | **`200 OK`:** `{ "items": [{ "id": "ntf_01", "type": "RESERVATION_CONFIRMED", "message": "Tu reserva PKL-8842 fue confirmada.", "sentAt": "2026-11-10T08:46:00Z" }] }`. Devuelve las alertas y notificaciones enviadas al usuario autenticado. |
+| **7. Conversational Agent (Copilot Conductor)** | `POST` | `/api/v1/copilot/driver/messages` | **Header:** `Authorization: Bearer <JWT_DRIVER>`<br>**Body JSON:** `{ "conversationId": "cnv_d01", "message": "Búscame cochera en San Isidro de 9 a 11 am hoy" }` | **`200 OK`:** `{ "reply": "Encontré Cochera San Isidro a S/ 8.00/h (total S/ 16.00). ¿Confirmas retenerla?", "proposedAction": { "tool": "hold_reservation", "spaceId": "spc_101", "confirmationToken": "ctk_991", "expiresInSeconds": 300 } }`. Interpreta la intención del conductor y genera una propuesta sujeta a confirmación. |
+| **7. Conversational Agent (Copilot Propietario)** | `POST` | `/api/v1/copilot/owner/messages` | **Header:** `Authorization: Bearer <JWT_OWNER>`<br>**Body JSON:** `{ "conversationId": "cnv_o01", "message": "¿Cuántas reservas activas tengo hoy y cuál es mi ingreso de la semana?" }` | **`200 OK`:** `{ "reply": "Hoy tienes 3 reservas agendadas en Cochera San Isidro. Tu ingreso neto acumulado esta semana es S/ 184.00.", "data": { "todayReservations": 3, "weeklyNetIncomePen": 184.0 } }`. Asiste conversacionalmente al propietario con métricas operativas y propuestas de gestión. |
+| **7. Conversational Agent (Confirmación)** | `POST` | `/api/v1/copilot/confirmations/:token` | **Path:** `token` (`ctk_991`)<br>**Header:** `Authorization: Bearer <JWT>` | **`202 Accepted` / `200 OK`:** `{ "status": "EXECUTED", "commandId": "cmd_771", "result": { "reservationId": "res_501", "status": "PENDING_PAYMENT" } }`. Consume el token de confirmación explícita por única vez y despacha el comando autorizado. |
+| **8. Audit** | `GET` | `/api/v1/audit/events` | **Query Params:** `?correlationId=corr_501&entityType=RESERVATION` | **`200 OK`:** `{ "events": [{ "id": "aud_01", "action": "RESERVATION_CONFIRMED", "actorRole": "DRIVER", "entityId": "res_501", "occurredAt": "2026-11-10T08:46:00Z" }] }`. Consulta trazas append-only correlacionadas para auditoría y conciliación. |
+
+> **[PENDIENTE — Insertar capturas de Swagger UI mostrando la lista de endpoints y una prueba interactiva (`Try it out`) con respuesta `200 OK` / `201 Created`]:**  
+> `![Swagger UI Documentation Evidence](assets/chapter-7/sprint-1-swagger.png)`
+
+---
+
+#### 7.2.1.7. Software Deployment Evidence for Sprint Review
+
+Durante el **Sprint 1** se aprovisionaron los servicios en la nube y se configuraron los flujos de despliegue continuo para todos los componentes de la solución:
+1. **Despliegue de la Landing Page en Vercel:** Configuración del proyecto `parklink-tp1-landing` conectado al repositorio de GitHub con reconstrucción automática en cada push y cabeceras HTTP de seguridad verificadas.
+2. **Despliegue del Backend, Base de Datos y Caché en Cloud:** Configuración de instancias administradas de PostgreSQL, Redis y servicio web para los 8 Bounded Contexts y los 2 Agentes Copilot, exponiendo la API RESTful y el portal `/api/docs` de OpenAPI.
+3. **Despliegue de la Web Application y Empaquetado de la Mobile App:** Publicación del frontend web en Vercel y generación del paquete instalable (`.apk`) de la aplicación Flutter conectado a los servicios en producción.
+
+> **[PENDIENTE — Insertar capturas de los paneles de control Cloud (Vercel / Render / Railway / GitHub Actions) mostrando los despliegues activos del Sprint 1]:**  
+> `![Cloud Deployment Dashboard Evidence](assets/chapter-7/sprint-1-deployment.png)`
+
+---
+
+#### 7.2.1.8. Team Collaboration Insights during Sprint
+
+El desarrollo del **Sprint 1** se ejecutó de forma colaborativa entre los cuatro integrantes de **ParkTeam**, aplicando revisiones cruzadas de Pull Requests sobre la rama `develop` en cada uno de los repositorios de la organización `1ASI0728-2620-16363-ParkLink`.
+
+- **Participación de los integrantes durante el Sprint 1:**
+  - **Fabian Alejandro Oliva López:** `[PENDIENTE: Resumir participación según las tareas asignadas]`.
+  - **Pietro Osores Marchese:** `[PENDIENTE: Resumir participación según las tareas asignadas]`.
+  - **Amir Gabriel Castro Sanchez:** `[PENDIENTE: Resumir participación según las tareas asignadas]`.
+  - **Daniel Elias Ruiz Huisa:** `[PENDIENTE: Resumir participación según las tareas asignadas]`.
+
+> **[PENDIENTE — Insertar capturas de `Insights > Contributors` y `Insights > Network` de los repositorios de código en GitHub para el Sprint 1]:**  
+> `![Team Collaboration Insights - Sprint 1](assets/chapter-7/sprint-1-collaboration.png)`
+
+---
+
+## 7.3. Validation Interviews
+
+> ⚠️ **[NOTA GUÍA — BORRAR ESTA CAJA AL ENTREGAR]:** El diseño de entrevista (`7.3.1`) ya queda fijo. En `7.3.2` solo rellena los `[PENDIENTE: ...]` de cada entrevistado. En `7.3.3` (Evaluación Heurística) ya te dejamos 5 problemas visuales basados en las pantallas actuales de Figma/Landing Page: puedes dejarlos tal cual (solo poniéndoles su captura) o cambiarlos por lo que observen en las entrevistas.
+
+Con el objetivo de validar la usabilidad, la arquitectura de información, el diseño inclusivo y el valor percibido de la propuesta de **ParkLink**, se llevaron a cabo sesiones de validación en las que usuarios reales de ambos segmentos objetivo interactuaron con la **Landing Page** y con los **prototipos / prueba de concepto (PoC) de las experiencias digitales** (tal como estipula el Anexo C de la guía del curso).
+
+### 7.3.1. Diseño de Entrevistas
+
+Cada sesión de validación se estructuró solicitando al participante interactuar con la Landing Page y los prototipos / vistas de la aplicación según su segmento, seguido de preguntas abiertas sobre su experiencia:
+
+#### 1. Segmento Conductores Urbanos (Arquetipo: Humberto García Calla)
+
+- **Elementos evaluados:** Landing Page y Prototipo / PoC de la experiencia de Conductor (incluyendo la vista del **Agente Copilot de Conductor**).
+- **Recorridos / Tareas de la sesión:**
+  - **Tarea 1 — Landing Page:** Explorar la propuesta de valor en <https://parklink-tp1-landing.vercel.app> e identificar los beneficios y acceso para conductores.
+  - **Tarea 2 — Búsqueda y Reserva:** Recorrer el flujo de búsqueda de estacionamiento, revisión de detalle/tarifa y confirmación de reserva con ticket QR.
+  - **Tarea 3 — Asistente Conversacional (Copilot Conductor):** Revisar/interactuar con la propuesta de búsqueda y reserva asistida mediante el **Agente Copilot de Conductor**.
+
+#### 2. Segmento Propietarios de Estacionamientos (Arquetipo: Jarol Saquiray Vargas)
+
+- **Elementos evaluados:** Landing Page y Prototipo / PoC de la experiencia de Propietario (móvil/web e interfaz del **Agente Copilot de Propietario**).
+- **Recorridos / Tareas de la sesión:**
+  - **Tarea 1 — Landing Page:** Explorar la propuesta de monetización de cocheras en la Landing Page e identificar el acceso para propietarios.
+  - **Tarea 2 — Gestión de Espacios e Ingresos:** Recorrer las vistas de publicación/configuración de cochera, agenda de reservas y resumen de ingresos.
+  - **Tarea 3 — Asistente Conversacional (Copilot Propietario):** Revisar/interactuar con las consultas operativas del **Agente Copilot de Propietario**.
+
+#### 3. Preguntas de Cierre Post-Prueba (Para ambos segmentos)
+
+1. Del 1 al 5, ¿qué tan claro e intuitivo te resultó el recorrido desde la Landing Page hasta las pantallas de la aplicación?
+2. ¿Qué elemento visual o funcional te generó mayor confianza o utilidad (mapa, tarifas, panel de control o Agente Copilot)?
+3. ¿Encontraste alguna pantalla, etiqueta o paso confuso que mejorarías?
+
+---
+
+### 7.3.2. Registro de Entrevistas
+
+Para documentar la evidencia de validación se consolidaron las sesiones grabadas en un único video publicado en Microsoft Stream, identificando el inicio y duración (*timing*) de cada entrevista:
+
+- **URL del Video Consolidado de Entrevistas de Validación (Microsoft Stream):** `[PENDIENTE: URL_STREAM_VALIDATION_INTERVIEWS]`
+- **Duración Total del Video Consolidado:** `[PENDIENTE: MM:SS]`
+
+#### Segmento 1: Conductores Urbanos (3 a 5 entrevistas)
+
+##### Entrevista de Validación #1 — Conductor Urbano
+- **Nombres y Apellidos:** `[PENDIENTE: Nombre y Apellido del Conductor 1]`
+- **Edad:** `[XX]` años
+- **Distrito de Residencia / Desplazamiento:** `[Ej. Miraflores / San Isidro, Lima]`
+- **Fecha de la Sesión:** `[DD/MM/2026]`
+- **URL del Video (Microsoft Stream):** `[PENDIENTE: URL_STREAM_VALIDATION_INTERVIEWS]`
+- **Timing (Inicio / Duración):** Inicia en `00:00` — Duración: `[04:15]`
+- **Resumen de Apreciaciones sobre las Tareas Asignadas:**  
+  `[PENDIENTE: Redactar resumen descriptivo detallando cómo el entrevistado navegó la Landing Page, completó la búsqueda en el mapa, realizó la reserva de prueba y utilizó el Agente Copilot de Conductor. Destacar qué le pareció claro (contraste visual, precios en soles, confirmación explícita del Copilot) y qué observaciones de mejora mencionó]`.
+
+> **[PENDIENTE — Insertar captura de pantalla del cuadro de video de la Entrevista de Validación Conductor #1]:**  
+> `![Entrevista de Validación Conductor 1](assets/chapter-7/validation-driver-1.png)`
+
+---
+
+##### Entrevista de Validación #2 — Conductor Urbano
+- **Nombres y Apellidos:** `[PENDIENTE: Nombre y Apellido del Conductor 2]`
+- **Edad:** `[XX]` años
+- **Distrito de Residencia / Desplazamiento:** `[Ej. Santiago de Surco, Lima]`
+- **Fecha de la Sesión:** `[DD/MM/2026]`
+- **URL del Video (Microsoft Stream):** `[PENDIENTE: URL_STREAM_VALIDATION_INTERVIEWS]`
+- **Timing (Inicio / Duración):** Inicia en `[04:15]` — Duración: `[04:00]`
+- **Resumen de Apreciaciones sobre las Tareas Asignadas:**  
+  `[PENDIENTE: Redactar resumen descriptivo de las apreciaciones del segundo conductor sobre la búsqueda de cocheras, el ticket de confirmación QR y la experiencia manos libres con el Agente Copilot de Conductor]`.
+
+> **[PENDIENTE — Insertar captura de pantalla del cuadro de video de la Entrevista de Validación Conductor #2]:**  
+> `![Entrevista de Validación Conductor 2](assets/chapter-7/validation-driver-2.png)`
+
+---
+
+##### Entrevista de Validación #3 — Conductor Urbano
+- **Nombres y Apellidos:** `[PENDIENTE: Nombre y Apellido del Conductor 3]`
+- **Edad:** `[XX]` años
+- **Distrito de Residencia / Desplazamiento:** `[Ej. San Miguel / San Isidro, Lima]`
+- **Fecha de la Sesión:** `[DD/MM/2026]`
+- **URL del Video (Microsoft Stream):** `[PENDIENTE: URL_STREAM_VALIDATION_INTERVIEWS]`
+- **Timing (Inicio / Duración):** Inicia en `[08:15]` — Duración: `[04:10]`
+- **Resumen de Apreciaciones sobre las Tareas Asignadas:**  
+  `[PENDIENTE: Redactar resumen descriptivo de las apreciaciones del tercer conductor sobre los flujos de comparación de tarifas, reserva anticipada y el Agente Copilot]`.
+
+> **[PENDIENTE — Insertar captura de pantalla del cuadro de video de la Entrevista de Validación Conductor #3]:**  
+> `![Entrevista de Validación Conductor 3](assets/chapter-7/validation-driver-3.png)`
+
+---
+
+#### Segmento 2: Propietarios de Estacionamientos (3 a 5 entrevistas)
+
+##### Entrevista de Validación #1 — Propietario de Estacionamiento
+- **Nombres y Apellidos:** `[PENDIENTE: Nombre y Apellido del Propietario 1]`
+- **Edad:** `[XX]` años
+- **Distrito del Predio / Residencia:** `[Ej. San Isidro, Lima]`
+- **Fecha de la Sesión:** `[DD/MM/2026]`
+- **URL del Video (Microsoft Stream):** `[PENDIENTE: URL_STREAM_VALIDATION_INTERVIEWS]`
+- **Timing (Inicio / Duración):** Inicia en `[12:25]` — Duración: `[04:20]`
+- **Resumen de Apreciaciones sobre las Tareas Asignadas:**  
+  `[PENDIENTE: Redactar resumen descriptivo detallando cómo el propietario exploró la propuesta de monetización en la Landing Page, publicó su cochera con horarios y tarifas, revisó el panel de monitoreo de ingresos e interactuó con el Agente Copilot de Propietario]`.
+
+> **[PENDIENTE — Insertar captura de pantalla del cuadro de video de la Entrevista de Validación Propietario #1]:**  
+> `![Entrevista de Validación Propietario 1](assets/chapter-7/validation-owner-1.png)`
+
+---
+
+##### Entrevista de Validación #2 — Propietario de Estacionamiento
+- **Nombres y Apellidos:** `[PENDIENTE: Nombre y Apellido del Propietario 2]`
+- **Edad:** `[XX]` años
+- **Distrito del Predio / Residencia:** `[Ej. Surco, Lima]`
+- **Fecha de la Sesión:** `[DD/MM/2026]`
+- **URL del Video (Microsoft Stream):** `[PENDIENTE: URL_STREAM_VALIDATION_INTERVIEWS]`
+- **Timing (Inicio / Duración):** Inicia en `[16:45]` — Duración: `[03:55]`
+- **Resumen de Apreciaciones sobre las Tareas Asignadas:**  
+  `[PENDIENTE: Redactar resumen descriptivo de las apreciaciones del segundo propietario sobre la activación/desactivación temporal de plazas, validación de código de ingreso y consulta de ganancias]`.
+
+> **[PENDIENTE — Insertar captura de pantalla del cuadro de video de la Entrevista de Validación Propietario #2]:**  
+> `![Entrevista de Validación Propietario 2](assets/chapter-7/validation-owner-2.png)`
+
+---
+
+##### Entrevista de Validación #3 — Propietario de Estacionamiento
+- **Nombres y Apellidos:** `[PENDIENTE: Nombre y Apellido del Propietario 3]`
+- **Edad:** `[XX]` años
+- **Distrito del Predio / Residencia:** `[Ej. Miraflores, Lima]`
+- **Fecha de la Sesión:** `[DD/MM/2026]`
+- **URL del Video (Microsoft Stream):** `[PENDIENTE: URL_STREAM_VALIDATION_INTERVIEWS]`
+- **Timing (Inicio / Duración):** Inicia en `[20:40]` — Duración: `[04:05]`
+- **Resumen de Apreciaciones sobre las Tareas Asignadas:**  
+  `[PENDIENTE: Redactar resumen descriptivo de las apreciaciones del tercer propietario sobre el panel web de monitoreo y la asistencia del Agente Copilot de Propietario]`.
+
+> **[PENDIENTE — Insertar captura de pantalla del cuadro de video de la Entrevista de Validación Propietario #3]:**  
+> `![Entrevista de Validación Propietario 3](assets/chapter-7/validation-owner-3.png)`
+
+---
+
+### 7.3.3. Evaluaciones según heurísticas
+
+A continuación se presenta la evaluación sistemática de las sesiones de validación aplicando rigurosamente la estructura oficial del **Anexo D (Formato para Evaluación de User Experience según Heurísticas: Usability – Inclusive Design – Information Architecture)**:
+
+#### UX Heuristics & Principles Evaluation
+**Usability – Inclusive Design – Information Architecture**
+
+- **CARRERA:** Ingeniería de Software
+- **CURSO:** Arquitecturas de Software Emergentes (`1ASI0728`)
+- **SECCIÓN:** `2620-16363`
+- **PROFESORES:** Marino Humberto Jara Palacios
+- **AUDITOR:** ParkTeam (Fabian Alejandro Oliva Lopez, Pietro Osores Marchese, Amir Gabriel Castro Sanchez, Daniel Elias Ruiz Huisa)
+- **CLIENTE(S):** Participantes de los segmentos de Conductores Urbanos y Propietarios de Estacionamientos evaluados en `7.3.2`
+
+**SITE o APP A EVALUAR:**  
+Ecosistema digital **ParkLink**: Landing Page (<https://parklink-tp1-landing.vercel.app>), Web Application (Panel del Propietario), Mobile Application (Conductor y Propietario) y los **2 Agentes Conversacionales Copilot**.
+
+**TAREAS A EVALUAR:**  
+El alcance de esta evaluación incluye la revisión de la usabilidad, arquitectura de información y diseño inclusivo de las siguientes tareas:
+- Exploración de propuesta de valor y redirección por segmento desde la Landing Page (`WF-01`).
+- Registro de un usuario nuevo e inicio de sesión diferenciado por rol: Conductor / Propietario (`WF-02`).
+- Búsqueda geoespacial de estacionamientos cercanos y filtrado por tarifa/horario (`WF-03`).
+- Reserva de un espacio de estacionamiento, pago digital y obtención de ticket QR (`WF-04`).
+- Interacción conversacional y confirmación explícita con el **Agente Copilot de Conductor** (`WF-08`).
+- Publicación de una nueva cochera residencial y configuración de horarios/tarifas por el propietario (`WF-10`, `WF-11`).
+- Validación de código de ingreso vehicular, consulta de reporte de ingresos e interacción con el **Agente Copilot de Propietario** (`WF-12`, `WF-13`).
+
+**No están incluidas en esta versión de la evaluación las siguientes tareas:**
+- Apertura física automatizada mediante sensores IoT, cámaras LPR/ANPR o barreras electrónicas.
+- Integración nativa con Apple Wallet / Google Wallet para pases NFC.
+- Facturación electrónica directa ante SUNAT con validación tributaria en línea.
+- Transferencias interbancarias automáticas en tiempo real hacia entidades financieras externas.
+
+**ESCALA DE SEVERIDAD:**  
+Los problemas identificados durante las sesiones fueron puntuados tomando en cuenta la siguiente escala de severidad:
+
+| Nivel | Descripción |
+| :---: | :--- |
+| **1** | **Problema superficial:** puede ser fácilmente superado por el usuario u ocurre con muy poca frecuencia. No necesita ser arreglado a no ser que exista disponibilidad de tiempo. |
+| **2** | **Problema menor:** puede ocurrir un poco más frecuentemente o es un poco más difícil de superar para el usuario. Se le debería asignar una prioridad baja para resolverlo de cara al siguiente release. |
+| **3** | **Problema mayor:** ocurre frecuentemente o los usuarios no son capaces de resolverlo. Es importante que sea corregido y se le debe asignar una prioridad alta. |
+| **4** | **Problema muy grave:** un error de gran impacto que impide al usuario continuar con el uso de la herramienta. Es imperativo que sea corregido antes del lanzamiento. |
+
+#### TABLA RESUMEN:
+
+| # | Problema | Escala de severidad | Heurística / Principio violada(o) |
+| :---: | :--- | :---: | :--- |
+| **1** | En el paso de resumen de pago de la reserva, no se destaca con suficiente prominencia el botón para regresar a modificar la franja horaria seleccionada sin reiniciar la búsqueda. | **2** | **Usability:** Libertad y control del usuario |
+| **2** | En la vista de conversación con el **Agente Copilot** (tanto en móvil como en la sección interactiva de la Landing Page), la tarjeta de propuesta muestra varios indicadores secundarios junto al resumen de tarifa, pudiendo destacar con mayor jerarquía visual el botón de confirmación explícita. | **2** | **Usability:** Visibilidad del estado del sistema / Diseño estético y minimalista |
+| **3** | Algunas fotografías secundarias de cocheras subidas como muestra por los propietarios carecen de una descripción textual alternativa detallada sobre el tipo de acceso (portón manual vs. eléctrico). | **2** | **Inclusive Design:** Proporciona experiencias comparables |
+| **4** | En el panel web del propietario, la distinción entre las acciones de solo lectura (monitoreo web) y las acciones operativas de edición (habilitadas en la app móvil) requiere una etiqueta explicativa más directa. | **2** | **Information Architecture:** Is it clear / usable? |
+| **5** | En el selector de horarios de publicación de cochera, algunos usuarios buscaron un atajo rápido tipo *"Lunes a Viernes (Horario de oficina)"* en lugar de configurar cada rango manualmente. | **1** | **Usability:** Flexibilidad y eficiencia de uso / **Information Architecture:** Is it findable? |
+
+#### DESCRIPCIÓN DE PROBLEMAS:
+
+##### PROBLEMA #1: Falta de atajo directo para editar únicamente la franja horaria desde la pantalla de confirmación de pago
+- **Severidad:** 2
+- **Heurística violada:** Usability — Libertad y control del usuario
+- **Problema:**  
+  Al llegar a la vista de resumen de reserva y pago (`WF-04`), si el conductor decide ajustar media hora su hora de llegada o salida, debe retroceder hasta la ficha técnica completa del estacionamiento y volver a ingresar el intervalo desde cero, incrementando el número de toques requeridos.
+- **Captura de pantalla ilustrando el problema:**  
+  `[PENDIENTE: ![Captura Problema Heurístico 1](assets/chapter-7/heuristic-problem-1.png)]`
+- **Recomendación:**  
+  Incorporar un botón de acción secundaria *"Cambiar horario"* directamente dentro de la tarjeta de resumen de reserva que abra un selector modal preservando el estacionamiento seleccionado.
+
+##### PROBLEMA #2: Jerarquía visual de la tarjeta de confirmación en la interfaz de conversación del Agente Copilot
+- **Severidad:** 2
+- **Heurística violada:** Usability — Visibilidad del estado del sistema y diseño minimalista
+- **Problema:**  
+  Al evaluar la vista del asistente conversacional (**Agente Copilot** en el prototipo móvil `4:1978` y en la sección interactiva de la Landing Page), los usuarios notaron que la tarjeta de propuesta concentra varios metadatos en el mismo bloque visual, por lo que la acción principal de *"Confirmar reserva"* y su condición de vigencia podrían diferenciarse con mayor contraste respecto a los detalles informativos.
+- **Captura de pantalla ilustrando el problema:**  
+  `[PENDIENTE: ![Captura Problema Heurístico 2](assets/chapter-7/heuristic-problem-2.png)]`
+- **Recomendación:**  
+  Simplificar los metadatos secundarios dentro de la burbuja de respuesta del Agente Copilot y resaltar con mayor jerarquía el resumen de tarifa/horario y el botón de confirmación explícita.
+
+##### PROBLEMA #3: Fotografías secundarias de cocheras sin texto alternativo descriptivo obligatorio al publicar
+- **Severidad:** 2
+- **Heurística violada:** Inclusive Design — Proporciona experiencias comparables
+- **Problema:**  
+  Durante el flujo de publicación de una cochera (`WF-10`), el formulario exige subir al menos dos fotografías del espacio, pero no solicita ni genera automáticamente una etiqueta descriptiva breve para lectores de pantalla que detalle las condiciones físicas visibles en cada foto (por ejemplo, altura de techo o ancho de rampa).
+- **Captura de pantalla ilustrando el problema:**  
+  `[PENDIENTE: ![Captura Problema Heurístico 3](assets/chapter-7/heuristic-problem-3.png)]`
+- **Recomendación:**  
+  Agregar un campo opcional/asistido de descripción corta por fotografía y autocompletar el atributo `alt` combinando el título del estacionamiento, el tipo de acceso y las dimensiones registradas.
+
+##### PROBLEMA #4: Claridad sobre el alcance de monitoreo del panel web frente a la operación móvil del propietario
+- **Severidad:** 2
+- **Heurística violada:** Information Architecture — Is it clear / usable?
+- **Problema:**  
+  En la primera interacción con el panel web del propietario, algunos participantes intentaron hacer clic sobre las tarjetas de espacios esperando editar la tarifa directamente allí, sin notar de inmediato que las mutaciones operativas se centralizan en la aplicación móvil o mediante confirmación expresa.
+- **Captura de pantalla ilustrando el problema:**  
+  `[PENDIENTE: ![Captura Problema Heurístico 4](assets/chapter-7/heuristic-problem-4.png)]`
+- **Recomendación:**  
+  Incluir un indicador informativo claro en la cabecera de la sección de espacios del panel web y habilitar el enlace directo o asistencia guiada desde el **Agente Copilot de Propietario**.
+
+##### PROBLEMA #5: Ausencia de plantillas predefinidas de horarios frecuentes al publicar una cochera
+- **Severidad:** 1
+- **Heurística violada:** Usability — Flexibilidad y eficiencia de uso
+- **Problema:**  
+  Los propietarios cuyos espacios están libres siempre en el mismo horario laboral (`Lunes a Viernes de 08:00 a 18:00`) comentaron que agradecerían un botón rápido de plantilla preconfigurada para no tener que seleccionar los días uno por uno.
+- **Captura de pantalla ilustrando el problema:**  
+  `[PENDIENTE: ![Captura Problema Heurístico 5](assets/chapter-7/heuristic-problem-5.png)]`
+- **Recomendación:**  
+  Añadir chips de selección rápida (*"Horario de Oficina L-V"*, *"Fines de Semana"*, *"24 Horas"*) en el paso de configuración de disponibilidad del Sprint 2.
+
+---
+
+## 7.4. Video About-the-Product
+
+> ⚠️ **[NOTA GUÍA — BORRAR ESTA CAJA AL ENTREGAR]:** El texto de abajo ya queda fijo. Solo reemplaza los `[PENDIENTE: ...]` con los links de Microsoft Stream y YouTube, la duración y 1 captura del video.
+
+En esta sección se presenta el **Video About-the-Product** de ParkLink (de 1 a 3 minutos, según el Anexo C de la guía). El video tiene orientación promocional: resume la problemática y el modelo de negocio, destaca las características y beneficios principales de la solución, muestra escenas de interacción con el producto / prototipo (incluyendo la Landing Page, las vistas de Conductor/Propietario y los **2 Agentes Conversacionales Copilot**) e incorpora al menos una opinión/testimonio por cada segmento objetivo.
+
+- **URL de la versión publicada en Microsoft Stream:** `[PENDIENTE: URL_MICROSOFT_STREAM_ABOUT_THE_PRODUCT]`
+- **URL de la versión publicada en YouTube (para incrustar en la Landing Page):** `[PENDIENTE: URL_YOUTUBE_ABOUT_THE_PRODUCT]`
+- **Duración Total (Timing):** `[PENDIENTE: MM:SS]` *(Entre 1 y 3 minutos)*
+- **Resumen del contenido presentado en el video:**
+  1. **Propuesta de valor y modelo de negocio:** Presentación del problema de estacionamiento urbano y cómo ParkLink conecta a conductores y propietarios.
+  2. **Demostración de interacción (Prototipo / PoC):** Recorrido visual por las pantallas principales de búsqueda, reserva, gestión de cocheras y asistencia mediante los Agentes Copilot.
+  3. **Opiniones de los segmentos objetivo:** Comentarios de validación de un conductor y un propietario sobre la experiencia.
+
+> **[PENDIENTE — Insertar captura representativa (screenshot) de un cuadro del `Video About-the-Product`]:**  
+> `![Captura del Video About-the-Product](assets/chapter-7/video-about-the-product.png)`
+
 ---
 
 # Conclusiones
@@ -4059,10 +4790,14 @@ Los trece flujogramas de 6.4.2 conservan sus explicaciones e incorporan ahora un
 3. **Hipótesis y Criterios de Éxito del Modelo de Negocio:**
    - Las tres hipótesis Lean UX formuladas orientan adecuadamente las métricas de negocio (Business Outcomes) y de usuario (User Outcomes): reducción del 70% en el tiempo de búsqueda de estacionamiento, ocupación superior al 65% de plazas residenciales publicadas, y tasa de recurrencia superior al 40% mensual mediante confianza transaccional.
 
-4. **Sustento del Diseño Arquitectónico Estratégico (ADD & DDD):**
+4. **Sustento del Diseño Arquitectónico Estratégico y Táctico (ADD & DDD):**
    - La aplicación del método **Attribute-Driven Design (ADD 3.0)** permitió guiar la arquitectura a partir de requerimientos de calidad intransigibles (Drivers Arquitectónicos): consistencia estricta en reservas para evitar sobreventa (doble reserva), resiliencia desacoplada del canal de IA, idempotencia transaccional y protección contra ataques por inyección de prompts.
-   - Mediante **Domain-Driven Design (DDD)** estratégico (EventStorming y Bounded Contexts), se definió un núcleo transaccional claro liderado por el *Reservation Management Context* y el *Parking Supply Context*, aislándolo de proyecciones optimizadas para lectura geoespacial (*Parking Discovery Context*) mediante sincronización asíncrona sobre RabbitMQ.
-   - El **Agente Conversacional** se diseñó bajo un principio estricto de no autoridad de dominio: opera como un orquestador que interpreta lenguaje natural y consulta catálogos, pero cualquier mutación de estado o retención monetaria requiere confirmación humana explícita y es despachada al Command Broker, previniendo fallos catastróficos o alucinaciones del modelo fundacional.
+   - Mediante **Domain-Driven Design (DDD)** estratégico y táctico (8 Bounded Contexts: `User & Identity`, `Parking Supply`, `Parking Discovery`, `Reservation Management`, `Payment`, `Notification`, `Conversational Reservation Agent` y `Audit`), se definió un núcleo transaccional claro liderado por el *Reservation Management Context* y el *Parking Supply Context*, aislándolo de proyecciones optimizadas para lectura geoespacial (*Parking Discovery Context*).
+   - Los **2 Agentes Conversacionales Copilot** (**Copilot de Conductor** para Humberto y **Copilot de Propietario** para Jarol) se diseñaron e implementaron bajo un principio estricto de no autoridad de dominio: operan como orquestadores que interpretan lenguaje natural y consultan herramientas permitidas por rol (*ToolRegistry*), pero cualquier mutación de estado o retención monetaria exige un `ConfirmationToken` explícito del usuario antes de ser ejecutada por el servicio autoritativo.
+
+5. **Implementación, Despliegue y Validación Empírica con Usuarios (Hito TB2 / Sprint 1):**
+   - La ejecución del **Sprint 1** demostró la viabilidad técnica de integrar la Landing Page, la Web Application, la Mobile Application, los 8 Bounded Contexts y los 2 Agentes Copilot bajo un flujo disciplinado de **Software Configuration Management** (GitFlow, Semantic Versioning, Conventional Commits, pruebas BDD Gherkin y contratos OpenAPI 3.0).
+   - Las entrevistas de validación y la evaluación heurística (Anexo D) confirmaron una alta aceptación por parte de conductores y propietarios, identificando mejoras puntuales de usabilidad de severidad menor (niveles 1 y 2) que alimentan directamente el backlog de refinamiento para el **Sprint 2 (TF1)**.
 
 ### Recomendaciones
 
@@ -4071,10 +4806,35 @@ Los trece flujogramas de 6.4.2 conservan sus explicaciones e incorporan ahora un
    - Formalizar los esquemas de bases de datos relacionales (PostgreSQL) con restricciones de integridad a nivel de transacción (índices GiST o exclusión temporal para rangos de reserva) garantizando matemáticamente la prevención de sobreventa.
    - Diseñar las guías de estilo UI/UX, arquitectura de información y prototipos de alta fidelidad en Figma / Material Design para el Landing Page (HTML5/CSS3) y las aplicaciones móviles en Flutter.
 
-2. **Fase de Implementación y Despliegue (Hitos TB2 y TF1 / Sprints 2 y 3):**
-   - Configurar el clúster de mensajería RabbitMQ con colas Quorum y mecanismos de Dead Letter Queue (DLQ) para garantizar la durabilidad de eventos y compensación automática de fallos en la Saga de reservas y pagos.
-   - Implementar pruebas automatizadas unitarias, de integración y de concurrencia simulando ráfagas simultáneas sobre la misma plaza de estacionamiento.
-   - Establecer pipelines de Integración y Despliegue Continuo (CI/CD) sobre GitHub Actions hacia entornos administrados basados en contenedores (Kubernetes/Docker), incorporando análisis estático de código y pruebas de seguridad.
+2. **Fase de Implementación, Refinamiento y Cierre (Hitos TB2 y TF1 / Sprint 2):**
+   - Incorporar en el **Sprint 2** las mejoras identificadas en la evaluación heurística de validación (`7.3.3`): atajo de cambio rápido de horario en el resumen de pago, temporizador regresivo visible en las propuestas de confirmación de los Agentes Copilot y plantillas predefinidas de horarios laborales para propietarios.
+   - Ampliar la cobertura de pruebas automatizadas de concurrencia e integración end-to-end para los flujos de extensión de estadía (`US08`), cancelación con reembolso automático (`US06`, `US15`) y sugerencias proactivas ante congestión vehicular (`US22`, `US23`).
+   - Mantener los pipelines de Integración y Despliegue Continuo (CI/CD) sobre GitHub Actions hacia los entornos cloud de producción para la sustentación final del proyecto (`TF1`).
+
+---
+
+## Video About-the-Team
+
+> ⚠️ **[NOTA GUÍA — BORRAR ESTA CAJA AL ENTREGAR]:** El texto y la tabla de abajo ya quedan fijos. Solo reemplaza los `[PENDIENTE: ...]` con los links de Microsoft Stream y YouTube, la duración total, los tiempos exactos de inicio (`hh:mm:ss`) de cada integrante y 1 captura del video.
+
+En esta sección se documenta el **Video About-the-Team** de **ParkTeam**, el cual sintetiza el proceso de ingeniería colaborativa seguido por el equipo a lo largo de los entregables del proyecto, presentando escenas reales de las sesiones de trabajo acompañadas de narración en voz en off, así como el testimonio individual frente a cámara de cada integrante sobre sus actividades realizadas, lecciones aprendidas y el logro del **ABET – EAC - Student Outcome 3** y competencias complementarias.
+
+- **URL de la versión publicada en Microsoft Stream:** `[PENDIENTE: URL_MICROSOFT_STREAM_ABOUT_THE_TEAM]`
+- **URL de la versión publicada en YouTube (incrustada en la Landing Page):** `[PENDIENTE: URL_YOUTUBE_ABOUT_THE_TEAM]`
+- **Duración Total del Video:** `[PENDIENTE: 09:00]` *(Siguiendo el Anexo C: ~5 minutos de retrospectiva grupal + ~1 minuto por cada testimonio individual de los 4 integrantes)*
+
+### Pauta de Secuencias de Contenido (Timing `hh:mm:ss`)
+
+| # Secuencia | Tiempo de Inicio (`hh:mm:ss`) | Duración Estimada | Sección / Participante | Resumen del Contenido |
+| :---: | :---: | :---: | :--- | :--- |
+| **1** | `00:00:00` | `00:05:00` | **Retrospectiva General del Equipo (ParkTeam)** | Narración del flujo de trabajo colaborativo a lo largo del ciclo de vida del proyecto, mostrando sesiones de trabajo reales del equipo y avances alcanzados. |
+| **2** | `00:05:00` | `00:01:00` | **Testimonio Individual — Fabian Alejandro Oliva Lopez** | Exposición ante cámara sobre las actividades realizadas, aprendizajes del proceso y logro del Student Outcome ABET 3 y competencias alcanzadas. |
+| **3** | `00:06:00` | `00:01:00` | **Testimonio Individual — Pietro Osores Marchese** | Exposición ante cámara sobre las actividades realizadas, aprendizajes del proceso y logro del Student Outcome ABET 3 y competencias alcanzadas. |
+| **4** | `00:07:00` | `00:01:00` | **Testimonio Individual — Amir Gabriel Castro Sanchez** | Exposición ante cámara sobre las actividades realizadas, aprendizajes del proceso y logro del Student Outcome ABET 3 y competencias alcanzadas. |
+| **5** | `00:08:00` | `00:01:00` | **Testimonio Individual — Daniel Elias Ruiz Huisa** | Exposición ante cámara sobre las actividades realizadas, aprendizajes del proceso y logro del Student Outcome ABET 3 y competencias alcanzadas. |
+
+> **[PENDIENTE — Insertar captura representativa (screenshot) de un cuadro del `Video About-the-Team`]:**  
+> `![Captura del Video About-the-Team](assets/chapter-7/video-about-the-team.png)`
 
 ---
 
@@ -4100,3 +4860,18 @@ Los trece flujogramas de 6.4.2 conservan sus explicaciones e incorporan ahora un
 18. TomTom. (2026). *TomTom Traffic Index: Lima traffic report 2025*. https://www.tomtom.com/traffic-index/lima-traffic/
 19. Vernon, V. (2013). *Implementing Domain-Driven Design*. Addison-Wesley Professional.
 20. World Wide Web Consortium. (2018). *Web Content Accessibility Guidelines (WCAG) 2.1* (W3C Recommendation). https://www.w3.org/TR/WCAG21/
+
+---
+
+# Anexos
+
+## Anexo A: Videos de Exposiciones por Entregable
+
+En cumplimiento de las indicaciones oficiales del documento rector del Trabajo Final, en este anexo se registran los enlaces a los videos de exposición pregrabados correspondientes a cada hito de evaluación del curso:
+
+| Entregable / Hito | Fecha de Entrega | Duración | Enlace al Video de Exposición (Microsoft Stream / Repositorio) | Integrantes Expositor(es) |
+| :---: | :---: | :---: | :--- | :--- |
+| **TB1** | Semana 4 (`16/04/2026`) | `<= 30 min` | `[Enlace de Exposición TB1 en Microsoft Stream]` | Fabian Oliva, Pietro Osores, Amir Castro, Daniel Ruiz |
+| **TP1** | Semana 7 (`05/10/2026`) | `<= 30 min` | `[Enlace de Exposición TP1 en Microsoft Stream]` | Fabian Oliva, Pietro Osores, Amir Castro, Daniel Ruiz |
+| **TB2** | Semana 12 (`09/11/2026`) | `<= 30 min` | `[PENDIENTE: URL_MICROSOFT_STREAM_EXPOSICION_TB2]` | Fabian Oliva, Pietro Osores, Amir Castro, Daniel Ruiz |
+| **TF1** | Semana 15 (`[Por programar]`) | `<= 30 min` | `[Pendiente para Hito TF1]` | Fabian Oliva, Pietro Osores, Amir Castro, Daniel Ruiz |
