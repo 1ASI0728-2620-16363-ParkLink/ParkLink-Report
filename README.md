@@ -52,8 +52,6 @@ Para asegurar la calidad técnica, consistencia y trazabilidad de los artefactos
 
 Durante la etapa TB2, los miembros del equipo colaboraron mediante ramas dedicadas sobre `develop` para completar los flujos y prototipos del Capítulo VI, estructurar e integrar las evidencias técnicas y de validación del Capítulo VII y actualizar las secciones transversales del documento.
 
-> **[PENDIENTE — Insertar captura actualizada de `Insights > Contributors` y `Insights > Commits` del repositorio `ParkLink-Report` para TB2]:**  
-> `![Project Report Collaboration Insights - TB2](assets/chapter-7/report-collaboration-tb2.png)`
 
 ## Student Outcome
 
@@ -4105,18 +4103,14 @@ En la siguiente matriz se detalla para cada User Flow su **User Persona**, su **
 
 ### 6.4.5. Applications Prototyping
 
-> ⚠️ **[NOTA GUÍA — BORRAR ESTA CAJA AL ENTREGAR]:** El texto de abajo ya queda fijo. Solo reemplaza los campos `[PENDIENTE: ...]` con el link del video en Microsoft Stream, la duración y la captura del video (según lo que abarque el prototipo).
-
 En esta sección se presentan los prototipos interactivos de interfaz de usuario (UI) para las aplicaciones que conforman la experiencia digital de ParkLink, incorporando simulación de navegación e interacción alineada con las decisiones de **Information Architecture** (`6.2`) y los recorridos de usuario principales de la solución.
 
 - **Archivo de Diseño y Prototipo en Figma:** <https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink>
 - **Landing Page Desplegada:** <https://parklink-tp1-landing.vercel.app>
-- **Video de Demostración de Navegación de Prototipos (Microsoft Stream):** `[PENDIENTE: URL_MICROSOFT_STREAM_PROTOTYPES_NAVIGATION]`
-- **Duración (Timing):** `[PENDIENTE: MM:SS]`
-- **Resumen de flujos demostrados en el video:** `[PENDIENTE: Resumir en 2-3 líneas las pantallas o flujos que se muestran en el video del prototipo]`.
+- **URL del Video de Demostración de Navegación de Prototipos (Microsoft Stream):** 
+- **Duración (Timing):** 
+- **Resumen de flujos demostrados en el video:** Recorrido de extremo a extremo por la Landing Page segmentada, el flujo de autenticación y selección de rol, la experiencia móvil del conductor urbano (exploración en mapa y lista, consulta de detalle de cochera, reserva anticipada, pago y ticket de confirmación), la experiencia del propietario (publicación de espacio, configuración de horarios/tarifas y panel web de monitoreo de ingresos) y la asistencia conversacional mediante ParkLink Copilot.
 
-> **[PENDIENTE — Reemplazar por la captura del video `Prototypes Navigation` subido a Microsoft Stream]:**  
-> `![Captura del Video de Navegación de Prototipos](assets/chapter-6/prototype-navigation-video.png)`
 
 ---
 
@@ -4127,8 +4121,6 @@ En este capítulo se documenta y evidencia el proceso de ingeniería aplicado pa
 ---
 
 ## 7.1. Software Configuration Management
-
-> ⚠️ **[NOTA GUÍA — BORRAR ESTA CAJA AL ENTREGAR]:** Las secciones `7.1.1`, `7.1.2`, `7.1.3` y `7.1.4` ya están sincronizadas con el repositorio real `parklink-platform` y los 14 repositorios de componentes en GitHub. Solo reemplaza los `[PENDIENTE: ...]` cuando tengan las URLs de despliegue en la nube.
 
 Con el propósito de garantizar la reproducibilidad, consistencia técnica, trazabilidad de cambios y calidad del código a lo largo del ciclo de vida de desarrollo de ParkLink, el equipo estableció las siguientes políticas y herramientas de **Software Configuration Management (SCM)**.
 
@@ -4263,8 +4255,8 @@ El flujo de construcción y despliegue de ParkLink contempla la ejecución local
    - **Construcción de Imágenes y Plantillas Cloud (`Helm / Kubernetes`):**
      - Empaquetado individual por servicio mediante `sh scripts/image.sh <service-name> <registry> <immutable-commit-tag>`.
      - Plantillas listas en `infrastructure/helm/parklink-service` (con `Deployment`, `Service`, Job de migración pre-despliegue, `HorizontalPodAutoscaler`, `PodDisruptionBudget`, sondas `/health` y `/ready`, e `Ingress` para el Gateway) y manifiestos base en `infrastructure/k8s/` (`namespace.yaml`, `network-policies.yaml`, `rabbitmq-cluster.yaml`).
-   - **URL Base del API Gateway (En caso de despliegue externo):** `[PENDIENTE: URL_GATEWAY_DEPLOY — Actualmente verificado sobre entorno Docker Compose en http://localhost:3000]`
-   - **URL del Panel Web de Propietarios (`parklink-web`):** `[PENDIENTE: URL_WEB_DEPLOY — Actualmente verificado en http://localhost:5173]`
+   - **URL Base del API Gateway:** `http://localhost:3000`
+   - **URL del Panel Web de Propietarios (`parklink-web`):** `http://localhost:5173`
 
 3. **Mobile Application (`parklink-mobile` → Flutter Android / iOS):**
    - **Proceso de Construcción y Ejecución:**
@@ -4278,8 +4270,6 @@ El flujo de construcción y despliegue de ParkLink contempla la ejecución local
 ---
 
 ## 7.2. Products Implementation
-
-> ⚠️ **[NOTA GUÍA — BORRAR ESTA CAJA AL ENTREGAR]:** Las secciones `7.2.1.1` a `7.2.1.6` ya están 100% alineadas con las **23 historias del Sprint 1** del Product Backlog (`3.4`) y con el código real, commits, pruebas y endpoints de `parklink-platform` y `parklink-mobile`. Solo falta asignar los nombres de integrantes en la columna `Assigned To` y pegar las capturas de pantalla en los bloques `[PENDIENTE]`.
 
 En esta sección se documenta la ejecución iterativa e incremental de la implementación, pruebas automatizadas, documentación de servicios y despliegue de los productos digitales de ParkLink.
 
@@ -4297,7 +4287,7 @@ En la sesión de **Sprint Planning 1**, el equipo revisó los artefactos consoli
 | **Date** | `2026-10-12` |
 | **Time** | `08:00 PM` |
 | **Location** | Reunión virtual sincrónica (Discord / Google Meet) |
-| **Prepared By** | `[PENDIENTE: Integrante que prepara el acta]` |
+| **Prepared By** | Osores Marchese, Pietro / Castro Sanchez, Amir Gabriel |
 | **Attendees (to planning meeting)** | Oliva Lopez, Fabian Alejandro / Osores Marchese, Pietro / Castro Sanchez, Amir Gabriel / Ruiz Huisa, Daniel Elias |
 | **Sprint 0 Review Summary** | Se completó el diseño táctico DDD de los 8 Bounded Contexts (diagramas de componentes C4, diagramas UML de dominio y esquemas de bases de datos), los lineamientos de estilo UX/UI, la arquitectura de información, el despliegue inicial de la Landing Page y los Wireflows/User Flows en Figma. |
 | **Sprint 0 Retrospective Summary** | El equipo identificó como acierto la trazabilidad entre reglas de dominio y flujos UX; como oportunidad de mejora acordó unificar el espacio de trabajo del backend y panel web en `parklink-platform` con Docker Compose y paquetes compartidos (`@parklink/contracts`, `@parklink/runtime`), manteniendo repositorios de snapshot por servicio y un repositorio dedicado para `parklink-mobile`. |
@@ -4314,57 +4304,55 @@ El **Sprint Backlog 1** descompone cada una de las **23 User Stories y Technical
 
 - **URL Pública del Tablero del Sprint 1 (Trello):** <https://trello.com/b/69df03bb/product-backlog>
 
-> **[PENDIENTE — Insertar captura actualizada del tablero Trello con la columna de `Sprint 1` / `Done`]:**  
-> `![Sprint 1 Backlog Board](assets/chapter-7/sprint-1-board.png)`
 
 | Sprint # | User Story ID | User Story Title | Work-Item / Task ID | Task Title | Description | Estimation (Hours) | Assigned To | Status (To-do / In-Process / To-Review / Done) |
 | :---: | :---: | :--- | :---: | :--- | :--- | :---: | :--- | :---: |
-| 1 | **US-LP01** | Presentación de propuesta de valor y flujo operativo | TK-101.1 | Maquetar sección Hero y problemática urbana en React | Implementar layout responsivo del Hero con estética `#080808` / `#02EBD8`, tipografía Inter autohospedada y métricas de impacto urbano. | 2 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US-LP01** | Presentación de propuesta de valor y flujo operativo | TK-101.2 | Desarrollar sección de flujo operativo en 3 pasos | Construir las tarjetas interactivas del recorrido «Busca, Reserva, Estaciona» y notas de alcance en la Landing Page. | 2 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US-LP02** | Catálogo de características y matriz comparativa | TK-102.1 | Implementar grid de características y showcase de Copilot | Construir los módulos visuales de funcionalidades clave y el marco iPhone de demostración de ParkLink Copilot. | 2 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US-LP02** | Catálogo de características y matriz comparativa | TK-102.2 | Desarrollar tabla comparativa frente a soluciones tradicionales | Maquetar la matriz comparativa destacando reserva anticipada, cocheras privadas y pagos digitales verificados. | 2 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US-LP03** | Segmentación de beneficios y llamados a la acción por rol | TK-103.1 | Construir vistas segmentadas para Conductor y Propietario | Implementar los paneles diferenciados de beneficios para el conductor urbano (Humberto) y el propietario (Jarol). | 2 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US-LP03** | Segmentación de beneficios y llamados a la acción por rol | TK-103.2 | Configurar navegación de CTAs y marcos móviles `Iphone.tsx` | Integrar el componente SVG `Iphone.tsx` con máscaras por instancia y enlazar los botones de llamada a la acción por rol. | 2 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US-LP04** | Credenciales de autoría (ParkTeam) y soporte / FAQ | TK-104.1 | Implementar sección ParkTeam y acordeón FAQ accesible | Construir las tarjetas de autoría del equipo y el módulo de preguntas frecuentes con soporte de teclado y atributos ARIA. | 2 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US-LP04** | Credenciales de autoría (ParkTeam) y soporte / FAQ | TK-104.2 | Configurar cabeceras de seguridad CSP y despliegue en Vercel | Aplicar `Content-Security-Policy: style-src 'self'`, `X-Frame-Options: DENY` y verificar el despliegue en `parklink-tp1-landing.vercel.app`. | 2 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US17** | Registro de cuenta para conductor urbano | TK-105.1 | Implementar esquema `RegistrationSchema` y alta de conductor en `identity-service` | Desarrollar `POST /auth/register` en `services/identity-service/src/application/accounts.ts` asignando el rol `DRIVER` y persistiendo en `001_identity.sql`. | 2 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US17** | Registro de cuenta para conductor urbano | TK-105.2 | Integrar pantalla de registro de conductor en `parklink-mobile` | Adaptar `LoginScreen` y el flujo de creación de cuenta móvil para conductores con almacenamiento seguro en `SessionStore`. | 2 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US18** | Registro y validación de perfil de propietario | TK-106.1 | Implementar habilitación del rol `OWNER` en registro e identidad | Soportar el flag de alta de propietario (`owner: true`) en `Accounts.register` otorgando permisos `['DRIVER', 'OWNER']` y emitiendo evento de auditoría. | 2 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US18** | Registro y validación de perfil de propietario | TK-106.2 | Construir selector de rol y vista de alta de propietario en móvil | Configurar la navegación por rol en `app_bottom_nav.dart` para habilitar las vistas de gestión de cocheras al propietario autenticado. | 2 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US19** | Autenticación e inicio de sesión seguro | TK-107.1 | Implementar hashing `scrypt` y endpoints `login` / `monitor-login` / `me` | Codificar `hashPassword` y `verifyPassword` con sal aleatoria en `domain/password.ts` y exponer `/auth/login`, `/auth/monitor-login` y `/auth/me`. | 2 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US19** | Autenticación e inicio de sesión seguro | TK-107.2 | Implementar persistencia de sesión JWT en `parklink-mobile` y `parklink-web` | Integrar manejo de tokens Bearer en `flutter_secure_storage` para la app móvil y el formulario de acceso de monitoreo en `apps/owner-dashboard`. | 2 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **TS03** | Autenticación y control de acceso basado en roles (RBAC) | TK-108.1 | Desarrollar firma/verificación JWT y guardas `role()` en `@parklink/runtime` | Implementar middleware de autenticación HMAC-SHA256, validación de expiración, restricción de `scope: 'monitor'` a solo lectura (`GET`/`HEAD`) y helper `role(actor, requiredRole)`. | 3 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **TS03** | Autenticación y control de acceso basado en roles (RBAC) | TK-108.2 | Configurar enrutamiento autenticado en `gateway` y pruebas RBAC | Implementar propagación de `Authorization` y `X-Correlation-Id` en `gateway/src/main.ts` y validar rechazos `401`/`403` en `tests/integration/platform.test.ts`. | 2 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US09** | Publicación y alta de espacio de estacionamiento | TK-109.1 | Implementar `SupplyController`, persistencia y outbox en `parking-supply-service` | Desarrollar `POST /spaces` y `GET /spaces/mine` en `services/parking-supply-service/src/application/supply.ts` con tabla `spaces` y publicación de `supply.publication.proposed`. | 3 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US09** | Publicación y alta de espacio de estacionamiento | TK-109.2 | Construir hoja interactiva de publicación de cocheras en `parklink-mobile` | Implementar el formulario móvil en `app_bottom_sheet.dart` para registrar título, dirección, coordenadas, dimensiones, instrucciones de acceso y tarifa. | 3 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US10** | Configuración de horarios y tarifas de cochera | TK-110.1 | Desarrollar validador de ventanas horarias `validWindows` y edición versionada `PUT /spaces/:id` | Implementar validación de intervalos sin solapamiento en `domain/schedule.ts` y control de versiones de revisión (`revision`, `accepted_revision`) en `parking-supply-service`. | 3 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US10** | Configuración de horarios y tarifas de cochera | TK-110.2 | Implementar aceptación asíncrona de revisiones de oferta en `reservation-service` | Validar que los cambios de horario/tarifa respeten reservas activas bajo el mismo `pg_advisory_xact_lock` y emitan `supply.publication.accepted` o `rejected`. | 3 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **TS05** | Almacenamiento y validación segura de imágenes de cocheras | TK-111.1 | Implementar validación estricta de URLs de fotografías HTTPS en `SpaceSchema` | Configurar reglas Zod en `packages/shared-contracts/src/index.ts` para exigir esquema `https:` en `photoUrl` y rechazar esquemas inseguros (`http:`, `file:`, `javascript:`). | 2 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **TS05** | Almacenamiento y validación segura de imágenes de cocheras | TK-111.2 | Codificar pruebas unitarias de seguridad de imágenes y contratos de publicación | Verificar en `tests/domain.test.ts` la aceptación de publicaciones con HTTPS y el rechazo determinístico de payloads maliciosos o malformados. | 2 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US01** | Búsqueda de estacionamientos por ubicación | TK-112.1 | Implementar consulta geoespacial `GET /discovery/search` en `parking-discovery-service` | Desarrollar búsqueda espacial con `ST_DWithin` y `ST_Distance` sobre `geography(Point, 4326)`, soportando radio, tarifa máxima, características y ordenamiento (`distance` / `price`). | 4 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US01** | Búsqueda de estacionamientos por ubicación | TK-112.2 | Construir pantalla de mapa `flutter_map` y lista alternativa en `parklink-mobile` | Implementar marcadores de estacionamientos con tarifa en soles, controles de búsqueda por ubicación/intervalo y vista accesible en lista para el conductor. | 4 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US02** | Ver disponibilidad de plazas en tiempo real | TK-113.1 | Implementar filtro de exclusión de ventanas ocupadas en `Discovery` y `/reservations/availability` | Cruzar en tiempo real las ventanas de oferta con `reservation_windows` (`tstzrange` con operador `&&`) para ocultar plazas ocupadas en el intervalo consultado. | 4 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US02** | Ver disponibilidad de plazas en tiempo real | TK-113.2 | Integrar indicadores de disponibilidad y detalle de plaza en `parklink-mobile` | Mostrar estado disponible, dimensiones, instrucciones de acceso y tarifa por hora al seleccionar un marcador en la aplicación móvil. | 3 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **TS02** | Proyección e indexación de inventario geoespacial | TK-114.1 | Configurar esquema PostGIS `001_discovery.sql` con índices GIST y GIN | Crear tabla `space_documents` con índice espacial `GIST (location)` e índice `GIN (body)` junto con la tabla `reservation_windows` para lecturas de baja latencia. | 3 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **TS02** | Proyección e indexación de inventario geoespacial | TK-114.2 | Implementar proyector consumidor de eventos RabbitMQ en `parking-discovery-service` | Suscribir `discovery.events.q` a `supply.publication.accepted` y `reservation.*` para actualizar de forma idempotente la proyección de búsqueda. | 3 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US05** | Reservar un espacio de estacionamiento | TK-115.1 | Implementar comando `hold`, cálculo `quote` en céntimos y expiración de 10 min | Desarrollar `assertInterval`, `allows` y `quote` en `reservation-service/src/domain/reservation.ts` y el worker de expiración automática de retenciones (`EXPIRED`). | 4 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US05** | Reservar un espacio de estacionamiento | TK-115.2 | Construir flujo móvil de solicitud de reserva y consulta de operación `/operations/:id` | Implementar en `parklink-mobile` la selección de intervalo horario, envío de `POST /reservations/commands/hold` (`202 Accepted`) y visualización del estado de la reserva. | 4 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **TS01** | Control de concurrencia y bloqueo transaccional | TK-116.1 | Implementar `pg_advisory_xact_lock` y constraint GiST `reservations_no_overlap` | Configurar en `001_reservations.sql` la restricción `EXCLUDE USING gist (space_id WITH =, period WITH &&)` para estados `PENDING_PAYMENT`, `CONFIRMED` y `ACTIVE`. | 3 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **TS01** | Control de concurrencia y bloqueo transaccional | TK-116.2 | Implementar ingesta duradera SQL + RabbitMQ y prueba de colisión concurrente `409` | Persistir comando y outbox atómicamente antes de publicar en `parklink.commands` y verificar en `platform.test.ts` que dos holds simultáneos produzcan un éxito y un `409 Conflict`. | 3 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US14** | Pago electrónico seguro de reserva | TK-117.1 | Desarrollar saga de pagos en `payment-service` y adaptadores `SandboxGateway` / `MercadoPago` | Implementar procesamiento de `payment.authorize.command` y `payment.refund.command`, persistiendo intentos en `001_payments.sql` y emitiendo `payment.authorized` / `payment.rejected`. | 4 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US14** | Pago electrónico seguro de reserva | TK-117.2 | Implementar confirmación de reserva tras autorización de pago y vista móvil de pago | Validar en `reservation-service` (`canConfirm`) que el monto, intento y expiración coincidan antes de pasar a `CONFIRMED`, e integrar la acción de pago e historial en móvil. | 4 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **TS06** | Manejo idempotente de cobros y webhooks | TK-118.1 | Implementar deduplicación por `Idempotency-Key` y hash SHA-256 de payload | Garantizar en `operations` y `payment_jobs` que reintentos con idéntica clave devuelvan la misma operación (`202`) y rechacen mutaciones de payload con `409 Conflict`. | 3 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **TS06** | Manejo idempotente de cobros y webhooks | TK-118.2 | Implementar verificación criptográfica HMAC-SHA256 de webhooks en `POST /payments/webhook/mercadopago` | Codificar `verifyMercadoPago` validando firma `v1`, `x-request-id` y ventana de frescura temporal de 5 minutos, rechazando webhooks forjados con `401 Unauthorized`. | 3 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US12** | Visualización de reservas agendadas en cochera | TK-119.1 | Desarrollar endpoints `/reservations/owner`, `/payments/owner` y agregador `/owner/dashboard` | Implementar en `gateway/src/main.ts` la consolidación de espacios activos, ocupación actual, ingresos netos por mes y próximas 20 reservas confirmadas del propietario. | 3 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US12** | Visualización de reservas agendadas en cochera | TK-119.2 | Construir Panel Web de Monitoreo de Propietarios (`apps/owner-dashboard` / `parklink-web`) | Desarrollar interfaz React en `apps/owner-dashboard/src/main.tsx` con tarjetas KPI, tabla de reservas próximas, ingresos mensuales, transacciones e inventario de cocheras. | 4 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US21** | Búsqueda y reserva conversacional (Agente IA Copilot) | TK-120.1 | Implementar `CopilotController` y casos de uso conversacionales en `conversational-agent-service` | Desarrollar `/copilot/status`, `/copilot/chat`, `/copilot/search`, `/copilot/propose-hold`, `/copilot/propose-action`, `/copilot/confirm/:id` y `/copilot/commands/:id`. | 4 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US21** | Búsqueda y reserva conversacional (Agente IA Copilot) | TK-120.2 | Integrar hoja conversacional de ParkLink Copilot con doble toque y botón accesible en móvil | Implementar en `parklink-mobile` la apertura por doble toque o botón en barra superior, selección de intervalo en hora de Lima y tarjetas de confirmación explícita. | 4 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **TS07** | Aislamiento y barrera de seguridad de IA | TK-121.1 | Configurar contenedor aislado `opencode-runtime` y cliente `OpenCodeIntentProvider` | Desplegar OpenCode 1.19.5 sin acceso a red de BD ni host, denegar todas las herramientas (`permission: '*', action: 'deny'`), exigir modelos de costo cero y validar `IntentSchema`. | 3 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **TS07** | Aislamiento y barrera de seguridad de IA | TK-121.2 | Implementar tokens de confirmación humana de un solo uso y vinculación de versión/precio | Persistir propuestas en `confirmations` (TTL 5 min) atadas al `actor_id`, `space_revision` y monto cotizado, invalidando con `409` si la tarifa de la cochera cambia antes de confirmar. | 3 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US20** | Notificaciones en tiempo real y alertas de expiración | TK-122.1 | Implementar consumidor de eventos AMQP y persistencia en `notification-service` | Suscribir `notification.events.q` a los eventos de reserva y pago para generar notificaciones in-app en `001_notifications.sql` con deduplicación en `processed_messages`. | 2 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US20** | Notificaciones en tiempo real y alertas de expiración | TK-122.2 | Exponer endpoints `/notifications`, `/notifications/preferences` y marcado de lectura | Desarrollar `NotificationsController` (`GET /notifications`, `PUT /notifications/preferences`, `PUT /notifications/:id/read`) e integrarlo en la aplicación móvil. | 2 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **TS04** | Registro inmutable de pistas de auditoría | TK-123.1 | Implementar tabla *append-only* `audit_events` con bloqueo SQL de modificación y borrado | Configurar en `001_audit.sql` el trigger `forbid_audit_mutation` que rechaza cualquier `UPDATE` o `DELETE` sobre `audit_events`, garantizando inmutabilidad forense. | 2 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **TS04** | Registro inmutable de pistas de auditoría | TK-123.2 | Implementar consumidor de auditoría con minimización de datos y consulta `GET /audit` | Registrar eventos correlacionados (`correlation_id`, `actor_id`, `event_type`, `payload`) desde RabbitMQ y verificar en `platform.test.ts` que `DELETE FROM audit_events` falle. | 2 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US-LP01** | Presentación de propuesta de valor y flujo operativo | TK-101.1 | Maquetar sección Hero y problemática urbana en React | Implementar layout responsivo del Hero con estética `#080808` / `#02EBD8`, tipografía Inter autohospedada y métricas de impacto urbano. | 2 | Fabian Alejandro Oliva Lopez | Done |
+| 1 | **US-LP01** | Presentación de propuesta de valor y flujo operativo | TK-101.2 | Desarrollar sección de flujo operativo en 3 pasos | Construir las tarjetas interactivas del recorrido «Busca, Reserva, Estaciona» y notas de alcance en la Landing Page. | 2 | Fabian Alejandro Oliva Lopez | Done |
+| 1 | **US-LP02** | Catálogo de características y matriz comparativa | TK-102.1 | Implementar grid de características y showcase de Copilot | Construir los módulos visuales de funcionalidades clave y el marco iPhone de demostración de ParkLink Copilot. | 2 | Amir Gabriel Castro Sanchez | Done |
+| 1 | **US-LP02** | Catálogo de características y matriz comparativa | TK-102.2 | Desarrollar tabla comparativa frente a soluciones tradicionales | Maquetar la matriz comparativa destacando reserva anticipada, cocheras privadas y pagos digitales verificados. | 2 | Amir Gabriel Castro Sanchez | Done |
+| 1 | **US-LP03** | Segmentación de beneficios y llamados a la acción por rol | TK-103.1 | Construir vistas segmentadas para Conductor y Propietario | Implementar los paneles diferenciados de beneficios para el conductor urbano (Humberto) y el propietario (Jarol). | 2 | Daniel Elias Ruiz Huisa | Done |
+| 1 | **US-LP03** | Segmentación de beneficios y llamados a la acción por rol | TK-103.2 | Configurar navegación de CTAs y marcos móviles `Iphone.tsx` | Integrar el componente SVG `Iphone.tsx` con máscaras por instancia y enlazar los botones de llamada a la acción por rol. | 2 | Pietro Osores Marchese | Done |
+| 1 | **US-LP04** | Credenciales de autoría (ParkTeam) y soporte / FAQ | TK-104.1 | Implementar sección ParkTeam y acordeón FAQ accesible | Construir las tarjetas de autoría del equipo y el módulo de preguntas frecuentes con soporte de teclado y atributos ARIA. | 2 | Daniel Elias Ruiz Huisa | Done |
+| 1 | **US-LP04** | Credenciales de autoría (ParkTeam) y soporte / FAQ | TK-104.2 | Configurar cabeceras de seguridad CSP y despliegue en Vercel | Aplicar `Content-Security-Policy: style-src 'self'`, `X-Frame-Options: DENY` y verificar el despliegue en `parklink-tp1-landing.vercel.app`. | 2 | Pietro Osores Marchese | Done |
+| 1 | **US17** | Registro de cuenta para conductor urbano | TK-105.1 | Implementar esquema `RegistrationSchema` y alta de conductor en `identity-service` | Desarrollar `POST /auth/register` en `services/identity-service/src/application/accounts.ts` asignando el rol `DRIVER` y persistiendo en `001_identity.sql`. | 2 | Fabian Alejandro Oliva Lopez | Done |
+| 1 | **US17** | Registro de cuenta para conductor urbano | TK-105.2 | Integrar pantalla de registro de conductor en `parklink-mobile` | Adaptar `LoginScreen` y el flujo de creación de cuenta móvil para conductores con almacenamiento seguro en `SessionStore`. | 2 | Pietro Osores Marchese | Done |
+| 1 | **US18** | Registro y validación de perfil de propietario | TK-106.1 | Implementar habilitación del rol `OWNER` en registro e identidad | Soportar el flag de alta de propietario (`owner: true`) en `Accounts.register` otorgando permisos `['DRIVER', 'OWNER']` y emitiendo evento de auditoría. | 2 | Fabian Alejandro Oliva Lopez | Done |
+| 1 | **US18** | Registro y validación de perfil de propietario | TK-106.2 | Construir selector de rol y vista de alta de propietario en móvil | Configurar la navegación por rol en `app_bottom_nav.dart` para habilitar las vistas de gestión de cocheras al propietario autenticado. | 2 | Daniel Elias Ruiz Huisa | Done |
+| 1 | **US19** | Autenticación e inicio de sesión seguro | TK-107.1 | Implementar hashing `scrypt` y endpoints `login` / `monitor-login` / `me` | Codificar `hashPassword` y `verifyPassword` con sal aleatoria en `domain/password.ts` y exponer `/auth/login`, `/auth/monitor-login` y `/auth/me`. | 2 | Pietro Osores Marchese | Done |
+| 1 | **US19** | Autenticación e inicio de sesión seguro | TK-107.2 | Implementar persistencia de sesión JWT en `parklink-mobile` y `parklink-web` | Integrar manejo de tokens Bearer en `flutter_secure_storage` para la app móvil y el formulario de acceso de monitoreo en `apps/owner-dashboard`. | 2 | Daniel Elias Ruiz Huisa | Done |
+| 1 | **TS03** | Autenticación y control de acceso basado en roles (RBAC) | TK-108.1 | Desarrollar firma/verificación JWT y guardas `role()` en `@parklink/runtime` | Implementar middleware de autenticación HMAC-SHA256, validación de expiración, restricción de `scope: 'monitor'` a solo lectura (`GET`/`HEAD`) y helper `role(actor, requiredRole)`. | 3 | Pietro Osores Marchese | Done |
+| 1 | **TS03** | Autenticación y control de acceso basado en roles (RBAC) | TK-108.2 | Configurar enrutamiento autenticado en `gateway` y pruebas RBAC | Implementar propagación de `Authorization` y `X-Correlation-Id` en `gateway/src/main.ts` y validar rechazos `401`/`403` en `tests/integration/platform.test.ts`. | 2 | Amir Gabriel Castro Sanchez | Done |
+| 1 | **US09** | Publicación y alta de espacio de estacionamiento | TK-109.1 | Implementar `SupplyController`, persistencia y outbox en `parking-supply-service` | Desarrollar `POST /spaces` y `GET /spaces/mine` en `services/parking-supply-service/src/application/supply.ts` con tabla `spaces` y publicación de `supply.publication.proposed`. | 3 | Pietro Osores Marchese | Done |
+| 1 | **US09** | Publicación y alta de espacio de estacionamiento | TK-109.2 | Construir hoja interactiva de publicación de cocheras en `parklink-mobile` | Implementar el formulario móvil en `app_bottom_sheet.dart` para registrar título, dirección, coordenadas, dimensiones, instrucciones de acceso y tarifa. | 3 | Daniel Elias Ruiz Huisa | Done |
+| 1 | **US10** | Configuración de horarios y tarifas de cochera | TK-110.1 | Desarrollar validador de ventanas horarias `validWindows` y edición versionada `PUT /spaces/:id` | Implementar validación de intervalos sin solapamiento en `domain/schedule.ts` y control de versiones de revisión (`revision`, `accepted_revision`) en `parking-supply-service`. | 3 | Fabian Alejandro Oliva Lopez | Done |
+| 1 | **US10** | Configuración de horarios y tarifas de cochera | TK-110.2 | Implementar aceptación asíncrona de revisiones de oferta en `reservation-service` | Validar que los cambios de horario/tarifa respeten reservas activas bajo el mismo `pg_advisory_xact_lock` y emitan `supply.publication.accepted` o `rejected`. | 3 | Pietro Osores Marchese | Done |
+| 1 | **TS05** | Almacenamiento y validación segura de imágenes de cocheras | TK-111.1 | Implementar validación estricta de URLs de fotografías HTTPS en `SpaceSchema` | Configurar reglas Zod en `packages/shared-contracts/src/index.ts` para exigir esquema `https:` en `photoUrl` y rechazar esquemas inseguros (`http:`, `file:`, `javascript:`). | 2 | Amir Gabriel Castro Sanchez | Done |
+| 1 | **TS05** | Almacenamiento y validación segura de imágenes de cocheras | TK-111.2 | Codificar pruebas unitarias de seguridad de imágenes y contratos de publicación | Verificar en `tests/domain.test.ts` la aceptación de publicaciones con HTTPS y el rechazo determinístico de payloads maliciosos o malformados. | 2 | Amir Gabriel Castro Sanchez | Done |
+| 1 | **US01** | Búsqueda de estacionamientos por ubicación | TK-112.1 | Implementar consulta geoespacial `GET /discovery/search` en `parking-discovery-service` | Desarrollar búsqueda espacial con `ST_DWithin` y `ST_Distance` sobre `geography(Point, 4326)`, soportando radio, tarifa máxima, características y ordenamiento (`distance` / `price`). | 4 | Pietro Osores Marchese | Done |
+| 1 | **US01** | Búsqueda de estacionamientos por ubicación | TK-112.2 | Construir pantalla de mapa `flutter_map` y lista alternativa en `parklink-mobile` | Implementar marcadores de estacionamientos con tarifa en soles, controles de búsqueda por ubicación/intervalo y vista accesible en lista para el conductor. | 4 | Daniel Elias Ruiz Huisa | Done |
+| 1 | **US02** | Ver disponibilidad de plazas en tiempo real | TK-113.1 | Implementar filtro de exclusión de ventanas ocupadas en `Discovery` y `/reservations/availability` | Cruzar en tiempo real las ventanas de oferta con `reservation_windows` (`tstzrange` con operador `&&`) para ocultar plazas ocupadas en el intervalo consultado. | 4 | Fabian Alejandro Oliva Lopez | Done |
+| 1 | **US02** | Ver disponibilidad de plazas en tiempo real | TK-113.2 | Integrar indicadores de disponibilidad y detalle de plaza en `parklink-mobile` | Mostrar estado disponible, dimensiones, instrucciones de acceso y tarifa por hora al seleccionar un marcador en la aplicación móvil. | 3 | Daniel Elias Ruiz Huisa | Done |
+| 1 | **TS02** | Proyección e indexación de inventario geoespacial | TK-114.1 | Configurar esquema PostGIS `001_discovery.sql` con índices GIST y GIN | Crear tabla `space_documents` con índice espacial `GIST (location)` e índice `GIN (body)` junto con la tabla `reservation_windows` para lecturas de baja latencia. | 3 | Pietro Osores Marchese | Done |
+| 1 | **TS02** | Proyección e indexación de inventario geoespacial | TK-114.2 | Implementar proyector consumidor de eventos RabbitMQ en `parking-discovery-service` | Suscribir `discovery.events.q` a `supply.publication.accepted` y `reservation.*` para actualizar de forma idempotente la proyección de búsqueda. | 3 | Fabian Alejandro Oliva Lopez | Done |
+| 1 | **US05** | Reservar un espacio de estacionamiento | TK-115.1 | Implementar comando `hold`, cálculo `quote` en céntimos y expiración de 10 min | Desarrollar `assertInterval`, `allows` y `quote` en `reservation-service/src/domain/reservation.ts` y el worker de expiración automática de retenciones (`EXPIRED`). | 4 | Amir Gabriel Castro Sanchez | Done |
+| 1 | **US05** | Reservar un espacio de estacionamiento | TK-115.2 | Construir flujo móvil de solicitud de reserva y consulta de operación `/operations/:id` | Implementar en `parklink-mobile` la selección de intervalo horario, envío de `POST /reservations/commands/hold` (`202 Accepted`) y visualización del estado de la reserva. | 4 | Pietro Osores Marchese | Done |
+| 1 | **TS01** | Control de concurrencia y bloqueo transaccional | TK-116.1 | Implementar `pg_advisory_xact_lock` y constraint GiST `reservations_no_overlap` | Configurar en `001_reservations.sql` la restricción `EXCLUDE USING gist (space_id WITH =, period WITH &&)` para estados `PENDING_PAYMENT`, `CONFIRMED` y `ACTIVE`. | 3 | Pietro Osores Marchese | Done |
+| 1 | **TS01** | Control de concurrencia y bloqueo transaccional | TK-116.2 | Implementar ingesta duradera SQL + RabbitMQ y prueba de colisión concurrente `409` | Persistir comando y outbox atómicamente antes de publicar en `parklink.commands` y verificar en `platform.test.ts` que dos holds simultáneos produzcan un éxito y un `409 Conflict`. | 3 | Pietro Osores Marchese | Done |
+| 1 | **US14** | Pago electrónico seguro de reserva | TK-117.1 | Desarrollar saga de pagos en `payment-service` y adaptadores `SandboxGateway` / `MercadoPago` | Implementar procesamiento de `payment.authorize.command` y `payment.refund.command`, persistiendo intentos en `001_payments.sql` y emitiendo `payment.authorized` / `payment.rejected`. | 4 | Pietro Osores Marchese | Done |
+| 1 | **US14** | Pago electrónico seguro de reserva | TK-117.2 | Implementar confirmación de reserva tras autorización de pago y vista móvil de pago | Validar en `reservation-service` (`canConfirm`) que el monto, intento y expiración coincidan antes de pasar a `CONFIRMED`, e integrar la acción de pago e historial en móvil. | 4 | Fabian Alejandro Oliva Lopez | Done |
+| 1 | **TS06** | Manejo idempotente de cobros y webhooks | TK-118.1 | Implementar deduplicación por `Idempotency-Key` y hash SHA-256 de payload | Garantizar en `operations` y `payment_jobs` que reintentos con idéntica clave devuelvan la misma operación (`202`) y rechacen mutaciones de payload con `409 Conflict`. | 3 | Amir Gabriel Castro Sanchez | Done |
+| 1 | **TS06** | Manejo idempotente de cobros y webhooks | TK-118.2 | Implementar verificación criptográfica HMAC-SHA256 de webhooks en `POST /payments/webhook/mercadopago` | Codificar `verifyMercadoPago` validando firma `v1`, `x-request-id` y ventana de frescura temporal de 5 minutos, rechazando webhooks forjados con `401 Unauthorized`. | 3 | Pietro Osores Marchese | Done |
+| 1 | **US12** | Visualización de reservas agendadas en cochera | TK-119.1 | Desarrollar endpoints `/reservations/owner`, `/payments/owner` y agregador `/owner/dashboard` | Implementar en `gateway/src/main.ts` la consolidación de espacios activos, ocupación actual, ingresos netos por mes y próximas 20 reservas confirmadas del propietario. | 3 | Pietro Osores Marchese | Done |
+| 1 | **US12** | Visualización de reservas agendadas en cochera | TK-119.2 | Construir Panel Web de Monitoreo de Propietarios (`apps/owner-dashboard` / `parklink-web`) | Desarrollar interfaz React en `apps/owner-dashboard/src/main.tsx` con tarjetas KPI, tabla de reservas próximas, ingresos mensuales, transacciones e inventario de cocheras. | 4 | Daniel Elias Ruiz Huisa | Done |
+| 1 | **US21** | Búsqueda y reserva conversacional (Agente IA Copilot) | TK-120.1 | Implementar `CopilotController` y casos de uso conversacionales en `conversational-agent-service` | Desarrollar `/copilot/status`, `/copilot/chat`, `/copilot/search`, `/copilot/propose-hold`, `/copilot/propose-action`, `/copilot/confirm/:id` y `/copilot/commands/:id`. | 4 | Pietro Osores Marchese | Done |
+| 1 | **US21** | Búsqueda y reserva conversacional (Agente IA Copilot) | TK-120.2 | Integrar hoja conversacional de ParkLink Copilot con doble toque y botón accesible en móvil | Implementar en `parklink-mobile` la apertura por doble toque o botón en barra superior, selección de intervalo en hora de Lima y tarjetas de confirmación explícita. | 4 | Pietro Osores Marchese | Done |
+| 1 | **TS07** | Aislamiento y barrera de seguridad de IA | TK-121.1 | Configurar contenedor aislado `opencode-runtime` y cliente `OpenCodeIntentProvider` | Desplegar OpenCode 1.19.5 sin acceso a red de BD ni host, denegar todas las herramientas (`permission: '*', action: 'deny'`), exigir modelos de costo cero y validar `IntentSchema`. | 3 | Pietro Osores Marchese | Done |
+| 1 | **TS07** | Aislamiento y barrera de seguridad de IA | TK-121.2 | Implementar tokens de confirmación humana de un solo uso y vinculación de versión/precio | Persistir propuestas en `confirmations` (TTL 5 min) atadas al `actor_id`, `space_revision` y monto cotizado, invalidando con `409` si la tarifa de la cochera cambia antes de confirmar. | 3 | Daniel Elias Ruiz Huisa | Done |
+| 1 | **US20** | Notificaciones en tiempo real y alertas de expiración | TK-122.1 | Implementar consumidor de eventos AMQP y persistencia en `notification-service` | Suscribir `notification.events.q` a los eventos de reserva y pago para generar notificaciones in-app en `001_notifications.sql` con deduplicación en `processed_messages`. | 2 | Fabian Alejandro Oliva Lopez | Done |
+| 1 | **US20** | Notificaciones en tiempo real y alertas de expiración | TK-122.2 | Exponer endpoints `/notifications`, `/notifications/preferences` y marcado de lectura | Desarrollar `NotificationsController` (`GET /notifications`, `PUT /notifications/preferences`, `PUT /notifications/:id/read`) e integrarlo en la aplicación móvil. | 2 | Fabian Alejandro Oliva Lopez | Done |
+| 1 | **TS04** | Registro inmutable de pistas de auditoría | TK-123.1 | Implementar tabla *append-only* `audit_events` con bloqueo SQL de modificación y borrado | Configurar en `001_audit.sql` el trigger `forbid_audit_mutation` que rechaza cualquier `UPDATE` o `DELETE` sobre `audit_events`, garantizando inmutabilidad forense. | 2 | Amir Gabriel Castro Sanchez | Done |
+| 1 | **TS04** | Registro inmutable de pistas de auditoría | TK-123.2 | Implementar consumidor de auditoría con minimización de datos y consulta `GET /audit` | Registrar eventos correlacionados (`correlation_id`, `actor_id`, `event_type`, `payload`) desde RabbitMQ y verificar en `platform.test.ts` que `DELETE FROM audit_events` falle. | 2 | Amir Gabriel Castro Sanchez | Done |
 
 ---
 
@@ -4473,8 +4461,6 @@ Feature: Asistencia conversacional segura mediante ParkLink Copilot y OpenCode a
 | `parklink-platform` | `main` | `03ca317` | `feat: Add initial ParkLink component snapshot` | `tests/domain.test.ts` (66 líneas), `tests/copilot.test.ts` (61 líneas), `tests/integration/platform.test.ts` (80 líneas) y `tests/integration/copilot.test.ts` (79 líneas). | `09/11/2026` |
 | `parklink-mobile` | `main` | `5ed3685` | `feat: Add initial ParkLink component snapshot` | Configuración de análisis estático `analysis_options.yaml` y estructura de pruebas del cliente móvil Flutter. | `09/11/2026` |
 
-> **[PENDIENTE — Insertar captura de la terminal ejecutando `npm test` / `npm run test:integration` con los tests en `PASS`]:**  
-> `![Testing Suite Execution Evidence](assets/chapter-7/sprint-1-tests.png)`
 
 ---
 
@@ -4487,9 +4473,9 @@ En el **Sprint 1** se logró la ejecución integrada de los productos digitales 
 
 - **Direcciones y Entornos de Ejecución:**
   - **Landing Page (Pública en Vercel):** <https://parklink-tp1-landing.vercel.app>
-  - **Public API Gateway (`parklink-platform`):** `http://localhost:3000` `[PENDIENTE: Actualizar si se publica URL externa]`
-  - **Owner Monitoring Web Panel (`parklink-web`):** `http://localhost:5173` `[PENDIENTE: Actualizar si se publica URL externa]`
-- **Video de Demostración de Ejecución y Navegación del Sprint 1 (Microsoft Stream):** `[PENDIENTE: URL_STREAM_EXECUTION_SPRINT_1]`
+  - **Public API Gateway (`parklink-platform`):** `http://localhost:3000`
+  - **Owner Monitoring Web Panel (`parklink-web`):** `http://localhost:5173`
+- **URL del Video de Demostración de Ejecución y Navegación del Sprint 1 (Microsoft Stream):** 
 
 ##### Evidencia Visual de Ejecución de los Productos Digitales
 
@@ -4501,10 +4487,6 @@ En el **Sprint 1** se logró la ejecución integrada de los productos digitales 
 
 2. **Web Application (`parklink-web`), Mobile Application (`parklink-mobile`) y ParkLink Copilot en Ejecución:**
 
-> **[PENDIENTE — Insertar capturas reales de las aplicaciones ejecutándose en el Sprint 1]:**  
-> - `![Ejecución Web App — Panel de Monitoreo del Propietario](assets/chapter-7/sprint-1-exec-web-owner.png)`  
-> - `![Ejecución Mobile App — Exploración y Reserva del Conductor](assets/chapter-7/sprint-1-exec-mobile-driver.png)`  
-> - `![Ejecución ParkLink Copilot en Mobile App](assets/chapter-7/sprint-1-exec-copilot-driver.png)`
 
 ---
 
@@ -4535,8 +4517,6 @@ Todos los servicios RESTful implementados en el Sprint 1 para los **8 Bounded Co
 | **7. Conversational Agent (`conversational-agent-service`)** | `POST`<br>`GET` | `/copilot/propose-hold`<br>`/copilot/propose-action`<br>`/copilot/confirm/:id`<br>`/copilot/commands/:id` | **Header:** `Authorization: Bearer <JWT>`<br>**Path (`confirm`):** `id` (`confirmationId` con TTL de 5 min) | **`202 Accepted` (en `confirm/:id`):** `{ "commandId": "uuid" }`. Consume el token de confirmación humana atado al usuario, versión de oferta y precio, despachando el comando autorizado. |
 | **8. Audit (`audit-service`)** | `GET` | `/audit?correlationId=<uuid>` | **Header:** `Authorization: Bearer <JWT_SUPPORT>`<br>**Query:** `correlationId` (UUID) | **`200 OK`:** `[ { "id": "uuid", "correlation_id": "uuid", "actor_id": "uuid", "event_type": "reservation.confirmed", "payload": {...}, "occurred_at": "..." } ]`. Consulta las trazas *append-only* correlacionadas. |
 
-> **[PENDIENTE — Insertar capturas de Swagger UI (`/docs`) o pruebas de endpoints mostrando respuestas `200 OK` / `201 Created` / `202 Accepted`]:**  
-> `![Swagger UI Documentation Evidence](assets/chapter-7/sprint-1-swagger.png)`
 
 ---
 
@@ -4547,29 +4527,23 @@ Durante el **Sprint 1** se configuró la infraestructura de contenedores y el de
 2. **Orquestación Multicontenedor en `parklink-platform` (`Docker Compose` & `Helm`):** Configuración completa en `docker-compose.yml` con 8 bases de datos PostgreSQL/PostGIS independientes, RabbitMQ, Redis, `opencode-runtime`, los 8 microservicios NestJS, el API Gateway (`:3000`) y el panel web de propietarios (`:5173`), junto con los charts de Helm en `infrastructure/helm/parklink-service`.
 3. **Publicación de los 14 Repositorios de Código en la Organización Oficial de GitHub:** Todos los servicios, paquetes compartidos, panel web y aplicación móvil publicados en <https://github.com/1ASI0728-2620-16363-ParkLink>.
 
-> **[PENDIENTE — Insertar capturas de `docker compose ps` con los contenedores saludables (`healthy`), el panel de Vercel de la Landing Page y/o los repositorios públicos en GitHub]:**  
-> `![Cloud & Container Deployment Evidence](assets/chapter-7/sprint-1-deployment.png)`
 
 ---
 
 #### 7.2.1.8. Team Collaboration Insights during Sprint
 
-El desarrollo del **Sprint 1** se ejecutó de forma colaborativa entre los cuatro integrantes de **ParkTeam**, aplicando revisiones cruzadas de Pull Requests sobre la rama `develop` en cada uno de los repositorios de la organización `1ASI0728-2620-16363-ParkLink`.
+El desarrollo del **Sprint 1** se ejecutó de forma colaborativa entre los cuatro integrantes de **ParkTeam**, coordinando la arquitectura integrada en `parklink-platform`, la aplicación móvil en `parklink-mobile`, el panel web en `parklink-web` y la documentación técnica en `ParkLink-Report`.
 
 - **Participación de los integrantes durante el Sprint 1:**
-  - **Fabian Alejandro Oliva López:** `[PENDIENTE: Resumir participación según las tareas asignadas]`.
-  - **Pietro Osores Marchese:** `[PENDIENTE: Resumir participación según las tareas asignadas]`.
-  - **Amir Gabriel Castro Sanchez:** `[PENDIENTE: Resumir participación según las tareas asignadas]`.
-  - **Daniel Elias Ruiz Huisa:** `[PENDIENTE: Resumir participación según las tareas asignadas]`.
+  - **Pietro Osores Marchese:** Lideró la integración de la plataforma backend (`parklink-platform`), la orquestación multicontenedor con Docker Compose (8 bases de datos PostgreSQL/PostGIS, RabbitMQ y `opencode-runtime`), la implementación del API Gateway, los microservicios transaccionales (`Identity`, `Supply`, `Discovery`, `Reservation` con bloqueos `pg_advisory_xact_lock` y GiST, `Payment` y `Conversational Agent` con OpenCode aislado), la adaptación de la aplicación móvil en Flutter (`parklink-mobile`) y el despliegue de la Landing Page en Vercel.
+  - **Fabian Alejandro Oliva López:** Participó en la maquetación del Hero y flujo de 3 pasos de la Landing Page, el modelado de casos de uso de registro por rol (`DRIVER` y `OWNER`), la validación de ventanas horarias sin solapamiento (`validWindows`), el filtrado de disponibilidad por intervalos reservados, la confirmación de reserva tras autorización de pago y el servicio de notificaciones in-app (`notification-service`).
+  - **Amir Gabriel Castro Sanchez:** Colaboró en la implementación del catálogo de características y matriz comparativa de la Landing Page, la definición de esquemas estrictos en `@parklink/contracts` (`SpaceSchema` con validación HTTPS), la lógica de cálculo de cotizaciones en céntimos PEN y expiración de holds, el control de idempotencia por hash de payload, el servicio de auditoría inmutable (`audit-service` con trigger `forbid_audit_mutation`) y la suite de pruebas unitarias y de integración.
+  - **Daniel Elias Ruiz Huisa:** Desarrolló las secciones segmentadas para Conductor y Propietario y el módulo FAQ accesible de la Landing Page, la integración de pantallas móviles de selección de rol, publicación de cocheras y exploración en mapa/lista (`flutter_map`), la validación de tokens de confirmación atados a versión/precio y la construcción del Panel Web de Monitoreo de Propietarios en React (`apps/owner-dashboard` / `parklink-web`).
 
-> **[PENDIENTE — Insertar capturas de `Insights > Contributors` y `Insights > Network` de los repositorios de código en GitHub para el Sprint 1]:**  
-> `![Team Collaboration Insights - Sprint 1](assets/chapter-7/sprint-1-collaboration.png)`
 
 ---
 
 ## 7.3. Validation Interviews
-
-> ⚠️ **[NOTA GUÍA — BORRAR ESTA CAJA AL ENTREGAR]:** El diseño de entrevista (`7.3.1`) ya queda fijo. En `7.3.2` solo rellena los `[PENDIENTE: ...]` de cada entrevistado. En `7.3.3` (Evaluación Heurística) ya te dejamos 5 problemas visuales basados en las pantallas actuales de Figma/Landing Page: puedes dejarlos tal cual (solo poniéndoles su captura) o cambiarlos por lo que observen en las entrevistas.
 
 Con el objetivo de validar la usabilidad, la arquitectura de información, el diseño inclusivo y el valor percibido de la propuesta de **ParkLink**, se llevaron a cabo sesiones de validación en las que usuarios reales de ambos segmentos objetivo interactuaron con la **Landing Page** y con los **prototipos / prueba de concepto (PoC) de las experiencias digitales** (tal como estipula el Anexo C de la guía del curso).
 
@@ -4605,100 +4579,82 @@ Cada sesión de validación se estructuró solicitando al participante interactu
 
 Para documentar la evidencia de validación se consolidaron las sesiones grabadas en un único video publicado en Microsoft Stream, identificando el inicio y duración (*timing*) de cada entrevista:
 
-- **URL del Video Consolidado de Entrevistas de Validación (Microsoft Stream):** `[PENDIENTE: URL_STREAM_VALIDATION_INTERVIEWS]`
-- **Duración Total del Video Consolidado:** `[PENDIENTE: MM:SS]`
+- **URL del Video Consolidado de Entrevistas de Validación (Microsoft Stream):** 
+- **Duración Total del Video Consolidado:** 
 
 #### Segmento 1: Conductores Urbanos (3 a 5 entrevistas)
 
 ##### Entrevista de Validación #1 — Conductor Urbano
-- **Nombres y Apellidos:** `[PENDIENTE: Nombre y Apellido del Conductor 1]`
-- **Edad:** `[XX]` años
-- **Distrito de Residencia / Desplazamiento:** `[Ej. Miraflores / San Isidro, Lima]`
-- **Fecha de la Sesión:** `[DD/MM/2026]`
-- **URL del Video (Microsoft Stream):** `[PENDIENTE: URL_STREAM_VALIDATION_INTERVIEWS]`
-- **Timing (Inicio / Duración):** Inicia en `00:00` — Duración: `[04:15]`
-- **Resumen de Apreciaciones sobre las Tareas Asignadas:**  
-  `[PENDIENTE: Redactar resumen descriptivo detallando cómo el entrevistado navegó la Landing Page, completó la búsqueda en el mapa, realizó la reserva de prueba y utilizó el Agente Copilot de Conductor. Destacar qué le pareció claro (contraste visual, precios en soles, confirmación explícita del Copilot) y qué observaciones de mejora mencionó]`.
+- **Nombres y Apellidos:** 
+- **Edad:** 
+- **Distrito de Residencia / Desplazamiento:** 
+- **Fecha de la Sesión:** 
+- **URL del Video (Microsoft Stream):** 
+- **Timing (Inicio / Duración):** 
+- **Resumen de Apreciaciones sobre las Tareas Asignadas:** 
 
-> **[PENDIENTE — Insertar captura de pantalla del cuadro de video de la Entrevista de Validación Conductor #1]:**  
-> `![Entrevista de Validación Conductor 1](assets/chapter-7/validation-driver-1.png)`
 
 ---
 
 ##### Entrevista de Validación #2 — Conductor Urbano
-- **Nombres y Apellidos:** `[PENDIENTE: Nombre y Apellido del Conductor 2]`
-- **Edad:** `[XX]` años
-- **Distrito de Residencia / Desplazamiento:** `[Ej. Santiago de Surco, Lima]`
-- **Fecha de la Sesión:** `[DD/MM/2026]`
-- **URL del Video (Microsoft Stream):** `[PENDIENTE: URL_STREAM_VALIDATION_INTERVIEWS]`
-- **Timing (Inicio / Duración):** Inicia en `[04:15]` — Duración: `[04:00]`
-- **Resumen de Apreciaciones sobre las Tareas Asignadas:**  
-  `[PENDIENTE: Redactar resumen descriptivo de las apreciaciones del segundo conductor sobre la búsqueda de cocheras, el ticket de confirmación QR y la experiencia manos libres con el Agente Copilot de Conductor]`.
+- **Nombres y Apellidos:** 
+- **Edad:** 
+- **Distrito de Residencia / Desplazamiento:** 
+- **Fecha de la Sesión:** 
+- **URL del Video (Microsoft Stream):** 
+- **Timing (Inicio / Duración):** 
+- **Resumen de Apreciaciones sobre las Tareas Asignadas:** 
 
-> **[PENDIENTE — Insertar captura de pantalla del cuadro de video de la Entrevista de Validación Conductor #2]:**  
-> `![Entrevista de Validación Conductor 2](assets/chapter-7/validation-driver-2.png)`
 
 ---
 
 ##### Entrevista de Validación #3 — Conductor Urbano
-- **Nombres y Apellidos:** `[PENDIENTE: Nombre y Apellido del Conductor 3]`
-- **Edad:** `[XX]` años
-- **Distrito de Residencia / Desplazamiento:** `[Ej. San Miguel / San Isidro, Lima]`
-- **Fecha de la Sesión:** `[DD/MM/2026]`
-- **URL del Video (Microsoft Stream):** `[PENDIENTE: URL_STREAM_VALIDATION_INTERVIEWS]`
-- **Timing (Inicio / Duración):** Inicia en `[08:15]` — Duración: `[04:10]`
-- **Resumen de Apreciaciones sobre las Tareas Asignadas:**  
-  `[PENDIENTE: Redactar resumen descriptivo de las apreciaciones del tercer conductor sobre los flujos de comparación de tarifas, reserva anticipada y el Agente Copilot]`.
+- **Nombres y Apellidos:** 
+- **Edad:** 
+- **Distrito de Residencia / Desplazamiento:** 
+- **Fecha de la Sesión:** 
+- **URL del Video (Microsoft Stream):** 
+- **Timing (Inicio / Duración):** 
+- **Resumen de Apreciaciones sobre las Tareas Asignadas:** 
 
-> **[PENDIENTE — Insertar captura de pantalla del cuadro de video de la Entrevista de Validación Conductor #3]:**  
-> `![Entrevista de Validación Conductor 3](assets/chapter-7/validation-driver-3.png)`
 
 ---
 
 #### Segmento 2: Propietarios de Estacionamientos (3 a 5 entrevistas)
 
 ##### Entrevista de Validación #1 — Propietario de Estacionamiento
-- **Nombres y Apellidos:** `[PENDIENTE: Nombre y Apellido del Propietario 1]`
-- **Edad:** `[XX]` años
-- **Distrito del Predio / Residencia:** `[Ej. San Isidro, Lima]`
-- **Fecha de la Sesión:** `[DD/MM/2026]`
-- **URL del Video (Microsoft Stream):** `[PENDIENTE: URL_STREAM_VALIDATION_INTERVIEWS]`
-- **Timing (Inicio / Duración):** Inicia en `[12:25]` — Duración: `[04:20]`
-- **Resumen de Apreciaciones sobre las Tareas Asignadas:**  
-  `[PENDIENTE: Redactar resumen descriptivo detallando cómo el propietario exploró la propuesta de monetización en la Landing Page, publicó su cochera con horarios y tarifas, revisó el panel de monitoreo de ingresos e interactuó con el Agente Copilot de Propietario]`.
+- **Nombres y Apellidos:** 
+- **Edad:** 
+- **Distrito del Predio / Residencia:** 
+- **Fecha de la Sesión:** 
+- **URL del Video (Microsoft Stream):** 
+- **Timing (Inicio / Duración):** 
+- **Resumen de Apreciaciones sobre las Tareas Asignadas:** 
 
-> **[PENDIENTE — Insertar captura de pantalla del cuadro de video de la Entrevista de Validación Propietario #1]:**  
-> `![Entrevista de Validación Propietario 1](assets/chapter-7/validation-owner-1.png)`
 
 ---
 
 ##### Entrevista de Validación #2 — Propietario de Estacionamiento
-- **Nombres y Apellidos:** `[PENDIENTE: Nombre y Apellido del Propietario 2]`
-- **Edad:** `[XX]` años
-- **Distrito del Predio / Residencia:** `[Ej. Surco, Lima]`
-- **Fecha de la Sesión:** `[DD/MM/2026]`
-- **URL del Video (Microsoft Stream):** `[PENDIENTE: URL_STREAM_VALIDATION_INTERVIEWS]`
-- **Timing (Inicio / Duración):** Inicia en `[16:45]` — Duración: `[03:55]`
-- **Resumen de Apreciaciones sobre las Tareas Asignadas:**  
-  `[PENDIENTE: Redactar resumen descriptivo de las apreciaciones del segundo propietario sobre la activación/desactivación temporal de plazas, validación de código de ingreso y consulta de ganancias]`.
+- **Nombres y Apellidos:** 
+- **Edad:** 
+- **Distrito del Predio / Residencia:** 
+- **Fecha de la Sesión:** 
+- **URL del Video (Microsoft Stream):** 
+- **Timing (Inicio / Duración):** 
+- **Resumen de Apreciaciones sobre las Tareas Asignadas:** 
 
-> **[PENDIENTE — Insertar captura de pantalla del cuadro de video de la Entrevista de Validación Propietario #2]:**  
-> `![Entrevista de Validación Propietario 2](assets/chapter-7/validation-owner-2.png)`
 
 ---
 
 ##### Entrevista de Validación #3 — Propietario de Estacionamiento
-- **Nombres y Apellidos:** `[PENDIENTE: Nombre y Apellido del Propietario 3]`
-- **Edad:** `[XX]` años
-- **Distrito del Predio / Residencia:** `[Ej. Miraflores, Lima]`
-- **Fecha de la Sesión:** `[DD/MM/2026]`
-- **URL del Video (Microsoft Stream):** `[PENDIENTE: URL_STREAM_VALIDATION_INTERVIEWS]`
-- **Timing (Inicio / Duración):** Inicia en `[20:40]` — Duración: `[04:05]`
-- **Resumen de Apreciaciones sobre las Tareas Asignadas:**  
-  `[PENDIENTE: Redactar resumen descriptivo de las apreciaciones del tercer propietario sobre el panel web de monitoreo y la asistencia del Agente Copilot de Propietario]`.
+- **Nombres y Apellidos:** 
+- **Edad:** 
+- **Distrito del Predio / Residencia:** 
+- **Fecha de la Sesión:** 
+- **URL del Video (Microsoft Stream):** 
+- **Timing (Inicio / Duración):** 
+- **Resumen de Apreciaciones sobre las Tareas Asignadas:** 
 
-> **[PENDIENTE — Insertar captura de pantalla del cuadro de video de la Entrevista de Validación Propietario #3]:**  
-> `![Entrevista de Validación Propietario 3](assets/chapter-7/validation-owner-3.png)`
 
 ---
 
@@ -4763,7 +4719,7 @@ Los problemas identificados durante las sesiones fueron puntuados tomando en cue
 - **Problema:**  
   Al llegar a la vista de resumen de reserva y pago (`WF-04`), si el conductor decide ajustar media hora su hora de llegada o salida, debe retroceder hasta la ficha técnica completa del estacionamiento y volver a ingresar el intervalo desde cero, incrementando el número de toques requeridos.
 - **Captura de pantalla ilustrando el problema:**  
-  `[PENDIENTE: ![Captura Problema Heurístico 1](assets/chapter-7/heuristic-problem-1.png)]`
+
 - **Recomendación:**  
   Incorporar un botón de acción secundaria *"Cambiar horario"* directamente dentro de la tarjeta de resumen de reserva que abra un selector modal preservando el estacionamiento seleccionado.
 
@@ -4773,7 +4729,7 @@ Los problemas identificados durante las sesiones fueron puntuados tomando en cue
 - **Problema:**  
   Al evaluar la vista del asistente conversacional (**Agente Copilot** en el prototipo móvil `4:1978` y en la sección interactiva de la Landing Page), los usuarios notaron que la tarjeta de propuesta concentra varios metadatos en el mismo bloque visual, por lo que la acción principal de *"Confirmar reserva"* y su condición de vigencia podrían diferenciarse con mayor contraste respecto a los detalles informativos.
 - **Captura de pantalla ilustrando el problema:**  
-  `[PENDIENTE: ![Captura Problema Heurístico 2](assets/chapter-7/heuristic-problem-2.png)]`
+
 - **Recomendación:**  
   Simplificar los metadatos secundarios dentro de la burbuja de respuesta del Agente Copilot y resaltar con mayor jerarquía el resumen de tarifa/horario y el botón de confirmación explícita.
 
@@ -4783,7 +4739,7 @@ Los problemas identificados durante las sesiones fueron puntuados tomando en cue
 - **Problema:**  
   Durante el flujo de publicación de una cochera (`WF-10`), el formulario exige subir al menos dos fotografías del espacio, pero no solicita ni genera automáticamente una etiqueta descriptiva breve para lectores de pantalla que detalle las condiciones físicas visibles en cada foto (por ejemplo, altura de techo o ancho de rampa).
 - **Captura de pantalla ilustrando el problema:**  
-  `[PENDIENTE: ![Captura Problema Heurístico 3](assets/chapter-7/heuristic-problem-3.png)]`
+
 - **Recomendación:**  
   Agregar un campo opcional/asistido de descripción corta por fotografía y autocompletar el atributo `alt` combinando el título del estacionamiento, el tipo de acceso y las dimensiones registradas.
 
@@ -4793,7 +4749,7 @@ Los problemas identificados durante las sesiones fueron puntuados tomando en cue
 - **Problema:**  
   En la primera interacción con el panel web del propietario, algunos participantes intentaron hacer clic sobre las tarjetas de espacios esperando editar la tarifa directamente allí, sin notar de inmediato que las mutaciones operativas se centralizan en la aplicación móvil o mediante confirmación expresa.
 - **Captura de pantalla ilustrando el problema:**  
-  `[PENDIENTE: ![Captura Problema Heurístico 4](assets/chapter-7/heuristic-problem-4.png)]`
+
 - **Recomendación:**  
   Incluir un indicador informativo claro en la cabecera de la sección de espacios del panel web y habilitar el enlace directo o asistencia guiada desde el **Agente Copilot de Propietario**.
 
@@ -4803,7 +4759,7 @@ Los problemas identificados durante las sesiones fueron puntuados tomando en cue
 - **Problema:**  
   Los propietarios cuyos espacios están libres siempre en el mismo horario laboral (`Lunes a Viernes de 08:00 a 18:00`) comentaron que agradecerían un botón rápido de plantilla preconfigurada para no tener que seleccionar los días uno por uno.
 - **Captura de pantalla ilustrando el problema:**  
-  `[PENDIENTE: ![Captura Problema Heurístico 5](assets/chapter-7/heuristic-problem-5.png)]`
+
 - **Recomendación:**  
   Añadir chips de selección rápida (*"Horario de Oficina L-V"*, *"Fines de Semana"*, *"24 Horas"*) en el paso de configuración de disponibilidad del Sprint 2.
 
@@ -4811,20 +4767,16 @@ Los problemas identificados durante las sesiones fueron puntuados tomando en cue
 
 ## 7.4. Video About-the-Product
 
-> ⚠️ **[NOTA GUÍA — BORRAR ESTA CAJA AL ENTREGAR]:** El texto de abajo ya queda fijo y flexible. Solo reemplaza los `[PENDIENTE: ...]` con los links de Microsoft Stream y YouTube, la duración y 1 captura del video.
-
 En esta sección se presenta el **Video About-the-Product** de ParkLink (duración de 1 a 3 minutos, según el Anexo C de la guía). El video tiene un enfoque promocional y comercial: resume el problema del estacionamiento urbano, presenta la propuesta de valor y modelo de negocio de ParkLink, muestra una navegación ágil por la experiencia digital (Landing Page y prototipo de la aplicación en Figma / PoC) e incluye breves opiniones o citas de validación de los usuarios objetivo (extraídas de las entrevistas de validación realizadas).
 
-- **URL de la versión publicada en Microsoft Stream:** `[PENDIENTE: URL_MICROSOFT_STREAM_ABOUT_THE_PRODUCT]`
-- **URL de la versión publicada en YouTube (para incrustar en la Landing Page):** `[PENDIENTE: URL_YOUTUBE_ABOUT_THE_PRODUCT]`
-- **Duración Total (Timing):** `[PENDIENTE: MM:SS]` *(Entre 1 y 3 minutos)*
+- **URL de la versión publicada en Microsoft Stream:** 
+- **URL de la versión publicada en YouTube:** 
+- **Duración Total (Timing):** 
 - **Resumen del contenido del video:**
   1. **Pitch y Propuesta de Valor (0:00 - 0:40):** Presentación del problema de estacionamiento y cómo ParkLink conecta a conductores con espacios disponibles.
   2. **Demostración del Producto (0:40 - 2:00):** Recorrido visual ágil por la Landing Page y el prototipo interactivo (búsqueda de cocheras, reserva y publicación de espacios).
   3. **Opinión / Validación de Usuarios (2:00 - 2:30):** Testimonios breves o citas destacadas de un conductor y un propietario sobre la solución (recortados de las entrevistas de validación).
 
-> **[PENDIENTE — Insertar captura representativa (screenshot) de un cuadro del `Video About-the-Product`]:**  
-> `![Captura del Video About-the-Product](assets/chapter-7/video-about-the-product.png)`
 
 ---
 
@@ -4870,13 +4822,11 @@ En esta sección se presenta el **Video About-the-Product** de ParkLink (duraci�
 
 ## Video About-the-Team
 
-> ⚠️ **[NOTA GUÍA — BORRAR ESTA CAJA AL ENTREGAR]:** El texto y la tabla de abajo ya quedan fijos. Solo reemplaza los `[PENDIENTE: ...]` con los links de Microsoft Stream y YouTube, la duración total, los tiempos exactos de inicio (`hh:mm:ss`) de cada integrante y 1 captura del video.
-
 En esta sección se documenta el **Video About-the-Team** de **ParkTeam**, el cual sintetiza el proceso de ingeniería colaborativa seguido por el equipo a lo largo de los entregables del proyecto, presentando escenas reales de las sesiones de trabajo acompañadas de narración en voz en off, así como el testimonio individual frente a cámara de cada integrante sobre sus actividades realizadas, lecciones aprendidas y el logro del **ABET – EAC - Student Outcome 3** y competencias complementarias.
 
-- **URL de la versión publicada en Microsoft Stream:** `[PENDIENTE: URL_MICROSOFT_STREAM_ABOUT_THE_TEAM]`
-- **URL de la versión publicada en YouTube (incrustada en la Landing Page):** `[PENDIENTE: URL_YOUTUBE_ABOUT_THE_TEAM]`
-- **Duración Total del Video:** `[PENDIENTE: 09:00]` *(Siguiendo el Anexo C: ~5 minutos de retrospectiva grupal + ~1 minuto por cada testimonio individual de los 4 integrantes)*
+- **URL de la versión publicada en Microsoft Stream:** 
+- **URL de la versión publicada en YouTube:** 
+- **Duración Total del Video:** 
 
 ### Pauta de Secuencias de Contenido (Timing `hh:mm:ss`)
 
@@ -4888,8 +4838,6 @@ En esta sección se documenta el **Video About-the-Team** de **ParkTeam**, el cu
 | **4** | `00:07:00` | `00:01:00` | **Testimonio Individual — Amir Gabriel Castro Sanchez** | Exposición ante cámara sobre las actividades realizadas, aprendizajes del proceso y logro del Student Outcome ABET 3 y competencias alcanzadas. |
 | **5** | `00:08:00` | `00:01:00` | **Testimonio Individual — Daniel Elias Ruiz Huisa** | Exposición ante cámara sobre las actividades realizadas, aprendizajes del proceso y logro del Student Outcome ABET 3 y competencias alcanzadas. |
 
-> **[PENDIENTE — Insertar captura representativa (screenshot) de un cuadro del `Video About-the-Team`]:**  
-> `![Captura del Video About-the-Team](assets/chapter-7/video-about-the-team.png)`
 
 ---
 
@@ -4926,7 +4874,7 @@ En cumplimiento de las indicaciones oficiales del documento rector del Trabajo F
 
 | Entregable / Hito | Fecha de Entrega | Duración | Enlace al Video de Exposición (Microsoft Stream / Repositorio) | Integrantes Expositor(es) |
 | :---: | :---: | :---: | :--- | :--- |
-| **TB1** | Semana 4 (`16/04/2026`) | `<= 30 min` | `[Enlace de Exposición TB1 en Microsoft Stream]` | Fabian Oliva, Pietro Osores, Amir Castro, Daniel Ruiz |
-| **TP1** | Semana 7 (`05/10/2026`) | `<= 30 min` | `[Enlace de Exposición TP1 en Microsoft Stream]` | Fabian Oliva, Pietro Osores, Amir Castro, Daniel Ruiz |
-| **TB2** | Semana 12 (`09/11/2026`) | `<= 30 min` | `[PENDIENTE: URL_MICROSOFT_STREAM_EXPOSICION_TB2]` | Fabian Oliva, Pietro Osores, Amir Castro, Daniel Ruiz |
-| **TF1** | Semana 15 (`[Por programar]`) | `<= 30 min` | `[Pendiente para Hito TF1]` | Fabian Oliva, Pietro Osores, Amir Castro, Daniel Ruiz |
+| **TB1** | Semana 4 (`16/04/2026`) | `<= 30 min` | | Fabian Oliva, Pietro Osores, Amir Castro, Daniel Ruiz |
+| **TP1** | Semana 7 (`05/10/2026`) | `<= 30 min` | | Fabian Oliva, Pietro Osores, Amir Castro, Daniel Ruiz |
+| **TB2** | Semana 12 (`09/11/2026`) | `<= 30 min` | | Fabian Oliva, Pietro Osores, Amir Castro, Daniel Ruiz |
+| **TF1** | Semana 15 | `<= 30 min` | | Fabian Oliva, Pietro Osores, Amir Castro, Daniel Ruiz |
