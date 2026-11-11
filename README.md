@@ -4128,7 +4128,7 @@ En este capítulo se documenta y evidencia el proceso de ingeniería aplicado pa
 
 ## 7.1. Software Configuration Management
 
-> ⚠️ **[NOTA GUÍA — BORRAR ESTA CAJA AL ENTREGAR]:** Todo el texto de `7.1.1`, `7.1.2`, `7.1.3` y `7.1.4` ya queda fijo como redacción final. Solo debes reemplazar los corchetes `[PENDIENTE: ...]` con los links reales de los repositorios y las URLs de despliegue.
+> ⚠️ **[NOTA GUÍA — BORRAR ESTA CAJA AL ENTREGAR]:** Las secciones `7.1.1`, `7.1.2`, `7.1.3` y `7.1.4` ya están sincronizadas con el repositorio real `parklink-platform` y los 14 repositorios de componentes en GitHub. Solo reemplaza los `[PENDIENTE: ...]` cuando tengan las URLs de despliegue en la nube.
 
 Con el propósito de garantizar la reproducibilidad, consistencia técnica, trazabilidad de cambios y calidad del código a lo largo del ciclo de vida de desarrollo de ParkLink, el equipo estableció las siguientes políticas y herramientas de **Software Configuration Management (SCM)**.
 
@@ -4143,60 +4143,69 @@ En la siguiente tabla se especifican los productos de software, su categoría de
 | **Requirements & UX Research** | **UXPressia** | Elaboración colaborativa de fichas de User Personas (Humberto y Jarol), Empathy Maps e Impact Mapping. | <https://uxpressia.com/> |
 | **Requirements & Collaborative Modeling** | **Miro / Canva Whiteboard** | Modelado colaborativo de As-Is Scenario Mapping, To-Be Scenario Mapping y sesiones de EventStorming. | <https://miro.com/> / <https://www.canva.com/> |
 | **Product Design (UX/UI)** | **Figma** | Diseño del Design System (tokens, tipografía Inter, paleta `#080808` / `#02EBD8`), Wireframes, Mock-ups y Prototipos interactivos de Landing Page, Web y Mobile. | <https://www.figma.com/downloads/> / [Proyecto Figma ParkLink](https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink) |
-| **Software Architecture & Modeling** | **Structurizr DSL & Mermaid** | Modelado Architecture-as-Code de las vistas C4 (System Landscape, Context, Container, Component y Deployment), diagramas UML de dominio y esquemas ER/datos. | <https://structurizr.com/> / <https://mermaid.js.org/> |
+| **Software Architecture & Modeling** | **Structurizr DSL, Graphviz & Mermaid** | Modelado Architecture-as-Code de las vistas C4 (`docs/architecture/workspace.dsl`), diagramas UML de dominio y esquemas ER/datos. | <https://structurizr.com/> / <https://graphviz.org/> / <https://mermaid.js.org/> |
 | **Software Development (IDE)** | **Visual Studio Code / WebStorm / Android Studio** | Entornos de desarrollo integrados para la codificación en TypeScript (NestJS / React) y Dart (Flutter), con soporte de depuración y análisis estático. | <https://code.visualstudio.com/download> / <https://developer.android.com/studio> |
-| **Software Development (Backend & Agentes IA)** | **Node.js (v20 LTS), TypeScript & NestJS** | Desarrollo del API Gateway, los microservicios de los 8 Bounded Contexts y la orquestación segura de los **2 Agentes Conversacionales Copilot** (Conductor y Propietario). | <https://nodejs.org/en/download> / <https://nestjs.com/> |
-| **Software Development (Persistencia & Mensajería)** | **PostgreSQL 16, Prisma ORM, Redis 7 & RabbitMQ** | Almacenamiento relacional privado por servicio (con control de concurrencia e idempotencia), caché e índice geoespacial en Redis y mensajería asíncrona de comandos/eventos. | <https://www.postgresql.org/download/> / <https://www.prisma.io/> / <https://redis.io/> / <https://www.rabbitmq.com/> |
-| **Software Development (Web & Landing Page)** | **React, TypeScript, Vite & Tailwind CSS** | Construcción de la Landing Page responsiva e inclusiva (`i18n` / `a11y`) y de la Web Application para monitoreo de propietarios y experiencia web. | <https://react.dev/> / <https://vitejs.dev/> / <https://tailwindcss.com/> |
-| **Software Development (Mobile Application)** | **Flutter SDK & Dart** | Desarrollo cross-platform de la aplicación móvil para Conductores y Propietarios, integrando mapas, reservas, códigos QR y los 2 Agentes Copilot. | <https://docs.flutter.dev/get-started/install> |
-| **Software Testing** | **Jest, Supertest, Cucumber.js (Gherkin) & Vitest** | Ejecución de pruebas unitarias de dominio, pruebas de integración de APIs y pruebas de aceptación automatizadas basadas en especificaciones BDD (`.feature`). | <https://jestjs.io/> / <https://cucumber.io/docs/installation/> / <https://vitest.dev/> |
-| **Software Documentation** | **Swagger / OpenAPI 3.0 & Markdown** | Documentación interactiva de contratos RESTful APIs y elaboración colaborativa del informe técnico en GitHub. | <https://swagger.io/tools/swagger-ui/> / <https://www.markdownguide.org/> |
-| **Software Deployment & Source Control** | **Git, GitHub, Docker, Vercel & Render / Railway** | Control de versiones distribuido bajo GitFlow, contenerización de servicios y despliegue continuo en la nube para los productos digitales. | <https://git-scm.com/downloads> / <https://github.com/> / <https://vercel.com/> |
+| **Software Development (Backend & Gateway)** | **Node.js (v22 LTS), TypeScript 5.8, NestJS 11 & Zod** | Desarrollo del API Gateway (`gateway`), los 8 microservicios independientes (`services/*`) y los paquetes de contratos y runtime (`@parklink/contracts`, `@parklink/runtime`). | <https://nodejs.org/en/download> / <https://nestjs.com/> / <https://zod.dev/> |
+| **Software Development (Agente Conversacional IA)** | **OpenCode 1.19.5 Runtime & `@opencode-ai/sdk/v2`** | Ejecución aislada en contenedor sin privilegios (`opencode-runtime`) para interpretación estructurada de intenciones en `conversational-agent-service` con barrera de confirmación humana. | <https://opencode.ai/> / <https://www.npmjs.com/package/@opencode-ai/sdk> |
+| **Software Development (Persistencia & Mensajería)** | **PostgreSQL 16 + PostGIS (`pg`), RabbitMQ 3.13 (`amqplib`) & Redis 7** | Bases de datos PostgreSQL independientes por servicio con migraciones SQL verificadas por checksum, índices espaciales PostGIS, bloqueos `pg_advisory_xact_lock` + GiST exclusion y mensajería AMQP (`parklink.commands` y `parklink.events`). | <https://www.postgresql.org/download/> / <https://postgis.net/> / <https://www.rabbitmq.com/> / <https://redis.io/> |
+| **Software Development (Web & Landing Page)** | **React 19, TypeScript & Vite** | Construcción de la Landing Page pública responsiva (`parklink-tp1-landing`) y del panel web de monitoreo de solo lectura para propietarios (`apps/owner-dashboard` / `parklink-web`). | <https://react.dev/> / <https://vitejs.dev/> |
+| **Software Development (Mobile Application)** | **Flutter SDK 3.44.1 & Dart 3.12.1** | Desarrollo cross-platform de la aplicación móvil (`parklink-mobile`) con `flutter_map`, `geolocator`, `flutter_secure_storage`, flujos de Conductor/Propietario y asistente Copilot integrado. | <https://docs.flutter.dev/get-started/install> |
+| **Software Testing & Quality** | **Node.js Test Runner (`node:test` + `tsx`), ESLint 9 & Flutter Test** | Ejecución de pruebas unitarias de dominio (`tests/domain.test.ts`, `tests/copilot.test.ts`), pruebas de integración de extremo a extremo (`tests/integration/*.test.ts`) y análisis estático. | <https://nodejs.org/api/test.html> / <https://eslint.org/> |
+| **Software Documentation** | **Swagger / OpenAPI 3.0 & Markdown** | Documentación de contratos RESTful APIs expuesta en `/docs` por servicio interno y elaboración colaborativa del informe técnico en GitHub. | <https://swagger.io/tools/swagger-ui/> / <https://www.markdownguide.org/> |
+| **Software Deployment & Source Control** | **Git, GitHub, Docker Compose, Helm & Vercel** | Control de versiones distribuido, orquestación multicontenedor local (`docker-compose.yml`), plantillas Kubernetes/Helm (`infrastructure/helm/parklink-service`) y despliegue web en Vercel. | <https://git-scm.com/downloads> / <https://github.com/> / <https://docs.docker.com/compose/> / <https://vercel.com/> |
 
 ---
 
 ### 7.1.2. Source Code Management
 
-El control de versiones y el seguimiento de modificaciones de todos los productos digitales de ParkLink se centralizan en la organización pública oficial del equipo en GitHub:
+El control de versiones y el seguimiento de modificaciones de todos los productos digitales de ParkLink se centralizan en la organización pública oficial del equipo en GitHub. Para facilitar la compilación coordinada, las pruebas de integración multicontenedor (`Docker Compose`) y el mantenimiento de contratos compartidos sin perder la independencia de cada componente, la organización mantiene el repositorio de **plataforma integrada (`parklink-platform`)**, el repositorio independiente de la **aplicación móvil (`parklink-mobile`)**, el repositorio del **panel web (`parklink-web`)** y los **repositorios individuales de cada microservicio y paquete compartido**:
 
 - **Organización Oficial en GitHub:** <https://github.com/1ASI0728-2620-16363-ParkLink>
 
-#### Repositorios de los Productos Digitales de la Solución
+#### Repositorios de los Productos Digitales y Microservicios de la Solución
 
-| Producto Digital | Repositorio en GitHub | Alcance y Contenido Principal |
+| Producto Digital / Componente | Repositorio Oficial en GitHub | Alcance y Contenido Principal |
 | :--- | :--- | :--- |
-| **Project Report (Informe)** | <https://github.com/1ASI0728-2620-16363-ParkLink/ParkLink-Report> | Documento principal `README.md`, código fuente de diagramas C4/Mermaid (`docs/`) y recursos visuales (`assets/`). |
-| **Landing Page** | `[PENDIENTE: https://github.com/1ASI0728-2620-16363-ParkLink/ParkLink-Landing]` | Sitio web de adquisición segmentado para Conductores y Propietarios, desplegado en <https://parklink-tp1-landing.vercel.app>. |
-| **Backend & Web Services** | `[PENDIENTE: https://github.com/1ASI0728-2620-16363-ParkLink/ParkLink-Backend]` | Implementación de los 8 Bounded Contexts, los 2 Agentes Conversacionales Copilot, documentación OpenAPI/Swagger y suite de pruebas (`.feature` y tests). |
-| **Frontend Web Application** | `[PENDIENTE: https://github.com/1ASI0728-2620-16363-ParkLink/ParkLink-Frontend]` | Aplicación web para interacción de usuarios, panel del propietario y experiencia conversacional con los Agentes Copilot. |
-| **Mobile Application** | `[PENDIENTE: https://github.com/1ASI0728-2620-16363-ParkLink/ParkLink-Mobile]` | Aplicación móvil multiplataforma en Flutter para Conductores (Humberto) y Propietarios (Jarol). |
+| **Project Report (Informe Técnico)** | <https://github.com/1ASI0728-2620-16363-ParkLink/ParkLink-Report> | Documento maestro `README.md`, especificaciones de arquitectura C4/Mermaid y activos visuales de validación y diseño (`assets/`). |
+| **Integrated Platform Workspace (Monorepo Backend + Web + Infra)** | <https://github.com/1ASI0728-2620-16363-ParkLink/parklink-platform> | Espacio integrado (`npm workspaces` + `docker-compose.yml`) que orquesta el API Gateway, los 8 microservicios NestJS, los paquetes compartidos, el panel web de propietarios, los scripts de semillas/migraciones, las plantillas Helm/K8s y la suite de pruebas unitarias y de integración. |
+| **Mobile Application (Flutter)** | <https://github.com/1ASI0728-2620-16363-ParkLink/parklink-mobile> | Fuente de verdad de la aplicación móvil en Flutter/Dart para Conductores (Humberto) y Propietarios (Jarol), incluyendo mapa interactivo, publicación de cocheras, reservas, pagos y hoja conversacional de ParkLink Copilot. |
+| **Owner Monitoring Web Application (React)** | <https://github.com/1ASI0728-2620-16363-ParkLink/parklink-web> | Aplicación web en React 19 + TypeScript + Vite (`apps/owner-dashboard`) de monitoreo exclusivo de solo lectura para propietarios (métricas de ocupación, agenda de reservas próximas, ingresos mensuales e inventario). |
+| **Public API Gateway** | <https://github.com/1ASI0728-2620-16363-ParkLink/parklink-gateway> | Punto único de entrada HTTP (`gateway`), validación de sesiones/roles, propagación de `X-Correlation-Id` / `Idempotency-Key` y agregación de `/owner/dashboard`. |
+| **Bounded Context 1: Identity Service** | <https://github.com/1ASI0728-2620-16363-ParkLink/parklink-microservice-identity> | Microservicio de registro, hashing `scrypt` con sal independiente, emisión de JWT (`DRIVER`, `OWNER`, `SUPPORT`) y sesiones de monitoreo (`monitor-login`). |
+| **Bounded Context 2: Parking Supply Service** | <https://github.com/1ASI0728-2620-16363-ParkLink/parklink-microservice-parking-supply> | Microservicio de publicación y edición versionada de espacios de estacionamiento (`spaces`), validación de ventanas horarias y emisión de eventos de oferta. |
+| **Bounded Context 3: Parking Discovery Service** | <https://github.com/1ASI0728-2620-16363-ParkLink/parklink-microservice-parking-discovery> | Microservicio de búsqueda geoespacial sobre PostgreSQL/PostGIS (`ST_DWithin`), filtrado por intervalo, tarifa máxima, características y ordenamiento por distancia o precio. |
+| **Bounded Context 4: Reservation Service** | <https://github.com/1ASI0728-2620-16363-ParkLink/parklink-microservice-reservation> | Autoridad transaccional de reservas (`hold`, `confirm`, `cancel`), ingesta duradera con `operations` outbox (`202 Accepted`), bloqueo `pg_advisory_xact_lock`, restricción GiST anti-solapamiento y expiración de holds. |
+| **Bounded Context 5: Payment Service** | <https://github.com/1ASI0728-2620-16363-ParkLink/parklink-microservice-payment> | Procesamiento asíncrono de cobros y reembolsos en céntimos PEN, adaptador determinístico `SandboxGateway` y verificación criptográfica HMAC-SHA256 de webhooks de Mercado Pago. |
+| **Bounded Context 6: Notification Service** | <https://github.com/1ASI0728-2620-16363-ParkLink/parklink-microservice-notification> | Consumidor de eventos de dominio en RabbitMQ para alertas internas in-app y administración de preferencias de notificación del usuario. |
+| **Bounded Context 7: Conversational Agent Service** | <https://github.com/1ASI0728-2620-16363-ParkLink/parklink-microservice-conversational-agent> | Orquestador de **ParkLink Copilot** integrado con el contenedor aislado `opencode-runtime`, validación de esquemas de intención y tokens de confirmación humana de un solo uso con TTL de 5 minutos. |
+| **Bounded Context 8: Audit Service** | <https://github.com/1ASI0728-2620-16363-ParkLink/parklink-microservice-audit> | Registro inmutable *append-only* (`audit_events` con revocación de `UPDATE`/`DELETE`) de operaciones correlacionadas para trazabilidad forense. |
+| **Shared Wire Contracts Package** | <https://github.com/1ASI0728-2620-16363-ParkLink/parklink-shared-contracts> | Paquete `@parklink/contracts` con esquemas estrictos Zod (`SpaceSchema`, `HoldSchema`, `RegistrationSchema`, `MessageSchema`) compartidos entre servicios sin acoplar entidades de base de datos. |
+| **Shared Service Runtime Package** | <https://github.com/1ASI0728-2620-16363-ParkLink/parklink-runtime> | Paquete `@parklink/runtime` con utilidades de arranque NestJS, middlewares JWT/RBAC, pool PostgreSQL con migraciones bloqueadas por checksum, topología RabbitMQ y exposición de `/health`, `/ready`, `/metrics` y `/docs`. |
+| **Landing Page Deployment** | <https://parklink-tp1-landing.vercel.app> | Sitio web estático en React 19 + TypeScript + Vite desplegado en Vercel Edge Network (evidencias y auditoría registradas en `ParkLink-Report`). |
 
-#### Implementación de GitFlow Workflow
+#### Estrategia de Ramificación, Integración y Sincronización de Componentes
 
-El equipo adopta el flujo de ramificación **GitFlow** propuesto por Vincent Driessen (*A successful Git branching model*):
-
-1. **Ramas Principales de Larga Duración:**
-   - `main`: Contiene exclusivamente versiones estables, probadas y listas para producción asociadas a cada entregable oficial (`v1.0.0`, `v1.1.0`, `v2.0.0`).
-   - `develop`: Rama central de integración continua donde convergen las funcionalidades completadas durante cada Sprint antes de preparar un lanzamiento.
-2. **Ramas de Soporte y Convenciones de Nomenclatura:**
-   - **Feature Branches (`feature/<context-or-scope>-<short-description>`):** Se ramifican desde `develop` y se fusionan de vuelta en `develop` mediante Pull Request tras superar la revisión de código y pruebas. Ejemplos: `feature/identity-jwt-auth`, `feature/supply-space-publication`, `feature/discovery-geo-search`, `feature/reservation-concurrency-lock`, `feature/agent-driver-copilot`, `feature/agent-owner-copilot`.
-   - **Release Branches (`release/v<MAJOR>.<MINOR>.<PATCH>`):** Se ramifican desde `develop` cuando el alcance del Sprint está completo para realizar pruebas finales de integración, ajustes de metadatos y congelamiento de versión antes de fusionarse hacia `main` y `develop`.
-   - **Hotfix Branches (`hotfix/v<MAJOR>.<MINOR>.<PATCH>-<issue>`):** Se ramifican directamente desde `main` para corregir defectos críticos en producción y se integran simultáneamente en `main` y `develop`.
+1. **Desarrollo en el Repositorio del Informe (`ParkLink-Report`):**
+   - `main`: Almacena las versiones consolidadas correspondientes a cada hito de evaluación.
+   - `develop`: Rama de integración continua donde convergen los capítulos y artefactos revisados.
+   - `feature/<scope>`: Ramas de trabajo específicas (ej. `feature/chapter-7`) fusionadas hacia `develop` mediante Pull Request.
+2. **Desarrollo y Publicación en `parklink-platform` y Repositorios de Componentes:**
+   - El desarrollo de backend, contratos, infraestructura Docker Compose y panel web se consolida sobre la rama `main` de `parklink-platform`, garantizando que las compilaciones de espacios de trabajo (`npm run build`) y las pruebas de integración multicontenedor (`npm run test:integration`) se validen de forma atómica.
+   - Cada componente (`parklink-gateway`, los 8 `parklink-microservice-*`, `parklink-shared-contracts`, `parklink-runtime` y `parklink-web`) se publica en su repositorio individual dentro de la organización oficial como copia independiente sincronizada con `parklink-platform`, mientras que `parklink-mobile` mantiene de forma dedicada el árbol de código Flutter/Dart.
 
 #### Versionado Semántico (Semantic Versioning 2.0.0)
 
-Para etiquetar los lanzamientos (Releases) en GitHub se aplica estrictamente **Semantic Versioning 2.0.0 (`vMAJOR.MINOR.PATCH`)**:
-- **MAJOR (`X.0.0`):** Incrementa cuando se realizan cambios incompatibles en los contratos de API o arquitectónicos.
-- **MINOR (`0.X.0`):** Incrementa cuando se añade nueva funcionalidad compatible hacia atrás al cierre de un Sprint (ej. `v0.1.0` para el cierre del Sprint 1 en TB2).
-- **PATCH (`0.0.X`):** Incrementa cuando se aplican correcciones de errores (bugfixes/hotfixes) compatibles hacia atrás.
+Para el control de versiones de los paquetes y servicios (`package.json` y etiquetas de imagen) se aplica **Semantic Versioning 2.0.0 (`vMAJOR.MINOR.PATCH`)**:
+- **MAJOR (`X.0.0`):** Cambios incompatibles en los contratos de API o esquemas de eventos en `@parklink/contracts`.
+- **MINOR (`0.X.0`):** Incremento funcional de Sprint compatible hacia atrás (versión actual `0.1.0` en todos los servicios del Sprint 1).
+- **PATCH (`0.0.X`):** Correcciones de defectos, ajustes de configuración o documentación compatibles hacia atrás.
 
 #### Estándar de Mensajes de Confirmación (Conventional Commits v1.0.0)
 
 Todos los commits siguen la especificación **Conventional Commits v1.0.0** con la estructura:
-`<type>(<scope>): <imperative description>`
+`<type>(<scope>): <imperative description>` (o `<type>: <imperative description>` en snapshots de componente)
 
-- **Tipos permitidos (`<type>`):** `feat` (nueva funcionalidad), `fix` (corrección de defecto), `docs` (documentación o OpenAPI), `test` (pruebas unitarias, de integración o archivos `.feature` Gherkin), `refactor` (mejora interna sin cambio de comportamiento), `style` (formato y linting), `chore` (configuración, dependencias o scripts de construcción).
-- **Alcances recomendados (`<scope>`):** `identity`, `supply`, `discovery`, `reservation`, `payment`, `notification`, `agent`, `audit`, `landing`, `web`, `mobile`, `report`.
+- **Tipos utilizados:** `feat` (implementación de componentes y funcionalidades), `refactor` (separación de repositorios y estructura modular), `docs` (arquitectura C4, guías operativas e informe técnico), `fix` (correcciones puntuales) y `chore` (configuración e ignorado de artefactos).
 
 ---
 
@@ -4204,71 +4213,83 @@ Todos los commits siguen la especificación **Conventional Commits v1.0.0** con 
 
 Para preservar la legibilidad, mantenibilidad y consistencia entre todos los repositorios, el equipo establece que **toda la nomenclatura de código fuente (clases, métodos, variables, tablas, endpoints y esquemas) se escribe en idioma inglés**, aplicando las siguientes guías de estilo oficiales:
 
-1. **TypeScript / NestJS (Backend) y React (Web & Landing Page) — *Google TypeScript Style Guide*:**
-   - **Clases, Interfaces, Tipos, Enumeraciones y Componentes React:** `PascalCase` (ej. `ReservationController`, `HoldReservationCommandHandler`, `ParkingSpaceSnapshot`, `DriverCopilotPanel`).
-   - **Variables, Propiedades, Funciones e Instancias:** `camelCase` (ej. `parkingSpaceId`, `holdExpiresAt`, `calculateTotalPrice`).
-   - **Constantes Globales y Valores de Enumeración:** `CONSTANT_CASE` (ej. `MAX_HOLD_DURATION_MINUTES`, `PENDING_PAYMENT`, `CONFIRMED`).
-   - **Nombres de Archivos y Directorios:** `kebab-case` con sufijos arquitectónicos explícitos en NestJS (`*.controller.ts`, `*.service.ts`, `*.handler.ts`, `*.entity.ts`, `*.repository.ts`, `*.dto.ts`, `*.spec.ts`).
-   - **Herramientas de Verificación Automática:** `ESLint` y `Prettier` configurados en la raíz de cada repositorio (indentación de 2 espacios, comillas simples, punto y coma obligatorio y tipado estricto en `tsconfig.json`).
+1. **TypeScript / NestJS (Backend & Gateway) y React (Owner Dashboard & Landing Page) — *Google TypeScript Style Guide*:**
+   - **Clases, Controladores, Servicios y Componentes React:** `PascalCase` (ej. `GatewayController`, `ReservationsController`, `Reservations`, `CopilotController`, `OpenCodeIntentProvider`, `SandboxGateway`, `Accounts`).
+   - **Funciones de Dominio, Variables, Propiedades e Instancias:** `camelCase` (ej. `assertInterval`, `validWindows`, `refundAmount`, `canConfirm`, `hashPassword`, `verifyMercadoPago`, `hourlyRate`).
+   - **Esquemas de Contrato (Zod) y Constantes de Estado:** `PascalCase` para esquemas exportados (`SpaceSchema`, `HoldSchema`, `RegistrationSchema`, `IntentSchema`, `ChatInputSchema`) y `CONSTANT_CASE` para estados transaccionales (`PENDING_PAYMENT`, `CONFIRMED`, `CANCELLED`, `EXPIRED`, `APPROVED`, `REFUNDED`).
+   - **Estructura Uniforme por Microservicio (`services/<name>/src/`):**
+     - `domain/`: Funciones y políticas puras de negocio libres de frameworks (`reservation.ts`, `schedule.ts`, `password.ts`, `intent.ts`, `personality.ts`).
+     - `application/`: Casos de uso, orquestación de transacciones y manejo de eventos/comandos (`reservations.ts`, `supply.ts`, `discovery.ts`, `payments.ts`, `copilot.ts`, `accounts.ts`).
+     - `infrastructure/`: Adaptadores externos (`opencode.ts`, `providers.ts`).
+     - `interface/`: Controladores HTTP NestJS (`controller.ts`) y punto de entrada (`main.ts`).
+   - **Verificación Automática:** `ESLint 9` con `typescript-eslint` (`eslint.config.mjs`) y compilación estricta con `TypeScript ~5.8.3` (`npm run lint` y `npm run typecheck`).
 
-2. **Dart / Flutter (Mobile Application) — *Effective Dart Style Guide*:**
-   - **Clases, Widgets, Extensiones y Enums:** `UpperCamelCase` (ej. `DriverExploreScreen`, `ReservationTicketCard`, `CopilotChatSheet`).
-   - **Variables, Métodos y Parámetros Nombrados:** `lowerCamelCase` (ej. `selectedTimeSlot`, `onConfirmReservation`).
-   - **Archivos, Paquetes y Directorios:** `lowercase_with_underscores` (`snake_case`, ej. `driver_explore_screen.dart`, `parking_supply_repository.dart`).
-   - **Herramientas de Verificación Automática:** `flutter_lints` y formateo estándar mediante `dart format`.
+2. **Dart / Flutter (`parklink-mobile`) — *Effective Dart Style Guide*:**
+   - **Clases, Widgets, Pantallas y ViewModels:** `UpperCamelCase` (ej. `LoginScreen`, `ClientShellScreen`, `SessionStore`).
+   - **Variables, Métodos y Parámetros Nombrados:** `lowerCamelCase`.
+   - **Archivos y Paquetes:** `lowercase_with_underscores` (`snake_case`, ej. `app_theme.dart`, `app_bottom_nav.dart`, `app_bottom_sheet.dart`, `map_theme.dart`).
+   - **Verificación Automática:** `flutter analyze` con `analysis_options.yaml`.
 
-3. **Especificaciones BDD en Gherkin (`.feature`) — *Gherkin Conventions for Readable Specifications*:**
-   - Uso declarativo de palabras clave estándar (`Feature`, `Background`, `Scenario`, `Scenario Outline`, `Examples`, `Given`, `When`, `Then`, `And`, `But`).
-   - Redacción en tercera persona y tiempo presente enfocada en las reglas de negocio del dominio, evitando acoplar los pasos a selectores internos de interfaz.
-
-4. **Internacionalización (`i18n`) y Accesibilidad (`a11y`):**
-   - Soporte estructurado para inglés (`en_US`, idioma base por defecto para contratos, mensajes de API y documentación técnica) y español latinoamericano (`es_419`).
-   - Inclusión de atributos semánticos HTML5, etiquetas `aria-*`, navegación por teclado y relaciones de contraste verificadas bajo **WCAG 2.1 Nivel AA** (`11.72:1` a `13.23:1` sobre la paleta `#080808` / `#02EBD8` / `#FFFFFF`).
+3. **Internacionalización (`i18n`), Moneda, Tiempo y Accesibilidad (`a11y`):**
+   - **Moneda y Tiempo:** Todos los importes monetarios se procesan y almacenan como **enteros en céntimos de sol (`PEN`)** con redondeo hacia arriba por fracción horaria, evitando errores de punto flotante; las marcas de tiempo se transmiten en formato **ISO 8601 / RFC 3339** y se presentan en zona horaria de Lima (`America/Lima`).
+   - **Accesibilidad (`a11y`):** Cumplimiento de contraste **WCAG 2.1 Nivel AA** sobre la paleta `#080808` / `#02EBD8` (texto oscuro sobre acento turquesa), navegación alternativa en lista frente al mapa y botón etiquetado accesible para abrir **ParkLink Copilot** cuando el lector de pantalla reserva el gesto de doble toque.
 
 ---
 
 ### 7.1.4. Software Deployment Configuration
 
-El flujo de despliegue de ParkLink automatiza la publicación de los productos digitales desde los repositorios de GitHub hacia entornos cloud administrados, siguiendo la topología definida en el **C4 Deployment Diagram**:
+El flujo de construcción y despliegue de ParkLink contempla la ejecución local reproducible mediante **Docker Compose**, el empaquetado de imágenes inmutables por servicio y las plantillas declarativas de **Kubernetes / Helm**, siguiendo la topología definida en el **C4 Deployment Diagram**:
 
 ![ParkLink Deployment Diagram](assets/architecture-v2/deployment.svg)
 
-#### Pasos y Configuración de Despliegue por Producto Digital
+#### Pasos y Configuración de Construcción y Despliegue por Producto Digital
 
-1. **Landing Page (`ParkLink-Landing` → Vercel Edge Network):**
-   - **Repositorio / Rama de Producción:** `main` / `develop`.
-   - **Proceso de Construcción:** Integración continua nativa con Vercel; ejecuta `npm ci && npm run build` generando los artefactos estáticos optimizados y aplicando las cabeceras de seguridad (`Content-Security-Policy`, `X-Frame-Options: DENY`, `Permissions-Policy`, `Referrer-Policy`, `X-Content-Type-Options: nosniff`).
-   - **URL en Producción:** <https://parklink-tp1-landing.vercel.app>
+1. **Landing Page (`parklink-tp1-landing` → Vercel Edge Network):**
+   - **Proceso de Construcción:** Ejecución de `npm ci && npm run build` sobre React 19 + TypeScript + Vite, aplicando cabeceras HTTP de seguridad (`Content-Security-Policy: style-src 'self'`, `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy`).
+   - **URL en Producción (Activa):** <https://parklink-tp1-landing.vercel.app>
 
-2. **Backend & Microservicios de los 8 Bounded Contexts + 2 Agentes Copilot (`ParkLink-Backend` → Cloud Runtime):**
-   - **Proceso de Construcción:** Ejecución de `npm ci`, generación del cliente Prisma (`npx prisma generate`), aplicación de migraciones de esquema (`npx prisma migrate deploy`), compilación TypeScript (`npm run build`) e inicialización del servidor con documentación OpenAPI expuesta en `/api/docs`.
-   - **Variables de Entorno Requeridas:** `DATABASE_URL` (PostgreSQL), `REDIS_URL` (proyección geoespacial), `RABBITMQ_URL` (broker de comandos y eventos), `JWT_SECRET` (autenticación RBAC), `LLM_API_KEY` (proveedor de IA para los Agentes Copilot tras Anti-Corruption Layer) y `PORT`.
-   - **URL Base del Backend / API Gateway:** `[PENDIENTE: URL_BACKEND_DEPLOY]`
-   - **URL de Documentación Swagger UI:** `[PENDIENTE: URL_SWAGGER_DEPLOY]`
+2. **Plataforma Backend, Bases de Datos, Mensajería y Panel Web (`parklink-platform` → Docker Compose / Cloud Kubernetes):**
+   - **Aprovisionamiento y Ejecución Integrada Local (`Docker Compose`):**
+     ```bash
+     npm ci
+     node scripts/configure-local.mjs
+     docker compose up -d --build --wait
+     node scripts/seed-rich.mjs
+     ```
+   - **Topología de Contenedores levantados por `docker-compose.yml`:**
+     - **8 instancias PostgreSQL/PostGIS aisladas (`*-db`):** `identity-db`, `supply-db`, `discovery-db`, `reservation-db`, `payment-db`, `notification-db`, `agent-db` y `audit-db` (cada servicio ejecuta automáticamente sus migraciones SQL con bloqueo transaccional y verificación de checksum SHA-256 al iniciar con `node dist/main.js --migrate`).
+     - **Infraestructura de Mensajería e IA:** `rabbitmq` (con intercambios `parklink.commands`, `parklink.events` y colas DLQ), `redis` y `opencode-runtime` (servidor OpenCode 1.19.5 aislado sin acceso a red de datos ni sistema de archivos del host).
+     - **8 Microservicios NestJS + API Gateway + Panel Web:** `identity-service`, `parking-supply-service`, `parking-discovery-service`, `reservation-service`, `payment-service`, `notification-service`, `conversational-agent-service`, `audit-service`, `gateway` (expuesto en `http://localhost:3000`) y `owner-dashboard` (expuesto en `http://localhost:5173`).
+   - **Construcción de Imágenes y Plantillas Cloud (`Helm / Kubernetes`):**
+     - Empaquetado individual por servicio mediante `sh scripts/image.sh <service-name> <registry> <immutable-commit-tag>`.
+     - Plantillas listas en `infrastructure/helm/parklink-service` (con `Deployment`, `Service`, Job de migración pre-despliegue, `HorizontalPodAutoscaler`, `PodDisruptionBudget`, sondas `/health` y `/ready`, e `Ingress` para el Gateway) y manifiestos base en `infrastructure/k8s/` (`namespace.yaml`, `network-policies.yaml`, `rabbitmq-cluster.yaml`).
+   - **URL Base del API Gateway (En caso de despliegue externo):** `[PENDIENTE: URL_GATEWAY_DEPLOY — Actualmente verificado sobre entorno Docker Compose en http://localhost:3000]`
+   - **URL del Panel Web de Propietarios (`parklink-web`):** `[PENDIENTE: URL_WEB_DEPLOY — Actualmente verificado en http://localhost:5173]`
 
-3. **Frontend Web Application (`ParkLink-Frontend` → Vercel / Cloud Hosting):**
-   - **Proceso de Construcción:** Ejecución de `npm ci && npm run build` con Vite y configuración de `VITE_API_BASE_URL` apuntando al API Gateway desplegado.
-   - **URL en Producción:** `[PENDIENTE: URL_WEB_APP_DEPLOY]`
-
-4. **Mobile Application (`ParkLink-Mobile` → Android APK / Firebase App Distribution):**
-   - **Proceso de Construcción:** Ejecución de `flutter pub get`, análisis estático con `flutter analyze` y generación del artefacto instalable mediante `flutter build apk --release --dart-define=API_BASE_URL=[URL_BACKEND]`.
-   - **Enlace de Distribución / Descarga APK:** `[PENDIENTE: URL_MOBILE_APK_DEPLOY]`
+3. **Mobile Application (`parklink-mobile` → Flutter Android / iOS):**
+   - **Proceso de Construcción y Ejecución:**
+     ```bash
+     flutter pub get
+     flutter analyze
+     flutter run --debug --dart-define=PARKLINK_API_URL=http://10.0.2.2:3000
+     ```
+   - **Enlace del Repositorio Móvil:** <https://github.com/1ASI0728-2620-16363-ParkLink/parklink-mobile>
 
 ---
 
 ## 7.2. Products Implementation
 
-> ⚠️ **[NOTA GUÍA — BORRAR ESTA CAJA AL ENTREGAR]:** El texto de `7.2.1.1` (Sprint Planning), `7.2.1.2` (Sprint Backlog con 2 tareas por historia) y `7.2.1.4` (Unit Tests y archivos `.feature` Gherkin) ya queda fijo. Solo rellena los `[PENDIENTE: ...]` y en `7.2.1.6` ajusta las rutas de endpoints si el Swagger real de Pietro varía en algún nombre.
+> ⚠️ **[NOTA GUÍA — BORRAR ESTA CAJA AL ENTREGAR]:** Las secciones `7.2.1.1` a `7.2.1.6` ya están 100% alineadas con las **23 historias del Sprint 1** del Product Backlog (`3.4`) y con el código real, commits, pruebas y endpoints de `parklink-platform` y `parklink-mobile`. Solo falta asignar los nombres de integrantes en la columna `Assigned To` y pegar las capturas de pantalla en los bloques `[PENDIENTE]`.
 
 En esta sección se documenta la ejecución iterativa e incremental de la implementación, pruebas automatizadas, documentación de servicios y despliegue de los productos digitales de ParkLink.
 
 ### 7.2.1. Sprint 1
 
-El **Sprint 1** tuvo como propósito materializar y desplegar la primera versión funcional de extremo a extremo de ParkLink, abarcando la **Landing Page**, el **Backend de los 8 Bounded Contexts** (`User & Identity`, `Parking Supply`, `Parking Discovery`, `Reservation Management`, `Payment`, `Notification`, `Conversational Reservation Agent` y `Audit`), la orquestación de los **2 Agentes Conversacionales Copilot** (**Copilot de Conductor** para Humberto y **Copilot de Propietario** para Jarol), la **Web Application** y la **Mobile Application**.
+El **Sprint 1** tuvo como propósito materializar y verificar la primera versión funcional de extremo a extremo de ParkLink, abarcando la **Landing Page** (`US-LP01` a `US-LP04`), el **API Gateway y los 8 Bounded Contexts** (`Identity`, `Parking Supply`, `Parking Discovery`, `Reservation`, `Payment`, `Notification`, `Conversational Agent` y `Audit`), el asistente **ParkLink Copilot** con aislamiento en `opencode-runtime` y confirmación humana obligatoria, el **Panel Web de Monitoreo de Propietarios** (`parklink-web`) y la **Aplicación Móvil en Flutter** (`parklink-mobile`).
 
 #### 7.2.1.1. Sprint Planning 1
 
-En la sesión de **Sprint Planning 1**, el equipo revisó los artefactos consolidados de arquitectura y diseño UX/UI del hito previo (Sprint 0 / TP1) y seleccionó las User Stories y Technical Stories prioritarias del Product Backlog (`3.4`) para conformar el incremento funcional del Sprint 1:
+En la sesión de **Sprint Planning 1**, el equipo revisó los artefactos consolidados de arquitectura y diseño UX/UI del hito previo (Sprint 0 / TP1) y seleccionó las **23 User Stories y Technical Stories** asignadas al **Sprint 1** en el Product Backlog (`3.4`, ítems #1 al #17, #29 y #33 al #37) para conformar el incremento funcional del Sprint 1:
 
 | Sprint # | Sprint 1 |
 | :--- | :--- |
@@ -4278,18 +4299,18 @@ En la sesión de **Sprint Planning 1**, el equipo revisó los artefactos consoli
 | **Location** | Reunión virtual sincrónica (Discord / Google Meet) |
 | **Prepared By** | `[PENDIENTE: Integrante que prepara el acta]` |
 | **Attendees (to planning meeting)** | Oliva Lopez, Fabian Alejandro / Osores Marchese, Pietro / Castro Sanchez, Amir Gabriel / Ruiz Huisa, Daniel Elias |
-| **Sprint 0 Review Summary** | Se completó el diseño táctico DDD de los 8 Bounded Contexts (diagramas de componentes C4, diagramas UML de dominio y esquemas de bases de datos), los lineamientos de estilo UX/UI, la arquitectura de información, el despliegue inicial de la Landing Page y los 13 Wireflows/User Flows en Figma. |
-| **Sprint 0 Retrospective Summary** | El equipo identificó como acierto la trazabilidad entre reglas de dominio y flujos UX; como oportunidad de mejora acordó estandarizar las ramas bajo GitFlow, automatizar las pruebas BDD Gherkin desde el inicio del Sprint y dividir claramente las tareas de integración de los 2 Agentes Copilot. |
+| **Sprint 0 Review Summary** | Se completó el diseño táctico DDD de los 8 Bounded Contexts (diagramas de componentes C4, diagramas UML de dominio y esquemas de bases de datos), los lineamientos de estilo UX/UI, la arquitectura de información, el despliegue inicial de la Landing Page y los Wireflows/User Flows en Figma. |
+| **Sprint 0 Retrospective Summary** | El equipo identificó como acierto la trazabilidad entre reglas de dominio y flujos UX; como oportunidad de mejora acordó unificar el espacio de trabajo del backend y panel web en `parklink-platform` con Docker Compose y paquetes compartidos (`@parklink/contracts`, `@parklink/runtime`), manteniendo repositorios de snapshot por servicio y un repositorio dedicado para `parklink-mobile`. |
 | **Sprint Goal & User Stories** | |
-| **Sprint 1 Goal** | Implementar, probar, documentar con OpenAPI/Swagger y desplegar la primera versión funcional integrada de ParkLink: Landing Page con CTAs activos, Backend con los 8 Bounded Contexts operativos, los 2 Agentes Conversacionales Copilot (Conductor Humberto y Propietario Jarol) con barrera de confirmación explícita, Web Application y Mobile Application. **Métrica de cumplimiento:** 100% de las historias comprometidas en estado *Done* y productos desplegados accesibles públicamente. |
-| **Sprint 1 Velocity** | `81` Story Points |
-| **Sum of Story Points** | `81` Story Points (`US-LP01`: 3, `US-LP02`: 3, `US-LP03`: 3, `US-LP04`: 2, `US01`: 8, `US02`: 8, `US05`: 8, `US09`: 5, `US12`: 5, `US14`: 8, `US19`: 2, `US21`: 8, `TS01`: 5, `TS02`: 5, `TS03`: 3, `TS05`: 3, `TS07`: 5 — *Nota: ajustar suma según alcance final del tablero*) |
+| **Sprint 1 Goal** | Implementar, probar con suites unitarias y de integración, documentar con OpenAPI/Swagger y contenerizar la primera versión funcional integrada de ParkLink: Landing Page pública, Backend con los 8 Bounded Contexts sobre PostgreSQL/PostGIS y RabbitMQ, asistente conversacional ParkLink Copilot sobre OpenCode aislado con confirmación explícita, Panel Web de Propietarios y Aplicación Móvil Flutter. **Métrica de cumplimiento:** 100% de las 23 historias comprometidas (`106` Story Points) verificadas en estado *Done*. |
+| **Sprint 1 Velocity** | `106` Story Points |
+| **Sum of Story Points** | `106` Story Points correspondientes a las **23 historias asignadas al Sprint 1** en el Product Backlog (`3.4`): `US-LP01` (3) + `US-LP02` (3) + `US-LP03` (3) + `US-LP04` (2) + `US01` (8) + `US02` (8) + `US09` (5) + `TS02` (5) + `TS05` (3) + `US05` (8) + `US14` (8) + `TS01` (5) + `TS06` (5) + `US10` (5) + `US12` (5) + `US21` (8) + `TS07` (5) + `US20` (3) + `TS04` (3) + `US17` (3) + `US18` (3) + `US19` (2) + `TS03` (3) = **106 SP**. |
 
 ---
 
 #### 7.2.1.2. Sprint Backlog 1
 
-El **Sprint Backlog 1** descompone cada User Story y Technical Story seleccionada en **múltiples tareas de ingeniería (*Work-Items / Tasks*)** con estimación en horas y responsable asignado, cubriendo diseño de interfaz, lógica de negocio/API y verificación:
+El **Sprint Backlog 1** descompone cada una de las **23 User Stories y Technical Stories** del Sprint 1 en **2 tareas técnicas específicas (*Work-Items / Tasks*, 46 tareas en total)** con estimación en horas y responsable asignado, manteniendo correspondencia exacta con los módulos reales de `parklink-platform`, `parklink-web`, `parklink-mobile` y la Landing Page:
 
 - **URL Pública del Tablero del Sprint 1 (Trello):** <https://trello.com/b/69df03bb/product-backlog>
 
@@ -4298,125 +4319,161 @@ El **Sprint Backlog 1** descompone cada User Story y Technical Story seleccionad
 
 | Sprint # | User Story ID | User Story Title | Work-Item / Task ID | Task Title | Description | Estimation (Hours) | Assigned To | Status (To-do / In-Process / To-Review / Done) |
 | :---: | :---: | :--- | :---: | :--- | :--- | :---: | :--- | :---: |
-| 1 | **US-LP01** | Presentación de propuesta de valor y flujo operativo | TK-101.1 | Maquetar sección Hero y problemática urbana | Implementar layout responsivo del Hero con estética `#080808` / `#02EBD8` y textos internacionalizados (`en_US` / `es_419`). | 2 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US-LP01** | Presentación de propuesta de valor y flujo operativo | TK-101.2 | Desarrollar sección interactiva de flujo en 3 pasos | Implementar tarjetas paso a paso explicando búsqueda, reserva y estacionamiento verificado. | 2 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US-LP02** | Catálogo de características y matriz comparativa | TK-102.1 | Implementar grid de características y showcase de ParkLink Copilot | Construir componentes visuales de funcionalidades clave y demostración de los 2 Agentes Copilot en la Landing Page. | 2 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US-LP02** | Catálogo de características y matriz comparativa | TK-102.2 | Desarrollar tabla comparativa frente a alternativas tradicionales | Maquetar matriz comparativa accesible con indicadores visuales de ventajas competitivas. | 2 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US-LP03** | Segmentación de beneficios y llamados a la acción por rol | TK-103.1 | Construir paneles diferenciados para Conductor y Propietario | Desarrollar tarjetas de propuesta de valor por segmento objetivo (Humberto y Jarol). | 2 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US-LP03** | Segmentación de beneficios y llamados a la acción por rol | TK-103.2 | Configurar enrutamiento de CTAs hacia aplicaciones desplegadas | Vincular los botones «Buscar estacionamiento» y «Publicar mi cochera» a las rutas de acceso correspondientes. | 2 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US-LP04** | Credenciales de autoría (ParkTeam) y soporte / FAQ | TK-104.1 | Implementar sección ParkTeam y acordeón FAQ accesible | Construir tarjetas de perfiles del equipo y preguntas frecuentes con navegación por teclado y atributos ARIA. | 2 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US-LP04** | Credenciales de autoría (ParkTeam) y soporte / FAQ | TK-104.2 | Integrar contenedores de video y cabeceras de seguridad en Vercel | Incrustar reproductores de video y configurar headers CSP / HSTS en el despliegue de la Landing Page. | 2 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US19 / TS03** | Autenticación, JWT y control de acceso basado en roles (RBAC) | TK-105.1 | Implementar modelo de dominio, repositorios y endpoints de `Identity` | Desarrollar registro e inicio de sesión con validación de placa (`DRIVER`) y CCI (`OWNER`), emitiendo tokens JWT. | 3 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US19 / TS03** | Autenticación, JWT y control de acceso basado en roles (RBAC) | TK-105.2 | Implementar guardas RBAC en API Gateway y pantallas de login/registro | Configurar autorización por rol en el Gateway e integrar formularios de autenticación en Web y Mobile. | 3 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US09 / TS05** | Publicación y alta de espacio de estacionamiento | TK-106.1 | Desarrollar agregado `ParkingSpace` y endpoints REST en `Supply` | Implementar creación de cochera, validación de horarios/tarifas en soles y carga de mínimo dos fotografías. | 4 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US09 / TS05** | Publicación y alta de espacio de estacionamiento | TK-106.2 | Construir vistas de publicación y edición de espacios del propietario | Implementar formularios de alta de cochera y gestión de horarios/disponibilidad en la aplicación del propietario. | 4 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US01 / US02 / TS02** | Búsqueda por geolocalización y disponibilidad en tiempo real | TK-107.1 | Implementar servicio de búsqueda geoespacial y proyección en `Discovery` | Desarrollar consulta por coordenadas y radio de 1 km (con ampliación automática a 2 km) y filtros de precio/horario. | 4 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US01 / US02 / TS02** | Búsqueda por geolocalización y disponibilidad en tiempo real | TK-107.2 | Construir pantalla de mapa interactivo, listado y ficha técnica de cochera | Implementar vista de exploración del conductor con marcadores de tarifas, filtros y detalle del estacionamiento. | 4 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US05 / TS01** | Creación y confirmación de reserva con control de concurrencia | TK-108.1 | Implementar agregado `Reservation` y bloqueo transaccional anti-solapamiento | Desarrollar comando de retención temporal (`PENDING_PAYMENT` por 10 min) y rechazo de doble reserva (`409 Conflict`). | 5 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US05 / TS01** | Creación y confirmación de reserva con control de concurrencia | TK-108.2 | Implementar flujo UI de reserva y vista de ticket con código / QR | Construir pantalla de resumen de reserva, temporizador de retención y ticket de confirmación verificable. | 5 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US14** | Pago electrónico seguro de reserva | TK-109.1 | Implementar procesamiento idempotente en `Payment`, `Notification` y `Audit` | Desarrollar autorización de cobro con `Idempotency-Key`, emisión de comprobante, alertas y registro en `Audit`. | 4 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US14** | Pago electrónico seguro de reserva | TK-109.2 | Integrar pasarela de pago y descarga de comprobante en cliente | Construir interfaz de selección de medio de pago, confirmación de cobro e historial de comprobantes. | 4 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US12** | Monitoreo de reservas activas y programación de accesos | TK-110.1 | Desarrollar endpoints de agenda del propietario, métricas y check-in | Implementar consulta de reservas programadas por cochera, validación de código de ingreso y balance de ingresos. | 4 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US12** | Monitoreo de reservas activas y programación de accesos | TK-110.2 | Implementar dashboard web de monitoreo y validador móvil de acceso | Construir panel web de KPIs/ocupación del propietario y vista móvil de validación de código en puerta. | 4 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US21 / TS07** | Búsqueda y reserva conversacional (**Agente Copilot Conductor**) | TK-111.1 | Implementar orquestador y herramientas del **Agente Copilot de Conductor** | Desarrollar integración de `search_parking_spaces` y `prepare_reservation_draft` con emisión de `ConfirmationToken` (TTL 5 min). | 4 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US21 / TS07** | Búsqueda y reserva conversacional (**Agente Copilot Conductor**) | TK-111.2 | Construir interfaz de chat/voz y tarjeta de confirmación para el conductor | Implementar panel conversacional móvil/web para Humberto con botón de aprobación explícita de reserva. | 4 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US21 / US12 / TS07** | Asistencia conversacional de gestión (**Agente Copilot Propietario**) | TK-112.1 | Implementar orquestador y herramientas del **Agente Copilot de Propietario** | Desarrollar herramientas restringidas al rol `OWNER` para consultar ocupación diaria, agenda de llegadas e ingresos netos. | 4 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **US21 / US12 / TS07** | Asistencia conversacional de gestión (**Agente Copilot Propietario**) | TK-112.2 | Construir interfaz conversacional del **Agente Copilot de Propietario** | Integrar asistente en el panel del propietario (Jarol) para consultas rápidas y propuestas de gestión con confirmación. | 4 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **TS01–TS07** | Suite de pruebas BDD/Unitarias y documentación OpenAPI | TK-113.1 | Implementar pruebas unitarias de dominio y escenarios BDD Gherkin (`.feature`) | Codificar pruebas automatizadas de reglas de negocio, concurrencia de reservas y seguridad de los 2 Agentes Copilot. | 3 | `[PENDIENTE: Integrante]` | Done |
-| 1 | **TS01–TS07** | Suite de pruebas BDD/Unitarias y documentación OpenAPI | TK-113.2 | Configurar decoradores OpenAPI 3.0 / Swagger UI y despliegue cloud | Documentar los endpoints RESTful en Swagger UI y verificar el despliegue continuo de los servicios en la nube. | 3 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US-LP01** | Presentación de propuesta de valor y flujo operativo | TK-101.1 | Maquetar sección Hero y problemática urbana en React | Implementar layout responsivo del Hero con estética `#080808` / `#02EBD8`, tipografía Inter autohospedada y métricas de impacto urbano. | 2 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US-LP01** | Presentación de propuesta de valor y flujo operativo | TK-101.2 | Desarrollar sección de flujo operativo en 3 pasos | Construir las tarjetas interactivas del recorrido «Busca, Reserva, Estaciona» y notas de alcance en la Landing Page. | 2 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US-LP02** | Catálogo de características y matriz comparativa | TK-102.1 | Implementar grid de características y showcase de Copilot | Construir los módulos visuales de funcionalidades clave y el marco iPhone de demostración de ParkLink Copilot. | 2 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US-LP02** | Catálogo de características y matriz comparativa | TK-102.2 | Desarrollar tabla comparativa frente a soluciones tradicionales | Maquetar la matriz comparativa destacando reserva anticipada, cocheras privadas y pagos digitales verificados. | 2 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US-LP03** | Segmentación de beneficios y llamados a la acción por rol | TK-103.1 | Construir vistas segmentadas para Conductor y Propietario | Implementar los paneles diferenciados de beneficios para el conductor urbano (Humberto) y el propietario (Jarol). | 2 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US-LP03** | Segmentación de beneficios y llamados a la acción por rol | TK-103.2 | Configurar navegación de CTAs y marcos móviles `Iphone.tsx` | Integrar el componente SVG `Iphone.tsx` con máscaras por instancia y enlazar los botones de llamada a la acción por rol. | 2 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US-LP04** | Credenciales de autoría (ParkTeam) y soporte / FAQ | TK-104.1 | Implementar sección ParkTeam y acordeón FAQ accesible | Construir las tarjetas de autoría del equipo y el módulo de preguntas frecuentes con soporte de teclado y atributos ARIA. | 2 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US-LP04** | Credenciales de autoría (ParkTeam) y soporte / FAQ | TK-104.2 | Configurar cabeceras de seguridad CSP y despliegue en Vercel | Aplicar `Content-Security-Policy: style-src 'self'`, `X-Frame-Options: DENY` y verificar el despliegue en `parklink-tp1-landing.vercel.app`. | 2 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US17** | Registro de cuenta para conductor urbano | TK-105.1 | Implementar esquema `RegistrationSchema` y alta de conductor en `identity-service` | Desarrollar `POST /auth/register` en `services/identity-service/src/application/accounts.ts` asignando el rol `DRIVER` y persistiendo en `001_identity.sql`. | 2 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US17** | Registro de cuenta para conductor urbano | TK-105.2 | Integrar pantalla de registro de conductor en `parklink-mobile` | Adaptar `LoginScreen` y el flujo de creación de cuenta móvil para conductores con almacenamiento seguro en `SessionStore`. | 2 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US18** | Registro y validación de perfil de propietario | TK-106.1 | Implementar habilitación del rol `OWNER` en registro e identidad | Soportar el flag de alta de propietario (`owner: true`) en `Accounts.register` otorgando permisos `['DRIVER', 'OWNER']` y emitiendo evento de auditoría. | 2 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US18** | Registro y validación de perfil de propietario | TK-106.2 | Construir selector de rol y vista de alta de propietario en móvil | Configurar la navegación por rol en `app_bottom_nav.dart` para habilitar las vistas de gestión de cocheras al propietario autenticado. | 2 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US19** | Autenticación e inicio de sesión seguro | TK-107.1 | Implementar hashing `scrypt` y endpoints `login` / `monitor-login` / `me` | Codificar `hashPassword` y `verifyPassword` con sal aleatoria en `domain/password.ts` y exponer `/auth/login`, `/auth/monitor-login` y `/auth/me`. | 2 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US19** | Autenticación e inicio de sesión seguro | TK-107.2 | Implementar persistencia de sesión JWT en `parklink-mobile` y `parklink-web` | Integrar manejo de tokens Bearer en `flutter_secure_storage` para la app móvil y el formulario de acceso de monitoreo en `apps/owner-dashboard`. | 2 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **TS03** | Autenticación y control de acceso basado en roles (RBAC) | TK-108.1 | Desarrollar firma/verificación JWT y guardas `role()` en `@parklink/runtime` | Implementar middleware de autenticación HMAC-SHA256, validación de expiración, restricción de `scope: 'monitor'` a solo lectura (`GET`/`HEAD`) y helper `role(actor, requiredRole)`. | 3 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **TS03** | Autenticación y control de acceso basado en roles (RBAC) | TK-108.2 | Configurar enrutamiento autenticado en `gateway` y pruebas RBAC | Implementar propagación de `Authorization` y `X-Correlation-Id` en `gateway/src/main.ts` y validar rechazos `401`/`403` en `tests/integration/platform.test.ts`. | 2 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US09** | Publicación y alta de espacio de estacionamiento | TK-109.1 | Implementar `SupplyController`, persistencia y outbox en `parking-supply-service` | Desarrollar `POST /spaces` y `GET /spaces/mine` en `services/parking-supply-service/src/application/supply.ts` con tabla `spaces` y publicación de `supply.publication.proposed`. | 3 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US09** | Publicación y alta de espacio de estacionamiento | TK-109.2 | Construir hoja interactiva de publicación de cocheras en `parklink-mobile` | Implementar el formulario móvil en `app_bottom_sheet.dart` para registrar título, dirección, coordenadas, dimensiones, instrucciones de acceso y tarifa. | 3 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US10** | Configuración de horarios y tarifas de cochera | TK-110.1 | Desarrollar validador de ventanas horarias `validWindows` y edición versionada `PUT /spaces/:id` | Implementar validación de intervalos sin solapamiento en `domain/schedule.ts` y control de versiones de revisión (`revision`, `accepted_revision`) en `parking-supply-service`. | 3 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US10** | Configuración de horarios y tarifas de cochera | TK-110.2 | Implementar aceptación asíncrona de revisiones de oferta en `reservation-service` | Validar que los cambios de horario/tarifa respeten reservas activas bajo el mismo `pg_advisory_xact_lock` y emitan `supply.publication.accepted` o `rejected`. | 3 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **TS05** | Almacenamiento y validación segura de imágenes de cocheras | TK-111.1 | Implementar validación estricta de URLs de fotografías HTTPS en `SpaceSchema` | Configurar reglas Zod en `packages/shared-contracts/src/index.ts` para exigir esquema `https:` en `photoUrl` y rechazar esquemas inseguros (`http:`, `file:`, `javascript:`). | 2 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **TS05** | Almacenamiento y validación segura de imágenes de cocheras | TK-111.2 | Codificar pruebas unitarias de seguridad de imágenes y contratos de publicación | Verificar en `tests/domain.test.ts` la aceptación de publicaciones con HTTPS y el rechazo determinístico de payloads maliciosos o malformados. | 2 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US01** | Búsqueda de estacionamientos por ubicación | TK-112.1 | Implementar consulta geoespacial `GET /discovery/search` en `parking-discovery-service` | Desarrollar búsqueda espacial con `ST_DWithin` y `ST_Distance` sobre `geography(Point, 4326)`, soportando radio, tarifa máxima, características y ordenamiento (`distance` / `price`). | 4 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US01** | Búsqueda de estacionamientos por ubicación | TK-112.2 | Construir pantalla de mapa `flutter_map` y lista alternativa en `parklink-mobile` | Implementar marcadores de estacionamientos con tarifa en soles, controles de búsqueda por ubicación/intervalo y vista accesible en lista para el conductor. | 4 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US02** | Ver disponibilidad de plazas en tiempo real | TK-113.1 | Implementar filtro de exclusión de ventanas ocupadas en `Discovery` y `/reservations/availability` | Cruzar en tiempo real las ventanas de oferta con `reservation_windows` (`tstzrange` con operador `&&`) para ocultar plazas ocupadas en el intervalo consultado. | 4 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US02** | Ver disponibilidad de plazas en tiempo real | TK-113.2 | Integrar indicadores de disponibilidad y detalle de plaza en `parklink-mobile` | Mostrar estado disponible, dimensiones, instrucciones de acceso y tarifa por hora al seleccionar un marcador en la aplicación móvil. | 3 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **TS02** | Proyección e indexación de inventario geoespacial | TK-114.1 | Configurar esquema PostGIS `001_discovery.sql` con índices GIST y GIN | Crear tabla `space_documents` con índice espacial `GIST (location)` e índice `GIN (body)` junto con la tabla `reservation_windows` para lecturas de baja latencia. | 3 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **TS02** | Proyección e indexación de inventario geoespacial | TK-114.2 | Implementar proyector consumidor de eventos RabbitMQ en `parking-discovery-service` | Suscribir `discovery.events.q` a `supply.publication.accepted` y `reservation.*` para actualizar de forma idempotente la proyección de búsqueda. | 3 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US05** | Reservar un espacio de estacionamiento | TK-115.1 | Implementar comando `hold`, cálculo `quote` en céntimos y expiración de 10 min | Desarrollar `assertInterval`, `allows` y `quote` en `reservation-service/src/domain/reservation.ts` y el worker de expiración automática de retenciones (`EXPIRED`). | 4 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US05** | Reservar un espacio de estacionamiento | TK-115.2 | Construir flujo móvil de solicitud de reserva y consulta de operación `/operations/:id` | Implementar en `parklink-mobile` la selección de intervalo horario, envío de `POST /reservations/commands/hold` (`202 Accepted`) y visualización del estado de la reserva. | 4 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **TS01** | Control de concurrencia y bloqueo transaccional | TK-116.1 | Implementar `pg_advisory_xact_lock` y constraint GiST `reservations_no_overlap` | Configurar en `001_reservations.sql` la restricción `EXCLUDE USING gist (space_id WITH =, period WITH &&)` para estados `PENDING_PAYMENT`, `CONFIRMED` y `ACTIVE`. | 3 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **TS01** | Control de concurrencia y bloqueo transaccional | TK-116.2 | Implementar ingesta duradera SQL + RabbitMQ y prueba de colisión concurrente `409` | Persistir comando y outbox atómicamente antes de publicar en `parklink.commands` y verificar en `platform.test.ts` que dos holds simultáneos produzcan un éxito y un `409 Conflict`. | 3 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US14** | Pago electrónico seguro de reserva | TK-117.1 | Desarrollar saga de pagos en `payment-service` y adaptadores `SandboxGateway` / `MercadoPago` | Implementar procesamiento de `payment.authorize.command` y `payment.refund.command`, persistiendo intentos en `001_payments.sql` y emitiendo `payment.authorized` / `payment.rejected`. | 4 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US14** | Pago electrónico seguro de reserva | TK-117.2 | Implementar confirmación de reserva tras autorización de pago y vista móvil de pago | Validar en `reservation-service` (`canConfirm`) que el monto, intento y expiración coincidan antes de pasar a `CONFIRMED`, e integrar la acción de pago e historial en móvil. | 4 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **TS06** | Manejo idempotente de cobros y webhooks | TK-118.1 | Implementar deduplicación por `Idempotency-Key` y hash SHA-256 de payload | Garantizar en `operations` y `payment_jobs` que reintentos con idéntica clave devuelvan la misma operación (`202`) y rechacen mutaciones de payload con `409 Conflict`. | 3 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **TS06** | Manejo idempotente de cobros y webhooks | TK-118.2 | Implementar verificación criptográfica HMAC-SHA256 de webhooks en `POST /payments/webhook/mercadopago` | Codificar `verifyMercadoPago` validando firma `v1`, `x-request-id` y ventana de frescura temporal de 5 minutos, rechazando webhooks forjados con `401 Unauthorized`. | 3 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US12** | Visualización de reservas agendadas en cochera | TK-119.1 | Desarrollar endpoints `/reservations/owner`, `/payments/owner` y agregador `/owner/dashboard` | Implementar en `gateway/src/main.ts` la consolidación de espacios activos, ocupación actual, ingresos netos por mes y próximas 20 reservas confirmadas del propietario. | 3 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US12** | Visualización de reservas agendadas en cochera | TK-119.2 | Construir Panel Web de Monitoreo de Propietarios (`apps/owner-dashboard` / `parklink-web`) | Desarrollar interfaz React en `apps/owner-dashboard/src/main.tsx` con tarjetas KPI, tabla de reservas próximas, ingresos mensuales, transacciones e inventario de cocheras. | 4 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US21** | Búsqueda y reserva conversacional (Agente IA Copilot) | TK-120.1 | Implementar `CopilotController` y casos de uso conversacionales en `conversational-agent-service` | Desarrollar `/copilot/status`, `/copilot/chat`, `/copilot/search`, `/copilot/propose-hold`, `/copilot/propose-action`, `/copilot/confirm/:id` y `/copilot/commands/:id`. | 4 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US21** | Búsqueda y reserva conversacional (Agente IA Copilot) | TK-120.2 | Integrar hoja conversacional de ParkLink Copilot con doble toque y botón accesible en móvil | Implementar en `parklink-mobile` la apertura por doble toque o botón en barra superior, selección de intervalo en hora de Lima y tarjetas de confirmación explícita. | 4 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **TS07** | Aislamiento y barrera de seguridad de IA | TK-121.1 | Configurar contenedor aislado `opencode-runtime` y cliente `OpenCodeIntentProvider` | Desplegar OpenCode 1.19.5 sin acceso a red de BD ni host, denegar todas las herramientas (`permission: '*', action: 'deny'`), exigir modelos de costo cero y validar `IntentSchema`. | 3 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **TS07** | Aislamiento y barrera de seguridad de IA | TK-121.2 | Implementar tokens de confirmación humana de un solo uso y vinculación de versión/precio | Persistir propuestas en `confirmations` (TTL 5 min) atadas al `actor_id`, `space_revision` y monto cotizado, invalidando con `409` si la tarifa de la cochera cambia antes de confirmar. | 3 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US20** | Notificaciones en tiempo real y alertas de expiración | TK-122.1 | Implementar consumidor de eventos AMQP y persistencia en `notification-service` | Suscribir `notification.events.q` a los eventos de reserva y pago para generar notificaciones in-app en `001_notifications.sql` con deduplicación en `processed_messages`. | 2 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **US20** | Notificaciones en tiempo real y alertas de expiración | TK-122.2 | Exponer endpoints `/notifications`, `/notifications/preferences` y marcado de lectura | Desarrollar `NotificationsController` (`GET /notifications`, `PUT /notifications/preferences`, `PUT /notifications/:id/read`) e integrarlo en la aplicación móvil. | 2 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **TS04** | Registro inmutable de pistas de auditoría | TK-123.1 | Implementar tabla *append-only* `audit_events` con bloqueo SQL de modificación y borrado | Configurar en `001_audit.sql` el trigger `forbid_audit_mutation` que rechaza cualquier `UPDATE` o `DELETE` sobre `audit_events`, garantizando inmutabilidad forense. | 2 | `[PENDIENTE: Integrante]` | Done |
+| 1 | **TS04** | Registro inmutable de pistas de auditoría | TK-123.2 | Implementar consumidor de auditoría con minimización de datos y consulta `GET /audit` | Registrar eventos correlacionados (`correlation_id`, `actor_id`, `event_type`, `payload`) desde RabbitMQ y verificar en `platform.test.ts` que `DELETE FROM audit_events` falle. | 2 | `[PENDIENTE: Integrante]` | Done |
 
 ---
 
 #### 7.2.1.3. Development Evidence for Sprint Review
 
-Durante el **Sprint 1**, el equipo completó la implementación de la primera versión funcional de los productos digitales de ParkLink, manteniendo la separación de responsabilidades de los **8 Bounded Contexts** (`Identity`, `Supply`, `Discovery`, `Reservation`, `Payment`, `Notification`, `Conversational Reservation Agent` y `Audit`) y habilitando los **2 Agentes Conversacionales Copilot** (uno especializado para el segmento de **Conductores — Humberto** y otro para el segmento de **Propietarios — Jarol**).
+Durante el **Sprint 1**, el equipo completó la implementación de la primera versión funcional de los productos digitales de ParkLink, unificando el espacio de trabajo del backend, panel web e infraestructura local en **`parklink-platform`**, manteniendo la aplicación móvil Flutter en **`parklink-mobile`**, y publicando las copias independientes de cada microservicio y paquete compartido en los **14 repositorios de código** de la organización oficial `1ASI0728-2620-16363-ParkLink` (además del repositorio `ParkLink-Report`).
 
-En la siguiente tabla se registran los commits reales de implementación extraídos de los repositorios del proyecto:
+En la siguiente tabla se registran los **commits reales** verificables en los repositorios públicos de la organización en GitHub:
 
-| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| Repository | Branch | Commit Id | Commit Message | Commit Message Body / Scope Summary | Committed on (Date) |
 | :--- | :--- | :---: | :--- | :--- | :---: |
-| `[PENDIENTE: Repo Landing]` | `[PENDIENTE: Branch]` | `[PENDIENTE: Hash real]` | `[PENDIENTE: Copiar mensaje de commit real del repo de Pietro]` | `[PENDIENTE: Descripción / cuerpo del commit]` | `[DD/MM/2026]` |
-| `[PENDIENTE: Repo Backend]` | `[PENDIENTE: Branch]` | `[PENDIENTE: Hash real]` | `[PENDIENTE: Copiar mensaje de commit real del repo de Pietro]` | `[PENDIENTE: Descripción / cuerpo del commit]` | `[DD/MM/2026]` |
-| `[PENDIENTE: Repo Backend]` | `[PENDIENTE: Branch]` | `[PENDIENTE: Hash real]` | `[PENDIENTE: Copiar mensaje de commit real del repo de Pietro]` | `[PENDIENTE: Descripción / cuerpo del commit]` | `[DD/MM/2026]` |
-| `[PENDIENTE: Repo Frontend]` | `[PENDIENTE: Branch]` | `[PENDIENTE: Hash real]` | `[PENDIENTE: Copiar mensaje de commit real del repo de Pietro]` | `[PENDIENTE: Descripción / cuerpo del commit]` | `[DD/MM/2026]` |
-| `[PENDIENTE: Repo Mobile]` | `[PENDIENTE: Branch]` | `[PENDIENTE: Hash real]` | `[PENDIENTE: Copiar mensaje de commit real del repo de Pietro]` | `[PENDIENTE: Descripción / cuerpo del commit]` | `[DD/MM/2026]` |
+| `parklink-platform` | `main` | `03ca317` | `feat: Add initial ParkLink component snapshot` | Implementación integral del espacio de trabajo: API Gateway, los 8 microservicios NestJS (`identity`, `supply`, `discovery`, `reservation`, `payment`, `notification`, `conversational-agent`, `audit`), paquetes `@parklink/contracts` y `@parklink/runtime`, panel web `owner-dashboard`, `docker-compose.yml`, migraciones SQL/PostGIS y suites de pruebas (334 archivos). | `09/11/2026` |
+| `parklink-platform` | `main` | `aceb4f0` | `docs: Describe component architecture with C4 diagram` | Incorporación del modelo Structurizr DSL (`docs/architecture/workspace.dsl`), diagrama C4 de contenedores (`containers.svg`) y documentación de fronteras de servicios y saga de pagos. | `09/11/2026` |
+| `parklink-platform` | `main` | `10224ce` | `refactor: Maintain mobile app in its own repository` | Desacoplamiento del árbol Flutter hacia el repositorio dedicado `parklink-mobile` para mantener limpio el workspace Node/Docker del backend y panel web. | `09/11/2026` |
+| `parklink-platform` | `main` | `9027418` | `docs: Clarify ParkLink web repository` | Documentación de la relación entre `apps/owner-dashboard` en la plataforma integrada y su publicación en `parklink-web`. | `09/11/2026` |
+| `parklink-platform` | `main` | `6016016` | `docs: Translate repository documentation into Spanish` | Traducción y estandarización de la guía operativa del repositorio, tablas de contratos API, instrucciones de inicio local y guías de Docker/RabbitMQ/Redis. | `09/11/2026` |
+| `parklink-mobile` | `main` | `5ed3685` | `feat: Add initial ParkLink component snapshot` | Implementación de la aplicación móvil Flutter para Conductores y Propietarios: autenticación, mapa `flutter_map`, búsqueda de cocheras, reserva, pagos, publicación de espacios y hoja de ParkLink Copilot. | `09/11/2026` |
+| `parklink-mobile` | `main` | `2f7ad8b` | `docs: Identify mobile repository as source of truth` | Formalización de `parklink-mobile` como fuente de verdad del cliente móvil Flutter/Dart y guía de ejecución con `--dart-define=PARKLINK_API_URL`. | `09/11/2026` |
+| `parklink-mobile` | `main` | `ad0ce5a` | `docs: Translate repository documentation into Spanish` | Documentación en español de compilación Android/iOS, arquitectura móvil y conexión con el API Gateway. | `09/11/2026` |
+| `parklink-web` | `main` | `e7edb94` | `feat: Add initial ParkLink component snapshot` | Implementación del panel web en React 19 + TypeScript + Vite para monitoreo exclusivo de propietarios (`/owner/dashboard`: métricas, agenda, ingresos e inventario). | `09/11/2026` |
+| `parklink-web` | `main` | `8116e3f` | `docs: Translate repository documentation into Spanish` | Documentación de despliegue y uso del panel web de monitoreo de propietarios. | `09/11/2026` |
+| `parklink-gateway` | `main` | `e1bf698` | `feat: Add initial ParkLink component snapshot` | Implementación del API Gateway público (`GatewayController`), proxy autenticado hacia los 8 contextos, propagación de cabeceras de idempotencia/correlación y endpoint `/owner/dashboard`. | `09/11/2026` |
+| `parklink-microservice-identity` | `main` | `cdcc815` | `feat: Add initial ParkLink component snapshot` | Microservicio de identidad (`AccountsController`, hashing `scrypt`, registro por rol `DRIVER`/`OWNER`, login operativo y `monitor-login`). | `09/11/2026` |
+| `parklink-microservice-parking-supply` | `main` | `4b6696f` | `feat: Add initial ParkLink component snapshot` | Microservicio de oferta de estacionamientos (`SupplyController`, validación de horarios `validWindows`, versionado de revisiones y outbox de eventos). | `09/11/2026` |
+| `parklink-microservice-parking-discovery` | `main` | `6b5909e` | `feat: Add initial ParkLink component snapshot` | Microservicio de descubrimiento geoespacial con PostGIS (`DiscoveryController`, proyección `space_documents` y filtrado de ventanas de reserva). | `09/11/2026` |
+| `parklink-microservice-reservation` | `main` | `cbf6885` | `feat: Add initial ParkLink component snapshot` | Microservicio de reservas (`ReservationsController`, ingesta duradera `202 Accepted`, bloqueo `pg_advisory_xact_lock`, exclusión GiST, cálculo en céntimos y cancelación con ventana de 60 min). | `09/11/2026` |
+| `parklink-microservice-payment` | `main` | `7227789` | `feat: Add initial ParkLink component snapshot` | Microservicio de pagos (`PaymentsController`, saga AMQP de cobros y reembolsos, `SandboxGateway` determinístico y validador HMAC-SHA256 para webhooks de Mercado Pago). | `09/11/2026` |
+| `parklink-microservice-notification` | `main` | `b244014` | `feat: Add initial ParkLink component snapshot` | Microservicio de notificaciones (`NotificationsController`, consumidor de eventos de dominio y preferencias de alertas in-app). | `09/11/2026` |
+| `parklink-microservice-conversational-agent` | `main` | `6098bca` | `feat: Add initial ParkLink component snapshot` | Microservicio del asistente **ParkLink Copilot** (`CopilotController`, integración aislada con `OpenCodeIntentProvider`, propuestas cotizadas y tokens de confirmación humana de un solo uso). | `09/11/2026` |
+| `parklink-microservice-audit` | `main` | `e6c4326` | `feat: Add initial ParkLink component snapshot` | Microservicio de auditoría inmutable (`AuditController`, tabla *append-only* `audit_events` protegida por trigger SQL y consulta por `correlationId`). | `09/11/2026` |
+| `parklink-shared-contracts` | `main` | `fd2a222` | `feat: Add initial ParkLink component snapshot` | Paquete `@parklink/contracts` con esquemas Zod estrictos (`RegistrationSchema`, `SpaceSchema`, `HoldSchema`, `MessageSchema`). | `09/11/2026` |
+| `parklink-runtime` | `main` | `e78d9b6` | `feat: Add initial ParkLink component snapshot` | Paquete `@parklink/runtime` con bootstrap común NestJS, autenticación JWT/RBAC, migraciones PostgreSQL con checksum, cliente RabbitMQ y Swagger `/docs`. | `09/11/2026` |
+| `ParkLink-Report` | `develop` | `48ed70b` | `docs(report): recapture landing evidence after React migration` | Migración de la Landing Page a React 19 + TypeScript + Vite en `parklink-tp1-landing.vercel.app` y actualización de evidencias de producción. | `05/10/2026` |
+| `ParkLink-Report` | `develop` | `90f8a3c` | `docs(report): rebuild mockup frames from the Magic UI iPhone component` | Integración del marco SVG `Iphone.tsx` sin estilos en línea (cumpliendo `CSP style-src 'self'`) en el despliegue de la Landing Page. | `05/10/2026` |
 
 ---
 
 #### 7.2.1.4. Testing Suite Evidence for Sprint Review
 
-Para verificar el cumplimiento de las reglas de negocio y los criterios de aceptación del Sprint 1, se diseñó e implementó una suite de pruebas automatizadas compuesta por **Unit Tests** sobre las clases de la capa de dominio y **Acceptance / Integration Tests** bajo el enfoque **Behavior-Driven Development (BDD)** utilizando **Gherkin (`.feature`)**.
+Para verificar el cumplimiento de las reglas de negocio, los contratos de seguridad y los criterios de aceptación del Sprint 1, se implementó en `parklink-platform` una suite de pruebas automatizadas ejecutada mediante el runner nativo de Node.js (`tsx --test`), dividida en **Unit Tests de Dominio y Contratos (`tests/domain.test.ts` y `tests/copilot.test.ts`)** y **Integration / Acceptance Tests de Extremo a Extremo sobre Contenedores Reales (`tests/integration/platform.test.ts` y `tests/integration/copilot.test.ts`)**, además de las especificaciones **BDD en lenguaje Gherkin (`.feature`)**.
 
-##### 1. Relación de Pruebas Unitarias (Unit Tests de Domain & Application Layer)
+##### 1. Relación de Pruebas Unitarias y de Integración Implementadas en `parklink-platform`
 
-| Bounded Context | Clase / Componente Evaluado | Archivo de Prueba | Comportamientos y Reglas de Dominio Verificadas |
+| Contexto / Módulo Evaluado | Funciones / Clases Probadas | Archivo de Prueba Real en Repo | Comportamientos y Reglas de Dominio Verificadas |
 | :--- | :--- | :--- | :--- |
-| **User & Identity** | `User`, `LicensePlate`, `PayoutAccount` | `identity.domain.spec.ts` | Unicidad de correo, validación de formato de placa vehicular para conductores (`US17`), validación de CCI de 20 dígitos para propietarios (`US18`) y segregación de roles (`TS03`). |
-| **Parking Supply** | `ParkingSpace`, `AvailabilityWindow`, `HourlyRate` | `supply.domain.spec.ts` | Rechazo de tarifas negativas, detección de horarios solapados, exigencia de mínimo dos fotografías verificadas antes de publicar (`US09`, `TS05`) y validación de ownership (`US10`, `US11`). |
-| **Parking Discovery** | `SearchCriteria`, `RankingPolicy` | `discovery.domain.spec.ts` | Cálculo geoespacial de distancia, ordenamiento determinístico por cercanía y tarifa, y ampliación automática del radio de 1 km a 2 km cuando no hay resultados iniciales (`US01`, `TS02`). |
-| **Reservation Management** | `Reservation`, `TimeInterval`, `AvailabilityPolicy`, `CancellationPolicy` | `reservation.domain.spec.ts` | Semántica de intervalo semiabierto (`a.start < b.end AND a.end > b.start`), rechazo de doble reserva concurrente (`409 Conflict`, `TS01`), expiración de hold a los 10 minutos (`US05`) y cálculo de reembolso (`US06`). |
-| **Payment** | `PaymentTransaction`, `IdempotencyPolicy` | `payment.domain.spec.ts` | Garantía de cobro único ante reintentos con la misma `idempotencyKey` (`TS06`), rechazo de mutación de importe y generación de comprobante (`US14`, `US16`). |
-| **Conversational Reservation Agent** | `ConversationOrchestrator`, `ConfirmationPolicy`, `ToolRegistry` | `agent.domain.spec.ts` | Segregación de herramientas por rol (**Agente Copilot Conductor** vs. **Agente Copilot Propietario**), bloqueo de herramientas fuera de la *allowlist* (`TS07`) y obligatoriedad de `ConfirmationToken` de un solo uso con TTL de 5 minutos (`US21`). |
-| **Notification & Audit** | `NotificationPreference`, `AuditEvent`, `AuditMetadataPolicy` | `audit-notification.domain.spec.ts` | Minimización de metadatos sensibles (exclusión de credenciales y tarjetas) e inmutabilidad de eventos auditados (`TS04`). |
+| **Shared Contracts (`@parklink/contracts`)** | `SpaceSchema`, `HoldSchema`, `RegistrationSchema`, `MessageSchema` | `tests/domain.test.ts` | Validación obligatoria de URLs `https:` en fotografías de cocheras (`TS05`), rechazo de campos no declarados (`.strict()`), rechazo de inyección de importes desde el cliente en `HoldSchema` y bloqueo de escalamiento de privilegios (`roles: ['SUPPORT']`) en el registro público (`TS03`). |
+| **Identity (`identity-service`)** | `hashPassword`, `verifyPassword`, `Accounts.register`, `Accounts.login` | `tests/domain.test.ts`<br>`tests/integration/platform.test.ts` | Generación de hashes `scrypt` con sales aleatorias independientes (`US17`–`US19`), rechazo de accesos sin token (`401`), bloqueo de publicación de cocheras por un token de solo conductor (`403`) y restricción de tokens `monitor-login` a operaciones de solo lectura (`TS03`). |
+| **Parking Supply (`parking-supply-service`)** | `validWindows`, `Supply.save`, `Supply.mine` | `tests/domain.test.ts`<br>`tests/integration/platform.test.ts` | Detección de ventanas de disponibilidad solapadas o invertidas (`US10`), alta de cochera (`201 Created`, `US09`), bloqueo de edición por un propietario distinto al dueño (`403 Forbidden`) y propagación asíncrona de revisiones aceptadas. |
+| **Parking Discovery (`parking-discovery-service`)** | `Discovery.search`, `Discovery.detail` | `tests/integration/platform.test.ts`<br>`tests/integration/copilot.test.ts` | Indexación geoespacial PostGIS tras la publicación de una cochera (`US01`, `TS02`), búsqueda por coordenadas y radio (`1000m`), y ordenamiento determinístico por precio (`cheapest`) o distancia (`nearest`). |
+| **Reservation Management (`reservation-service`)** | `assertInterval`, `allows`, `quote`, `canConfirm`, `refundAmount`, `Reservations.submit` | `tests/domain.test.ts`<br>`tests/integration/platform.test.ts` | Cálculo exacto en céntimos PEN con redondeo hacia arriba por fracción horaria, contención estricta dentro de la ventana de disponibilidad (`US05`), control de concurrencia donde **2 comandos `hold` simultáneos producen exactamente 1 éxito y 1 `409 Conflict`** (`TS01`), deduplicación por `Idempotency-Key` (`TS06`), expiración automática de holds liberando la restricción SQL GiST, y ventana de cancelación gratuita de 60 minutos (`US06`). |
+| **Payment (`payment-service`)** | `SandboxGateway`, `verifyMercadoPago`, `Payments` | `tests/domain.test.ts`<br>`tests/integration/platform.test.ts` | Determinismo del adaptador `SandboxGateway` (`approved` / `rejected`), confirmación de reserva únicamente tras recibir el evento `PaymentAuthorized` (`US14`), ejecución asíncrona de reembolso (`REFUNDED`) tras cancelación y validación HMAC-SHA256 de webhooks de Mercado Pago con rechazo de firmas forjadas o expiradas (`401`, `TS06`). |
+| **Conversational Agent (`conversational-agent-service`)** | `IntentSchema`, `ChatInputSchema`, `OpenCodeIntentProvider`, `Copilot` | `tests/copilot.test.ts`<br>`tests/integration/copilot.test.ts` | Rechazo de herramientas de sistema (`bash`, `read`, `task`) y de resultados financieros inyectados en `IntentSchema` (`TS07`), selección exclusiva de modelos gratuitos verificados (`cost = 0`) con fallback entre modelos libres y limpieza de sesión efímera en `opencode-runtime`, exigencia de confirmación humana (`ConfirmationToken`) antes de crear un hold o cobro (`US21`), bloqueo de confirmación por otro usuario (`404`) e invalidación automática (`409`) si el propietario cambia la tarifa antes de que el conductor confirme. |
+| **Audit & Notification (`audit-service`, `notification-service`)** | `AuditController`, `forbid_audit_mutation` | `tests/integration/platform.test.ts` | Persistencia de trazas de auditoría correlacionadas en `audit_events` y verificación de que cualquier intento de ejecutar `DELETE FROM audit_events` sea bloqueado por la base de datos (`TS04`). |
 
 ##### 2. Especificaciones BDD en Lenguaje Gherkin (`.feature` Files)
 
-A continuación se presenta el código de los archivos `.feature` implementados para validar los escenarios críticos del Sprint 1:
+A continuación se presenta la especificación formal en Gherkin de los escenarios críticos verificados en la suite de pruebas del Sprint 1:
 
-**Archivo 1: `test/features/reservation-concurrency.feature` (Relacionado con `US05`, `US14` y `TS01`)**
+**Escenario BDD 1: Prevención de sobreventa, idempotencia y saga de pago en Reservas (`US05`, `US14`, `TS01`, `TS06`)**
 ```gherkin
-Feature: Prevención de sobreventa y ciclo de vida de reservas en ParkLink
+Feature: Control de concurrencia, idempotencia y ciclo de vida de reservas en ParkLink
   Como conductor urbano (Humberto)
-  Quiero reservar un espacio de estacionamiento con bloqueo transaccional
-  Para tener certeza absoluta de que mi plaza no será asignada a otro conductor en el mismo horario
+  Quiero reservar y pagar un espacio de estacionamiento bajo bloqueo transaccional e idempotente
+  Para tener certeza de que mi plaza no sufrirá sobreventa ni cobros duplicados
 
   Background:
-    Given que el estacionamiento "Cochera San Isidro Centro" con ID "space-101" está publicado y disponible de "08:00" a "20:00" con tarifa de 8.00 PEN por hora
+    Given que un propietario autenticado ha publicado una cochera activa en Lima con tarifa de 750 céntimos PEN (S/ 7.50) por hora
+    And la revisión de oferta ha sido aceptada y proyectada en el índice PostGIS de Discovery
 
-  Scenario: Creación exitosa de retención temporal (Hold) de reserva
-    Given que el conductor autenticado "humberto@parklink.pe" selecciona el espacio "space-101" de "09:00" a "11:00"
-    When envía la solicitud de retención de reserva con clave de idempotencia "idem-hold-001"
-    Then el servicio de Reservation responde con código HTTP 201 y estado "PENDING_PAYMENT"
-    And asigna un tiempo de expiración de retención de 10 minutos y un importe total de 16.00 PEN
+  Scenario: Dos comandos de retención concurrentes producen exactamente una reserva y un conflicto 409
+    Given dos conductores autenticados solicitan simultáneamente "POST /reservations/commands/hold" para el mismo espacio e intervalo horario
+    When el servicio de Reservation procesa ambos comandos mediante "pg_advisory_xact_lock" y la restricción GiST "reservations_no_overlap"
+    Then una operación finaliza con estado "SUCCEEDED" y crea la reserva en estado "PENDING_PAYMENT" con expiración de 10 minutos
+    And la segunda operación finaliza con estado "FAILED" y código HTTP 409 Conflict
 
-  Scenario: Bloqueo de reserva duplicada por solapamiento horario concurrente
-    Given que existe una reserva activa o retenida para el espacio "space-101" en el intervalo de "09:00" a "11:00"
-    When un segundo conductor intenta reservar el espacio "space-101" en el intervalo solapado de "10:00" a "12:00"
-    Then el servicio de Reservation rechaza la petición con código HTTP 409 Conflict
-    And informa que el intervalo solicitado presenta conflicto de disponibilidad
+  Scenario: Confirmación de reserva mediante saga de pago y deduplicación por Idempotency-Key
+    Given una reserva en estado "PENDING_PAYMENT" perteneciente al conductor ganador
+    When el conductor envía "POST /reservations/commands/confirm" con una clave "Idempotency-Key" válida
+    Then el servicio de Payment autoriza el cobro en céntimos PEN y publica el evento "payment.authorized"
+    And el servicio de Reservation valida el intento y transiciona la reserva al estado "CONFIRMED"
+    And cualquier reintento con la misma "Idempotency-Key" e idéntico payload retorna el mismo "commandId" sin duplicar el cobro
 ```
 
-**Archivo 2: `test/features/copilot-agents.feature` (Relacionado con `US21`, `US12` y `TS07` — Los 2 Agentes Copilot)**
+**Escenario BDD 2: Aislamiento de OpenCode y barrera de confirmación humana en ParkLink Copilot (`US21`, `TS07`)**
 ```gherkin
-Feature: Orquestación segura de los 2 Agentes Conversacionales Copilot (Conductor y Propietario)
-  Como usuario de ParkLink (Conductor Humberto o Propietario Jarol)
-  Quiero interactuar en lenguaje natural con el Agente Copilot correspondiente a mi rol
-  Para agilizar búsquedas, reservas y consultas operativas manteniendo confirmación explícita sobre cualquier acción
+Feature: Asistencia conversacional segura mediante ParkLink Copilot y OpenCode aislado
+  Como conductor autenticado en ParkLink
+  Quiero buscar y solicitar reservas mediante lenguaje natural en ParkLink Copilot
+  Para agilizar mi reserva manteniendo control humano explícito sobre el espacio y la tarifa
 
-  Scenario: Agente Copilot de Conductor propone reserva y exige confirmación explícita
-    Given que el conductor "humberto@parklink.pe" inicia sesión con rol "DRIVER"
-    When envía al Agente Copilot de Conductor el mensaje "Busca una cochera en San Isidro para hoy de 9 a 11 am por menos de 10 soles la hora"
-    Then el Agente Copilot invoca la herramienta permitida "search_parking_spaces" en el contexto Discovery
-    And devuelve una propuesta estructurada con resumen de tarifa, horario y un token de confirmación con TTL de 5 minutos
-    And la reserva no se ejecuta hasta que el conductor confirma explícitamente el token emitido
-
-  Scenario: Agente Copilot de Propietario consulta ocupación e ingresos y bloquea herramientas no autorizadas
-    Given que el propietario "jarol@parklink.pe" inicia sesión con rol "OWNER"
-    When envía al Agente Copilot de Propietario el mensaje "Muéstrame el resumen de reservas de hoy y mis ingresos acumulados de la semana"
-    Then el Agente Copilot invoca únicamente las herramientas de propietario "get_owner_schedule" y "get_owner_income_summary"
-    And responde con el cronograma de vehículos agendados y el balance neto de sus cocheras
+  Scenario: Propuesta conversacional exige confirmación explícita del propietario del token e invalida cambios de precio
+    Given que el contenedor aislado "opencode-runtime" está operativo con herramientas de sistema denegadas y modelos de costo cero
+    When el conductor envía a "POST /copilot/chat" el mensaje "Reserva el estacionamiento más barato" para un intervalo válido
+    Then el servicio consulta Discovery, cotiza el importe exacto en céntimos PEN y genera un "confirmationId" con TTL de 5 minutos
+    And no se crea ninguna reserva ni cobro en la base de datos antes de la confirmación humana
+    When el mismo conductor aprueba explícitamente la propuesta en "POST /copilot/confirm/:id"
+    Then el comando se ejecuta por única vez creando la retención y procesando el pago de prueba hasta el estado "CONFIRMED"
 ```
 
 ##### 3. Evidencia de Commits y Ejecución de Pruebas en el Sprint 1
 
-- **Ruta del Repositorio de Pruebas:** `[PENDIENTE: URL_REPO_BACKEND_TESTS]`
+- **Ruta del Repositorio con la Suite de Pruebas:** <https://github.com/1ASI0728-2620-16363-ParkLink/parklink-platform/tree/main/tests>
 
-| Repository | Branch | Commit Id | Commit Message | Commit Message Body | Committed on (Date) |
+| Repository | Branch | Commit Id | Commit Message | Archivos de Prueba Incluidos en el Commit | Committed on (Date) |
 | :--- | :--- | :---: | :--- | :--- | :---: |
-| `[PENDIENTE: Repo Backend]` | `[PENDIENTE: Branch]` | `[PENDIENTE: Hash real]` | `[PENDIENTE: Copiar mensaje de commit de pruebas real del repo de Pietro]` | `[PENDIENTE: Descripción / cuerpo del commit]` | `[DD/MM/2026]` |
-| `[PENDIENTE: Repo Frontend / Mobile]` | `[PENDIENTE: Branch]` | `[PENDIENTE: Hash real]` | `[PENDIENTE: Copiar mensaje de commit de pruebas real del repo de Pietro]` | `[PENDIENTE: Descripción / cuerpo del commit]` | `[DD/MM/2026]` |
+| `parklink-platform` | `main` | `03ca317` | `feat: Add initial ParkLink component snapshot` | `tests/domain.test.ts` (66 líneas), `tests/copilot.test.ts` (61 líneas), `tests/integration/platform.test.ts` (80 líneas) y `tests/integration/copilot.test.ts` (79 líneas). | `09/11/2026` |
+| `parklink-mobile` | `main` | `5ed3685` | `feat: Add initial ParkLink component snapshot` | Configuración de análisis estático `analysis_options.yaml` y estructura de pruebas del cliente móvil Flutter. | `09/11/2026` |
 
-> **[PENDIENTE — Insertar captura de la terminal o pipeline ejecutando `npm test` / `npm run test:e2e` con todos los tests en `PASS`]:**  
+> **[PENDIENTE — Insertar captura de la terminal ejecutando `npm test` / `npm run test:integration` con los tests en `PASS`]:**  
 > `![Testing Suite Execution Evidence](assets/chapter-7/sprint-1-tests.png)`
 
 ---
@@ -4425,13 +4482,13 @@ Feature: Orquestación segura de los 2 Agentes Conversacionales Copilot (Conduct
 
 En el **Sprint 1** se logró la ejecución integrada de los productos digitales de ParkLink:
 1. **Landing Page en Producción:** Presenta la propuesta de valor, matriz comparativa, sección interactiva de ParkLink Copilot, perfiles del equipo, preguntas frecuentes y llamados a la acción por segmento (<https://parklink-tp1-landing.vercel.app>).
-2. **Flujo del Conductor Urbano (Humberto):** Registro/autenticación, exploración de estacionamientos cercanos en mapa y lista, filtrado por precio/horario, visualización de ficha técnica, creación de reserva con pago digital, obtención de ticket con código QR e interacción conversacional con el **Agente Copilot de Conductor**.
-3. **Flujo del Propietario de Estacionamiento (Jarol):** Publicación de cochera con fotografías y tarifa horaria, configuración de ventanas de disponibilidad, validación de código de ingreso, panel web de monitoreo de ocupación/ingresos e interacción con el **Agente Copilot de Propietario**.
+2. **Flujo del Conductor Urbano (Humberto) en `parklink-mobile` y `parklink-platform`:** Registro y autenticación (`POST /auth/register`, `POST /auth/login`), exploración de estacionamientos cercanos en mapa y lista (`GET /discovery/search`), visualización de detalle (`GET /discovery/spaces/:id`), retención con bloqueo de concurrencia y pago (`POST /reservations/commands/hold`, `confirm`, `cancel`), e interacción con **ParkLink Copilot** mediante doble toque o botón accesible (`/copilot/chat`, `/copilot/confirm/:id`).
+3. **Flujo del Propietario de Estacionamiento (Jarol) en `parklink-mobile` y `parklink-web`:** Publicación y edición versionada de cocheras con ventanas horarias y tarifa en céntimos PEN (`POST /spaces`, `PUT /spaces/:id`), y consulta en el **Panel Web de Monitoreo de Propietarios** (`POST /auth/monitor-login`, `GET /owner/dashboard`) de espacios activos, ocupación actual, ingresos netos mensuales, historial de pagos y reservas próximas.
 
-- **URLs Desplegadas Activas:**
-  - **Landing Page:** <https://parklink-tp1-landing.vercel.app>
-  - **Web Application:** `[PENDIENTE: URL_WEB_DEPLOY]`
-  - **Backend API & Swagger:** `[PENDIENTE: URL_BACKEND_DEPLOY]`
+- **Direcciones y Entornos de Ejecución:**
+  - **Landing Page (Pública en Vercel):** <https://parklink-tp1-landing.vercel.app>
+  - **Public API Gateway (`parklink-platform`):** `http://localhost:3000` `[PENDIENTE: Actualizar si se publica URL externa]`
+  - **Owner Monitoring Web Panel (`parklink-web`):** `http://localhost:5173` `[PENDIENTE: Actualizar si se publica URL externa]`
 - **Video de Demostración de Ejecución y Navegación del Sprint 1 (Microsoft Stream):** `[PENDIENTE: URL_STREAM_EXECUTION_SPRINT_1]`
 
 ##### Evidencia Visual de Ejecución de los Productos Digitales
@@ -4442,58 +4499,56 @@ En el **Sprint 1** se logró la ejecución integrada de los productos digitales 
 
 ![Sección ParkLink Copilot en la Landing Page desplegada](assets/chapter-6/landing/landing-desktop-copilot.png)
 
-2. **Web Application, Mobile Application y los 2 Agentes Conversacionales Copilot en Ejecución:**
+2. **Web Application (`parklink-web`), Mobile Application (`parklink-mobile`) y ParkLink Copilot en Ejecución:**
 
 > **[PENDIENTE — Insertar capturas reales de las aplicaciones ejecutándose en el Sprint 1]:**  
 > - `![Ejecución Web App — Panel de Monitoreo del Propietario](assets/chapter-7/sprint-1-exec-web-owner.png)`  
 > - `![Ejecución Mobile App — Exploración y Reserva del Conductor](assets/chapter-7/sprint-1-exec-mobile-driver.png)`  
-> - `![Ejecución Agente Copilot Conductor (Humberto)](assets/chapter-7/sprint-1-exec-copilot-driver.png)`  
-> - `![Ejecución Agente Copilot Propietario (Jarol)](assets/chapter-7/sprint-1-exec-copilot-owner.png)`
+> - `![Ejecución ParkLink Copilot en Mobile App](assets/chapter-7/sprint-1-exec-copilot-driver.png)`
 
 ---
 
 #### 7.2.1.6. Services Documentation Evidence for Sprint Review
 
-Todos los servicios RESTful implementados en el Sprint 1 para los **8 Bounded Contexts** y los **2 Agentes Conversacionales Copilot** fueron documentados siguiendo el estándar **OpenAPI 3.0** mediante **Swagger UI**, especificando esquemas de entrada (DTOs con `class-validator`), parámetros de consulta, autenticación Bearer JWT y códigos de estado HTTP.
+Todos los servicios RESTful implementados en el Sprint 1 para los **8 Bounded Contexts** y el **API Gateway** exponen sus contratos bajo el estándar **OpenAPI 3.0 / Swagger UI** en la ruta `/docs` de cada servicio interno (configurado en `@parklink/runtime`), además de los endpoints operativos de salud (`/health`, `/ready`, `/metrics`), validando esquemas de entrada con **Zod (`@parklink/contracts`)**, autenticación `Authorization: Bearer <JWT>`, claves `Idempotency-Key` y montos en céntimos de PEN.
 
-- **URL del Repositorio de Web Services:** `[PENDIENTE: URL_REPO_BACKEND]`
-- **URL de la Documentación Desplegada (Swagger UI):** `[PENDIENTE: URL_SWAGGER_DEPLOY]`
-- **Commits asociados a Documentación OpenAPI:** `[PENDIENTE: Copiar hash y mensaje de commit real del repo de Pietro]`
+- **URL del Repositorio Integrado de Servicios:** <https://github.com/1ASI0728-2620-16363-ParkLink/parklink-platform>
+- **Ruta de Configuración OpenAPI / Swagger en Runtime:** <https://github.com/1ASI0728-2620-16363-ParkLink/parklink-runtime> (`packages/runtime/src/http.ts`)
+- **Commits asociados a Implementación y Documentación de Servicios:** `03ca317` (`feat: Add initial ParkLink component snapshot`) y `6016016` (`docs: Translate repository documentation into Spanish`) en `parklink-platform`.
 
-##### Catálogo de Endpoints Documentados en el Sprint 1
+##### Catálogo de Endpoints Reales Implementados en `parklink-platform` (Sprint 1)
 
-> ⚠️ **[NOTA GUÍA — BORRAR ESTA CAJA AL ENTREGAR]:** Esta tabla fue armada usando los endpoints definidos en el Capítulo V (`5.1`–`5.8`). Cuando Pietro pase el link del Swagger real, verifica si las rutas coinciden o ajusta el nombre de la ruta/JSON que haya cambiado en su código.
-
-| Bounded Context | Verbo HTTP | Sintaxis de Llamada (Endpoint) | Parámetros / Payload de Entrada | Ejemplo y Explicación del Response |
+| Bounded Context / Componente | Verbo HTTP | Sintaxis de Llamada (Endpoint en Gateway) | Parámetros / Cabeceras / Payload de Entrada | Ejemplo y Explicación del Response Real |
 | :--- | :---: | :--- | :--- | :--- |
-| **1. User & Identity** | `POST` | `/api/v1/auth/register` | **Body JSON:** `{ "fullName": "Humberto Garcia", "email": "humberto@parklink.pe", "password": "***", "role": "DRIVER", "licensePlate": "ABC-123" }` | **`201 Created`:** `{ "userId": "usr_01", "email": "humberto@parklink.pe", "role": "DRIVER", "status": "ACTIVE" }`. Registra un conductor o propietario validando los requisitos específicos de su rol. |
-| **1. User & Identity** | `POST` | `/api/v1/auth/login` | **Body JSON:** `{ "email": "humberto@parklink.pe", "password": "***" }` | **`200 OK`:** `{ "accessToken": "eyJhbGciOi...", "expiresIn": 3600, "user": { "id": "usr_01", "role": "DRIVER" } }`. Autentica credenciales y emite un token JWT firmado con el rol del actor. |
-| **2. Parking Supply** | `POST` | `/api/v1/parking-spaces` | **Header:** `Authorization: Bearer <JWT_OWNER>`<br>**Body JSON:** `{ "title": "Cochera San Isidro", "address": "Av. Rivera Navarrete 501", "latitude": -12.096, "longitude": -77.028, "pricePerHour": 8.0, "currency": "PEN", "windows": [{"dayOfWeek": 1, "open": "08:00", "close": "20:00"}], "photos": ["s3://.../p1.jpg", "s3://.../p2.jpg"] }` | **`201 Created`:** `{ "spaceId": "spc_101", "status": "PUBLISHED", "version": 1 }`. Da de alta un nuevo espacio de estacionamiento del propietario y publica el evento `ParkingSpacePublished`. |
-| **2. Parking Supply** | `PATCH` | `/api/v1/parking-spaces/:id/availability` | **Path:** `id` (`spc_101`)<br>**Body JSON:** `{ "enabled": true, "pricePerHour": 8.5, "expectedVersion": 1 }` | **`200 OK`:** `{ "spaceId": "spc_101", "enabled": true, "pricePerHour": 8.5, "version": 2 }`. Actualiza horarios, tarifa o estado de habilitación sin afectar reservas ya confirmadas. |
-| **3. Parking Discovery** | `GET` | `/api/v1/parking-spaces/search` | **Query Params:** `?lat=-12.096&lng=-77.028&radiusKm=1&maxPrice=12&start=2026-11-10T09:00:00Z&end=2026-11-10T11:00:00Z` | **`200 OK`:** `{ "radiusUsedKm": 1, "results": [{ "spaceId": "spc_101", "title": "Cochera San Isidro", "distanceKm": 0.35, "pricePerHour": 8.0, "visibleAvailability": "AVAILABLE", "projectedAt": "2026-11-10T08:40:00Z" }] }`. Consulta la proyección geoespacial de baja latencia. |
-| **4. Reservation Management** | `POST` | `/api/v1/reservations/hold` | **Header:** `Idempotency-Key: idem-001`<br>**Body JSON:** `{ "parkingSpaceId": "spc_101", "startTime": "2026-11-10T09:00:00Z", "endTime": "2026-11-10T11:00:00Z" }` | **`201 Created` (o `409 Conflict` si hay solapamiento):** `{ "reservationId": "res_501", "reservationCode": "PKL-8842", "status": "PENDING_PAYMENT", "totalPrice": 16.0, "currency": "PEN", "holdExpiresAt": "2026-11-10T08:55:00Z" }`. Bloquea temporalmente el intervalo bajo control de concurrencia. |
-| **4. Reservation Management** | `POST` | `/api/v1/reservations/:id/check-in` | **Header:** `Authorization: Bearer <JWT_OWNER>`<br>**Body JSON:** `{ "reservationCode": "PKL-8842" }` | **`200 OK`:** `{ "reservationId": "res_501", "status": "ACTIVE", "checkedInAt": "2026-11-10T09:02:00Z" }`. Permite al propietario validar el código presentado por el conductor al ingresar a la cochera. |
-| **5. Payment** | `POST` | `/api/v1/payments/authorize` | **Header:** `Idempotency-Key: pay-idem-001`<br>**Body JSON:** `{ "reservationId": "res_501", "amount": 16.0, "currency": "PEN", "paymentMethod": "CARD_VISA" }` | **`200 OK`:** `{ "paymentId": "pay_901", "reservationId": "res_501", "status": "AUTHORIZED", "receiptNumber": "BOL-2026-000501" }`. Procesa el cobro de manera idempotente y dispara la confirmación definitiva de la reserva. |
-| **6. Notification** | `GET` | `/api/v1/notifications/my` | **Header:** `Authorization: Bearer <JWT>` | **`200 OK`:** `{ "items": [{ "id": "ntf_01", "type": "RESERVATION_CONFIRMED", "message": "Tu reserva PKL-8842 fue confirmada.", "sentAt": "2026-11-10T08:46:00Z" }] }`. Devuelve las alertas y notificaciones enviadas al usuario autenticado. |
-| **7. Conversational Agent (Copilot Conductor)** | `POST` | `/api/v1/copilot/driver/messages` | **Header:** `Authorization: Bearer <JWT_DRIVER>`<br>**Body JSON:** `{ "conversationId": "cnv_d01", "message": "Búscame cochera en San Isidro de 9 a 11 am hoy" }` | **`200 OK`:** `{ "reply": "Encontré Cochera San Isidro a S/ 8.00/h (total S/ 16.00). ¿Confirmas retenerla?", "proposedAction": { "tool": "hold_reservation", "spaceId": "spc_101", "confirmationToken": "ctk_991", "expiresInSeconds": 300 } }`. Interpreta la intención del conductor y genera una propuesta sujeta a confirmación. |
-| **7. Conversational Agent (Copilot Propietario)** | `POST` | `/api/v1/copilot/owner/messages` | **Header:** `Authorization: Bearer <JWT_OWNER>`<br>**Body JSON:** `{ "conversationId": "cnv_o01", "message": "¿Cuántas reservas activas tengo hoy y cuál es mi ingreso de la semana?" }` | **`200 OK`:** `{ "reply": "Hoy tienes 3 reservas agendadas en Cochera San Isidro. Tu ingreso neto acumulado esta semana es S/ 184.00.", "data": { "todayReservations": 3, "weeklyNetIncomePen": 184.0 } }`. Asiste conversacionalmente al propietario con métricas operativas y propuestas de gestión. |
-| **7. Conversational Agent (Confirmación)** | `POST` | `/api/v1/copilot/confirmations/:token` | **Path:** `token` (`ctk_991`)<br>**Header:** `Authorization: Bearer <JWT>` | **`202 Accepted` / `200 OK`:** `{ "status": "EXECUTED", "commandId": "cmd_771", "result": { "reservationId": "res_501", "status": "PENDING_PAYMENT" } }`. Consume el token de confirmación explícita por única vez y despacha el comando autorizado. |
-| **8. Audit** | `GET` | `/api/v1/audit/events` | **Query Params:** `?correlationId=corr_501&entityType=RESERVATION` | **`200 OK`:** `{ "events": [{ "id": "aud_01", "action": "RESERVATION_CONFIRMED", "actorRole": "DRIVER", "entityId": "res_501", "occurredAt": "2026-11-10T08:46:00Z" }] }`. Consulta trazas append-only correlacionadas para auditoría y conciliación. |
+| **1. Identity (`identity-service`)** | `POST` | `/auth/register` | **Body JSON (`RegistrationSchema`):** `{ "name": "Humberto Garcia", "email": "humberto@parklink.test", "password": "long-enough-password", "owner": false }` | **`201 Created`:** `{ "token": "eyJhbGciOi...", "user": { "id": "uuid", "email": "humberto@parklink.test", "name": "Humberto Garcia", "roles": ["DRIVER"] } }`. Registra la cuenta con hash `scrypt` y emite el JWT de sesión. |
+| **1. Identity (`identity-service`)** | `POST` | `/auth/login`<br>`/auth/monitor-login` | **Body JSON:** `{ "email": "jarol@parklink.test", "password": "***" }` | **`201 Created`:** `{ "token": "eyJhbGciOi...", "user": { "id": "uuid", "roles": ["DRIVER", "OWNER"] } }`. En `/auth/monitor-login` exige rol `OWNER` y emite un token con `scope: "monitor"` restringido a lecturas (`GET`/`HEAD`) para el panel web. |
+| **1. Identity (`identity-service`)** | `GET` | `/auth/me` | **Header:** `Authorization: Bearer <JWT>` | **`200 OK`:** `{ "id": "uuid", "email": "humberto@parklink.test", "name": "Humberto Garcia", "roles": ["DRIVER"] }`. Retorna el perfil autenticado. |
+| **2. Parking Supply (`parking-supply-service`)** | `POST` | `/spaces` | **Header:** `Authorization: Bearer <JWT_OWNER>`<br>**Body JSON (`SpaceSchema`):** `{ "title": "Cochera San Isidro", "address": "Av. Arequipa 123, Lima", "description": "Espacio techado", "latitude": -12.0464, "longitude": -77.0428, "hourlyRate": 750, "widthCm": 250, "lengthCm": 500, "accessInstructions": "Llamar al llegar", "features": ["covered"], "active": true, "windows": [{"start": "2026-11-12T08:00:00Z", "end": "2026-11-12T20:00:00Z"}] }` | **`201 Created`:** `{ "id": "uuid", "revision": 1, "state": "PROPOSED" }`. Registra la oferta del propietario (tarifa en céntimos PEN: `750` = S/ 7.50/h) y publica el evento `supply.publication.proposed`. |
+| **2. Parking Supply (`parking-supply-service`)** | `PUT`<br>`GET` | `/spaces/:id`<br>`/spaces/mine` | **Header:** `Authorization: Bearer <JWT_OWNER>`<br>**Body (`PUT`):** `{ "revision": 1, "space": { ...SpaceSchema } }` | **`200 OK`:** Propone una nueva revisión de horario, tarifa o estado `active` para la cochera del propietario o lista todas sus cocheras con su `accepted_revision`. |
+| **3. Parking Discovery (`parking-discovery-service`)** | `GET` | `/discovery/search`<br>`/discovery/spaces/:id` | **Header:** `Authorization: Bearer <JWT>`<br>**Query Params:** `?latitude=-12.0464&longitude=-77.0428&radius=1000&start=...&end=...&maxRate=1000&sort=price` | **`200 OK`:** `{ "items": [{ "id": "uuid", "revision": 1, "distanceMeters": 142.5, "body": { "title": "Cochera San Isidro", "hourlyRate": 750, ... } }] }`. Ejecuta búsqueda espacial PostGIS excluyendo intervalos con reservas activas. |
+| **4. Reservation (`reservation-service`)** | `POST` | `/reservations/commands/:kind`<br>*(`hold` \| `confirm` \| `cancel`)* | **Headers:** `Authorization: Bearer <JWT_DRIVER>`, `Idempotency-Key: <uuid>`<br>**Body (`hold`):** `{ "spaceId": "uuid", "start": "2026-11-12T09:00:00Z", "end": "2026-11-12T11:00:00Z" }` | **`202 Accepted`:** `{ "commandId": "uuid", "status": "PENDING" }`. Registra de forma duradera el comando y su outbox antes de enviarlo a `parklink.commands`. |
+| **4. Reservation (`reservation-service`)** | `GET` | `/operations/:id`<br>`/reservations/mine`<br>`/reservations/owner`<br>`/reservations/:id` | **Header:** `Authorization: Bearer <JWT>`<br>**Path:** `id` (`commandId` o `reservationId`) | **`200 OK`:** En `/operations/:id` devuelve `{ "id": "uuid", "status": "SUCCEEDED", "http_status": 201, "result": { "id": "res_uuid", "status": "PENDING_PAYMENT", "amount": 1500 } }` (o `http_status: 409` en conflicto concurrente). |
+| **5. Payment (`payment-service`)** | `GET`<br>`POST` | `/payments/mine`<br>`/payments/owner`<br>`/payments/webhook/mercadopago` | **Header (`GET`):** `Authorization: Bearer <JWT>`<br>**Headers (`POST` webhook):** `x-signature`, `x-request-id` | **`200 OK`:** En `/payments/mine` y `/payments/owner` retorna los cobros y reembolsos (`APPROVED`, `REJECTED`, `REFUNDED`). En el webhook valida la firma HMAC-SHA256 antes de reconciliar. |
+| **Gateway Aggregator (`gateway`)** | `GET` | `/owner/dashboard` | **Header:** `Authorization: Bearer <JWT_OWNER_OR_MONITOR>` | **`200 OK`:** `{ "observedAt": "...", "currency": "PEN", "monitoringOnly": true, "spaces": { "total": 2, "active": 2 }, "reservations": { "pending": 0, "active": 1, "confirmed": 3, "completed": 5 }, "income": 4500, "byMonth": { "2026-11": 4500 }, "upcoming": [...], "occupiedSpaces": 1, "transactions": [...], "inventory": [...] }`. |
+| **6. Notification (`notification-service`)** | `GET`<br>`PUT` | `/notifications`<br>`/notifications/preferences`<br>`/notifications/:id/read` | **Header:** `Authorization: Bearer <JWT>`<br>**Body (`preferences`):** `{ "inApp": true }` | **`200 OK`:** Lista las notificaciones in-app generadas por eventos de reserva/pago, actualiza preferencias o marca una alerta como leída (`read_at`). |
+| **7. Conversational Agent (`conversational-agent-service`)** | `GET`<br>`POST` | `/copilot/status`<br>`/copilot/chat`<br>`/copilot/search` | **Header:** `Authorization: Bearer <JWT>`<br>**Body (`chat`):** `{ "requestId": "uuid", "message": "Reserva el estacionamiento más barato", "latitude": -12.0464, "longitude": -77.0428, "start": "...", "end": "..." }` | **`200 OK`:** `{ "conversationId": "uuid", "engine": "opencode", "reply": "...", "spaces": [...], "proposal": { "confirmationId": "uuid", "summary": { "action": "hold_and_pay", "amount": 750 } } }`. Interpreta la intención en `opencode-runtime` sin ejecutar mutaciones sin permiso. |
+| **7. Conversational Agent (`conversational-agent-service`)** | `POST`<br>`GET` | `/copilot/propose-hold`<br>`/copilot/propose-action`<br>`/copilot/confirm/:id`<br>`/copilot/commands/:id` | **Header:** `Authorization: Bearer <JWT>`<br>**Path (`confirm`):** `id` (`confirmationId` con TTL de 5 min) | **`202 Accepted` (en `confirm/:id`):** `{ "commandId": "uuid" }`. Consume el token de confirmación humana atado al usuario, versión de oferta y precio, despachando el comando autorizado. |
+| **8. Audit (`audit-service`)** | `GET` | `/audit?correlationId=<uuid>` | **Header:** `Authorization: Bearer <JWT_SUPPORT>`<br>**Query:** `correlationId` (UUID) | **`200 OK`:** `[ { "id": "uuid", "correlation_id": "uuid", "actor_id": "uuid", "event_type": "reservation.confirmed", "payload": {...}, "occurred_at": "..." } ]`. Consulta las trazas *append-only* correlacionadas. |
 
-> **[PENDIENTE — Insertar capturas de Swagger UI mostrando la lista de endpoints y una prueba interactiva (`Try it out`) con respuesta `200 OK` / `201 Created`]:**  
+> **[PENDIENTE — Insertar capturas de Swagger UI (`/docs`) o pruebas de endpoints mostrando respuestas `200 OK` / `201 Created` / `202 Accepted`]:**  
 > `![Swagger UI Documentation Evidence](assets/chapter-7/sprint-1-swagger.png)`
 
 ---
 
 #### 7.2.1.7. Software Deployment Evidence for Sprint Review
 
-Durante el **Sprint 1** se aprovisionaron los servicios en la nube y se configuraron los flujos de despliegue continuo para todos los componentes de la solución:
-1. **Despliegue de la Landing Page en Vercel:** Configuración del proyecto `parklink-tp1-landing` conectado al repositorio de GitHub con reconstrucción automática en cada push y cabeceras HTTP de seguridad verificadas.
-2. **Despliegue del Backend, Base de Datos y Caché en Cloud:** Configuración de instancias administradas de PostgreSQL, Redis y servicio web para los 8 Bounded Contexts y los 2 Agentes Copilot, exponiendo la API RESTful y el portal `/api/docs` de OpenAPI.
-3. **Despliegue de la Web Application y Empaquetado de la Mobile App:** Publicación del frontend web en Vercel y generación del paquete instalable (`.apk`) de la aplicación Flutter conectado a los servicios en producción.
+Durante el **Sprint 1** se configuró la infraestructura de contenedores y el despliegue de los componentes de la solución:
+1. **Despliegue Público de la Landing Page en Vercel:** Proyecto `parklink-tp1-landing` publicado en <https://parklink-tp1-landing.vercel.app> con cabeceras HTTP de seguridad verificadas.
+2. **Orquestación Multicontenedor en `parklink-platform` (`Docker Compose` & `Helm`):** Configuración completa en `docker-compose.yml` con 8 bases de datos PostgreSQL/PostGIS independientes, RabbitMQ, Redis, `opencode-runtime`, los 8 microservicios NestJS, el API Gateway (`:3000`) y el panel web de propietarios (`:5173`), junto con los charts de Helm en `infrastructure/helm/parklink-service`.
+3. **Publicación de los 14 Repositorios de Código en la Organización Oficial de GitHub:** Todos los servicios, paquetes compartidos, panel web y aplicación móvil publicados en <https://github.com/1ASI0728-2620-16363-ParkLink>.
 
-> **[PENDIENTE — Insertar capturas de los paneles de control Cloud (Vercel / Render / Railway / GitHub Actions) mostrando los despliegues activos del Sprint 1]:**  
-> `![Cloud Deployment Dashboard Evidence](assets/chapter-7/sprint-1-deployment.png)`
+> **[PENDIENTE — Insertar capturas de `docker compose ps` con los contenedores saludables (`healthy`), el panel de Vercel de la Landing Page y/o los repositorios públicos en GitHub]:**  
+> `![Cloud & Container Deployment Evidence](assets/chapter-7/sprint-1-deployment.png)`
 
 ---
 
