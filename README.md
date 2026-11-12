@@ -4584,14 +4584,16 @@ Para documentar la evidencia de validación se consolidaron las sesiones grabada
 #### Segmento 1: Conductores Urbanos (3 a 5 entrevistas)
 
 ##### Entrevista de Validación #1 — Conductor Urbano
-- **Nombres y Apellidos:** 
-- **Edad:** 
-- **Distrito de Residencia / Desplazamiento:** 
-- **Fecha de la Sesión:** 
-- **URL del Video (Microsoft Stream):** 
+- **Nombres y Apellidos:** Santiago Belaunde
+- **Edad:** 24 años
+- **Distrito de Residencia / Desplazamiento:** Santiago de Surco / San Isidro
+- **Fecha de la Sesión:** 11/11/2026
+- **URL del Video (Microsoft Stream):** [Reproducir Entrevista de Validación - Conductor 1 en Microsoft Stream (UPC)](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202310680_upc_edu_pe/IQArcp3eFZwuTpJ309v_E-A0AbgL_kkG4UBC6jK1A0zt6hg)
 - **Timing (Inicio / Duración):** 
-- **Resumen de Apreciaciones sobre las Tareas Asignadas:** 
-
+- **Resumen de Apreciaciones sobre las Tareas Asignadas:**  
+  - **Claridad e intuitividad (Pregunta 1):** Calificó la experiencia con un 5/5, comentando que el recorrido general se entiende bastante rápido y que los pasos de navegación entre la Landing Page y el prototipo interactivo son directos.
+  - **Elemento de mayor confianza (Pregunta 2):** Destacó el mapa interactivo para visualizar los espacios disponibles en tiempo real y la emisión del ticket de reserva con código QR para el ingreso seguro al estacionamiento.
+  - **Oportunidad de mejora identificada (Pregunta 3):** Sugirió que en la pantalla de confirmación de reserva y pago (`WF-04`) se habilite una opción directa para modificar la franja horaria sin tener que reiniciar la búsqueda desde cero (hallazgo recogido en el Problema Heurístico #1).
 
 ---
 
@@ -4622,14 +4624,16 @@ Para documentar la evidencia de validación se consolidaron las sesiones grabada
 #### Segmento 2: Propietarios de Estacionamientos (3 a 5 entrevistas)
 
 ##### Entrevista de Validación #1 — Propietario de Estacionamiento
-- **Nombres y Apellidos:** 
-- **Edad:** 
-- **Distrito del Predio / Residencia:** 
-- **Fecha de la Sesión:** 
-- **URL del Video (Microsoft Stream):** 
+- **Nombres y Apellidos:** Sebastián Fajardo
+- **Edad:** 28 años
+- **Distrito del Predio / Residencia:** San Borja / Surquillo
+- **Fecha de la Sesión:** 11/11/2026
+- **URL del Video (Microsoft Stream):** [Reproducir Entrevista de Validación - Propietario 1 en Microsoft Stream (UPC)](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202310680_upc_edu_pe/IQBFhjgvDc-_TZUiv1t6GeVkAf8HzhzWLcb8FUX1S9YdlFU)
 - **Timing (Inicio / Duración):** 
-- **Resumen de Apreciaciones sobre las Tareas Asignadas:** 
-
+- **Resumen de Apreciaciones sobre las Tareas Asignadas:**  
+  - **Claridad e intuitividad (Pregunta 1):** Calificó con 4/5 la claridad del flujo, indicando que la propuesta para propietarios y el acceso al panel se comprenden con facilidad desde la Landing Page.
+  - **Elemento de mayor confianza (Pregunta 2):** Resaltó el panel de control web para visualizar las ganancias acumuladas del mes y la utilidad de poder parametrizar los horarios específicos en los que la cochera se encuentra disponible.
+  - **Oportunidad de mejora identificada (Pregunta 3):** Sugirió que al subir fotografías del predio (`WF-10`) se permita detallar las características del acceso (por ejemplo, si el portón es manual o cuenta con control remoto / apertura eléctrica) para evitar confusiones a los conductores (hallazgo recogido en el Problema Heurístico #3).
 
 ---
 
@@ -4768,7 +4772,7 @@ Los problemas identificados durante las sesiones fueron puntuados tomando en cue
 
 En esta sección se presenta el **Video About-the-Product** de ParkLink (duración de 1 a 3 minutos, según el Anexo C de la guía). El video tiene un enfoque promocional y comercial: resume el problema del estacionamiento urbano, presenta la propuesta de valor y modelo de negocio de ParkLink, muestra una navegación ágil por la experiencia digital (Landing Page y prototipo de la aplicación en Figma / PoC) e incluye breves opiniones o citas de validación de los usuarios objetivo (extraídas de las entrevistas de validación realizadas).
 
-- **URL de la versión publicada en Microsoft Stream:** 
+- **URL de la versión publicada en Microsoft Stream:** [Reproducir Video About-the-Product en Microsoft Stream (UPC)](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202310680_upc_edu_pe/IQBClmfA7Hy8SYQLo_ERuiXBAUNyZ-lIKW8NRl5ucXw19tw)
 - **URL de la versión publicada en YouTube:** 
 - **Duración Total (Timing):** 
 - **Resumen del contenido del video:**
