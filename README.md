@@ -4105,13 +4105,12 @@ En la siguiente matriz se detalla para cada User Flow su **User Persona**, su **
 
 En esta sección se presentan los prototipos interactivos de interfaz de usuario (UI) para las aplicaciones que conforman la experiencia digital de ParkLink, incorporando simulación de navegación e interacción alineada con las decisiones de **Information Architecture** (`6.2`) y los recorridos de usuario principales de la solución.
 
-- **Archivo de Diseño y Prototipo en Figma:** <https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink>
+- **Archivo de Diseño en Figma:** <https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink?node-id=0-1&t=jfoiO0jfNHNs5y3Q-1>
+- **Archivo de Prototipo en Figma:** <https://www.figma.com/design/V1g8K28w9cpOi5NTJuu468/Parklink>
 - **Landing Page Desplegada:** <https://parklink-tp1-landing.vercel.app>
-- **URL del Video de Demostración de Navegación de Prototipos (Microsoft Stream):** 
-- **Duración (Timing):** 
-- **Resumen de flujos demostrados en el video:** Recorrido de extremo a extremo por la Landing Page segmentada, el flujo de autenticación y selección de rol, la experiencia móvil del conductor urbano (exploración en mapa y lista, consulta de detalle de cochera, reserva anticipada, pago y ticket de confirmación), la experiencia del propietario (publicación de espacio, configuración de horarios/tarifas y panel web de monitoreo de ingresos) y la asistencia conversacional mediante ParkLink Copilot.
-
-
+![prototype](assets/chapter-6/prototype-navigation-video.png)
+- **URL del Video de Demostración de Navegación de Prototipos (Microsoft Stream):** [Reproducir Video de Demostración de Prototipos en Microsoft Stream (UPC)](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202310680_upc_edu_pe/IQBev9KKBIKwQorbhRK5VT8cAWS-d_uY568q1nSSE87zn8Y)
+- **Duración (Timing):** 1:47 min 
 ---
 
 # Capítulo VII: Product Implementation, Validation & Deployment
@@ -4777,7 +4776,6 @@ En esta sección se presenta el **Video About-the-Product** de ParkLink (duraci�
   2. **Demostración del Producto (0:40 - 2:00):** Recorrido visual ágil por la Landing Page y el prototipo interactivo (búsqueda de cocheras, reserva y publicación de espacios).
   3. **Opinión / Validación de Usuarios (2:00 - 2:30):** Testimonios breves o citas destacadas de un conductor y un propietario sobre la solución (recortados de las entrevistas de validación).
 
-
 ---
 
 # Conclusiones
@@ -4824,21 +4822,10 @@ En esta sección se presenta el **Video About-the-Product** de ParkLink (duraci�
 
 En esta sección se documenta el **Video About-the-Team** de **ParkTeam**, el cual sintetiza el proceso de ingeniería colaborativa seguido por el equipo a lo largo de los entregables del proyecto, presentando escenas reales de las sesiones de trabajo acompañadas de narración en voz en off, así como el testimonio individual frente a cámara de cada integrante sobre sus actividades realizadas, lecciones aprendidas y el logro del **ABET – EAC - Student Outcome 3** y competencias complementarias.
 
-- **URL de la versión publicada en Microsoft Stream:** 
-- **URL de la versión publicada en YouTube:** 
-- **Duración Total del Video:** 
-
-### Pauta de Secuencias de Contenido (Timing `hh:mm:ss`)
-
-| # Secuencia | Tiempo de Inicio (`hh:mm:ss`) | Duración Estimada | Sección / Participante | Resumen del Contenido |
-| :---: | :---: | :---: | :--- | :--- |
-| **1** | `00:00:00` | `00:05:00` | **Retrospectiva General del Equipo (ParkTeam)** | Narración del flujo de trabajo colaborativo a lo largo del ciclo de vida del proyecto, mostrando sesiones de trabajo reales del equipo y avances alcanzados. |
-| **2** | `00:05:00` | `00:01:00` | **Testimonio Individual — Fabian Alejandro Oliva Lopez** | Exposición ante cámara sobre las actividades realizadas, aprendizajes del proceso y logro del Student Outcome ABET 3 y competencias alcanzadas. |
-| **3** | `00:06:00` | `00:01:00` | **Testimonio Individual — Pietro Osores Marchese** | Exposición ante cámara sobre las actividades realizadas, aprendizajes del proceso y logro del Student Outcome ABET 3 y competencias alcanzadas. |
-| **4** | `00:07:00` | `00:01:00` | **Testimonio Individual — Amir Gabriel Castro Sanchez** | Exposición ante cámara sobre las actividades realizadas, aprendizajes del proceso y logro del Student Outcome ABET 3 y competencias alcanzadas. |
-| **5** | `00:08:00` | `00:01:00` | **Testimonio Individual — Daniel Elias Ruiz Huisa** | Exposición ante cámara sobre las actividades realizadas, aprendizajes del proceso y logro del Student Outcome ABET 3 y competencias alcanzadas. |
-
-
+![About-the-team](assets/chapter-7/video-about-the-team.png)
+- **URL de la versión publicada en Microsoft Stream:** [Reproducir Video About-the-Team en Microsoft Stream (UPC)](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202310680_upc_edu_pe/IQCP8EhHLPb9Qbal8UtbjIvNAQT-i5APXUAffQR1ziEjhm4)
+- **Duración Total del Video:** 6:15 min
+- 
 ---
 
 # Bibliografía
