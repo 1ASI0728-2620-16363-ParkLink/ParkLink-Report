@@ -4111,8 +4111,6 @@ En esta sección se presentan los prototipos interactivos de interfaz de usuario
 ![prototype](assets/chapter-6/prototype-navigation-video.png)
 - **URL del Video de Demostración de Navegación de Prototipos (Microsoft Stream):** [Reproducir Video de Demostración de Prototipos en Microsoft Stream (UPC)](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202310680_upc_edu_pe/IQBev9KKBIKwQorbhRK5VT8cAWS-d_uY568q1nSSE87zn8Y)
 - **Duración (Timing):** 1:47 min 
-
-
 ---
 
 # Capítulo VII: Product Implementation, Validation & Deployment
@@ -4778,7 +4776,6 @@ En esta sección se presenta el **Video About-the-Product** de ParkLink (duraci�
   2. **Demostración del Producto (0:40 - 2:00):** Recorrido visual ágil por la Landing Page y el prototipo interactivo (búsqueda de cocheras, reserva y publicación de espacios).
   3. **Opinión / Validación de Usuarios (2:00 - 2:30):** Testimonios breves o citas destacadas de un conductor y un propietario sobre la solución (recortados de las entrevistas de validación).
 
-
 ---
 
 # Conclusiones
@@ -4828,7 +4825,7 @@ En esta sección se documenta el **Video About-the-Team** de **ParkTeam**, el cu
 ![About-the-team](assets/chapter-7/video-about-the-team.png)
 - **URL de la versión publicada en Microsoft Stream:** [Reproducir Video About-the-Team en Microsoft Stream (UPC)](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202310680_upc_edu_pe/IQCP8EhHLPb9Qbal8UtbjIvNAQT-i5APXUAffQR1ziEjhm4)
 - **Duración Total del Video:** 6:15 min
-
+- 
 ---
 
 # Bibliografía
