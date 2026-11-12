@@ -4718,7 +4718,7 @@ Los problemas identificados durante las sesiones fueron puntuados tomando en cue
 - **Problema:**  
   Al llegar a la vista de resumen de reserva y pago (`WF-04`), si el conductor decide ajustar media hora su hora de llegada o salida, debe retroceder hasta la ficha técnica completa del estacionamiento y volver a ingresar el intervalo desde cero, incrementando el número de toques requeridos.
 - **Captura de pantalla ilustrando el problema:**  
-
+  ![Ilustración del Problema Heurístico #1: Pantalla de confirmación de reserva y pago](assets/chapter-6/figma/driver-reservation-ticket.png)
 - **Recomendación:**  
   Incorporar un botón de acción secundaria *"Cambiar horario"* directamente dentro de la tarjeta de resumen de reserva que abra un selector modal preservando el estacionamiento seleccionado.
 
@@ -4728,7 +4728,7 @@ Los problemas identificados durante las sesiones fueron puntuados tomando en cue
 - **Problema:**  
   Al evaluar la vista del asistente conversacional (**Agente Copilot** en el prototipo móvil `4:1978` y en la sección interactiva de la Landing Page), los usuarios notaron que la tarjeta de propuesta concentra varios metadatos en el mismo bloque visual, por lo que la acción principal de *"Confirmar reserva"* y su condición de vigencia podrían diferenciarse con mayor contraste respecto a los detalles informativos.
 - **Captura de pantalla ilustrando el problema:**  
-
+  ![Ilustración del Problema Heurístico #2: Interfaz conversacional del Agente Copilot](assets/chapter-6/figma/driver-agent-chat.png)
 - **Recomendación:**  
   Simplificar los metadatos secundarios dentro de la burbuja de respuesta del Agente Copilot y resaltar con mayor jerarquía el resumen de tarifa/horario y el botón de confirmación explícita.
 
@@ -4738,7 +4738,7 @@ Los problemas identificados durante las sesiones fueron puntuados tomando en cue
 - **Problema:**  
   Durante el flujo de publicación de una cochera (`WF-10`), el formulario exige subir al menos dos fotografías del espacio, pero no solicita ni genera automáticamente una etiqueta descriptiva breve para lectores de pantalla que detalle las condiciones físicas visibles en cada foto (por ejemplo, altura de techo o ancho de rampa).
 - **Captura de pantalla ilustrando el problema:**  
-
+  ![Ilustración del Problema Heurístico #3: Flujo de publicación de cochera del propietario](assets/chapter-6/wireflows/wf-10.png)
 - **Recomendación:**  
   Agregar un campo opcional/asistido de descripción corta por fotografía y autocompletar el atributo `alt` combinando el título del estacionamiento, el tipo de acceso y las dimensiones registradas.
 
@@ -4748,7 +4748,7 @@ Los problemas identificados durante las sesiones fueron puntuados tomando en cue
 - **Problema:**  
   En la primera interacción con el panel web del propietario, algunos participantes intentaron hacer clic sobre las tarjetas de espacios esperando editar la tarifa directamente allí, sin notar de inmediato que las mutaciones operativas se centralizan en la aplicación móvil o mediante confirmación expresa.
 - **Captura de pantalla ilustrando el problema:**  
-
+  ![Ilustración del Problema Heurístico #4: Panel web de monitoreo de espacios del propietario](assets/chapter-6/figma/owner-web-spaces-detail.png)
 - **Recomendación:**  
   Incluir un indicador informativo claro en la cabecera de la sección de espacios del panel web y habilitar el enlace directo o asistencia guiada desde el **Agente Copilot de Propietario**.
 
@@ -4758,7 +4758,7 @@ Los problemas identificados durante las sesiones fueron puntuados tomando en cue
 - **Problema:**  
   Los propietarios cuyos espacios están libres siempre en el mismo horario laboral (`Lunes a Viernes de 08:00 a 18:00`) comentaron que agradecerían un botón rápido de plantilla preconfigurada para no tener que seleccionar los días uno por uno.
 - **Captura de pantalla ilustrando el problema:**  
-
+  ![Ilustración del Problema Heurístico #5: Configuración de oferta y disponibilidad horaria](assets/chapter-6/wireflows/wf-11.png)
 - **Recomendación:**  
   Añadir chips de selección rápida (*"Horario de Oficina L-V"*, *"Fines de Semana"*, *"24 Horas"*) en el paso de configuración de disponibilidad del Sprint 2.
 
